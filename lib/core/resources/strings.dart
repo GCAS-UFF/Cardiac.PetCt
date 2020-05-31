@@ -11,6 +11,7 @@ class Strings {
   String appButtonRegisterTitle;
   String appButtonNextTitle;
   String nextOption;
+  String backOption;
   String about;
   String attention;
   String send;
@@ -39,6 +40,9 @@ class Strings {
   String emptyFieldMessage;
   static const String email_format_error_message = "Email inválido";
 
+  //Recover Password
+  String recoverPasswordTitle;
+
   //Register Page
   String registerTitle;
   String nameLabel;
@@ -61,6 +65,7 @@ class Strings {
     appButtonNextTitle =
         intl.Strings.of(context).valueOf("app_button_next_title");
     nextOption = intl.Strings.of(context).valueOf("next_option");
+    backOption = intl.Strings.of(context).valueOf("back_option");
     about = intl.Strings.of(context).valueOf("about");
     attention = intl.Strings.of(context).valueOf("attention");
     send = intl.Strings.of(context).valueOf("send");
@@ -94,7 +99,10 @@ class Strings {
     verifyEmailText = intl.Strings.of(context).valueOf("verify-email-text");
     verifyEmailTitle = intl.Strings.of(context).valueOf("verify-email-title");
     resendLabel = intl.Strings.of(context).valueOf("resend-label");
-    emailVerifiedLabel = intl.Strings.of(context).valueOf("email-verified-label");
+    emailVerifiedLabel =
+        intl.Strings.of(context).valueOf("email-verified-label");
     loginTitle = intl.Strings.of(context).valueOf("login-title");
+    recoverPasswordTitle =
+        intl.Strings.of(context).valueOf("recover-password-title");
   }
 }

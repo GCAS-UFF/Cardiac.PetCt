@@ -3,12 +3,13 @@
     "no": "no",
     "yes": "yes",
     "ok": "OK",
-    "app_button_register_title": "REGISTER",
-    "app_button_next_title": "NEXT",
-    "next_option": "BACK",
+    "app_button_register_title": "Register",
+    "app_button_next_title": "Next",
+    "next_option": "Back",
+    "back_option": "Voltar",
     "about": "About",
     "attention": "Attention",
-    "send": "SEND",
+    "send": "Send",
     "save": "Save",
     "cancel": "Cancel",
     "sorry": "Sorry",
@@ -37,5 +38,6 @@
     "verify-email-text": "Go to your email account and click on verification link",
     "verify-email-title": "Email verification",
     "resend-label": "Resend",
-    "email-verified-label": "Verified email"
+    "email-verified-label": "Verified email",
+    "recover-password-title": "Recover password"
 }
