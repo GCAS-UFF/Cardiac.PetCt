@@ -140,7 +140,7 @@ class _LoginPageState extends State<LoginPage> {
                       Padding(
                         padding: Dimensions.getEdgeInsets(context,
                             top: 20, bottom: 70),
-                        child: ButtonApp(
+                        child:  ButtonApp(
                           title: Strings(context).signinLabelButton,
                           onPressed: () {
                             _submitFormLogin(context);
