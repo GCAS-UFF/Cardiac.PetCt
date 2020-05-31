@@ -1,4 +1,8 @@
 {
+    "date_input_error_validation": "Data Inválida",
+    "day_input_error_validation": "Dia Inválido",
+    "month_input_error_validation": "Mês Inválido",
+    "future_date_input_error_validation": "Data futura",
     "no": "não",
     "yes": "sim",
     "ok": "OK",
@@ -31,7 +35,7 @@
     "register-title": "Cadastre-se",
     "name-label": "Nome",
     "birth-label": "Data de Nascimento",
-    "gender-label": "Gênero",
+    "gender-label": "Selecione seu gênero",
     "repeat-password-label": "Repita a senha",
     "verify-email-text": "Acesse sua conta de email e clique no link de verificação.",
     "verify-email-title": "Confirmação de email",

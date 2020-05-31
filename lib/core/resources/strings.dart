@@ -4,6 +4,15 @@ import 'package:internationalization/internationalization.dart' as intl;
 class Strings {
   final BuildContext context;
 
+  // Masks
+  static const String dateMask = "xx/xx/xxxx";
+
+  //Input validator
+  String dayInputErrorValidation;
+  String monthInputErrorValidation;
+  String futureDateInputErrorValidation;
+  String dateInputErrorValidation;
+
   // General
   String no;
   String yes;
@@ -57,6 +66,14 @@ class Strings {
   String emailVerifiedLabel;
 
   Strings(this.context) {
+    dateInputErrorValidation =
+        intl.Strings.of(context).valueOf("date_input_error_validation");
+    dayInputErrorValidation =
+        intl.Strings.of(context).valueOf("day_input_error_validation");
+    monthInputErrorValidation =
+        intl.Strings.of(context).valueOf("month_input_error_validation");
+    futureDateInputErrorValidation =
+        intl.Strings.of(context).valueOf("future_date_input_error_validation");
     no = intl.Strings.of(context).valueOf("no");
     yes = intl.Strings.of(context).valueOf("yes");
     ok = intl.Strings.of(context).valueOf("ok");

@@ -53,7 +53,9 @@ class StartPage extends StatelessWidget {
                 ButtonApp(
                   type: ButtonType.BUTTON_GREEN,
                   title: Strings(context).registerLabelButton,
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/register");
+                  },
                 ),
                 SizedBox(
                   height: Dimensions.getConvertedHeightSize(context, 10),
