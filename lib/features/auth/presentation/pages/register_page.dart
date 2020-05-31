@@ -270,5 +270,6 @@ class _RegisterPageState extends State<RegisterPage> {
       return;
     }
     _formKey.currentState.save();
+    Navigator.pushNamed(context, '/verifyEmail');
   }
 }
