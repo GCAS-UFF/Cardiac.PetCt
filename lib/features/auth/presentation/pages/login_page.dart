@@ -7,6 +7,7 @@ import 'package:petct/core/resources/keys.dart';
 import 'package:petct/core/resources/strings.dart';
 import 'package:petct/core/ui/button_app.dart';
 import 'package:petct/core/ui/custom_text_form_field.dart';
+import 'package:petct/features/auth/presentation/pages/recover_password_form.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -140,7 +141,7 @@ class _LoginPageState extends State<LoginPage> {
                       Padding(
                         padding: Dimensions.getEdgeInsets(context,
                             top: 20, bottom: 70),
-                        child:  ButtonApp(
+                        child: ButtonApp(
                           title: Strings(context).signinLabelButton,
                           onPressed: () {
                             _submitFormLogin(context);
@@ -149,8 +150,16 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                       //Opens recover password dialog
-                      GestureDetector(
-                        onTap: () {},
+                      InkWell(
+                        onTap: () {
+                          showDialog(
+                            context: context,
+                            barrierDismissible: true,
+                            builder: (BuildContext context) {
+                              return RecoverPasswordForm();
+                            },
+                          );
+                        },
                         child: Text(
                           Strings(context).forgotPassword,
                           style: TextStyle(

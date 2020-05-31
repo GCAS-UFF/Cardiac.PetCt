@@ -1,14 +1,14 @@
 {
-    "URINAPP_COMMENT_SECTION_GENERAL": "----------",
     "no": "não",
     "yes": "sim",
     "ok": "OK",
     "app_button_register_title": "REGISTRAR",
-    "app_button_next_title": "AVANÇAR",
-    "next_option": "PRÓXIMO",
+    "app_button_next_title": "Avançar",
+    "next_option": "Próximo",
+    "back_option": "Voltar",
     "about": "Sobre",
     "attention": "Atenção",
-    "send": "Enviars",
+    "send": "Enviar",
     "save": "Salvar",
     "cancel": "Cancelar",
     "sorry": "Desculpe",
@@ -17,7 +17,6 @@
     "function_not_available": "Esta função ainda não está disponível",
     "complete": "Completo",
     "incomplete": "Incompleto",
-    "PETCT_COMMENT_SECTION_START_PAGE": "----------",
     "start-page-paragraph": "Crie uma conta para visualizar as dietas sugeridas, acompanhar o progresso até o dia do exame e receber alertas de refeições",
     "start-page-title": "Acompanhe a dieta do seu exame",
     "register-label-button": "Cadastrar",
@@ -37,5 +36,6 @@
     "verify-email-text": "Acesse sua conta de email e clique no link de verificação.",
     "verify-email-title": "Confirmação de email",
     "resend-label": "Reenviar",
-    "email-verified-label": "Email confirmado"
+    "email-verified-label": "Email confirmado",
+    "recover-password-title": "Recover password"
 }
