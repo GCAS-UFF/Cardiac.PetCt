@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:internationalization/internationalization.dart';
+import 'package:petct/features/auth/presentation/pages/register_page.dart';
 import 'package:petct/features/auth/presentation/pages/start_page.dart';
 import 'features/auth/presentation/pages/login_page.dart';
 
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         '/': (BuildContext context) => StartPage(),
         '/login': (BuildContext context) => LoginPage(),
+        '/register': (BuildContext context) => RegisterPage(),
       },
     );
   }

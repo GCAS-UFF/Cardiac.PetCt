@@ -67,6 +67,10 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      style: TextStyle(
+        fontSize: Dimensions.getTextSize(context, 14),
+        color: Colors.black,
+      ),
       controller: widget.textEditingController,
       textAlign: widget.textAlign,
       maxLength: widget.maxLength,
