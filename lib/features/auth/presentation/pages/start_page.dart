@@ -62,7 +62,9 @@ class StartPage extends StatelessWidget {
                 ButtonApp(
                   title: Strings(context).signinLabelButton,
                   type: ButtonType.BUTTON_ROUNDED,
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/login");
+                  },
                 ),
               ],
             )
