@@ -26,9 +26,10 @@ class ButtonApp extends StatelessWidget {
             padding: Dimensions.getEdgeInsets(context, top: 12, bottom: 12),
             shape: OutlineInputBorder(
               borderSide: BorderSide(
-                color: ColorsApp.greenApp,
-                width: Dimensions.getConvertedWidthSize(
-                    context, (type == ButtonType.BUTTON_ROUNDED) ? 2 : 0),
+                color: (type == ButtonType.BUTTON_ROUNDED)
+                    ? ColorsApp.greenApp
+                    : Colors.transparent,
+                width: Dimensions.getConvertedWidthSize(context, 2),
               ),
               borderRadius: BorderRadius.circular(
                 Dimensions.getConvertedWidthSize(context, 50),
