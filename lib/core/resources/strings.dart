@@ -31,6 +31,7 @@ class Strings {
   String petctDiaryTitle;
 
   //Login Page
+  String loginTitle;
   String sigininToApp;
   String emailLabel;
   String passwordLabel;
@@ -94,5 +95,6 @@ class Strings {
     verifyEmailTitle = intl.Strings.of(context).valueOf("verify-email-title");
     resendLabel = intl.Strings.of(context).valueOf("resend-label");
     emailVerifiedLabel = intl.Strings.of(context).valueOf("email-verified-label");
+    loginTitle = intl.Strings.of(context).valueOf("login-title");
   }
 }
