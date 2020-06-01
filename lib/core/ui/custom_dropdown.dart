@@ -28,7 +28,8 @@ class _CustomDropdownState extends State<CustomDropdown> {
             fontSize: Dimensions.getTextSize(context, 16),
             color: Colors.black,
           ),
-          contentPadding: Dimensions.getEdgeInsets(context, left: 10),
+          contentPadding:
+              Dimensions.getEdgeInsets(context, left: 10, right: 10),
           hoverColor: Colors.grey,
           focusedBorder: OutlineInputBorder(
             gapPadding: Dimensions.getConvertedWidthSize(context, 5.0),

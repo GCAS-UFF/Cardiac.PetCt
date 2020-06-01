@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:petct/core/input_validators/date_input_validator.dart';
 import 'package:petct/core/input_validators/email_input_validator.dart';
 import 'package:petct/core/resources/dimensions.dart';
+import 'package:petct/core/resources/images.dart';
 import 'package:petct/core/resources/keys.dart';
 import 'package:petct/core/resources/strings.dart';
 import 'package:petct/core/ui/button_app.dart';
 import 'package:petct/core/ui/custom_dropdown.dart';
 import 'package:petct/core/ui/custom_text_form_field.dart';
+import 'package:petct/core/utils/animation_slide_transition.dart';
 import 'package:petct/core/utils/multimasked_text_controller.dart';
+import 'package:petct/features/auth/presentation/pages/verify_email_page.dart';
 
 class RegisterPage extends StatefulWidget {
   @override
@@ -26,7 +29,6 @@ class _RegisterPageState extends State<RegisterPage> {
   TextEditingController _genderController;
   TextEditingController _passwordController;
   TextEditingController _repeatPasswordController;
-  String _selectedDropDown;
   List<DropdownMenuItem<String>> _list;
 
   @override
@@ -122,11 +124,23 @@ class _RegisterPageState extends State<RegisterPage> {
             Navigator.pop(context);
           },
           child: Padding(
-            padding: Dimensions.getEdgeInsets(context, left: 10, top: 10),
-            child: Icon(
-              Icons.arrow_back,
-              color: Colors.black,
-              size: Dimensions.getConvertedWidthSize(context, 30),
+            padding: Dimensions.getEdgeInsets(context, top: 20, left: 10),
+            child: Row(
+              children: <Widget>[
+                Icon(
+                  Icons.arrow_back,
+                  color: Colors.black,
+                  size: Dimensions.getConvertedWidthSize(context, 30),
+                ),
+                SizedBox(
+                  width: Dimensions.getConvertedWidthSize(context, 80),
+                ),
+                // Logo image
+                Image(
+                  image: AssetImage(Images.name_app),
+                  width: Dimensions.getConvertedWidthSize(context, 140),
+                ),
+              ],
             ),
           ),
         ),
@@ -140,124 +154,114 @@ class _RegisterPageState extends State<RegisterPage> {
           child: Form(
             key: _formKey,
             //Start animation
-            child: TweenAnimationBuilder(
-              duration: Duration(seconds: 1),
-              curve: Curves.easeIn,
-              tween: Tween<double>(begin: 200, end: 0),
-              builder: (BuildContext context, double translate, Widget widget) {
-                return Transform.translate(
-                  offset: Offset(translate, 0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      //Register title
-                      Text(
-                        Strings(context).registerTitle,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: Dimensions.getTextSize(context, 22),
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                      SizedBox(
-                        height: Dimensions.getConvertedHeightSize(context, 25),
-                      ),
-                      //Name textfield
-                      CustomTextFormField(
-                        text: Strings(context).nameLabel,
-                        textEditingController: _nameController,
-                        isRequired: true,
-                        onChanged: (String value) {
-                          _formData[Keys.LABEL_NAME] = value;
-                        },
-                      ),
-                      SizedBox(
-                        height: Dimensions.getConvertedHeightSize(context, 25),
-                      ),
-                      //Birth textfield
-                      CustomTextFormField(
-                        text: Strings(context).birthLabel,
-                        validator: DateInputValidator(),
-                        obscureText: false,
-                        keyboardType: TextInputType.number,
-                        textEditingController: _birthController,
-                        isRequired: true,
-                        onChanged: (String value) {
-                          _formData[Keys.LABEL_BIRTH] = value;
-                        },
-                      ),
-                      SizedBox(
-                        height: Dimensions.getConvertedHeightSize(context, 25),
-                      ),
-                      //Gender dropdown
-                      CustomDropdown(
-                        value: _selectedDropDown,
-                        hint: Text(
-                          Strings(context).genderLabel,
-                          style: TextStyle(
-                            fontSize: Dimensions.getTextSize(context, 14),
-                            color: Colors.black,
-                          ),
-                        ),
-                        options: _list,
-                        onChange: (String value) {
-                          setState(() {
-                            _selectedDropDown = value;
-                          });
-                        },
-                      ),
-                      SizedBox(
-                        height: Dimensions.getConvertedHeightSize(context, 25),
-                      ),
-                      //Email textfield
-                      CustomTextFormField(
-                        text: Strings(context).emailLabel,
-                        textEditingController: _emailController,
-                        isRequired: true,
-                        onChanged: (String value) {
-                          _formData[Keys.LABEL_EMAIL] = value;
-                        },
-                        validator: EmailInputValidator(),
-                      ),
-                      SizedBox(
-                        height: Dimensions.getConvertedHeightSize(context, 25),
-                      ),
-                      //Password textfield
-                      CustomTextFormField(
-                        text: Strings(context).passwordLabel,
-                        obscureText: true,
-                        textEditingController: _passwordController,
-                        isRequired: true,
-                        onChanged: (String value) {
-                          _formData[Keys.LABEL_PASSWORD] = value;
-                        },
-                      ),
-                      SizedBox(
-                        height: Dimensions.getConvertedHeightSize(context, 25),
-                      ),
-                      //Repeat password textfield
-                      CustomTextFormField(
-                        text: Strings(context).repeatPasswordLabel,
-                        textEditingController: _repeatPasswordController,
-                        obscureText: true,
-                        isRequired: true,
-                        onChanged: (String value) {
-                          _formData[Keys.LABEL_REPEATPASSWORD] = value;
-                        },
-                      ),
-                      SizedBox(
-                        height: Dimensions.getConvertedHeightSize(context, 30),
-                      ),
-                      ButtonApp(
-                          title: Strings(context).registerLabelButton,
-                          onPressed: () {
-                            _submitFormLogin(context);
-                          },
-                          type: ButtonType.BUTTON_GREEN),
-                    ],
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                //Register title
+                Text(
+                  Strings(context).registerTitle,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: Dimensions.getTextSize(context, 22),
+                    fontWeight: FontWeight.w400,
                   ),
-                );
-              },
+                ),
+                SizedBox(
+                  height: Dimensions.getConvertedHeightSize(context, 20),
+                ),
+                //Name textfield
+                CustomTextFormField(
+                  text: Strings(context).nameLabel,
+                  textEditingController: _nameController,
+                  isRequired: true,
+                  onChanged: (String value) {
+                    _formData[Keys.LABEL_NAME] = value;
+                  },
+                ),
+                SizedBox(
+                  height: Dimensions.getConvertedHeightSize(context, 20),
+                ),
+                //Birth textfield
+                CustomTextFormField(
+                  text: Strings(context).birthLabel,
+                  validator: DateInputValidator(),
+                  obscureText: false,
+                  keyboardType: TextInputType.number,
+                  textEditingController: _birthController,
+                  isRequired: true,
+                  onChanged: (String value) {
+                    _formData[Keys.LABEL_BIRTH] = value;
+                  },
+                ),
+                SizedBox(
+                  height: Dimensions.getConvertedHeightSize(context, 20),
+                ),
+                //Gender dropdown
+                CustomDropdown(
+                  value: _formData[Keys.LABEL_GENDER],
+                  hint: Text(
+                    Strings(context).genderLabel,
+                    style: TextStyle(
+                      fontSize: Dimensions.getTextSize(context, 14),
+                      color: Colors.black,
+                    ),
+                  ),
+                  options: _list,
+                  onChange: (String value) {
+                    setState(() {
+                      _formData[Keys.LABEL_GENDER] = value;
+                    });
+                  },
+                ),
+                SizedBox(
+                  height: Dimensions.getConvertedHeightSize(context, 20),
+                ),
+                //Email textfield
+                CustomTextFormField(
+                  text: Strings(context).emailLabel,
+                  textEditingController: _emailController,
+                  isRequired: true,
+                  onChanged: (String value) {
+                    _formData[Keys.LABEL_EMAIL] = value;
+                  },
+                  validator: EmailInputValidator(),
+                ),
+                SizedBox(
+                  height: Dimensions.getConvertedHeightSize(context, 20),
+                ),
+                //Password textfield
+                CustomTextFormField(
+                  text: Strings(context).passwordLabel,
+                  obscureText: true,
+                  textEditingController: _passwordController,
+                  isRequired: true,
+                  onChanged: (String value) {
+                    _formData[Keys.LABEL_PASSWORD] = value;
+                  },
+                ),
+                SizedBox(
+                  height: Dimensions.getConvertedHeightSize(context, 20),
+                ),
+                //Repeat password textfield
+                CustomTextFormField(
+                  text: Strings(context).repeatPasswordLabel,
+                  textEditingController: _repeatPasswordController,
+                  obscureText: true,
+                  isRequired: true,
+                  onChanged: (String value) {
+                    _formData[Keys.LABEL_REPEATPASSWORD] = value;
+                  },
+                ),
+                SizedBox(
+                  height: Dimensions.getConvertedHeightSize(context, 30),
+                ),
+                ButtonApp(
+                    title: Strings(context).registerLabelButton,
+                    onPressed: () {
+                      _submitFormLogin(context);
+                    },
+                    type: ButtonType.BUTTON_GREEN),
+              ],
             ),
           ),
         ),
@@ -270,6 +274,9 @@ class _RegisterPageState extends State<RegisterPage> {
       return;
     }
     _formKey.currentState.save();
-    Navigator.pushNamed(context, '/verifyEmail');
+    Route route = AnimationSlideTransistion(
+      widget: VerifyEmailPage(),
+    );
+    Navigator.push(context, route);
   }
 }
