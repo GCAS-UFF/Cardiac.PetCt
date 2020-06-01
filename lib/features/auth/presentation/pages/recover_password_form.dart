@@ -52,15 +52,18 @@ class _RecoverPasswordFormState extends State<RecoverPasswordForm> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     mainAxisSize: MainAxisSize.max,
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       //Logo Image
-                      Image(
-                        image: AssetImage(Images.logo_image),
-                        width: Dimensions.getConvertedWidthSize(context, 70),
-                      ),
-                      SizedBox(
-                        height: Dimensions.getConvertedHeightSize(context, 15),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Image(
+                            image: AssetImage(Images.logo_named),
+                            width:
+                                Dimensions.getConvertedWidthSize(context, 200),
+                          ),
+                        ],
                       ),
                       // Dialog title
                       Text(

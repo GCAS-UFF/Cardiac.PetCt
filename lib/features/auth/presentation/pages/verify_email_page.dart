@@ -3,6 +3,8 @@ import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/images.dart';
 import 'package:petct/core/resources/strings.dart';
 import 'package:petct/core/ui/button_app.dart';
+import 'package:petct/core/utils/animation_slide_transition.dart';
+import 'package:petct/features/auth/presentation/pages/login_page.dart';
 
 class VerifyEmailPage extends StatelessWidget {
   @override
@@ -14,76 +16,66 @@ class VerifyEmailPage extends StatelessWidget {
         padding: Dimensions.getEdgeInsetsAll(context, 20),
         alignment: Alignment.center,
         child: SingleChildScrollView(
-          child: TweenAnimationBuilder(
-            duration: Duration(milliseconds: 1500),
-            curve: Curves.bounceOut,
-            tween: Tween<double>(begin: 0, end: 1),
-            builder: (BuildContext context, double opacity, Widget widget) {
-              return AnimatedOpacity(
-                duration: Duration(seconds: 1),
-                opacity: opacity,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          Strings(context).verifyEmailTitle,
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: Dimensions.getTextSize(context, 22),
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        SizedBox(
-                          height:
-                              Dimensions.getConvertedHeightSize(context, 20),
-                        ),
-                        Text(
-                          Strings(context).verifyEmailText,
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: Dimensions.getTextSize(context, 18),
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ],
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    Strings(context).verifyEmailTitle,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: Dimensions.getTextSize(context, 22),
+                      fontWeight: FontWeight.bold,
                     ),
-                    SizedBox(
-                      height: Dimensions.getConvertedHeightSize(context, 20),
+                  ),
+                  SizedBox(
+                    height: Dimensions.getConvertedHeightSize(context, 20),
+                  ),
+                  Text(
+                    Strings(context).verifyEmailText,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: Dimensions.getTextSize(context, 18),
+                      fontWeight: FontWeight.w400,
                     ),
-                    Image(
-                      image: AssetImage(Images.email_sent),
-                    ),
-                    Padding(
-                      padding: Dimensions.getEdgeInsets(context,
-                          top: 70, bottom: 10),
-                      child: ButtonApp(
-                        type: ButtonType.BUTTON_GREEN,
-                        title: Strings(context).emailVerifiedLabel,
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/login');
-                        },
-                      ),
-                    ),
-                    ButtonApp(
-                      type: ButtonType.BUTTON_ROUNDED,
-                      title: Strings(context).resendLabel,
-                      onPressed: () {
-                        showDialog(
-                          context: context,
-                          barrierDismissible: true,
-                          builder: (BuildContext context) {
-                            return _buildSendEmailDialog();
-                          },
-                        );
-                      },
-                    ),
-                  ],
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: Dimensions.getConvertedHeightSize(context, 20),
+              ),
+              Image(
+                image: AssetImage(Images.email_sent),
+              ),
+              Padding(
+                padding: Dimensions.getEdgeInsets(context, top: 70, bottom: 10),
+                child: ButtonApp(
+                  type: ButtonType.BUTTON_GREEN,
+                  title: Strings(context).emailVerifiedLabel,
+                  onPressed: () {
+                    Route route = AnimationSlideTransistion(
+                      widget: LoginPage(),
+                    );
+                    Navigator.push(context, route);
+                  },
                 ),
-              );
-            },
+              ),
+              ButtonApp(
+                type: ButtonType.BUTTON_ROUNDED,
+                title: Strings(context).resendLabel,
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    barrierDismissible: true,
+                    builder: (BuildContext context) {
+                      return _buildSendEmailDialog();
+                    },
+                  );
+                },
+              ),
+            ],
           ),
         ),
       ),
