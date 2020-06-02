@@ -4,7 +4,7 @@ import 'package:meta/meta.dart';
 class User extends Equatable {
   final String id;
   final String name;
-  final int birthDate;
+  final DateTime birthDate;
   final String gender;
   final String email;
 
