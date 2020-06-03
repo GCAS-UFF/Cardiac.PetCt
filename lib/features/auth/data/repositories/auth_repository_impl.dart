@@ -23,13 +23,16 @@ class AuthRepositoryImpl extends AuthRepository {
   @override
   Future<Either<Failure, User>> signUp(User user, String password) async {
     if (await networkInfo.isConnected) {
+      var result;
       // Run the code inside send a request for a treat all possible exceptions
-      return await sendRequest(makeRequest: () async {
-        User userResult =
+      var sendRequestResult = await sendRequest(makeRequest: () async {
+        result =
             await remoteDataSource.signUp(UserModel.fromEntity(user), password);
-        await localDataSource.saveUserId(userResult.id);
-        return Right(userResult);
+        await localDataSource.saveUserId(result.id);
       });
+      //Return if the request had success or failure
+      return sendRequestResult.fold(
+          (failure) => Left(failure), (success) => Right(result));
     } else {
       return Left(NoInternetConnectionFailure());
     }
@@ -38,11 +41,14 @@ class AuthRepositoryImpl extends AuthRepository {
   @override
   Future<Either<Failure, bool>> confirmEmailVerified() async {
     if (await networkInfo.isConnected) {
+      var result;
       // Run the code inside send a request for a treat all possible exceptions
-      return await sendRequest(makeRequest: () async {
-        bool result = await remoteDataSource.confirmEmailVerified();
-        return Right(result);
+      var sendRequestResult = await sendRequest(makeRequest: () async {
+        result = await remoteDataSource.confirmEmailVerified();
       });
+      //Return if the request had success or failure
+      return sendRequestResult.fold(
+          (failure) => Left(failure), (success) => Right(result));
     } else {
       return Left(NoInternetConnectionFailure());
     }
@@ -51,10 +57,15 @@ class AuthRepositoryImpl extends AuthRepository {
   @override
   Future<Either<Failure, void>> recoverPassword(String email) async {
     if (await networkInfo.isConnected) {
+      var result;
       // Run the code inside send a request for a treat all possible exceptions
-      return await sendRequest(makeRequest: () async {
-        return Right(await remoteDataSource.recoverPassword(email));
+      var sendRequestResult = await sendRequest(makeRequest: () async {
+        await remoteDataSource.recoverPassword(email);
+        result = null;
       });
+      //Return if the request had success or failure
+      return sendRequestResult.fold(
+          (failure) => Left(failure), (success) => Right(result));
     } else {
       return Left(NoInternetConnectionFailure());
     }
@@ -63,10 +74,15 @@ class AuthRepositoryImpl extends AuthRepository {
   @override
   Future<Either<Failure, void>> sendEmailVerification() async {
     if (await networkInfo.isConnected) {
+      var result;
       // Run the code inside send a request for a treat all possible exceptions
-      return await sendRequest(makeRequest: () async {
-        return Right(await remoteDataSource.sendEmailVerification());
+      var sendRequestResult = await sendRequest(makeRequest: () async {
+        await remoteDataSource.sendEmailVerification();
+        result = null;
       });
+      //Return if the request had success or failure
+      return sendRequestResult.fold(
+          (failure) => Left(failure), (success) => Right(result));
     } else {
       return Left(NoInternetConnectionFailure());
     }
@@ -75,12 +91,15 @@ class AuthRepositoryImpl extends AuthRepository {
   @override
   Future<Either<Failure, String>> signIn(String email, String password) async {
     if (await networkInfo.isConnected) {
+      var result;
       // Run the code inside send a request for a treat all possible exceptions
-      return await sendRequest(makeRequest: () async {
-        final String userId = await remoteDataSource.signIn(email, password);
-        localDataSource.saveUserId(userId);
-        return Right(userId);
+      var sendRequestResult = await sendRequest(makeRequest: () async {
+        result = await remoteDataSource.signIn(email, password);
+        localDataSource.saveUserId(result);
       });
+      //Return if the request had success or failure
+      return sendRequestResult.fold(
+          (failure) => Left(failure), (success) => Right(result));
     } else {
       return Left(NoInternetConnectionFailure());
     }
@@ -88,18 +107,22 @@ class AuthRepositoryImpl extends AuthRepository {
 
   @override
   Future<Either<Failure, void>> signOut() async {
+    var result;
     // Run the code inside send a request for a treat all possible exceptions
-    return await sendRequest(makeRequest: () async {
+    var sendRequestResult = await sendRequest(makeRequest: () async {
       await remoteDataSource.signOut();
-      return Right(await localDataSource.cleanCache());
+      result = Right(await localDataSource.cleanCache());
     });
+    //Return if the request had success or failure
+    return sendRequestResult.fold(
+        (failure) => Left(failure), (success) => Right(result));
   }
 
   // Function to get all exceptions and return failures
-  Future<Either<Failure, dynamic>> sendRequest(
+  Future<Either<Failure, bool>> sendRequest(
       {@required Function makeRequest}) async {
     try {
-      Right(await makeRequest());
+      await makeRequest();
       return Right(true);
     } on CacheException {
       return Left(CacheFailure());
