@@ -189,7 +189,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: Text("Home"),
               )),
             );
-            Navigator.push(context, route);
+            Navigator.pushAndRemoveUntil(context, route, (r) => false);
           } else if (state is EmailNotVerifiedState) {
             Route route = AnimationSlideTransistion(
               widget: VerifyEmailPage(),

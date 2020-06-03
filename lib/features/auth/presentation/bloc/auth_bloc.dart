@@ -85,7 +85,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       (failure) {
         return Error(failure: failure);
       },
-      (result) => AuthInitial(),
+      (result) => EmailResent(),
     );
   }
 
@@ -109,7 +109,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       if (result)
         return Loaded();
       else
-        return EmailNotVerifiedState();
+        return AuthInitial();
     });
   }
 
