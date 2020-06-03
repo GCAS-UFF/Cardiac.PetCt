@@ -23,3 +23,5 @@ class PlatformFailure extends Failure {
 }
 
 class NoInternetConnectionFailure extends Failure {}
+
+class EmailNotVerifiedFailure extends Failure {}
