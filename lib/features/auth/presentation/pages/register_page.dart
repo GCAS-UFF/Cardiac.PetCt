@@ -292,7 +292,7 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
             ),
           );
-        } else if (state is Registred) {
+        } else if (state is Loaded) {
           Route route = AnimationSlideTransistion(
             widget: VerifyEmailPage(),
           );
