@@ -1,16 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:internationalization/internationalization.dart';
 import 'package:petct/features/auth/presentation/pages/register_page.dart';
 import 'package:petct/features/auth/presentation/pages/start_page.dart';
+import 'package:provider/provider.dart';
+import 'features/auth/presentation/bloc/auth_bloc.dart';
 import 'features/auth/presentation/pages/login_page.dart';
 import 'features/auth/presentation/pages/verify_email_page.dart';
+import 'injection_container.dart' as di;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await di.init();
   await Internationalization.loadConfigurations();
+
   runApp(
-    MyApp(),
+    MultiProvider(
+      providers: [
+        BlocProvider<AuthBloc>(
+          create: (_) => di.sl<AuthBloc>(),
+        ),
+      ],
+      child: MyApp(),
+    ),
   );
 }
 

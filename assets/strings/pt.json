@@ -41,5 +41,9 @@
     "verify-email-title": "Confirmação de email",
     "resend-label": "Reenviar",
     "email-verified-label": "Email confirmado",
-    "recover-password-title": "Recuperação de senha"
+    "recover-password-title": "Recuperação de senha",
+    "message_server_failure" : "Ocorreu um erro no servidor",
+    "message_no_internet_failure" : "Você não possui conexão com a internet",
+    "message_cache_failure" : "Tivemos problemas ao recuperar seus dados",
+    "message_unknown_erro" : "Ocorreu um erro inesperado."
 }
