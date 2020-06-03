@@ -225,10 +225,9 @@ class _RegisterPageState extends State<RegisterPage> {
                 textEditingController: _repeatPasswordController,
                 obscureText: true,
                 isRequired: true,
-                // TO DO refactor error message
                 validator: CompareValuesInputValidator(
                     valueToCompare: _formData[Keys.LABEL_PASSWORD],
-                    errorMessage: "Giovane ajeita aqui"),
+                    errorMessage: Strings(context).passwordsNotEqual),
                 onChanged: (String value) {
                   _formData[Keys.LABEL_REPEATPASSWORD] = value;
                 },

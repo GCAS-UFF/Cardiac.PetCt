@@ -198,8 +198,9 @@ class _LoginPageState extends State<LoginPage> {
           } else if (state is RecoverPasswordState) {
             Scaffold.of(context).showSnackBar(
               SnackBar(
-                // TO DO refactor create a string
-                content: Text("Email de recuperação enviado"),
+                content: Text(
+                  Strings(context).recoverPasswordEmailSent,
+                ),
               ),
             );
           }

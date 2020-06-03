@@ -18,7 +18,6 @@ class Strings {
   String yes;
   String ok;
   String appButtonRegisterTitle;
-  String appButtonNextTitle;
   String nextOption;
   String backOption;
   String about;
@@ -47,6 +46,7 @@ class Strings {
   String passwordLabel;
   String forgotPassword;
   String emptyFieldMessage;
+  String recoverPasswordEmailSent;
   static const String email_format_error_message = "Email inválido";
 
   //Recover Password
@@ -58,6 +58,7 @@ class Strings {
   String birthLabel;
   String genderLabel;
   String repeatPasswordLabel;
+  String passwordsNotEqual;
 
   //Verify Email Page
   String verifyEmailText;
@@ -85,8 +86,6 @@ class Strings {
     ok = intl.Strings.of(context).valueOf("ok");
     appButtonRegisterTitle =
         intl.Strings.of(context).valueOf("app_button_register_title");
-    appButtonNextTitle =
-        intl.Strings.of(context).valueOf("app_button_next_title");
     nextOption = intl.Strings.of(context).valueOf("next_option");
     backOption = intl.Strings.of(context).valueOf("back_option");
     about = intl.Strings.of(context).valueOf("about");
@@ -102,31 +101,32 @@ class Strings {
     complete = intl.Strings.of(context).valueOf("complete");
     incomplete = intl.Strings.of(context).valueOf("incomplete");
     startPageParagraph =
-        intl.Strings.of(context).valueOf("start-page-paragraph");
-    startPageTitle = intl.Strings.of(context).valueOf("start-page-title");
+        intl.Strings.of(context).valueOf("start_page_paragraph");
+    startPageTitle = intl.Strings.of(context).valueOf("start_page_title");
     registerLabelButton =
-        intl.Strings.of(context).valueOf("register-label-button");
-    signinLabelButton = intl.Strings.of(context).valueOf("signin-label-button");
-    petctDiaryTitle = intl.Strings.of(context).valueOf("petct-diary-title");
-    sigininToApp = intl.Strings.of(context).valueOf("signin-to-app");
-    emailLabel = intl.Strings.of(context).valueOf("email-label");
-    passwordLabel = intl.Strings.of(context).valueOf("password-label");
-    forgotPassword = intl.Strings.of(context).valueOf("forgot-password");
-    emptyFieldMessage = intl.Strings.of(context).valueOf("empty-field-message");
-    registerTitle = intl.Strings.of(context).valueOf("register-title");
-    nameLabel = intl.Strings.of(context).valueOf("name-label");
-    birthLabel = intl.Strings.of(context).valueOf("birth-label");
-    genderLabel = intl.Strings.of(context).valueOf("gender-label");
+        intl.Strings.of(context).valueOf("register_label_button");
+    signinLabelButton = intl.Strings.of(context).valueOf("signin_label_button");
+    petctDiaryTitle = intl.Strings.of(context).valueOf("petct_diary_title");
+    sigininToApp = intl.Strings.of(context).valueOf("signin_to_app");
+    emailLabel = intl.Strings.of(context).valueOf("email_label");
+    passwordLabel = intl.Strings.of(context).valueOf("password_label");
+    forgotPassword = intl.Strings.of(context).valueOf("forgot_password");
+    emptyFieldMessage = intl.Strings.of(context).valueOf("empty_field_message");
+    registerTitle = intl.Strings.of(context).valueOf("register_title");
+    nameLabel = intl.Strings.of(context).valueOf("name_label");
+    birthLabel = intl.Strings.of(context).valueOf("birth_label");
+    genderLabel = intl.Strings.of(context).valueOf("gender_label");
     repeatPasswordLabel =
-        intl.Strings.of(context).valueOf("repeat-password-label");
-    verifyEmailText = intl.Strings.of(context).valueOf("verify-email-text");
-    verifyEmailTitle = intl.Strings.of(context).valueOf("verify-email-title");
-    resendLabel = intl.Strings.of(context).valueOf("resend-label");
+        intl.Strings.of(context).valueOf("repeat_password_label");
+    passwordsNotEqual = intl.Strings.of(context).valueOf("passwords_not_equal");
+    verifyEmailText = intl.Strings.of(context).valueOf("verify_email_text");
+    verifyEmailTitle = intl.Strings.of(context).valueOf("verify_email_title");
+    resendLabel = intl.Strings.of(context).valueOf("resend_label");
     emailVerifiedLabel =
-        intl.Strings.of(context).valueOf("email-verified-label");
-    loginTitle = intl.Strings.of(context).valueOf("login-title");
+        intl.Strings.of(context).valueOf("email_verified_label");
+    loginTitle = intl.Strings.of(context).valueOf("login_title");
     recoverPasswordTitle =
-        intl.Strings.of(context).valueOf("recover-password-title");
+        intl.Strings.of(context).valueOf("recover_password_title");
     messageServerFailure =
         intl.Strings.of(context).valueOf("message_server_failure");
     messageNoInternetFailure =
@@ -134,6 +134,8 @@ class Strings {
     messageCacheFailure =
         intl.Strings.of(context).valueOf("message_cache_failure");
     messageUnknownError =
-        intl.Strings.of(context).valueOf("message_unknown_erro");
+        intl.Strings.of(context).valueOf("message_unknown_error");
+    recoverPasswordEmailSent =
+        intl.Strings.of(context).valueOf("recover_password_email_sent");
   }
 }
