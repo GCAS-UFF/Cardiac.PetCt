@@ -195,6 +195,13 @@ class _LoginPageState extends State<LoginPage> {
               widget: VerifyEmailPage(),
             );
             Navigator.push(context, route);
+          } else if (state is RecoverPasswordState) {
+            Scaffold.of(context).showSnackBar(
+              SnackBar(
+                // TO DO refactor create a string
+                content: Text("Email de recuperação enviado"),
+              ),
+            );
           }
         },
         child: BlocBuilder<AuthBloc, AuthState>(

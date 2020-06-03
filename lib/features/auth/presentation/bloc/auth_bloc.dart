@@ -74,7 +74,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       yield Loading();
       final failureOrVoid =
           await recoverPassword(recover.Params(email: event.email));
-      yield* _eitherLoadedOrErrorStateWithVoid(failureOrVoid);
+      yield failureOrVoid.fold(
+          (failure) => Error(failure: failure), (user) => RecoverPasswordState());
     }
   }
 

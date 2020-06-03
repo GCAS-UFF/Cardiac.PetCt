@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:petct/core/input_validators/email_input_validator.dart';
 import 'package:petct/core/resources/colors.dart';
 import 'package:petct/core/resources/dimensions.dart';
@@ -7,6 +8,7 @@ import 'package:petct/core/resources/keys.dart';
 import 'package:petct/core/resources/strings.dart';
 import 'package:petct/core/ui/button_app.dart';
 import 'package:petct/core/ui/custom_text_form_field.dart';
+import 'package:petct/features/auth/presentation/bloc/auth_bloc.dart';
 
 class RecoverPasswordForm extends StatefulWidget {
   @override
@@ -195,5 +197,10 @@ class _RecoverPasswordFormState extends State<RecoverPasswordForm> {
       return;
     }
     _formKey.currentState.save();
+
+    BlocProvider.of<AuthBloc>(context)
+        .add(RecoverPasswordEvent(email: _formData[Keys.LABEL_EMAIL]));
+
+    Navigator.pop(context);
   }
 }
