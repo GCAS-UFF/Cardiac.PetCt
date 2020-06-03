@@ -65,6 +65,12 @@ class Strings {
   String resendLabel;
   String emailVerifiedLabel;
 
+  // Failure To Message
+  String messageServerFailure;
+  String messageNoInternetFailure;
+  String messageCacheFailure;
+  String messageUnknownError;
+
   Strings(this.context) {
     dateInputErrorValidation =
         intl.Strings.of(context).valueOf("date_input_error_validation");
@@ -121,5 +127,13 @@ class Strings {
     loginTitle = intl.Strings.of(context).valueOf("login-title");
     recoverPasswordTitle =
         intl.Strings.of(context).valueOf("recover-password-title");
+    messageServerFailure =
+        intl.Strings.of(context).valueOf("message_server_failure");
+    messageNoInternetFailure =
+        intl.Strings.of(context).valueOf("message_no_internet_failure");
+    messageCacheFailure =
+        intl.Strings.of(context).valueOf("message_cache_failure");
+    messageUnknownError =
+        intl.Strings.of(context).valueOf("message_unknown_erro");
   }
 }

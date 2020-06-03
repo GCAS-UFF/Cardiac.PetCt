@@ -26,7 +26,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       yield Loading();
       var userOrError =
           await signUp(Params(user: event.user, password: event.password));
-      userOrError.fold((failure) => Error(failure: failure),
+      yield userOrError.fold((failure) => Error(failure: failure),
           (user) => Registred(user: user));
     }
   }

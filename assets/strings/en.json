@@ -41,5 +41,9 @@
     "verify-email-title": "Email verification",
     "resend-label": "Resend",
     "email-verified-label": "Verified email",
-    "recover-password-title": "Recover password"
+    "recover-password-title": "Recover password",
+    "message_server_failure": "We have a server error.",
+    "message_no_internet_failure": "You don't have internet connection",
+    "message_cache_failure": "We have a problem retrieving your data",
+    "message_unknown_erro": "We have a unknown error"
 }

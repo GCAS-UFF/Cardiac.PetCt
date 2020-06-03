@@ -9,7 +9,7 @@ class User extends Equatable {
   final String email;
 
   User(
-      {@required this.id,
+      {this.id,
       @required this.name,
       @required this.birthDate,
       @required this.gender,
