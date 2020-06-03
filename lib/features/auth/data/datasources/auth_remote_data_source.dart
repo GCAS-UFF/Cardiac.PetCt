@@ -8,6 +8,16 @@ import 'package:meta/meta.dart';
 
 abstract class AuthRemoteDataSource {
   Future<UserModel> signUp(UserModel userModel, String password);
+
+  Future<String> signIn(String email, String password);
+
+  Future<void> sendEmailVerification();
+
+  Future<bool> confirmEmailVerified();
+
+  Future<void> signOut();
+
+  Future<void> recoverPassword(String email);
 }
 
 class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
@@ -19,7 +29,7 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
 
   @override
   Future<UserModel> signUp(UserModel userModel, String password) async {
-    try {
+    return await sendRequest(makeRequest: () async {
       // Create user in firebase authentication
       AuthResult result = await firebaseAuth.createUserWithEmailAndPassword(
           email: userModel.email, password: password);
@@ -34,8 +44,69 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
       await userReference.set(userModel.toJson());
       // Get user from database
       DataSnapshot dataSnapshot = await userReference.once();
+      // Send email verification
+      sendEmailVerification();
       // Return the user
       return UserModel.fromDataSnapshot(dataSnapshot);
+    });
+  }
+
+  @override
+  Future<bool> confirmEmailVerified() async {
+    return await sendRequest(makeRequest: () async {
+      FirebaseUser user = await firebaseAuth.currentUser();
+      user.reload();
+      return user.isEmailVerified;
+    });
+  }
+
+  @override
+  Future<void> recoverPassword(String email) async {
+    return await sendRequest(makeRequest: () async {
+      await firebaseAuth.sendPasswordResetEmail(email: email);
+    });
+  }
+
+  @override
+  Future<void> sendEmailVerification() async {
+    return await sendRequest(makeRequest: () async {
+      FirebaseUser user = await firebaseAuth.currentUser();
+      user.sendEmailVerification();
+    });
+  }
+
+  @override
+  Future<String> signIn(String email, String password) async {
+    String userId;
+    bool isEmailVerified;
+
+    await sendRequest(makeRequest: () async {
+      AuthResult result = await firebaseAuth.signInWithEmailAndPassword(
+          email: email, password: password);
+      userId = result.user.uid;
+      isEmailVerified = result.user.isEmailVerified;
+    });
+
+    if (userId == null) {
+      throw ServerException();
+    } else if (!isEmailVerified) {
+      throw EmailNotVerifiedException();
+    } else {
+      return userId;
+    }
+  }
+
+  @override
+  Future<void> signOut() async {
+    return await sendRequest(makeRequest: () async {
+      return firebaseAuth.signOut();
+    });
+  }
+
+  // Function to get all exceptions
+  Future<dynamic> sendRequest({@required Function makeRequest}) async {
+    try {
+      return await makeRequest();
     } on PlatformException catch (e) {
       throw e;
     } catch (e) {

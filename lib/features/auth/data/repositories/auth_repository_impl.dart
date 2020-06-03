@@ -23,20 +23,115 @@ class AuthRepositoryImpl extends AuthRepository {
   @override
   Future<Either<Failure, User>> signUp(User user, String password) async {
     if (await networkInfo.isConnected) {
-      try {
-        User userResult =
+      var result;
+      // Run the code inside send a request for a treat all possible exceptions
+      var sendRequestResult = await sendRequest(makeRequest: () async {
+        result =
             await remoteDataSource.signUp(UserModel.fromEntity(user), password);
-        await localDataSource.saveUserId(userResult.id);
-        return Right(userResult);
-      } on CacheException {
-        return Left(CacheFailure());
-      } on ServerException {
-        return Left(ServerFailure());
-      } on PlatformException catch (e) {
-        return Left(PlatformFailure(code: e.code, message: e.message));
-      }
+        await localDataSource.saveUserId(result.id);
+      });
+      //Return if the request had success or failure
+      return sendRequestResult.fold(
+          (failure) => Left(failure), (success) => Right(result));
     } else {
       return Left(NoInternetConnectionFailure());
+    }
+  }
+
+  @override
+  Future<Either<Failure, bool>> confirmEmailVerified() async {
+    if (await networkInfo.isConnected) {
+      var result;
+      // Run the code inside send a request for a treat all possible exceptions
+      var sendRequestResult = await sendRequest(makeRequest: () async {
+        result = await remoteDataSource.confirmEmailVerified();
+      });
+      //Return if the request had success or failure
+      return sendRequestResult.fold(
+          (failure) => Left(failure), (success) => Right(result));
+    } else {
+      return Left(NoInternetConnectionFailure());
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> recoverPassword(String email) async {
+    if (await networkInfo.isConnected) {
+      var result;
+      // Run the code inside send a request for a treat all possible exceptions
+      var sendRequestResult = await sendRequest(makeRequest: () async {
+        await remoteDataSource.recoverPassword(email);
+        result = null;
+      });
+      //Return if the request had success or failure
+      return sendRequestResult.fold(
+          (failure) => Left(failure), (success) => Right(result));
+    } else {
+      return Left(NoInternetConnectionFailure());
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> sendEmailVerification() async {
+    if (await networkInfo.isConnected) {
+      var result;
+      // Run the code inside send a request for a treat all possible exceptions
+      var sendRequestResult = await sendRequest(makeRequest: () async {
+        await remoteDataSource.sendEmailVerification();
+        result = null;
+      });
+      //Return if the request had success or failure
+      return sendRequestResult.fold(
+          (failure) => Left(failure), (success) => Right(result));
+    } else {
+      return Left(NoInternetConnectionFailure());
+    }
+  }
+
+  @override
+  Future<Either<Failure, String>> signIn(String email, String password) async {
+    if (await networkInfo.isConnected) {
+      var result;
+      // Run the code inside send a request for a treat all possible exceptions
+      var sendRequestResult = await sendRequest(makeRequest: () async {
+        result = await remoteDataSource.signIn(email, password);
+        localDataSource.saveUserId(result);
+      });
+      //Return if the request had success or failure
+      return sendRequestResult.fold(
+          (failure) => Left(failure), (success) => Right(result));
+    } else {
+      return Left(NoInternetConnectionFailure());
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> signOut() async {
+    var result;
+    // Run the code inside send a request for a treat all possible exceptions
+    var sendRequestResult = await sendRequest(makeRequest: () async {
+      await remoteDataSource.signOut();
+      result = Right(await localDataSource.cleanCache());
+    });
+    //Return if the request had success or failure
+    return sendRequestResult.fold(
+        (failure) => Left(failure), (success) => Right(result));
+  }
+
+  // Function to get all exceptions and return failures
+  Future<Either<Failure, bool>> sendRequest(
+      {@required Function makeRequest}) async {
+    try {
+      await makeRequest();
+      return Right(true);
+    } on CacheException {
+      return Left(CacheFailure());
+    } on ServerException {
+      return Left(ServerFailure());
+    } on EmailNotVerifiedException {
+      return Left(EmailNotVerifiedFailure());
+    } on PlatformException catch (e) {
+      return Left(PlatformFailure(code: e.code, message: e.message));
     }
   }
 }

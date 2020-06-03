@@ -12,13 +12,13 @@ class AuthInitial extends AuthState {
 
 class Loading extends AuthState {}
 
-class Registred extends AuthState {
-  final User user;
+class Loaded extends AuthState {}
 
-  Registred({@required this.user});
+class EmailNotVerifiedState extends AuthState {}
 
-  List<Object> get props => [user];
-}
+class EmailResent extends AuthState {}
+
+class RecoverPasswordState extends AuthState {}
 
 class Error extends AuthState {
   final Failure failure;

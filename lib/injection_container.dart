@@ -2,6 +2,11 @@ import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:get_it/get_it.dart';
+import 'package:petct/features/auth/domain/usecases/confirm_email_verified.dart';
+import 'package:petct/features/auth/domain/usecases/recover_password.dart';
+import 'package:petct/features/auth/domain/usecases/send_email_verification.dart';
+import 'package:petct/features/auth/domain/usecases/sign_in.dart';
+import 'package:petct/features/auth/domain/usecases/sign_out.dart';
 import 'package:petct/features/auth/domain/usecases/sign_up.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -35,11 +40,21 @@ void _initAuth() {
   sl.registerFactory(
     () => AuthBloc(
       signUp: sl(),
+      confirmEmailVerified: sl(),
+      recoverPassword: sl(),
+      sendEmailVerification: sl(),
+      signIn: sl(),
+      signOut: sl(),
     ),
   );
 
   // Use Cases
   sl.registerLazySingleton(() => SignUp(sl()));
+  sl.registerLazySingleton(() => ConfirmEmailVerified(sl()));
+  sl.registerLazySingleton(() => RecoverPassword(sl()));
+  sl.registerLazySingleton(() => SendEmailVerification(sl()));
+  sl.registerLazySingleton(() => SignIn(sl()));
+  sl.registerLazySingleton(() => SignOut(sl()));
 
   // Repositories
   sl.registerLazySingleton<AuthRepository>(

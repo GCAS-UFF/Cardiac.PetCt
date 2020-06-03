@@ -16,3 +16,28 @@ class SignUpEvent extends AuthEvent {
   @override
   List<Object> get props => [user, password];
 }
+
+class SignInEvent extends AuthEvent {
+  final String email;
+  final String password;
+  SignInEvent({@required this.email, @required this.password});
+
+  @override
+  List<Object> get props => [email, password];
+}
+
+class SignOutEvent extends AuthEvent {}
+
+class ResentEmailEvent extends AuthEvent {}
+
+class ConfirmEmailVerifiedEvent extends AuthEvent {}
+
+class RecoverPasswordEvent extends AuthEvent {
+  final String email;
+
+  RecoverPasswordEvent({@required this.email});
+
+  @override
+  List<Object> get props => [email];
+}
+
