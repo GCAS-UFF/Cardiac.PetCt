@@ -17,6 +17,7 @@
     "function_not_available": "Esta função ainda não está disponível",
     "complete": "Completo",
     "incomplete": "Incompleto",
+    "logo_name":"PetCT Diet",
 
     "URINAPP_COMMENT_SECTION_FAILURE_MESSAGES": "----------",
     "message_server_failure": "Ocorreu um erro no servidor",
@@ -38,6 +39,7 @@
     "register_label_button": "Cadastrar",
     "signin_label_button": "Entrar",
     "petct_diary_title": "Diário Pet_ct",
+    "high_contrast": "ALTO CONTRASTE",
 
     "URINAPP_COMMENT_SECTION_LOGIN_PAGE": "----------",
     "signin_to_app": "Entre no App",
@@ -61,7 +63,8 @@
     "email_verified_label": "Email confirmado",
 
     "URINAPP_COMMENT_SECTION_RECOVER_PASSWORD_DIALOG": "----------",
-    "recover_password_title": "Recuperação de senha"
+    "recover_password_title": "Recuperação de senha",
+    "email_successfully_sent": "Email enviado com sucesso"
 
 
 }

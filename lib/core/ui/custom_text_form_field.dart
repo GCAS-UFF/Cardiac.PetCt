@@ -68,8 +68,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   Widget build(BuildContext context) {
     return TextFormField(
       style: TextStyle(
-        fontSize: Dimensions.getTextSize(context, 14),
-        color: Colors.black,
+        fontSize: Dimensions.getTextSize(context, 16),
       ),
       controller: widget.textEditingController,
       textAlign: widget.textAlign,
@@ -80,12 +79,11 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       textCapitalization: widget.textCapitalization,
       decoration: InputDecoration(
         hintStyle: TextStyle(
-          fontSize: Dimensions.getTextSize(context, 14),
+          fontSize: Dimensions.getTextSize(context, 16),
         ),
         suffixIcon: widget.suffixIcon,
         labelStyle: TextStyle(
           fontSize: Dimensions.getTextSize(context, 16),
-          color: Colors.black,
         ),
         labelText: widget.text,
         contentPadding: Dimensions.getEdgeInsetsAll(context, 10),
@@ -101,7 +99,6 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         enabledBorder: OutlineInputBorder(
           gapPadding: Dimensions.getConvertedWidthSize(context, 2.0),
           borderSide: BorderSide(
-            color: Colors.black,
             width: Dimensions.getConvertedWidthSize(context, 1.0),
           ),
         ),
@@ -121,7 +118,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         ),
         errorStyle: TextStyle(
           color: Colors.red,
-          fontSize: Dimensions.getTextSize(context, 11.0),
+          fontSize: Dimensions.getTextSize(context, 12.0),
         ),
       ),
       validator: (value) {

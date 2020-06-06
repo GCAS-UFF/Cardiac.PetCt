@@ -22,14 +22,10 @@ class _CustomDropdownState extends State<CustomDropdown> {
     return DropdownButtonFormField<String>(
         decoration: InputDecoration(
           hintStyle: TextStyle(
-            fontSize: Dimensions.getTextSize(context, 14),
-          ),
-          labelStyle: TextStyle(
-            fontSize: Dimensions.getTextSize(context, 16),
-            color: Colors.black,
+            fontSize: Dimensions.getTextSize(context, 18),
           ),
           contentPadding:
-              Dimensions.getEdgeInsets(context, left: 10, right: 10),
+              Dimensions.getEdgeInsets(context, left: 10, right: 10, top: 0),
           hoverColor: Colors.grey,
           focusedBorder: OutlineInputBorder(
             gapPadding: Dimensions.getConvertedWidthSize(context, 5.0),
@@ -42,7 +38,6 @@ class _CustomDropdownState extends State<CustomDropdown> {
           enabledBorder: OutlineInputBorder(
             gapPadding: Dimensions.getConvertedWidthSize(context, 2.0),
             borderSide: BorderSide(
-              color: Colors.black,
               width: Dimensions.getConvertedWidthSize(context, 1.0),
             ),
           ),

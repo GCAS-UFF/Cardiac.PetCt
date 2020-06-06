@@ -4,9 +4,9 @@ import 'package:petct/core/input_validators/compare_values_input_validator.dart'
 import 'package:petct/core/input_validators/date_input_validator.dart';
 import 'package:petct/core/input_validators/email_input_validator.dart';
 import 'package:petct/core/resources/dimensions.dart';
-import 'package:petct/core/resources/images.dart';
 import 'package:petct/core/resources/keys.dart';
 import 'package:petct/core/resources/strings.dart';
+import 'package:petct/core/ui/app_name.dart';
 import 'package:petct/core/ui/button_app.dart';
 import 'package:petct/core/ui/custom_dropdown.dart';
 import 'package:petct/core/ui/custom_text_form_field.dart';
@@ -55,193 +55,204 @@ class _RegisterPageState extends State<RegisterPage> {
     _list = [
       DropdownMenuItem(
         value: 'female',
-        child: Container(
-          child: Text(
-            "Feminino",
-            textAlign: TextAlign.start,
-            style: TextStyle(
-              fontSize: Dimensions.getTextSize(context, 14),
-              color: Colors.black,
-            ),
+        child: Text(
+          "Feminino",
+          textAlign: TextAlign.start,
+          style: TextStyle(
+            fontSize: Dimensions.getTextSize(context, 16),
           ),
         ),
       ),
       DropdownMenuItem(
         value: 'male',
-        child: Container(
-          child: Text(
-            "Masculino",
-            textAlign: TextAlign.start,
-            style: TextStyle(
-              fontSize: Dimensions.getTextSize(context, 14),
-              color: Colors.black,
-            ),
+        child: Text(
+          "Masculino",
+          textAlign: TextAlign.start,
+          style: TextStyle(
+            fontSize: Dimensions.getTextSize(context, 16),
           ),
         ),
       ),
       DropdownMenuItem(
         value: 'transPerson',
-        child: Container(
-          child: Text(
-            "Pessoa trans",
-            textAlign: TextAlign.start,
-            style: TextStyle(
-              fontSize: Dimensions.getTextSize(context, 14),
-              color: Colors.black,
-            ),
+        child: Text(
+          "Pessoa trans",
+          textAlign: TextAlign.start,
+          style: TextStyle(
+            fontSize: Dimensions.getTextSize(context, 16),
           ),
         ),
       ),
       DropdownMenuItem(
         value: 'transMan',
-        child: Container(
-          child: Text(
-            "Homem trans",
-            textAlign: TextAlign.start,
-            style: TextStyle(
-              fontSize: Dimensions.getTextSize(context, 14),
-              color: Colors.black,
-            ),
+        child: Text(
+          "Homem trans",
+          textAlign: TextAlign.start,
+          style: TextStyle(
+            fontSize: Dimensions.getTextSize(context, 16),
           ),
         ),
       ),
       DropdownMenuItem(
         value: 'transWoman',
-        child: Container(
-          child: Text(
-            "Mulher trans",
-            textAlign: TextAlign.start,
-            style: TextStyle(
-              fontSize: Dimensions.getTextSize(context, 14),
-              color: Colors.black,
-            ),
+        child: Text(
+          "Mulher trans",
+          textAlign: TextAlign.start,
+          style: TextStyle(
+            fontSize: Dimensions.getTextSize(context, 16),
           ),
         ),
       ),
     ];
 
     return Container(
-      color: Colors.white,
       height: double.infinity,
-      padding: Dimensions.getEdgeInsets(context, left: 20, right: 20),
-      alignment: Alignment.center,
+      padding: Dimensions.getEdgeInsetsFromLTRB(context, 20, 20, 20, 0),
+      alignment: Alignment.topCenter,
       child: SingleChildScrollView(
-        child: Form(
-          key: _formKey,
-          //Start animation
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              //Register title
-              Text(
-                Strings(context).registerTitle,
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: Dimensions.getTextSize(context, 22),
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-              SizedBox(
-                height: Dimensions.getConvertedHeightSize(context, 20),
-              ),
-              //Name textfield
-              CustomTextFormField(
-                text: Strings(context).nameLabel,
-                textEditingController: _nameController,
-                isRequired: true,
-                onChanged: (String value) {
-                  _formData[Keys.LABEL_NAME] = value;
-                },
-              ),
-              SizedBox(
-                height: Dimensions.getConvertedHeightSize(context, 20),
-              ),
-              //Birth textfield
-              CustomTextFormField(
-                text: Strings(context).birthLabel,
-                validator: DateInputValidator(),
-                obscureText: false,
-                keyboardType: TextInputType.number,
-                textEditingController: _birthController,
-                isRequired: true,
-                onChanged: (String value) {
-                  _formData[Keys.LABEL_BIRTH] = value;
-                },
-              ),
-              SizedBox(
-                height: Dimensions.getConvertedHeightSize(context, 20),
-              ),
-              //Gender dropdown
-              CustomDropdown(
-                value: _formData[Keys.LABEL_GENDER],
-                hint: Text(
-                  Strings(context).genderLabel,
-                  style: TextStyle(
-                    fontSize: Dimensions.getTextSize(context, 14),
-                    color: Colors.black,
+        child: Container(
+          child: Form(
+            key: _formKey,
+            //Start animation
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                InkWell(
+                  //Back to start page button
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Padding(
+                    padding:
+                        Dimensions.getEdgeInsets(context, top: 20, left: 10),
+                    child: Row(
+                      children: <Widget>[
+                        Icon(
+                          Icons.arrow_back,
+                          size: Dimensions.getConvertedWidthSize(context, 30),
+                        ),
+                        SizedBox(
+                          width: Dimensions.getConvertedWidthSize(context, 86),
+                        ),
+                        // Logo image
+                        AppName()
+                      ],
+                    ),
                   ),
                 ),
-                options: _list,
-                onChange: (String value) {
-                  setState(() {
-                    _formData[Keys.LABEL_GENDER] = value;
-                  });
-                },
-              ),
-              SizedBox(
-                height: Dimensions.getConvertedHeightSize(context, 20),
-              ),
-              //Email textfield
-              CustomTextFormField(
-                text: Strings(context).emailLabel,
-                textEditingController: _emailController,
-                isRequired: true,
-                onChanged: (String value) {
-                  _formData[Keys.LABEL_EMAIL] = value;
-                },
-                validator: EmailInputValidator(),
-              ),
-              SizedBox(
-                height: Dimensions.getConvertedHeightSize(context, 20),
-              ),
-              //Password textfield
-              CustomTextFormField(
-                text: Strings(context).passwordLabel,
-                obscureText: true,
-                textEditingController: _passwordController,
-                isRequired: true,
-                onChanged: (String value) {
-                  setState(() {
-                    _formData[Keys.LABEL_PASSWORD] = value;
-                  });
-                },
-              ),
-              SizedBox(
-                height: Dimensions.getConvertedHeightSize(context, 20),
-              ),
-              //Repeat password textfield
-              CustomTextFormField(
-                text: Strings(context).repeatPasswordLabel,
-                textEditingController: _repeatPasswordController,
-                obscureText: true,
-                isRequired: true,
-                validator: CompareValuesInputValidator(
-                    valueToCompare: _formData[Keys.LABEL_PASSWORD],
-                    errorMessage: Strings(context).passwordsNotEqual),
-                onChanged: (String value) {
-                  _formData[Keys.LABEL_REPEATPASSWORD] = value;
-                },
-              ),
-              SizedBox(
-                height: Dimensions.getConvertedHeightSize(context, 30),
-              ),
-              ButtonApp(
-                  title: Strings(context).registerLabelButton,
-                  onPressed: () {
-                    _submitFormLogin(context);
-                  },
-                  type: ButtonType.BUTTON_GREEN),
-            ],
+                SizedBox(
+                  height: Dimensions.getConvertedHeightSize(context, 50),
+                ),
+                //Register title
+                Text(
+                  Strings(context).registerTitle,
+                  style: TextStyle(
+                    fontSize: Dimensions.getTextSize(context, 22),
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+                SizedBox(
+                  height: Dimensions.getConvertedHeightSize(context, 20),
+                ),
+                //Name textfield
+                Container(
+                  height: Dimensions.getConvertedHeightSize(context, 86),
+                  child: CustomTextFormField(
+                    text: Strings(context).nameLabel,
+                    textEditingController: _nameController,
+                    isRequired: true,
+                    onChanged: (String value) {
+                      _formData[Keys.LABEL_NAME] = value;
+                    },
+                  ),
+                ),
+                //Birth textfield
+                Container(
+                  height: Dimensions.getConvertedHeightSize(context, 86),
+                  child: CustomTextFormField(
+                    text: Strings(context).birthLabel,
+                    validator: DateInputValidator(),
+                    obscureText: false,
+                    keyboardType: TextInputType.number,
+                    textEditingController: _birthController,
+                    isRequired: true,
+                    onChanged: (String value) {
+                      _formData[Keys.LABEL_BIRTH] = value;
+                    },
+                  ),
+                ),
+                //Gender dropdown
+                Container(
+                  height: Dimensions.getConvertedHeightSize(context, 86),
+                  child: CustomDropdown(
+                    value: _formData[Keys.LABEL_GENDER],
+                    hint: Text(
+                      Strings(context).genderLabel,
+                      style: TextStyle(
+                        fontSize: Dimensions.getTextSize(context, 16),
+                      ),
+                    ),
+                    options: _list,
+                    onChange: (String value) {
+                      setState(() {
+                        _formData[Keys.LABEL_GENDER] = value;
+                      });
+                    },
+                  ),
+                ),
+                //Email textfield
+                Container(
+                  height: Dimensions.getConvertedHeightSize(context, 86),
+                  child: CustomTextFormField(
+                    text: Strings(context).emailLabel,
+                    textEditingController: _emailController,
+                    isRequired: true,
+                    onChanged: (String value) {
+                      _formData[Keys.LABEL_EMAIL] = value;
+                    },
+                    validator: EmailInputValidator(),
+                  ),
+                ),
+                //Password textfield
+                Container(
+                  height: Dimensions.getConvertedHeightSize(context, 86),
+                  child: CustomTextFormField(
+                    text: Strings(context).passwordLabel,
+                    obscureText: true,
+                    textEditingController: _passwordController,
+                    isRequired: true,
+                    onChanged: (String value) {
+                      setState(() {
+                        _formData[Keys.LABEL_PASSWORD] = value;
+                      });
+                    },
+                  ),
+                ),
+                //Repeat password textfield
+                Container(
+                  height: Dimensions.getConvertedHeightSize(context, 86),
+                  child: CustomTextFormField(
+                    text: Strings(context).repeatPasswordLabel,
+                    textEditingController: _repeatPasswordController,
+                    obscureText: true,
+                    isRequired: true,
+                    validator: CompareValuesInputValidator(
+                      valueToCompare: _formData[Keys.LABEL_PASSWORD],
+                      errorMessage: Strings(context).passwordsNotEqual,
+                    ),
+                    onChanged: (String value) {
+                      _formData[Keys.LABEL_REPEATPASSWORD] = value;
+                    },
+                  ),
+                ),
+                ButtonApp(
+                    title: Strings(context).registerLabelButton,
+                    onPressed: () {
+                      _submitFormLogin(context);
+                    },
+                    type: ButtonType.BUTTON_GREEN),
+              ],
+            ),
           ),
         ),
       ),
@@ -251,37 +262,6 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: Colors.white,
-        elevation: 0.0,
-        title: InkWell(
-          //Back to start page button
-          onTap: () {
-            Navigator.pop(context);
-          },
-          child: Padding(
-            padding: Dimensions.getEdgeInsets(context, top: 20, left: 10),
-            child: Row(
-              children: <Widget>[
-                Icon(
-                  Icons.arrow_back,
-                  color: Colors.black,
-                  size: Dimensions.getConvertedWidthSize(context, 30),
-                ),
-                SizedBox(
-                  width: Dimensions.getConvertedWidthSize(context, 80),
-                ),
-                // Logo image
-                Image(
-                  image: AssetImage(Images.name_app),
-                  width: Dimensions.getConvertedWidthSize(context, 140),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
       body: BlocListener<AuthBloc, AuthState>(listener: (context, state) {
         if (state is Error) {
           Scaffold.of(context).showSnackBar(

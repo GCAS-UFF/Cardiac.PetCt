@@ -6,6 +6,7 @@ import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/images.dart';
 import 'package:petct/core/resources/keys.dart';
 import 'package:petct/core/resources/strings.dart';
+import 'package:petct/core/ui/app_name.dart';
 import 'package:petct/core/ui/button_app.dart';
 import 'package:petct/core/ui/custom_text_form_field.dart';
 import 'package:petct/features/auth/presentation/bloc/auth_bloc.dart';
@@ -31,7 +32,6 @@ class _RecoverPasswordFormState extends State<RecoverPasswordForm> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      backgroundColor: Colors.transparent,
       child: TweenAnimationBuilder(
         duration: Duration(milliseconds: 300),
         tween: Tween<double>(begin: 0, end: 1),
@@ -42,7 +42,6 @@ class _RecoverPasswordFormState extends State<RecoverPasswordForm> {
               child: Container(
                 height: Dimensions.getConvertedHeightSize(context, 500),
                 decoration: BoxDecoration(
-                  color: Colors.white,
                   borderRadius: BorderRadius.circular(
                     Dimensions.getConvertedWidthSize(context, 10),
                   ),
@@ -54,16 +53,16 @@ class _RecoverPasswordFormState extends State<RecoverPasswordForm> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     mainAxisSize: MainAxisSize.max,
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       //Logo Image
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Image(
-                            image: AssetImage(Images.logo_named),
+                            image: AssetImage(Images.logo_image),
                             width:
-                                Dimensions.getConvertedWidthSize(context, 200),
+                                Dimensions.getConvertedWidthSize(context, 70),
                           ),
                         ],
                       ),
@@ -121,10 +120,8 @@ class _RecoverPasswordFormState extends State<RecoverPasswordForm> {
                             ),
                             //Email textfield
                             Container(
-                              constraints: BoxConstraints(
-                                maxHeight: Dimensions.getConvertedHeightSize(
-                                    context, 65),
-                              ),
+                              height: Dimensions.getConvertedHeightSize(
+                                  context, 70),
                               child: CustomTextFormField(
                                 textEditingController: _emailController,
                                 text: Strings(context).emailLabel,
