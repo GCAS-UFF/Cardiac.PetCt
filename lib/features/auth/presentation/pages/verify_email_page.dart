@@ -12,7 +12,6 @@ import 'package:petct/features/auth/presentation/bloc/auth_bloc.dart';
 class VerifyEmailPage extends StatelessWidget {
   Widget _buildBody(BuildContext context) {
     return Container(
-      color: Colors.white,
       height: double.infinity,
       padding: Dimensions.getEdgeInsetsAll(context, 20),
       alignment: Alignment.center,
@@ -23,10 +22,10 @@ class VerifyEmailPage extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
+                // Main title
                 Text(
                   Strings(context).verifyEmailTitle,
                   style: TextStyle(
-                    color: Colors.black,
                     fontSize: Dimensions.getTextSize(context, 22),
                     fontWeight: FontWeight.bold,
                   ),
@@ -34,10 +33,10 @@ class VerifyEmailPage extends StatelessWidget {
                 SizedBox(
                   height: Dimensions.getConvertedHeightSize(context, 20),
                 ),
+                // Verify email text
                 Text(
                   Strings(context).verifyEmailText,
                   style: TextStyle(
-                    color: Colors.black,
                     fontSize: Dimensions.getTextSize(context, 18),
                     fontWeight: FontWeight.w400,
                   ),
@@ -47,12 +46,18 @@ class VerifyEmailPage extends StatelessWidget {
             SizedBox(
               height: Dimensions.getConvertedHeightSize(context, 20),
             ),
+            // Email image
             Image(
-              image: AssetImage(Images.email_sent),
+              image: AssetImage(
+                Images.email_sent,
+              ),
+              fit: BoxFit.cover,
             ),
             Padding(
               padding: Dimensions.getEdgeInsets(context, top: 70, bottom: 10),
-              child: ButtonApp(
+              child:
+                  // Email verified button
+                  ButtonApp(
                 type: ButtonType.BUTTON_GREEN,
                 title: Strings(context).emailVerifiedLabel,
                 onPressed: () {
@@ -61,6 +66,7 @@ class VerifyEmailPage extends StatelessWidget {
                 },
               ),
             ),
+            // Resend email button
             ButtonApp(
               type: ButtonType.BUTTON_ROUNDED,
               title: Strings(context).resendLabel,
@@ -76,6 +82,7 @@ class VerifyEmailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    _buildSendEmailDialog();
     return Scaffold(
       body: BlocListener<AuthBloc, AuthState>(listener: (context, state) {
         if (state is Error) {
@@ -116,7 +123,7 @@ class VerifyEmailPage extends StatelessWidget {
 
   Widget _buildSendEmailDialog() {
     return Dialog(
-      backgroundColor: Colors.transparent,
+      // Scale animation
       child: TweenAnimationBuilder(
         duration: Duration(milliseconds: 300),
         tween: Tween<double>(begin: 0, end: 1),
@@ -126,7 +133,6 @@ class VerifyEmailPage extends StatelessWidget {
             child: Container(
               height: Dimensions.getConvertedHeightSize(context, 200),
               decoration: BoxDecoration(
-                color: Colors.white,
                 borderRadius: BorderRadius.circular(
                   Dimensions.getConvertedWidthSize(context, 10),
                 ),
@@ -136,14 +142,15 @@ class VerifyEmailPage extends StatelessWidget {
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
+                  // Resend email dialog title
                   Text(
-                    "Email enviado com sucesso",
+                    Strings(context).recoverPasswordEmailSent,
                     style: TextStyle(
-                      color: Colors.black,
                       fontSize: Dimensions.getTextSize(context, 20),
                       fontWeight: FontWeight.bold,
                     ),
                   ),
+                  // Close dialog button
                   ButtonApp(
                     type: ButtonType.BUTTON_ROUNDED,
                     title: Strings(context).ok,

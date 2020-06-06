@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:petct/core/resources/colors.dart';
 import 'package:petct/core/resources/dimensions.dart';
+import 'package:petct/core/utils/theme.dart';
+import 'package:provider/provider.dart';
 
 class ButtonApp extends StatelessWidget {
   final String title;
@@ -17,8 +19,10 @@ class ButtonApp extends StatelessWidget {
     this.preffixIcon,
     this.suffixIcon,
   }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
+    ThemeChanger _themeChanger = Provider.of<ThemeChanger>(context);
     return Row(
       children: <Widget>[
         Expanded(
@@ -35,33 +39,26 @@ class ButtonApp extends StatelessWidget {
                 Dimensions.getConvertedWidthSize(context, 50),
               ),
             ),
-            color: (type == ButtonType.BUTTON_GREEN)
-                ? ColorsApp.greenApp
-                : Colors.white,
+            color:
+                (type == ButtonType.BUTTON_GREEN) ? ColorsApp.greenApp : null,
             onPressed: onPressed,
             child: Text(
               title,
               style: TextStyle(
-                color: getColorText(),
                 fontWeight: FontWeight.bold,
                 fontSize: Dimensions.getTextSize(context, 16),
+                color: ((_themeChanger.getThemeData() == false) &&
+                        (type == ButtonType.BUTTON_GREEN))
+                    ? Colors.white
+                    : (type == ButtonType.BUTTON_ROUNDED)
+                        ? ColorsApp.greenApp
+                        : Colors.black,
               ),
             ),
           ),
         ),
       ],
     );
-  }
-
-  Color getColorText() {
-    switch (type) {
-      case ButtonType.BUTTON_GREEN:
-        return Colors.white;
-      case ButtonType.BUTTON_WHITE:
-        return Colors.black;
-      case ButtonType.BUTTON_ROUNDED:
-        return ColorsApp.greenApp;
-    }
   }
 }
 

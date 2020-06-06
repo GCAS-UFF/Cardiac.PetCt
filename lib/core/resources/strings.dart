@@ -31,6 +31,7 @@ class Strings {
   String functionNotAvailable;
   String complete;
   String incomplete;
+  String logoName;
 
   // Start Page
   String startPageParagraph;
@@ -38,6 +39,7 @@ class Strings {
   String registerLabelButton;
   String signinLabelButton;
   String petctDiaryTitle;
+  String highContrast;
 
   //Login Page
   String loginTitle;
@@ -51,6 +53,7 @@ class Strings {
 
   //Recover Password
   String recoverPasswordTitle;
+  String emailSuccessfullySent;
 
   //Register Page
   String registerTitle;
@@ -137,5 +140,9 @@ class Strings {
         intl.Strings.of(context).valueOf("message_unknown_error");
     recoverPasswordEmailSent =
         intl.Strings.of(context).valueOf("recover_password_email_sent");
+    highContrast = intl.Strings.of(context).valueOf("high_contrast");
+    emailSuccessfullySent =
+        intl.Strings.of(context).valueOf("email_successfully_sent");
+    logoName = intl.Strings.of(context).valueOf("logo_name");
   }
 }

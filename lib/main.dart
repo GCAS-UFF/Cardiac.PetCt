@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:internationalization/internationalization.dart';
+import 'package:petct/core/utils/theme.dart';
 import 'package:petct/features/auth/presentation/pages/register_page.dart';
 import 'package:petct/features/auth/presentation/pages/start_page.dart';
 import 'package:provider/provider.dart';
@@ -30,6 +31,21 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    return ChangeNotifierProvider<ThemeChanger>(
+      create: (_) => ThemeChanger(ThemeData.light()),
+      child: MaterialAppWithTheme(),
+    );
+  }
+}
+
+class MaterialAppWithTheme extends StatelessWidget {
+  const MaterialAppWithTheme({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Provider.of<ThemeChanger>(context);
     return MaterialApp(
       supportedLocales: suportedLocales,
       localizationsDelegates: [
@@ -38,9 +54,7 @@ class MyApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
       ],
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: theme.getTheme(),
       routes: <String, WidgetBuilder>{
         '/': (BuildContext context) => StartPage(),
         '/login': (BuildContext context) => LoginPage(),
