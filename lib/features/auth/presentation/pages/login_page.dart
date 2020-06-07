@@ -8,6 +8,7 @@ import 'package:petct/core/resources/keys.dart';
 import 'package:petct/core/resources/strings.dart';
 import 'package:petct/core/ui/button_app.dart';
 import 'package:petct/core/ui/custom_text_form_field.dart';
+import 'package:petct/core/ui/high_contrast_button.dart';
 import 'package:petct/core/ui/loading_widget.dart';
 import 'package:petct/core/utils/animation_slide_transition.dart';
 import 'package:petct/core/utils/failure_to_message_converter.dart';
@@ -48,22 +49,24 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               mainAxisSize: MainAxisSize.max,
               children: <Widget>[
-                Row(
-                  children: <Widget>[
-                    InkWell(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: Padding(
-                        padding: Dimensions.getEdgeInsets(context,
-                            top: 20, left: 10),
+                Padding(
+                  padding: Dimensions.getEdgeInsets(context, top: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
                         child: Icon(
                           Icons.arrow_back,
                           size: Dimensions.getConvertedWidthSize(context, 30),
                         ),
                       ),
-                    ),
-                  ],
+                      //High contrast button
+                      HighContrastButton(),
+                    ],
+                  ),
                 ),
                 SizedBox(
                   height: Dimensions.getConvertedHeightSize(context, 100),
