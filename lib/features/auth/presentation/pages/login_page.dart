@@ -8,6 +8,7 @@ import 'package:petct/core/resources/keys.dart';
 import 'package:petct/core/resources/strings.dart';
 import 'package:petct/core/ui/button_app.dart';
 import 'package:petct/core/ui/custom_text_form_field.dart';
+import 'package:petct/core/ui/high_contrast_button.dart';
 import 'package:petct/core/ui/loading_widget.dart';
 import 'package:petct/core/utils/animation_slide_transition.dart';
 import 'package:petct/core/utils/failure_to_message_converter.dart';
@@ -49,6 +50,7 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisSize: MainAxisSize.max,
               children: <Widget>[
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     InkWell(
                       onTap: () {
@@ -63,6 +65,8 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                     ),
+                    //High contrast button
+                    HighContrastButton(),
                   ],
                 ),
                 SizedBox(

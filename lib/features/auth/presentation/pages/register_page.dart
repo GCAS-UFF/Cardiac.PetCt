@@ -10,6 +10,7 @@ import 'package:petct/core/ui/app_name.dart';
 import 'package:petct/core/ui/button_app.dart';
 import 'package:petct/core/ui/custom_dropdown.dart';
 import 'package:petct/core/ui/custom_text_form_field.dart';
+import 'package:petct/core/ui/high_contrast_button.dart';
 import 'package:petct/core/ui/loading_widget.dart';
 import 'package:petct/core/utils/animation_slide_transition.dart';
 import 'package:petct/core/utils/date_helper.dart';
@@ -117,27 +118,23 @@ class _RegisterPageState extends State<RegisterPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                InkWell(
-                  //Back to start page button
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: Padding(
-                    padding:
-                        Dimensions.getEdgeInsets(context, top: 20, left: 10),
-                    child: Row(
-                      children: <Widget>[
-                        Icon(
+                Padding(
+                  padding: Dimensions.getEdgeInsets(context, top: 20, left: 10),
+                  child: Row(
+                    children: <Widget>[
+                      InkWell(
+                        //Back to start page button
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Icon(
                           Icons.arrow_back,
                           size: Dimensions.getConvertedWidthSize(context, 30),
                         ),
-                        SizedBox(
-                          width: Dimensions.getConvertedWidthSize(context, 86),
-                        ),
-                        // Logo image
-                        AppName()
-                      ],
-                    ),
+                      ),
+                      //High contrast button
+                      HighContrastButton(),
+                    ],
                   ),
                 ),
                 SizedBox(

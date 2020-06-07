@@ -4,6 +4,7 @@ import 'package:petct/core/resources/images.dart';
 import 'package:petct/core/resources/strings.dart';
 import 'package:petct/core/ui/app_name.dart';
 import 'package:petct/core/ui/button_app.dart';
+import 'package:petct/core/ui/high_contrast_button.dart';
 import 'package:petct/core/utils/animation_slide_transition.dart';
 import 'package:petct/core/utils/theme.dart';
 import 'package:petct/features/auth/presentation/pages/login_page.dart';
@@ -16,12 +17,8 @@ class StartPage extends StatefulWidget {
 }
 
 class _StartPageState extends State<StartPage> {
-  bool _switch = false;
-
   @override
   Widget build(BuildContext context) {
-    ThemeChanger _themeChanger = Provider.of<ThemeChanger>(context);
-
     return Scaffold(
       resizeToAvoidBottomPadding: false,
       body: Container(
@@ -34,25 +31,7 @@ class _StartPageState extends State<StartPage> {
             Column(
               children: <Widget>[
                 //High contrast button
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: <Widget>[
-                    Icon(
-                      Icons.brightness_high,
-                      size: Dimensions.getConvertedWidthSize(context, 25),
-                    ),
-                    Switch(
-                        value: _switch,
-                        onChanged: (bool data) {
-                          setState(() {
-                            _switch = !_switch;
-                            setState(() {
-                              _themeChanger.changeTheme();
-                            });
-                          });
-                        }),
-                  ],
-                ),
+                HighContrastButton(),
                 SizedBox(
                   height: Dimensions.getConvertedHeightSize(context, 50),
                 ),
