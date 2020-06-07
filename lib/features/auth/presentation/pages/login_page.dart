@@ -49,25 +49,24 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               mainAxisSize: MainAxisSize.max,
               children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    InkWell(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: Padding(
-                        padding: Dimensions.getEdgeInsets(context,
-                            top: 20, left: 10),
+                Padding(
+                  padding: Dimensions.getEdgeInsets(context, top: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
                         child: Icon(
                           Icons.arrow_back,
                           size: Dimensions.getConvertedWidthSize(context, 30),
                         ),
                       ),
-                    ),
-                    //High contrast button
-                    HighContrastButton(),
-                  ],
+                      //High contrast button
+                      HighContrastButton(),
+                    ],
+                  ),
                 ),
                 SizedBox(
                   height: Dimensions.getConvertedHeightSize(context, 100),

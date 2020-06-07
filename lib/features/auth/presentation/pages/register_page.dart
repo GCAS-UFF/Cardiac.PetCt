@@ -121,6 +121,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 Padding(
                   padding: Dimensions.getEdgeInsets(context, top: 20, left: 10),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       InkWell(
                         //Back to start page button

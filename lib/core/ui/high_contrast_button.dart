@@ -19,6 +19,9 @@ class _HighContrastButtonState extends State<HighContrastButton> {
         Icon(
           Icons.brightness_high,
           size: Dimensions.getConvertedWidthSize(context, 25),
+          color: _themeChanger.getThemeData() == true
+              ? null
+              : Colors.black.withOpacity(.6),
         ),
         Switch(
             value: _themeChanger.getThemeData(),
