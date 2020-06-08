@@ -6,7 +6,6 @@ import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/images.dart';
 import 'package:petct/core/resources/keys.dart';
 import 'package:petct/core/resources/strings.dart';
-import 'package:petct/core/ui/app_name.dart';
 import 'package:petct/core/ui/button_app.dart';
 import 'package:petct/core/ui/custom_text_form_field.dart';
 import 'package:petct/features/auth/presentation/bloc/auth_bloc.dart';

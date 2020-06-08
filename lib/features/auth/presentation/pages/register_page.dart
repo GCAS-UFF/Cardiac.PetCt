@@ -6,7 +6,6 @@ import 'package:petct/core/input_validators/email_input_validator.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/keys.dart';
 import 'package:petct/core/resources/strings.dart';
-import 'package:petct/core/ui/app_name.dart';
 import 'package:petct/core/ui/button_app.dart';
 import 'package:petct/core/ui/custom_dropdown.dart';
 import 'package:petct/core/ui/custom_text_form_field.dart';
@@ -34,7 +33,6 @@ class _RegisterPageState extends State<RegisterPage> {
     maskDefault: Strings.dateMask,
     onlyDigitsDefault: true,
   ).maskedTextFieldController;
-  TextEditingController _genderController;
   TextEditingController _passwordController;
   TextEditingController _repeatPasswordController;
   List<DropdownMenuItem<String>> _list;
@@ -45,8 +43,6 @@ class _RegisterPageState extends State<RegisterPage> {
     _passwordController =
         TextEditingController(text: _formData[Keys.LABEL_PASSWORD]);
     _nameController = TextEditingController(text: _formData[Keys.LABEL_NAME]);
-    _genderController =
-        TextEditingController(text: _formData[Keys.LABEL_GENDER]);
     _repeatPasswordController =
         TextEditingController(text: _formData[Keys.LABEL_REPEATPASSWORD]);
     super.initState();

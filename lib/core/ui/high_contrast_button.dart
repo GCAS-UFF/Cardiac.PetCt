@@ -16,20 +16,20 @@ class _HighContrastButtonState extends State<HighContrastButton> {
         Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: <Widget>[
-        Icon(
-          Icons.brightness_high,
-          size: Dimensions.getConvertedWidthSize(context, 25),
-          color: _themeChanger.getThemeData() == true
-              ? null
-              : Colors.black.withOpacity(.6),
+        InkWell(
+          onTap: () {
+            setState(() {
+              _themeChanger.changeTheme();
+            });
+          },
+          child: Icon(
+            Icons.brightness_high,
+            size: Dimensions.getConvertedWidthSize(context, 25),
+            color: _themeChanger.getThemeData() == true
+                ? null
+                : Colors.black.withOpacity(.6),
+          ),
         ),
-        Switch(
-            value: _themeChanger.getThemeData(),
-            onChanged: (bool data) {
-              setState(() {
-                _themeChanger.changeTheme();
-              });
-            }),
       ],
     );
   }

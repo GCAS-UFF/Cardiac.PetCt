@@ -6,10 +6,8 @@ import 'package:petct/core/ui/app_name.dart';
 import 'package:petct/core/ui/button_app.dart';
 import 'package:petct/core/ui/high_contrast_button.dart';
 import 'package:petct/core/utils/animation_slide_transition.dart';
-import 'package:petct/core/utils/theme.dart';
 import 'package:petct/features/auth/presentation/pages/login_page.dart';
 import 'package:petct/features/auth/presentation/pages/register_page.dart';
-import 'package:provider/provider.dart';
 
 class StartPage extends StatefulWidget {
   @override
