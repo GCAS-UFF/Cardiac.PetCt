@@ -75,6 +75,14 @@ class Strings {
   String messageCacheFailure;
   String messageUnknownError;
 
+  // Diet Meals Page
+  String firstDayTab;
+  String secondDayTab;
+  String thirdDayTab;
+  String itemTitle;
+  String quantityTitle;
+  String mealsTitle;
+
   Strings(this.context) {
     dateInputErrorValidation =
         intl.Strings.of(context).valueOf("date_input_error_validation");
@@ -144,5 +152,11 @@ class Strings {
     emailSuccessfullySent =
         intl.Strings.of(context).valueOf("email_successfully_sent");
     logoName = intl.Strings.of(context).valueOf("logo_name");
+    firstDayTab = intl.Strings.of(context).valueOf("first_day_tab");
+    secondDayTab = intl.Strings.of(context).valueOf("second_day_tab");
+    thirdDayTab = intl.Strings.of(context).valueOf("third_day_tab");
+    itemTitle = intl.Strings.of(context).valueOf("item_title");
+    quantityTitle = intl.Strings.of(context).valueOf("quantity_title");
+    mealsTitle = intl.Strings.of(context).valueOf("meals_title");
   }
 }

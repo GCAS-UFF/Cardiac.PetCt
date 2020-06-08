@@ -5,6 +5,7 @@ import 'package:internationalization/internationalization.dart';
 import 'package:petct/core/utils/theme.dart';
 import 'package:petct/features/auth/presentation/pages/register_page.dart';
 import 'package:petct/features/auth/presentation/pages/start_page.dart';
+import 'package:petct/features/diet-meals/presentation/pages/diet_meals.dart';
 import 'package:provider/provider.dart';
 import 'features/auth/presentation/bloc/auth_bloc.dart';
 import 'features/auth/presentation/pages/login_page.dart';
