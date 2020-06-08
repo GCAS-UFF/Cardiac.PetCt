@@ -26,14 +26,16 @@ class _MealItemState extends State<MealItem> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
+          //Meal item name
           Text(
             widget.mealItem.name,
             style: TextStyle(
               fontSize: Dimensions.getTextSize(context, 14),
             ),
           ),
+          //Meal item quantity
           Text(
-           widget.mealItem.quantity,
+            widget.mealItem.quantity,
             style: TextStyle(
               fontSize: Dimensions.getTextSize(context, 14),
             ),

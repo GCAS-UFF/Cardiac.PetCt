@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:petct/core/resources/dimensions.dart';
-import 'package:petct/core/ui/high_contrast_button.dart';
+import 'package:petct/core/resources/strings.dart';
 
 class TopBar extends StatelessWidget {
   @override
@@ -17,16 +17,19 @@ class TopBar extends StatelessWidget {
           ),
           // Meals title
           Text(
-            "Refeições",
+            Strings(context).mealsTitle,
             style: TextStyle(
               fontSize: Dimensions.getTextSize(context, 16),
             ),
           ),
-          HighContrastButton(),
           // Shopping list Icon
-          Icon(
-            Icons.shopping_cart,
-            size: Dimensions.getConvertedWidthSize(context, 25),
+          Column(
+            children: <Widget>[
+              Icon(
+                Icons.shopping_cart,
+                size: Dimensions.getConvertedWidthSize(context, 25),
+              ),
+            ],
           ),
         ],
       ),

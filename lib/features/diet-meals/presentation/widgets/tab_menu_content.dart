@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:petct/core/resources/dimensions.dart';
+import 'package:petct/core/resources/strings.dart';
 import 'package:petct/features/diet-meals/presentation/models/meal_model.dart';
 import 'package:petct/features/diet-meals/presentation/widgets/meal_item.dart';
 
@@ -19,6 +20,7 @@ class _TabMenuContentState extends State<TabMenuContent> {
         padding: Dimensions.getEdgeInsets(context, top: 20),
         alignment: Alignment.bottomCenter,
         child: Column(
+          //Build meals of the day
           children: widget.meals.map((data) {
             return Column(
               children: <Widget>[
@@ -35,8 +37,10 @@ class _TabMenuContentState extends State<TabMenuContent> {
                           ),
                         ),
                       ),
+                      //Meal informations
                       child: Row(
                         children: <Widget>[
+                          //Meal status icon
                           Icon(
                             Icons.check_circle_outline,
                             color: Colors.green,
@@ -48,6 +52,7 @@ class _TabMenuContentState extends State<TabMenuContent> {
                           ),
                           Row(
                             children: <Widget>[
+                              //Meal name
                               Text(
                                 data.name,
                                 style: TextStyle(
@@ -62,6 +67,7 @@ class _TabMenuContentState extends State<TabMenuContent> {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
+                              //Meal time
                               Text(
                                 data.mealTime,
                                 style: TextStyle(
@@ -74,6 +80,7 @@ class _TabMenuContentState extends State<TabMenuContent> {
                         ],
                       ),
                     ),
+                    //Meal options icon
                     Icon(
                       Icons.more_vert,
                       size: Dimensions.getConvertedWidthSize(context, 24),
@@ -88,15 +95,17 @@ class _TabMenuContentState extends State<TabMenuContent> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
+                        //Meal itens title
                         Text(
-                          "Item",
+                          Strings(context).itemTitle,
                           style: TextStyle(
                             fontSize: Dimensions.getTextSize(context, 14),
                             fontWeight: FontWeight.bold,
                           ),
                         ),
+                        //Meal quantity title
                         Text(
-                          "Quantidade",
+                          Strings(context).quantityTitle,
                           style: TextStyle(
                             fontSize: Dimensions.getTextSize(context, 14),
                             fontWeight: FontWeight.bold,
@@ -105,6 +114,7 @@ class _TabMenuContentState extends State<TabMenuContent> {
                       ],
                     ),
                     Column(
+                      //Build meal itens
                       children: data.mealItens.map((item) {
                         return MealItem(mealItem: item);
                       }).toList(),

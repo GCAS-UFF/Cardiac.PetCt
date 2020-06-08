@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:petct/core/resources/colors.dart';
 import 'package:petct/core/resources/dimensions.dart';
+import 'package:petct/core/resources/strings.dart';
 import 'package:petct/core/utils/theme.dart';
 import 'package:provider/provider.dart';
 
@@ -14,6 +15,7 @@ class DaysTabs extends StatelessWidget {
     ThemeChanger _themeChanger = Provider.of<ThemeChanger>(context);
     return Column(
       children: <Widget>[
+        //Tab Itens
         TabBar(
           controller: controller,
           indicatorColor: ColorsApp.greenApp,
@@ -25,6 +27,7 @@ class DaysTabs extends StatelessWidget {
           indicatorPadding:
               Dimensions.getEdgeInsetsFromLTRB(context, 0, 0, 0, 0),
           tabs: [
+            //First day tab
             Tab(
               child: Column(
                 children: <Widget>[
@@ -36,7 +39,7 @@ class DaysTabs extends StatelessWidget {
                   ),
                   Expanded(
                     child: Text(
-                      "Primeiro dia",
+                      Strings(context).firstDayTab,
                       style: TextStyle(
                         fontSize: Dimensions.getTextSize(context, 18),
                       ),
@@ -45,6 +48,7 @@ class DaysTabs extends StatelessWidget {
                 ],
               ),
             ),
+            //Second day tab
             Tab(
               child: Column(
                 children: <Widget>[
@@ -56,7 +60,7 @@ class DaysTabs extends StatelessWidget {
                   ),
                   Expanded(
                     child: Text(
-                      "Segundo dia",
+                      Strings(context).secondDayTab,
                       style: TextStyle(
                         fontSize: Dimensions.getTextSize(context, 18),
                       ),
@@ -65,6 +69,7 @@ class DaysTabs extends StatelessWidget {
                 ],
               ),
             ),
+            //Third day tab
             Tab(
               child: Column(
                 children: <Widget>[
@@ -76,7 +81,7 @@ class DaysTabs extends StatelessWidget {
                   ),
                   Expanded(
                     child: Text(
-                      "Terceiro dia",
+                      Strings(context).thirdDayTab,
                       style: TextStyle(
                         fontSize: Dimensions.getTextSize(context, 18),
                       ),

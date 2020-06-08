@@ -64,7 +64,13 @@
 
     "URINAPP_COMMENT_SECTION_RECOVER_PASSWORD_DIALOG": "----------",
     "recover_password_title": "Recuperação de senha",
-    "email_successfully_sent": "Email enviado com sucesso"
+    "email_successfully_sent": "Email enviado com sucesso",
 
-
+    "URINAPP_COMMENT_SECTION_DIET_MEALS": "----------",
+    "first_day_tab":"Primeiro dia",
+    "second_day_tab":"Segundo dia",
+    "third_day_tab":"Terceiro dia",
+    "item_title": "Item",
+    "quantity_title":"Quantidade",
+    "meals_title":"Refeições"
 }
