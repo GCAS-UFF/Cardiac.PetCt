@@ -33,7 +33,11 @@ class _TabMenuContentState extends State<TabMenuContent> {
                         border: Border(
                           bottom: BorderSide(
                             width: Dimensions.getConvertedWidthSize(context, 3),
-                            color: Colors.green,
+                                                        color: (data.status == MEALSTATUS.Recorded)
+                                ? Colors.green
+                                : (data.status == MEALSTATUS.Pending)
+                                    ? Colors.red
+                                    : Colors.grey,
                           ),
                         ),
                       ),
@@ -42,8 +46,14 @@ class _TabMenuContentState extends State<TabMenuContent> {
                         children: <Widget>[
                           //Meal status icon
                           Icon(
-                            Icons.check_circle_outline,
-                            color: Colors.green,
+                            (data.status == MEALSTATUS.Recorded)
+                                ? Icons.check_circle_outline
+                                : Icons.alarm,
+                            color: (data.status == MEALSTATUS.Recorded)
+                                ? Colors.green
+                                : (data.status == MEALSTATUS.Pending)
+                                    ? Colors.red
+                                    : Colors.grey,
                             size: Dimensions.getConvertedWidthSize(context, 30),
                           ),
                           SizedBox(

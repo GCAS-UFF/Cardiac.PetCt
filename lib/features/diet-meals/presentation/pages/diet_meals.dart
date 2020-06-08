@@ -33,7 +33,7 @@ class _DietMealsState extends State<DietMeals>
               MealItemModel(name: "Maçã", quantity: "2 unid."),
               MealItemModel(name: "Torrada", quantity: "3 unid.")
             ],
-            status: true,
+            status: MEALSTATUS.Recorded,
           ),
           MealModel(
             name: "Lanche da manhã",
@@ -43,7 +43,7 @@ class _DietMealsState extends State<DietMeals>
               MealItemModel(name: "Pão de forma", quantity: "2 unid."),
               MealItemModel(name: "Manga", quantity: "1 unid."),
             ],
-            status: false,
+            status: MEALSTATUS.Recorded,
           ),
           MealModel(
             name: "Almoço",
@@ -53,7 +53,7 @@ class _DietMealsState extends State<DietMeals>
               MealItemModel(name: "Pão de forma", quantity: "2 unid."),
               MealItemModel(name: "Manga", quantity: "1 unid."),
             ],
-            status: false,
+            status: MEALSTATUS.Pending,
           ),
           MealModel(
             name: "Lanche da tarde",
@@ -66,7 +66,7 @@ class _DietMealsState extends State<DietMeals>
               MealItemModel(name: "Suco de laranja", quantity: "500ml"),
               MealItemModel(name: "Pão de queijo", quantity: "3 unid."),
             ],
-            status: false,
+            status: MEALSTATUS.Waiting,
           ),
           MealModel(
             name: "Jantar",
@@ -79,7 +79,7 @@ class _DietMealsState extends State<DietMeals>
               MealItemModel(name: "Suco de laranja", quantity: "500ml"),
               MealItemModel(name: "Pão de queijo", quantity: "3 unid."),
             ],
-            status: false,
+            status: MEALSTATUS.Waiting,
           ),
         ],
       ),
@@ -93,7 +93,7 @@ class _DietMealsState extends State<DietMeals>
               MealItemModel(name: "Suco de laranja", quantity: "500ml"),
               MealItemModel(name: "Pão de queijo", quantity: "3 unid."),
             ],
-            status: false,
+            status: MEALSTATUS.Waiting,
           ),
           MealModel(
             name: "Lanche da manhã",
@@ -106,7 +106,7 @@ class _DietMealsState extends State<DietMeals>
               MealItemModel(name: "Pão de forma", quantity: "2 unid."),
               MealItemModel(name: "Manga", quantity: "1 unid."),
             ],
-            status: false,
+            status: MEALSTATUS.Waiting,
           ),
           MealModel(
             name: "Almoço",
@@ -117,7 +117,7 @@ class _DietMealsState extends State<DietMeals>
               MealItemModel(name: "Pão de forma", quantity: "2 unid."),
               MealItemModel(name: "Manga", quantity: "1 unid."),
             ],
-            status: false,
+            status: MEALSTATUS.Waiting,
           ),
           MealModel(
             name: "Lanche da tarde",
@@ -130,7 +130,7 @@ class _DietMealsState extends State<DietMeals>
               MealItemModel(name: "Suco de laranja", quantity: "500ml"),
               MealItemModel(name: "Pão de queijo", quantity: "3 unid."),
             ],
-            status: false,
+            status: MEALSTATUS.Waiting,
           ),
           MealModel(
             name: "Jantar",
@@ -143,7 +143,7 @@ class _DietMealsState extends State<DietMeals>
               MealItemModel(name: "Suco de laranja", quantity: "500ml"),
               MealItemModel(name: "Pão de queijo", quantity: "3 unid."),
             ],
-            status: false,
+            status: MEALSTATUS.Waiting,
           ),
         ],
       ),
@@ -157,7 +157,7 @@ class _DietMealsState extends State<DietMeals>
               MealItemModel(name: "Suco de laranja", quantity: "500ml"),
               MealItemModel(name: "Pão de queijo", quantity: "3 unid."),
             ],
-            status: false,
+            status: MEALSTATUS.Waiting,
           ),
           MealModel(
             name: "Lanche da manhã",
@@ -170,7 +170,7 @@ class _DietMealsState extends State<DietMeals>
               MealItemModel(name: "Pão de forma", quantity: "2 unid."),
               MealItemModel(name: "Manga", quantity: "1 unid."),
             ],
-            status: false,
+            status: MEALSTATUS.Waiting,
           ),
           MealModel(
             name: "Almoço",
@@ -181,7 +181,7 @@ class _DietMealsState extends State<DietMeals>
               MealItemModel(name: "Pão de forma", quantity: "2 unid."),
               MealItemModel(name: "Manga", quantity: "1 unid."),
             ],
-            status: false,
+            status: MEALSTATUS.Waiting,
           ),
           MealModel(
             name: "Lanche da tarde",
@@ -194,7 +194,7 @@ class _DietMealsState extends State<DietMeals>
               MealItemModel(name: "Suco de laranja", quantity: "500ml"),
               MealItemModel(name: "Pão de queijo", quantity: "3 unid."),
             ],
-            status: false,
+            status: MEALSTATUS.Waiting,
           ),
           MealModel(
             name: "Jantar",
@@ -207,7 +207,7 @@ class _DietMealsState extends State<DietMeals>
               MealItemModel(name: "Suco de laranja", quantity: "500ml"),
               MealItemModel(name: "Pão de queijo", quantity: "3 unid."),
             ],
-            status: false,
+            status: MEALSTATUS.Waiting,
           ),
         ],
       ),

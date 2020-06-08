@@ -4,7 +4,7 @@ import 'package:meta/meta.dart';
 class MealModel {
   String name;
   String mealTime;
-  bool status;
+  MEALSTATUS status;
   List<MealItemModel> mealItens;
 
   MealModel(
@@ -13,3 +13,5 @@ class MealModel {
       @required this.mealItens,
       @required this.status});
 }
+
+enum MEALSTATUS { Recorded, Pending, Waiting }

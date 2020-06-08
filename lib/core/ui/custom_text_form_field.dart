@@ -95,7 +95,6 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
             width: Dimensions.getConvertedWidthSize(context, 2.0),
           ),
         ),
-        fillColor: Colors.grey,
         enabledBorder: OutlineInputBorder(
           gapPadding: Dimensions.getConvertedWidthSize(context, 2.0),
           borderSide: BorderSide(
