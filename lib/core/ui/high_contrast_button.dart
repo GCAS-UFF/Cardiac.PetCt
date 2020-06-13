@@ -22,12 +22,25 @@ class _HighContrastButtonState extends State<HighContrastButton> {
               _themeChanger.changeTheme();
             });
           },
-          child: Icon(
-            Icons.brightness_high,
-            size: Dimensions.getConvertedWidthSize(context, 25),
-            color: _themeChanger.getThemeData() == true
-                ? null
-                : Colors.black.withOpacity(.6),
+          child: Row(
+            children: <Widget>[
+              Icon(
+                Icons.brightness_high,
+                size: Dimensions.getConvertedWidthSize(context, 25),
+                color: _themeChanger.getThemeData() == true
+                    ? null
+                    : Colors.black.withOpacity(.6),
+              ),
+              Container(
+                width: Dimensions.getConvertedWidthSize(context, 70),
+                child: Switch(
+                  value: _themeChanger.getThemeData(),
+                  onChanged: (bool data) {
+                    _themeChanger.changeTheme();
+                  },
+                ),
+              ),
+            ],
           ),
         ),
       ],

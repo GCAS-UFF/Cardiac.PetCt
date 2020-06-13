@@ -82,6 +82,9 @@ class Strings {
   String itemTitle;
   String quantityTitle;
   String mealsTitle;
+  String shoppingList;
+  String shareTitle;
+  String downloadTitle;
 
   Strings(this.context) {
     dateInputErrorValidation =
@@ -158,5 +161,8 @@ class Strings {
     itemTitle = intl.Strings.of(context).valueOf("item_title");
     quantityTitle = intl.Strings.of(context).valueOf("quantity_title");
     mealsTitle = intl.Strings.of(context).valueOf("meals_title");
+    shoppingList = intl.Strings.of(context).valueOf("shopping_list");
+    shareTitle = intl.Strings.of(context).valueOf("share_title");
+    downloadTitle = intl.Strings.of(context).valueOf("download_title");
   }
 }

@@ -225,13 +225,10 @@ class _DietMealsState extends State<DietMeals>
             TopBar(),
             //Day Tabs
             DaysTabs(
-              controller: _controller,
-              mealsDate: [
-                _daysMenu[0].menuDay,
-                _daysMenu[1].menuDay,
-                _daysMenu[2].menuDay
-              ],
-            ),
+                controller: _controller,
+                mealsDate: _daysMenu.map((data) {
+                  return data.menuDay;
+                }).toList()),
             //Tab Contents
             Expanded(
               child: TabBarView(

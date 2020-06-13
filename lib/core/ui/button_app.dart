@@ -8,8 +8,8 @@ class ButtonApp extends StatelessWidget {
   final String title;
   final Function onPressed;
   final ButtonType type;
-  final Widget preffixIcon;
-  final Widget suffixIcon;
+  final IconData preffixIcon;
+  final IconData suffixIcon;
 
   const ButtonApp({
     Key key,
@@ -42,18 +42,43 @@ class ButtonApp extends StatelessWidget {
             color:
                 (type == ButtonType.BUTTON_GREEN) ? ColorsApp.greenApp : null,
             onPressed: onPressed,
-            child: Text(
-              title,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: Dimensions.getTextSize(context, 16),
-                color: ((_themeChanger.getThemeData() == false) &&
-                        (type == ButtonType.BUTTON_GREEN))
-                    ? Colors.white
-                    : (type == ButtonType.BUTTON_ROUNDED)
-                        ? ColorsApp.greenApp
-                        : Colors.black,
-              ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  title,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: Dimensions.getTextSize(context, 16),
+                    color: ((_themeChanger.getThemeData() == false) &&
+                            (type == ButtonType.BUTTON_GREEN))
+                        ? Colors.white
+                        : (type == ButtonType.BUTTON_ROUNDED)
+                            ? ColorsApp.greenApp
+                            : Colors.black,
+                  ),
+                ),
+                (suffixIcon != null)
+                    ? Row(
+                        children: <Widget>[
+                          SizedBox(
+                            width:
+                                Dimensions.getConvertedWidthSize(context, 15),
+                          ),
+                          Icon(
+                            suffixIcon,
+                            size: Dimensions.getConvertedWidthSize(context, 25),
+                            color: ((_themeChanger.getThemeData() == false) &&
+                                    (type == ButtonType.BUTTON_GREEN))
+                                ? Colors.white
+                                : (type == ButtonType.BUTTON_ROUNDED)
+                                    ? ColorsApp.greenApp
+                                    : Colors.black,
+                          ),
+                        ],
+                      )
+                    : Container(),
+              ],
             ),
           ),
         ),
