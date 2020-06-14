@@ -41,6 +41,14 @@ dependencies:
   # Firebase Dependencies
   firebase_database: ^3.1.1
   firebase_auth: ^0.16.0
+  # Pdf
+  pdf: ^1.8.1
+  # Path Provider
+  path_provider: ^1.6.10
+  # Full PDF Viewer
+  flutter_full_pdf_viewer: ^1.0.6
+  # Feather Icons
+  feather_icons_flutter: ^4.7.4
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

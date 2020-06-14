@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/strings.dart';
 import 'package:petct/features/auth/presentation/pages/recover_password_form.dart';
+import 'package:petct/features/diet-meals/presentation/models/menu_day_model.dart';
 import 'package:petct/features/diet-meals/presentation/widgets/shopping_list_dialog.dart';
 
 class TopBar extends StatelessWidget {
+  final List<MenuDayModel> daysMenu;
+
+  const TopBar({Key key, this.daysMenu}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -34,7 +38,7 @@ class TopBar extends StatelessWidget {
                 context: context,
                 barrierDismissible: true,
                 builder: (BuildContext context) {
-                  return ShoppingListDialog();
+                  return ShoppingListDialog(daysMenu: daysMenu,);
                 },
               );
             },
