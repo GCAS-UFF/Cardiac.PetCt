@@ -75,5 +75,11 @@
     "meals_title":"Refeições",
     "shopping_list":"Lista de compras",
     "share_title":"Compartilhar",
-    "download_title":"Baixar"
+    "download_title":"Baixar",
+
+    "URINAPP_COMMENT_SECTION_BASE_PAGE": "----------",
+    "home_label":"Início",
+    "menu_label":"Dieta",
+    "alert_label":"Alerta",
+    "settings_label":"Configurações"
 }

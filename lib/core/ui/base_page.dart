@@ -31,23 +31,21 @@ class _BasePageState extends State<BasePage> {
         currentIndex: _currentTab,
         type: BottomNavigationBarType.fixed,
         unselectedIconTheme: IconThemeData(
-          color: Colors.grey,
           size: Dimensions.getConvertedWidthSize(context, 25),
         ),
         selectedIconTheme: IconThemeData(
-          color: Colors.grey,
+          color: ColorsApp.greenApp,
           size: Dimensions.getConvertedWidthSize(context, 25),
         ),
-        selectedFontSize: Dimensions.getTextSize(context, 18),
-        unselectedFontSize: Dimensions.getTextSize(context, 18),
+        selectedFontSize: Dimensions.getTextSize(context, 16),
+        unselectedFontSize: Dimensions.getTextSize(context, 16),
         items: [
           BottomNavigationBarItem(
             icon: Icon(
               FeatherIcons.home,
-              color: ColorsApp.greenApp,
             ),
             title: Text(
-              "Home",
+              "Início",
               style: TextStyle(
                 fontSize: Dimensions.getTextSize(context, 18),
               ),
@@ -56,7 +54,6 @@ class _BasePageState extends State<BasePage> {
           BottomNavigationBarItem(
             icon: Icon(
               FeatherIcons.calendar,
-              color: ColorsApp.greenApp,
               size: Dimensions.getConvertedWidthSize(context, 25),
             ),
             title: Text(
@@ -69,7 +66,6 @@ class _BasePageState extends State<BasePage> {
           BottomNavigationBarItem(
             icon: Icon(
               FeatherIcons.alertCircle,
-              color: ColorsApp.greenApp,
               size: Dimensions.getConvertedWidthSize(context, 25),
             ),
             title: Text(
@@ -82,7 +78,6 @@ class _BasePageState extends State<BasePage> {
           BottomNavigationBarItem(
             icon: Icon(
               FeatherIcons.user,
-              color: ColorsApp.greenApp,
               size: Dimensions.getConvertedWidthSize(context, 25),
             ),
             title: Text(

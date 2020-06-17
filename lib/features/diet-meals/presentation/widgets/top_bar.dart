@@ -1,7 +1,7 @@
+import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/strings.dart';
-import 'package:petct/features/auth/presentation/pages/recover_password_form.dart';
 import 'package:petct/features/diet-meals/presentation/models/menu_day_model.dart';
 import 'package:petct/features/diet-meals/presentation/widgets/shopping_list_dialog.dart';
 
@@ -18,7 +18,7 @@ class TopBar extends StatelessWidget {
         children: <Widget>[
           // Tutorial Icon
           Icon(
-            Icons.info_outline,
+            FeatherIcons.info,
             size: Dimensions.getConvertedWidthSize(context, 25),
           ),
           SizedBox(
@@ -45,7 +45,7 @@ class TopBar extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 Icon(
-                  Icons.shopping_cart,
+                  FeatherIcons.shoppingCart,
                   size: Dimensions.getConvertedWidthSize(context, 25),
                 ),
                 Text(

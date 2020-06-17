@@ -86,6 +86,12 @@ class Strings {
   String shareTitle;
   String downloadTitle;
 
+  //Base Page
+  String homeLabel;
+  String menuLabel;
+  String alertLabel;
+  String settingsLabel;
+
   Strings(this.context) {
     dateInputErrorValidation =
         intl.Strings.of(context).valueOf("date_input_error_validation");
@@ -164,5 +170,9 @@ class Strings {
     shoppingList = intl.Strings.of(context).valueOf("shopping_list");
     shareTitle = intl.Strings.of(context).valueOf("share_title");
     downloadTitle = intl.Strings.of(context).valueOf("download_title");
+    homeLabel = intl.Strings.of(context).valueOf("home_label");
+    menuLabel = intl.Strings.of(context).valueOf("menu_label");
+    alertLabel = intl.Strings.of(context).valueOf("alert_label");
+    settingsLabel = intl.Strings.of(context).valueOf("settings_label");
   }
 }

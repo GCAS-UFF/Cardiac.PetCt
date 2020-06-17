@@ -5,44 +5,24 @@ import 'package:path_provider/path_provider.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/strings.dart';
 import 'package:petct/core/ui/button_app.dart';
-import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:petct/features/diet-meals/presentation/models/menu_day_model.dart';
 import 'package:petct/features/diet-meals/presentation/pages/pdf_preview_screen.dart';
 
+import 'package:share_extend/share_extend.dart';
+
+
 class ShoppingListDialog extends StatelessWidget {
   final List<MenuDayModel> daysMenu;
 
-  final pdf = pw.Document();
-
   ShoppingListDialog({Key key, this.daysMenu}) : super(key: key);
-
-  writeOnPdf() {
-    pdf.addPage(
-      pw.MultiPage(
-          pageFormat: PdfPageFormat.a4,
-          margin: pw.EdgeInsets.all(32),
-          build: (pw.Context context) {
-            return <pw.Widget>[
-              pw.Header(
-                level: 0,
-                child: pw.Text("Lista de compras"),
-              ),
-              pw.Paragraph(text: "Dia 1 compre tudo isso")
-            ];
-          }),
-    );
-  }
-
-  Future savePdf() async {
-    Directory documentDirectory = await getApplicationDocumentsDirectory();
-
-    String documentPath = documentDirectory.path;
-
-    File file = File("$documentPath/petCT_shopping_list.pdf");
-    file.writeAsBytes(pdf.save());
-  }
-
+  final pdf = pw.Document(deflate: zlib.encode);
+  Directory externalDir;
+  List<List<String>> list = [
+    ["Dia 1", "blalba", "bla"],
+    ["Dia 1", "blalba", "bla"],
+    ["Dia 1", "blalba", "bla"],
+  ];
   @override
   Widget build(BuildContext context) {
     return TweenAnimationBuilder(
@@ -96,32 +76,9 @@ class ShoppingListDialog extends StatelessWidget {
                         // Share button
                         ButtonApp(
                           title: Strings(context).shareTitle,
-                          onPressed: () {},
+                          onPressed: () async => _generatePdf(context),
                           type: ButtonType.BUTTON_GREEN,
                           suffixIcon: Icons.share,
-                        ),
-                        // Download button
-                        ButtonApp(
-                          title: Strings(context).downloadTitle,
-                          onPressed: () async {
-                            writeOnPdf();
-                            await savePdf();
-                            Directory documentDirectory =
-                                await getApplicationDocumentsDirectory();
-
-                            String documentPath = documentDirectory.path;
-                            String fullPath =
-                                "$documentPath/petCT_shopping_list.pdf";
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    PdfPreviewScreen(path: fullPath),
-                              ),
-                            );
-                          },
-                          type: ButtonType.BUTTON_ROUNDED,
-                          suffixIcon: Icons.file_download,
                         ),
                       ],
                     ),
@@ -132,6 +89,30 @@ class ShoppingListDialog extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+
+  // Generate Pdf and Share
+  _generatePdf(BuildContext context) async {
+    pdf.addPage(
+      pw.MultiPage(
+          build: (c) => [
+                pw.Header(text: "Header PetCT"),
+                pw.Table.fromTextArray(context: c, data: <List<String>>[
+                  <String>["Primeiro dia", "Segundo dia", "Terceiro dia"],
+                  ...list.map((item) => [item[0], item[1], item[2]])
+                ])
+              ]),
+    );
+    String dir = (await getApplicationDocumentsDirectory()).path;
+    String path = '$dir/pdf.pdf';
+    final File file = File(path);
+    file.writeAsBytes(pdf.save());
+    ShareExtend.share(path, "file");
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => PdfPreviewScreen(path: path),
+      ),
     );
   }
 }
