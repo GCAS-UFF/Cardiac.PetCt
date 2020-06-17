@@ -73,5 +73,14 @@
     "third_day_tab":"Third day",
     "item_title": "Item",
     "quantity_title":"Quantity",
-    "meals_title":"Meals"
+    "meals_title":"Meals",
+    "shopping_list":"Shopping List",
+    "share_title":"Share",
+    "download_title":"Download",
+
+    "URINAPP_COMMENT_SECTION_BASE_PAGE": "----------",
+    "home_label":"Home",
+    "menu_label":"Menu",
+    "alert_label":"Alert",
+    "settings_label":"Settings"
 }

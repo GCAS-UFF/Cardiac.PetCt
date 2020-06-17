@@ -222,16 +222,15 @@ class _DietMealsState extends State<DietMeals>
         child: Column(
           children: <Widget>[
             //Top Bar
-            TopBar(),
+            TopBar(
+              daysMenu: _daysMenu,
+            ),
             //Day Tabs
             DaysTabs(
-              controller: _controller,
-              mealsDate: [
-                _daysMenu[0].menuDay,
-                _daysMenu[1].menuDay,
-                _daysMenu[2].menuDay
-              ],
-            ),
+                controller: _controller,
+                mealsDate: _daysMenu.map((data) {
+                  return data.menuDay;
+                }).toList()),
             //Tab Contents
             Expanded(
               child: TabBarView(
@@ -254,8 +253,6 @@ class _DietMealsState extends State<DietMeals>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: _buildBody(context),
-    );
+    return _buildBody(context);
   }
 }

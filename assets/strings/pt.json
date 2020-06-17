@@ -72,5 +72,14 @@
     "third_day_tab":"Terceiro dia",
     "item_title": "Item",
     "quantity_title":"Quantidade",
-    "meals_title":"Refeições"
+    "meals_title":"Refeições",
+    "shopping_list":"Lista de compras",
+    "share_title":"Compartilhar",
+    "download_title":"Baixar",
+
+    "URINAPP_COMMENT_SECTION_BASE_PAGE": "----------",
+    "home_label":"Início",
+    "menu_label":"Dieta",
+    "alert_label":"Alerta",
+    "settings_label":"Configurações"
 }

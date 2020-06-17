@@ -6,6 +6,7 @@ import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/images.dart';
 import 'package:petct/core/resources/keys.dart';
 import 'package:petct/core/resources/strings.dart';
+import 'package:petct/core/ui/base_page.dart';
 import 'package:petct/core/ui/button_app.dart';
 import 'package:petct/core/ui/custom_text_form_field.dart';
 import 'package:petct/core/ui/high_contrast_button.dart';
@@ -201,7 +202,7 @@ class _LoginPageState extends State<LoginPage> {
             Navigator.push(context, route);
           } else if (state is EmailNotVerifiedState) {
             Route route = AnimationSlideTransistion(
-              widget: DietMeals(),
+              widget: BasePage(),
             );
             Navigator.push(context, route);
           } else if (state is RecoverPasswordState) {
