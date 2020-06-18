@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:pdf/pdf.dart';
+import 'package:petct/core/resources/colors.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/strings.dart';
 import 'package:petct/core/ui/button_app.dart';
@@ -11,18 +13,12 @@ import 'package:petct/features/diet-meals/presentation/pages/pdf_preview_screen.
 
 import 'package:share_extend/share_extend.dart';
 
-
 class ShoppingListDialog extends StatelessWidget {
   final List<MenuDayModel> daysMenu;
 
   ShoppingListDialog({Key key, this.daysMenu}) : super(key: key);
   final pdf = pw.Document(deflate: zlib.encode);
   Directory externalDir;
-  List<List<String>> list = [
-    ["Dia 1", "blalba", "bla"],
-    ["Dia 1", "blalba", "bla"],
-    ["Dia 1", "blalba", "bla"],
-  ];
   @override
   Widget build(BuildContext context) {
     return TweenAnimationBuilder(
@@ -95,14 +91,122 @@ class ShoppingListDialog extends StatelessWidget {
   // Generate Pdf and Share
   _generatePdf(BuildContext context) async {
     pdf.addPage(
-      pw.MultiPage(
-          build: (c) => [
-                pw.Header(text: "Header PetCT"),
-                pw.Table.fromTextArray(context: c, data: <List<String>>[
-                  <String>["Primeiro dia", "Segundo dia", "Terceiro dia"],
-                  ...list.map((item) => [item[0], item[1], item[2]])
-                ])
-              ]),
+      pw.Page(build: (c) {
+        return pw.Column(
+          mainAxisSize: pw.MainAxisSize.min,
+          children: <pw.Widget>[
+            pw.Container(
+              margin: pw.EdgeInsets.only(bottom: 40),
+              padding: pw.EdgeInsets.only(bottom: 10),
+              decoration: pw.BoxDecoration(
+                border: pw.BoxBorder(
+                  bottom: true,
+                  color: PdfColor.fromInt(ColorsApp.greenApp.value),
+                ),
+              ),
+              child: pw.Row(
+                children: [
+                  pw.Text(
+                    "Lista de Compras Exame PetCT",
+                    style: pw.TextStyle(
+                      fontSize: Dimensions.getTextSize(context, 22),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            pw.Row(
+              crossAxisAlignment: pw.CrossAxisAlignment.start,
+              mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+              children: <pw.Widget>[
+                pw.Column(
+                  mainAxisSize: pw.MainAxisSize.min,
+                  crossAxisAlignment: pw.CrossAxisAlignment.start,
+                  children: <pw.Widget>[
+                    pw.Text(
+                      "Primeiro dia",
+                      style: pw.TextStyle(
+                        fontSize: Dimensions.getTextSize(context, 16),
+                      ),
+                    ),
+                    pw.Text(
+                      daysMenu[0].menuDay,
+                      style: pw.TextStyle(
+                        fontSize: Dimensions.getTextSize(context, 16),
+                      ),
+                    ),
+                    for (int i = 0; i < daysMenu[0].meals.length; i++)
+                      for (int j = 0;
+                          j < daysMenu[0].meals[i].mealItens.length;
+                          j++)
+                        pw.Text(
+                          daysMenu[0].meals[i].mealItens[j].name,
+                          style: pw.TextStyle(
+                            fontSize: Dimensions.getTextSize(context, 14),
+                          ),
+                        ),
+                  ],
+                ),
+                pw.Column(
+                  mainAxisSize: pw.MainAxisSize.min,
+                  crossAxisAlignment: pw.CrossAxisAlignment.start,
+                  children: <pw.Widget>[
+                    pw.Text(
+                      "Segundo dia",
+                      style: pw.TextStyle(
+                        fontSize: Dimensions.getTextSize(context, 16),
+                      ),
+                    ),
+                    pw.Text(
+                      daysMenu[1].menuDay,
+                      style: pw.TextStyle(
+                        fontSize: Dimensions.getTextSize(context, 16),
+                      ),
+                    ),
+                    for (int i = 0; i < daysMenu[1].meals.length; i++)
+                      for (int j = 0;
+                          j < daysMenu[1].meals[i].mealItens.length;
+                          j++)
+                        pw.Text(
+                          daysMenu[1].meals[i].mealItens[j].name,
+                          style: pw.TextStyle(
+                            fontSize: Dimensions.getTextSize(context, 14),
+                          ),
+                        ),
+                  ],
+                ),
+                pw.Column(
+                    mainAxisSize: pw.MainAxisSize.min,
+                    crossAxisAlignment: pw.CrossAxisAlignment.start,
+                    children: <pw.Widget>[
+                      pw.Text(
+                        "Terceiro dia",
+                        style: pw.TextStyle(
+                          fontSize: Dimensions.getTextSize(context, 16),
+                        ),
+                      ),
+                      pw.Text(
+                        daysMenu[2].menuDay,
+                        style: pw.TextStyle(
+                          fontSize: Dimensions.getTextSize(context, 16),
+                        ),
+                      ),
+                      for (int i = 0; i < daysMenu[2].meals.length; i++)
+                        for (int j = 0;
+                            j < daysMenu[2].meals[i].mealItens.length;
+                            j++)
+                          pw.Text(
+                            daysMenu[2].meals[i].mealItens[j].name,
+                            style: pw.TextStyle(
+                              fontSize: Dimensions.getTextSize(context, 14),
+                            ),
+                          ),
+                    ])
+              ],
+            ),
+          ],
+        );
+      }),
     );
     String dir = (await getApplicationDocumentsDirectory()).path;
     String path = '$dir/pdf.pdf';

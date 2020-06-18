@@ -81,6 +81,19 @@ class _DietMealsState extends State<DietMeals>
             ],
             status: MEALSTATUS.Waiting,
           ),
+          MealModel(
+            name: "Ceia",
+            mealTime: "19:30",
+            mealItens: [
+              MealItemModel(name: "Suco de abacaxi", quantity: "500ml"),
+              MealItemModel(name: "Pão de forma", quantity: "2 unid."),
+              MealItemModel(name: "Pão de forma", quantity: "2 unid."),
+              MealItemModel(name: "Manga", quantity: "1 unid."),
+              MealItemModel(name: "Suco de laranja", quantity: "500ml"),
+              MealItemModel(name: "Pão de queijo", quantity: "3 unid."),
+            ],
+            status: MEALSTATUS.Waiting,
+          ),
         ],
       ),
       MenuDayModel(
@@ -145,6 +158,19 @@ class _DietMealsState extends State<DietMeals>
             ],
             status: MEALSTATUS.Waiting,
           ),
+          MealModel(
+            name: "Ceia",
+            mealTime: "19:30",
+            mealItens: [
+              MealItemModel(name: "Suco de abacaxi", quantity: "500ml"),
+              MealItemModel(name: "Pão de forma", quantity: "2 unid."),
+              MealItemModel(name: "Pão de forma", quantity: "2 unid."),
+              MealItemModel(name: "Manga", quantity: "1 unid."),
+              MealItemModel(name: "Suco de laranja", quantity: "500ml"),
+              MealItemModel(name: "Pão de queijo", quantity: "3 unid."),
+            ],
+            status: MEALSTATUS.Waiting,
+          ),
         ],
       ),
       MenuDayModel(
@@ -198,6 +224,19 @@ class _DietMealsState extends State<DietMeals>
           ),
           MealModel(
             name: "Jantar",
+            mealTime: "19:30",
+            mealItens: [
+              MealItemModel(name: "Suco de abacaxi", quantity: "500ml"),
+              MealItemModel(name: "Pão de forma", quantity: "2 unid."),
+              MealItemModel(name: "Pão de forma", quantity: "2 unid."),
+              MealItemModel(name: "Manga", quantity: "1 unid."),
+              MealItemModel(name: "Suco de laranja", quantity: "500ml"),
+              MealItemModel(name: "Pão de queijo", quantity: "3 unid."),
+            ],
+            status: MEALSTATUS.Waiting,
+          ),
+          MealModel(
+            name: "Ceia",
             mealTime: "19:30",
             mealItens: [
               MealItemModel(name: "Suco de abacaxi", quantity: "500ml"),
