@@ -12,7 +12,7 @@ class TopBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: Dimensions.getEdgeInsets(context, bottom: 30),
+      padding: Dimensions.getEdgeInsets(context, bottom: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[

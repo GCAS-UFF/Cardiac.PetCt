@@ -77,6 +77,11 @@
     "shopping_list":"Shopping List",
     "share_title":"Share",
     "download_title":"Download",
+    "food_list_title":"Check the food:",
+    "allowed_label":"Allowed",
+    "forbidden_label":"Forbidden",
+    "allowed_food_title": "Allowed food",
+    "forbidden_food_title": "Forbidden food",
 
     "URINAPP_COMMENT_SECTION_BASE_PAGE": "----------",
     "home_label":"Home",

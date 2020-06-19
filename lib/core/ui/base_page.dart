@@ -29,6 +29,7 @@ class _BasePageState extends State<BasePage> {
       body: _tabs[_currentTab],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentTab,
+        showUnselectedLabels: false,
         type: BottomNavigationBarType.fixed,
         unselectedIconTheme: IconThemeData(
           size: Dimensions.getConvertedWidthSize(context, 25),
@@ -47,7 +48,7 @@ class _BasePageState extends State<BasePage> {
             title: Text(
               "Início",
               style: TextStyle(
-                fontSize: Dimensions.getTextSize(context, 18),
+                fontSize: Dimensions.getTextSize(context, 14),
               ),
             ),
           ),
@@ -59,7 +60,7 @@ class _BasePageState extends State<BasePage> {
             title: Text(
               "Dieta",
               style: TextStyle(
-                fontSize: Dimensions.getTextSize(context, 18),
+                fontSize: Dimensions.getTextSize(context, 14),
               ),
             ),
           ),
@@ -71,7 +72,7 @@ class _BasePageState extends State<BasePage> {
             title: Text(
               "Alertas",
               style: TextStyle(
-                fontSize: Dimensions.getTextSize(context, 18),
+                fontSize: Dimensions.getTextSize(context, 14),
               ),
             ),
           ),
@@ -83,7 +84,7 @@ class _BasePageState extends State<BasePage> {
             title: Text(
               "Perfil",
               style: TextStyle(
-                fontSize: Dimensions.getTextSize(context, 18),
+                fontSize: Dimensions.getTextSize(context, 14),
               ),
             ),
           ),

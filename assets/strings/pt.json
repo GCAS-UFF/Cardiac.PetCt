@@ -76,6 +76,11 @@
     "shopping_list":"Lista de compras",
     "share_title":"Compartilhar",
     "download_title":"Baixar",
+    "food_list_title":"Confira os alimentos:",
+    "allowed_label":"Permitidos",
+    "forbidden_label":"Proibidos",
+    "allowed_food_title": "Alimentos permitidos",
+    "forbidden_food_title": "Alimentos proibidos",
 
     "URINAPP_COMMENT_SECTION_BASE_PAGE": "----------",
     "home_label":"Início",

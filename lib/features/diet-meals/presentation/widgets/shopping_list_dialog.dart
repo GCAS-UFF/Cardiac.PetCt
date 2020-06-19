@@ -30,7 +30,7 @@ class ShoppingListDialog extends StatelessWidget {
           child: Dialog(
             child: SingleChildScrollView(
               child: Container(
-                height: Dimensions.getConvertedHeightSize(context, 250),
+                height: Dimensions.getConvertedHeightSize(context, 200),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(
                     Dimensions.getConvertedWidthSize(context, 10),
