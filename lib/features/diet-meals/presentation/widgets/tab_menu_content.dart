@@ -1,4 +1,6 @@
+import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:petct/core/resources/colors.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/strings.dart';
 import 'package:petct/features/diet-meals/presentation/models/meal_model.dart';
@@ -33,8 +35,8 @@ class _TabMenuContentState extends State<TabMenuContent> {
                         border: Border(
                           bottom: BorderSide(
                             width: Dimensions.getConvertedWidthSize(context, 3),
-                                                        color: (data.status == MEALSTATUS.Recorded)
-                                ? Colors.green
+                            color: (data.status == MEALSTATUS.Recorded)
+                                ? ColorsApp.greenApp
                                 : (data.status == MEALSTATUS.Pending)
                                     ? Colors.red
                                     : Colors.grey,
@@ -47,14 +49,14 @@ class _TabMenuContentState extends State<TabMenuContent> {
                           //Meal status icon
                           Icon(
                             (data.status == MEALSTATUS.Recorded)
-                                ? Icons.check_circle_outline
-                                : Icons.alarm,
+                                ? FeatherIcons.checkCircle
+                                : FeatherIcons.clock,
                             color: (data.status == MEALSTATUS.Recorded)
-                                ? Colors.green
+                                ? ColorsApp.greenApp
                                 : (data.status == MEALSTATUS.Pending)
                                     ? Colors.red
                                     : Colors.grey,
-                            size: Dimensions.getConvertedWidthSize(context, 30),
+                            size: Dimensions.getConvertedWidthSize(context, 25),
                           ),
                           SizedBox(
                             width:
@@ -66,23 +68,20 @@ class _TabMenuContentState extends State<TabMenuContent> {
                               Text(
                                 data.name,
                                 style: TextStyle(
-                                  fontSize: Dimensions.getTextSize(context, 18),
-                                  fontWeight: FontWeight.bold,
+                                  fontSize: Dimensions.getTextSize(context, 16),
                                 ),
                               ),
                               Text(
                                 " - ",
                                 style: TextStyle(
-                                  fontSize: Dimensions.getTextSize(context, 18),
-                                  fontWeight: FontWeight.bold,
+                                  fontSize: Dimensions.getTextSize(context, 16),
                                 ),
                               ),
                               //Meal time
                               Text(
                                 data.mealTime,
                                 style: TextStyle(
-                                  fontSize: Dimensions.getTextSize(context, 18),
-                                  fontWeight: FontWeight.bold,
+                                  fontSize: Dimensions.getTextSize(context, 16),
                                 ),
                               )
                             ],
@@ -92,7 +91,7 @@ class _TabMenuContentState extends State<TabMenuContent> {
                     ),
                     //Meal options icon
                     Icon(
-                      Icons.more_vert,
+                      FeatherIcons.moreVertical,
                       size: Dimensions.getConvertedWidthSize(context, 24),
                     )
                   ],
@@ -109,7 +108,7 @@ class _TabMenuContentState extends State<TabMenuContent> {
                         Text(
                           Strings(context).itemTitle,
                           style: TextStyle(
-                            fontSize: Dimensions.getTextSize(context, 14),
+                            fontSize: Dimensions.getTextSize(context, 12),
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -117,7 +116,7 @@ class _TabMenuContentState extends State<TabMenuContent> {
                         Text(
                           Strings(context).quantityTitle,
                           style: TextStyle(
-                            fontSize: Dimensions.getTextSize(context, 14),
+                            fontSize: Dimensions.getTextSize(context, 12),
                             fontWeight: FontWeight.bold,
                           ),
                         ),

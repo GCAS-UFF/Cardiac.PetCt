@@ -85,6 +85,11 @@ class Strings {
   String shoppingList;
   String shareTitle;
   String downloadTitle;
+  String foodListTitle;
+  String allowedLabel;
+  String forbiddenLabel;
+  String forbiddenFoodTitle;
+  String allowedFoodTitle;
 
   //Base Page
   String homeLabel;
@@ -174,5 +179,10 @@ class Strings {
     menuLabel = intl.Strings.of(context).valueOf("menu_label");
     alertLabel = intl.Strings.of(context).valueOf("alert_label");
     settingsLabel = intl.Strings.of(context).valueOf("settings_label");
+    foodListTitle = intl.Strings.of(context).valueOf("food_list_title");
+    allowedLabel = intl.Strings.of(context).valueOf("allowed_label");
+    forbiddenLabel = intl.Strings.of(context).valueOf("forbidden_label");
+    forbiddenFoodTitle = intl.Strings.of(context).valueOf("forbidden_food_title");
+    allowedFoodTitle = intl.Strings.of(context).valueOf("allowed_food_title");
   }
 }

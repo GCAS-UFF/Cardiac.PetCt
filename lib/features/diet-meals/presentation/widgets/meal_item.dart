@@ -30,14 +30,14 @@ class _MealItemState extends State<MealItem> {
           Text(
             widget.mealItem.name,
             style: TextStyle(
-              fontSize: Dimensions.getTextSize(context, 14),
+              fontSize: Dimensions.getTextSize(context, 12),
             ),
           ),
           //Meal item quantity
           Text(
             widget.mealItem.quantity,
             style: TextStyle(
-              fontSize: Dimensions.getTextSize(context, 14),
+              fontSize: Dimensions.getTextSize(context, 12),
             ),
           ),
         ],

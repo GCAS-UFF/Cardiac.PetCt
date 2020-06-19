@@ -34,14 +34,14 @@ class DaysTabs extends StatelessWidget {
                   Text(
                     mealsDate[0],
                     style: TextStyle(
-                      fontSize: Dimensions.getTextSize(context, 16),
+                      fontSize: Dimensions.getTextSize(context, 14),
                     ),
                   ),
                   Expanded(
                     child: Text(
                       Strings(context).firstDayTab,
                       style: TextStyle(
-                        fontSize: Dimensions.getTextSize(context, 18),
+                        fontSize: Dimensions.getTextSize(context, 16),
                       ),
                     ),
                   ),
@@ -55,14 +55,14 @@ class DaysTabs extends StatelessWidget {
                   Text(
                     mealsDate[1],
                     style: TextStyle(
-                      fontSize: Dimensions.getTextSize(context, 16),
+                      fontSize: Dimensions.getTextSize(context, 14),
                     ),
                   ),
                   Expanded(
                     child: Text(
                       Strings(context).secondDayTab,
                       style: TextStyle(
-                        fontSize: Dimensions.getTextSize(context, 18),
+                        fontSize: Dimensions.getTextSize(context, 16),
                       ),
                     ),
                   ),
@@ -76,14 +76,14 @@ class DaysTabs extends StatelessWidget {
                   Text(
                     mealsDate[2],
                     style: TextStyle(
-                      fontSize: Dimensions.getTextSize(context, 16),
+                      fontSize: Dimensions.getTextSize(context, 14),
                     ),
                   ),
                   Expanded(
                     child: Text(
                       Strings(context).thirdDayTab,
                       style: TextStyle(
-                        fontSize: Dimensions.getTextSize(context, 18),
+                        fontSize: Dimensions.getTextSize(context, 16),
                       ),
                     ),
                   ),

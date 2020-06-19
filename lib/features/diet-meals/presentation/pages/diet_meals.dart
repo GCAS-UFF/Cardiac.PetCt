@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/features/diet-meals/presentation/models/meal_model.dart';
 import 'package:petct/features/diet-meals/presentation/models/menu_day_model.dart';
+import 'package:petct/features/diet-meals/presentation/widgets/allowed_forbidden_food.dart';
 import 'package:petct/features/diet-meals/presentation/widgets/days_tabs.dart';
 import 'package:petct/features/diet-meals/presentation/models/meal_item_model.dart';
 import 'package:petct/features/diet-meals/presentation/widgets/tab_menu_content.dart';
@@ -264,6 +265,8 @@ class _DietMealsState extends State<DietMeals>
             TopBar(
               daysMenu: _daysMenu,
             ),
+            // Allowed and Forbidden food list
+            AllowedForbiddenFood(),
             //Day Tabs
             DaysTabs(
                 controller: _controller,
