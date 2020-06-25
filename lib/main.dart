@@ -4,11 +4,12 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:internationalization/internationalization.dart';
 import 'package:petct/core/utils/theme.dart';
 import 'package:petct/features/auth/presentation/pages/register_page.dart';
-import 'package:petct/features/auth/presentation/pages/start_page.dart';
 import 'package:provider/provider.dart';
 import 'features/auth/presentation/bloc/auth_bloc.dart';
 import 'features/auth/presentation/pages/login_page.dart';
 import 'features/auth/presentation/pages/verify_email_page.dart';
+import 'features/intro-form/exam_intro_form.dart';
+import 'features/intro-form/meals_intro_form.dart';
 import 'injection_container.dart' as di;
 
 void main() async {
@@ -56,10 +57,12 @@ class MaterialAppWithTheme extends StatelessWidget {
       title: 'Flutter Demo',
       theme: theme.getTheme(),
       routes: <String, WidgetBuilder>{
-        '/': (BuildContext context) => StartPage(),
+        '/': (BuildContext context) => ExamIntroForm(),
         '/login': (BuildContext context) => LoginPage(),
         '/register': (BuildContext context) => RegisterPage(),
         '/verifyEmail': (BuildContext context) => VerifyEmailPage(),
+        '/examIntroForm': (BuildContext context) => ExamIntroForm(),
+        '/mealsIntroForm': (BuildContext context) => MealsIntroForm(),
       },
     );
   }
