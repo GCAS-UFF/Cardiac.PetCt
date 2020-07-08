@@ -97,6 +97,25 @@ class Strings {
   String alertLabel;
   String settingsLabel;
 
+  //Exam Intro Form
+  String aboutExam;
+  String fillExamDetails;
+  String dateTimeExam;
+  String hourLabel;
+  String examLocation;
+  String localLabel;
+
+  //Meals Intro Form
+  String selectMealsTime;
+  String mealsTimeTitle;
+  String breakfastLabel;
+  String morningsnackLabel;
+  String lunchLabel;
+  String afternoonsnackLabel;
+  String dinnerLabel;
+  String supperLabel;
+  String readyLabel;
+
   Strings(this.context) {
     dateInputErrorValidation =
         intl.Strings.of(context).valueOf("date_input_error_validation");
@@ -182,7 +201,24 @@ class Strings {
     foodListTitle = intl.Strings.of(context).valueOf("food_list_title");
     allowedLabel = intl.Strings.of(context).valueOf("allowed_label");
     forbiddenLabel = intl.Strings.of(context).valueOf("forbidden_label");
-    forbiddenFoodTitle = intl.Strings.of(context).valueOf("forbidden_food_title");
+    forbiddenFoodTitle =
+        intl.Strings.of(context).valueOf("forbidden_food_title");
     allowedFoodTitle = intl.Strings.of(context).valueOf("allowed_food_title");
+    aboutExam = intl.Strings.of(context).valueOf("about_exam");
+    fillExamDetails = intl.Strings.of(context).valueOf("fill_exam_details");
+    dateTimeExam = intl.Strings.of(context).valueOf("date_time_exam");
+    hourLabel = intl.Strings.of(context).valueOf("hour_label");
+    examLocation = intl.Strings.of(context).valueOf("exam_location");
+    localLabel = intl.Strings.of(context).valueOf("local_label");
+    selectMealsTime = intl.Strings.of(context).valueOf("select_meals_time");
+    mealsTimeTitle = intl.Strings.of(context).valueOf("meals_time_title");
+    breakfastLabel = intl.Strings.of(context).valueOf("breakfast_label");
+    morningsnackLabel = intl.Strings.of(context).valueOf("morningsnack_label");
+    lunchLabel = intl.Strings.of(context).valueOf("lunch_label");
+    afternoonsnackLabel =
+        intl.Strings.of(context).valueOf("afternoonsnack_label");
+    dinnerLabel = intl.Strings.of(context).valueOf("dinner_label");
+    supperLabel = intl.Strings.of(context).valueOf("supper_label");
+    readyLabel = intl.Strings.of(context).valueOf("ready_label");
   }
 }

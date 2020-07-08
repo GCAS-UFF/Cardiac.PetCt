@@ -20,52 +20,53 @@ class _CustomDropdownState extends State<CustomDropdown> {
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField<String>(
-        decoration: InputDecoration(
-          hintStyle: TextStyle(
-            fontSize: Dimensions.getTextSize(context, 18),
-          ),
-          contentPadding:
-              Dimensions.getEdgeInsets(context, left: 10, right: 10, top: 0),
-          hoverColor: Colors.grey,
-          focusedBorder: OutlineInputBorder(
-            gapPadding: Dimensions.getConvertedWidthSize(context, 5.0),
-            borderSide: BorderSide(
-              color: ColorsApp.greenApp,
-              width: Dimensions.getConvertedWidthSize(context, 2.0),
-            ),
-          ),
-          fillColor: Colors.grey,
-          enabledBorder: OutlineInputBorder(
-            gapPadding: Dimensions.getConvertedWidthSize(context, 2.0),
-            borderSide: BorderSide(
-              width: Dimensions.getConvertedWidthSize(context, 1.0),
-            ),
-          ),
-          errorBorder: OutlineInputBorder(
-            gapPadding: Dimensions.getConvertedWidthSize(context, 2.0),
-            borderSide: BorderSide(
-              color: Colors.red,
-              width: Dimensions.getConvertedWidthSize(context, 1.0),
-            ),
-          ),
-          focusedErrorBorder: OutlineInputBorder(
-            gapPadding: Dimensions.getConvertedWidthSize(context, 2.0),
-            borderSide: BorderSide(
-              color: Colors.red,
-              width: Dimensions.getConvertedWidthSize(context, 1.0),
-            ),
-          ),
-          errorStyle: TextStyle(
-            color: Colors.red,
-            fontSize: Dimensions.getTextSize(context, 11.0),
+      decoration: InputDecoration(
+        hintStyle: TextStyle(
+          fontSize: Dimensions.getTextSize(context, 18),
+        ),
+        contentPadding:
+            Dimensions.getEdgeInsets(context, left: 10, right: 10, top: 0),
+        hoverColor: Colors.grey,
+        focusedBorder: OutlineInputBorder(
+          gapPadding: Dimensions.getConvertedWidthSize(context, 5.0),
+          borderSide: BorderSide(
+            color: ColorsApp.greenApp,
+            width: Dimensions.getConvertedWidthSize(context, 2.0),
           ),
         ),
-        validator: (value) =>
-            value == null ? Strings(context).emptyFieldMessage : null,
-        hint: widget.hint,
-        isExpanded: true,
-        value: widget.value,
-        items: widget.options,
-        onChanged: widget.onChange);
+        fillColor: Colors.grey,
+        enabledBorder: OutlineInputBorder(
+          gapPadding: Dimensions.getConvertedWidthSize(context, 2.0),
+          borderSide: BorderSide(
+            width: Dimensions.getConvertedWidthSize(context, 1.0),
+          ),
+        ),
+        errorBorder: OutlineInputBorder(
+          gapPadding: Dimensions.getConvertedWidthSize(context, 2.0),
+          borderSide: BorderSide(
+            color: Colors.red,
+            width: Dimensions.getConvertedWidthSize(context, 1.0),
+          ),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          gapPadding: Dimensions.getConvertedWidthSize(context, 2.0),
+          borderSide: BorderSide(
+            color: Colors.red,
+            width: Dimensions.getConvertedWidthSize(context, 1.0),
+          ),
+        ),
+        errorStyle: TextStyle(
+          color: Colors.red,
+          fontSize: Dimensions.getTextSize(context, 11.0),
+        ),
+      ),
+      validator: (value) =>
+          value == null ? Strings(context).emptyFieldMessage : null,
+      hint: widget.hint,
+      isExpanded: true,
+      value: widget.value,
+      items: widget.options,
+      onChanged: widget.onChange,
+    );
   }
 }

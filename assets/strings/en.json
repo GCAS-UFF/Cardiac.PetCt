@@ -87,5 +87,25 @@
     "home_label":"Home",
     "menu_label":"Menu",
     "alert_label":"Alert",
-    "settings_label":"Settings"
+    "settings_label":"Settings",
+
+    
+    "URINAPP_COMMENT_SECTION_EXAM_INTRO_FORM": "----------",
+    "about_exam":"Aboute the exam",
+    "fill_exam_details":"Enter your exam data",
+    "date_time_exam":"Exam date and time",
+    "hour_label":"Time",
+    "exam_location":"Exam location",
+    "local_label":"Local",
+
+    "URINAPP_COMMENT_SECTION_MEALS_INTRO_FORM": "----------",
+    "select_meals_time":"Select your meal time",
+    "meals_time_title":"Meal times",
+    "breakfast_label":"Breakfast",
+    "morningsnack_label":"Morning snack",
+    "lunch_label":"Lunch",
+    "afternoonsnack_label":"Afternoon snack",
+    "dinner_label":"Dinner",
+    "supper_label":"Supper",
+    "ready_label":"Done"
 }
