@@ -86,5 +86,24 @@
     "home_label":"Início",
     "menu_label":"Dieta",
     "alert_label":"Alerta",
-    "settings_label":"Configurações"
+    "settings_label":"Configurações",
+
+    "URINAPP_COMMENT_SECTION_EXAM_INTRO_FORM": "----------",
+    "about_exam":"Sobre o exame",
+    "fill_exam_details":"Digite os dados do seu exame",
+    "date_time_exam":"Data e hora do exame",
+    "hour_label":"Hora",
+    "exam_location":"Local do exame",
+    "local_label":"Local",
+
+    "URINAPP_COMMENT_SECTION_MEALS_INTRO_FORM": "----------",
+    "select_meals_time":"Selecione os horários de suas refeições",
+    "meals_time_title":"Horário das refeições",
+    "breakfast_label":"Café da manhã",
+    "morningsnack_label":"Lanche da manhã",
+    "lunch_label":"Almoço",
+    "afternoonsnack_label":"Lanche da tarde",
+    "dinner_label":"Jantar",
+    "supper_label":"Ceia",
+    "ready_label":"Pronto"
 }

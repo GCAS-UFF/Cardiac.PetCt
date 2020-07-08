@@ -2,6 +2,7 @@ import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:petct/core/resources/colors.dart';
 import 'package:petct/core/resources/dimensions.dart';
+import 'package:petct/core/resources/strings.dart';
 import 'package:petct/features/diet-meals/presentation/pages/diet_meals.dart';
 
 class BasePage extends StatefulWidget {
@@ -46,7 +47,7 @@ class _BasePageState extends State<BasePage> {
               FeatherIcons.home,
             ),
             title: Text(
-              "Início",
+              Strings(context).homeLabel,
               style: TextStyle(
                 fontSize: Dimensions.getTextSize(context, 14),
               ),
@@ -58,7 +59,7 @@ class _BasePageState extends State<BasePage> {
               size: Dimensions.getConvertedWidthSize(context, 25),
             ),
             title: Text(
-              "Dieta",
+              Strings(context).menuLabel,
               style: TextStyle(
                 fontSize: Dimensions.getTextSize(context, 14),
               ),
@@ -70,7 +71,7 @@ class _BasePageState extends State<BasePage> {
               size: Dimensions.getConvertedWidthSize(context, 25),
             ),
             title: Text(
-              "Alertas",
+              Strings(context).alertLabel,
               style: TextStyle(
                 fontSize: Dimensions.getTextSize(context, 14),
               ),
@@ -82,7 +83,7 @@ class _BasePageState extends State<BasePage> {
               size: Dimensions.getConvertedWidthSize(context, 25),
             ),
             title: Text(
-              "Perfil",
+              Strings(context).settingsLabel,
               style: TextStyle(
                 fontSize: Dimensions.getTextSize(context, 14),
               ),
