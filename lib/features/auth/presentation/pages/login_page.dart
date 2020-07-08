@@ -17,6 +17,7 @@ import 'package:petct/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:petct/features/auth/presentation/pages/recover_password_form.dart';
 import 'package:petct/features/auth/presentation/pages/verify_email_page.dart';
 import 'package:petct/features/diet-meals/presentation/pages/diet_meals.dart';
+import 'package:petct/features/intro-form/pages/exam_intro_form.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -202,7 +203,7 @@ class _LoginPageState extends State<LoginPage> {
             Navigator.push(context, route);
           } else if (state is EmailNotVerifiedState) {
             Route route = AnimationSlideTransistion(
-              widget: BasePage(),
+              widget: ExamIntroForm(),
             );
             Navigator.push(context, route);
           } else if (state is RecoverPasswordState) {

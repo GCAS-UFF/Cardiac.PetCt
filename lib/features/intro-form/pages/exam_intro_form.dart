@@ -1,9 +1,15 @@
 import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:petct/core/resources/colors.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/ui/button_app.dart';
+import 'package:petct/core/ui/custom_dropdown.dart';
+import 'package:petct/core/ui/date_picker_app.dart';
+import 'package:petct/core/ui/time_picker_app.dart';
 import 'package:petct/core/utils/animation_slide_transition.dart';
-import 'package:petct/features/intro-form/meals_intro_form.dart';
+import 'package:petct/core/utils/date_helper.dart';
+
+import 'meals_intro_form.dart';
 
 class ExamIntroForm extends StatefulWidget {
   @override
@@ -11,6 +17,8 @@ class ExamIntroForm extends StatefulWidget {
 }
 
 class _ExamIntroFormState extends State<ExamIntroForm> {
+  DateTime _dateTime;
+  String _timeDay;
   Widget _buildBody(BuildContext context) {
     return Container(
       alignment: Alignment.center,
@@ -59,24 +67,27 @@ class _ExamIntroFormState extends State<ExamIntroForm> {
               ],
             ),
           ),
-          InkWell(
-            onTap: () {
-              showDatePicker(
-                context: context,
-                initialDate: DateTime.now(),
-                firstDate: DateTime(DateTime.now().year - 5),
-                lastDate: DateTime(DateTime.now().year + 5),
-              );
-            },
-            child: Container(
-              margin: Dimensions.getEdgeInsets(context, top: 25, bottom: 25),
-              height: Dimensions.getConvertedHeightSize(context, 60),
-              color: Colors.blue,
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                children: <Widget>[],
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              DatePickerApp(
+                value: _dateTime,
+                onChange: (DateTime date) {
+                  setState(() {
+                    _dateTime = date;
+                  });
+                },
               ),
-            ),
+              TimePickerApp(
+                label: "Hora",
+                value: _timeDay,
+                onChange: (TimeOfDay time) {
+                  setState(() {
+                    _timeDay = time.format(context);
+                  });
+                },
+              )
+            ],
           ),
           Container(
             padding: Dimensions.getEdgeInsets(context, bottom: 10, left: 30),
@@ -99,29 +110,15 @@ class _ExamIntroFormState extends State<ExamIntroForm> {
               ],
             ),
           ),
-          InkWell(
-            onTap: () {
-              showDatePicker(
-                context: context,
-                initialDate: DateTime.now(),
-                firstDate: DateTime(DateTime.now().year - 5),
-                lastDate: DateTime(DateTime.now().year + 5),
-              );
-            },
-            child: Container(
-              margin: Dimensions.getEdgeInsets(context, top: 25, bottom: 25),
-              height: Dimensions.getConvertedHeightSize(context, 60),
-              color: Colors.blue,
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                children: <Widget>[],
-              ),
-            ),
+          Padding(
+            padding: Dimensions.getEdgeInsetsFromLTRB(context, 25, 20, 25, 20),
+            child: CustomDropdown(hint: Text("Local")),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
               Container(
+                margin: Dimensions.getEdgeInsets(context, right: 25),
                 width: Dimensions.getConvertedWidthSize(context, 200),
                 child: ButtonApp(
                   title: "Próximo",
