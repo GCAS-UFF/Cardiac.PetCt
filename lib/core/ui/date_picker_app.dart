@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:petct/core/resources/colors.dart';
 import 'package:petct/core/resources/dimensions.dart';
+import 'package:petct/core/resources/strings.dart';
 import 'package:petct/core/utils/date_helper.dart';
 import 'package:petct/core/utils/theme.dart';
 import 'package:provider/provider.dart';
@@ -15,11 +16,13 @@ class DatePickerApp extends StatelessWidget {
     ThemeChanger _themeChanger = Provider.of<ThemeChanger>(context);
     return Theme(
       data: ThemeData.light().copyWith(
+        //Date picker color
         primaryColor: ColorsApp.greenApp,
       ),
       child: new Builder(
         builder: (context) => InkWell(
           onTap: () {
+            // Show date picker action
             showDatePicker(
               context: context,
               initialDate: DateTime.now(),
@@ -55,6 +58,7 @@ class DatePickerApp extends StatelessWidget {
                   children: <Widget>[
                     Expanded(
                       child: Text(
+                        //Value
                         value == null
                             ? ""
                             : DateHelper.convertDateToString(
@@ -68,6 +72,7 @@ class DatePickerApp extends StatelessWidget {
                         ),
                       ),
                     ),
+                    // Dropdown icon
                     Icon(
                       Icons.arrow_drop_down,
                       size: Dimensions.getConvertedWidthSize(context, 30),
@@ -78,6 +83,7 @@ class DatePickerApp extends StatelessWidget {
                   ],
                 ),
               ),
+              //Label
               Positioned(
                 top: Dimensions.getConvertedHeightSize(context, 11),
                 left: Dimensions.getConvertedHeightSize(context, 10),
@@ -90,7 +96,7 @@ class DatePickerApp extends StatelessWidget {
                     mainAxisSize: MainAxisSize.max,
                     children: <Widget>[
                       Text(
-                        "Data",
+                        Strings(context).dateLabel,
                         style: TextStyle(
                           fontSize: Dimensions.getTextSize(context, 15),
                           fontWeight: FontWeight.w600,

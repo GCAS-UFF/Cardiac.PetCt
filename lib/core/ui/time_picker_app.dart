@@ -16,11 +16,13 @@ class TimePickerApp extends StatelessWidget {
     ThemeChanger _themeChanger = Provider.of<ThemeChanger>(context);
     return Theme(
       data: ThemeData.light().copyWith(
+        //Time picker color
         primaryColor: ColorsApp.greenApp,
       ),
       child: new Builder(
         builder: (context) => InkWell(
           onTap: () {
+            //Show time picker action
             showTimePicker(
               context: context,
               initialTime: TimeOfDay.now(),
@@ -50,6 +52,7 @@ class TimePickerApp extends StatelessWidget {
                   children: <Widget>[
                     Expanded(
                       child: Text(
+                        //Value
                         value == null ? "" : value.toString(),
                         style: TextStyle(
                           fontSize: Dimensions.getTextSize(
@@ -59,6 +62,7 @@ class TimePickerApp extends StatelessWidget {
                         ),
                       ),
                     ),
+                    //Dropdown icon
                     Icon(
                       Icons.arrow_drop_down,
                       size: Dimensions.getConvertedWidthSize(context, 30),
@@ -69,6 +73,7 @@ class TimePickerApp extends StatelessWidget {
                   ],
                 ),
               ),
+              // Label 
               Positioned(
                 top: Dimensions.getConvertedHeightSize(context, 11),
                 left: Dimensions.getConvertedHeightSize(context, 10),

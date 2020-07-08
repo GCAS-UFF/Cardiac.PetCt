@@ -4,6 +4,7 @@ import 'package:petct/core/resources/colors.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/strings.dart';
 import 'package:petct/features/diet-meals/presentation/pages/diet_meals.dart';
+import 'package:petct/features/settings/pages/settings_screen.dart';
 
 class BasePage extends StatefulWidget {
   @override
@@ -20,9 +21,7 @@ class _BasePageState extends State<BasePage> {
     Center(
       child: Text("Notificações"),
     ),
-    Center(
-      child: Text("Perfil"),
-    ),
+    SettingsScreen(),
   ];
   @override
   Widget build(BuildContext context) {

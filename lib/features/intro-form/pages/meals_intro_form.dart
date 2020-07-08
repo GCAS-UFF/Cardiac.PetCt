@@ -44,6 +44,7 @@ class _MealsIntroFormState extends State<MealsIntroForm> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
+                  // Back button
                   InkWell(
                     onTap: () {
                       Navigator.pop(context);
@@ -61,6 +62,7 @@ class _MealsIntroFormState extends State<MealsIntroForm> {
               SizedBox(
                 height: Dimensions.getConvertedHeightSize(context, 60),
               ),
+              // Select meals title
               Text(
                 Strings(context).selectMealsTime,
                 style: TextStyle(
@@ -83,10 +85,11 @@ class _MealsIntroFormState extends State<MealsIntroForm> {
                 ),
                 child: Row(
                   children: <Widget>[
+                    // Meals time title
                     Text(
                       Strings(context).mealsTimeTitle,
                       style: TextStyle(
-                        fontSize: Dimensions.getTextSize(context, 23),
+                        fontSize: Dimensions.getTextSize(context, 20),
                       ),
                     ),
                   ],
@@ -95,6 +98,7 @@ class _MealsIntroFormState extends State<MealsIntroForm> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
+                  // Breakfast time field
                   TimePickerApp(
                     label: Strings(context).breakfastLabel,
                     value: _breakfast,
@@ -105,6 +109,7 @@ class _MealsIntroFormState extends State<MealsIntroForm> {
                       });
                     },
                   ),
+                  // Morning snack time field
                   TimePickerApp(
                     label: Strings(context).morningsnackLabel,
                     value: _morningSnack,
@@ -120,6 +125,7 @@ class _MealsIntroFormState extends State<MealsIntroForm> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
+                  // Lunch time field
                   TimePickerApp(
                     label: Strings(context).lunchLabel,
                     value: _lunch,
@@ -130,6 +136,7 @@ class _MealsIntroFormState extends State<MealsIntroForm> {
                       });
                     },
                   ),
+                  // Afternoon snack time field
                   TimePickerApp(
                     label: Strings(context).afternoonsnackLabel,
                     value: _afternoonSnack,
@@ -145,6 +152,7 @@ class _MealsIntroFormState extends State<MealsIntroForm> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
+                  // Dinner time field
                   TimePickerApp(
                     label: Strings(context).dinnerLabel,
                     value: _dinner,
@@ -155,6 +163,7 @@ class _MealsIntroFormState extends State<MealsIntroForm> {
                       });
                     },
                   ),
+                  // Supper time field
                   TimePickerApp(
                     label: Strings(context).supperLabel,
                     value: _supper,
@@ -173,12 +182,14 @@ class _MealsIntroFormState extends State<MealsIntroForm> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
+                  // Next button
                   Container(
                     margin: Dimensions.getEdgeInsets(context, right: 25),
                     width: Dimensions.getConvertedWidthSize(context, 200),
                     child: ButtonApp(
                       title: Strings(context).readyLabel,
                       onPressed: () {
+                        // Enable next button
                         if (_enableNext() == true) {
                           Route route = AnimationSlideTransistion(
                             widget: BasePage(),
@@ -198,6 +209,7 @@ class _MealsIntroFormState extends State<MealsIntroForm> {
     );
   }
 
+  //Validate empty fields
   bool _enableNext() {
     if (_formData[Keys.LABEL_BREAKFAST] == null) {
       setState(() {

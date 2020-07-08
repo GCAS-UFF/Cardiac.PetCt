@@ -12,12 +12,12 @@ import 'package:petct/core/utils/animation_slide_transition.dart';
 
 import 'meals_intro_form.dart';
 
-class ExamIntroForm extends StatefulWidget {
+class ExamIntroScreen extends StatefulWidget {
   @override
-  _ExamIntroFormState createState() => _ExamIntroFormState();
+  _ExamIntroScreenState createState() => _ExamIntroScreenState();
 }
 
-class _ExamIntroFormState extends State<ExamIntroForm> {
+class _ExamIntroScreenState extends State<ExamIntroScreen> {
   String _timeDay;
   bool _dateControl;
   bool _timeControl;
@@ -126,144 +126,148 @@ class _ExamIntroFormState extends State<ExamIntroForm> {
       alignment: Alignment.center,
       height: double.infinity,
       width: double.infinity,
-      child: Form(
-        key: _formKey,
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                Strings(context).aboutExam,
-                style: TextStyle(
-                  fontSize: Dimensions.getTextSize(context, 22),
-                ),
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            //Title
+            Text(
+              Strings(context).aboutExam,
+              style: TextStyle(
+                fontSize: Dimensions.getTextSize(context, 22),
               ),
-              SizedBox(
-                height: Dimensions.getConvertedHeightSize(context, 20),
+            ),
+            SizedBox(
+              height: Dimensions.getConvertedHeightSize(context, 20),
+            ),
+            // Fill exam details title
+            Text(
+              Strings(context).fillExamDetails,
+              style: TextStyle(
+                fontSize: Dimensions.getTextSize(context, 17),
               ),
-              Text(
-                Strings(context).fillExamDetails,
-                style: TextStyle(
-                  fontSize: Dimensions.getTextSize(context, 17),
-                ),
-              ),
-              SizedBox(
-                height: Dimensions.getConvertedHeightSize(context, 60),
-              ),
-              Container(
-                padding:
-                    Dimensions.getEdgeInsets(context, bottom: 10, left: 30),
-                margin: Dimensions.getEdgeInsets(context, bottom: 15),
-                decoration: BoxDecoration(
-                  border: Border(
-                    bottom: BorderSide(
-                      width: Dimensions.getConvertedWidthSize(context, 1),
-                      color: Colors.grey,
-                    ),
+            ),
+            SizedBox(
+              height: Dimensions.getConvertedHeightSize(context, 60),
+            ),
+            Container(
+              padding: Dimensions.getEdgeInsets(context, bottom: 10, left: 30),
+              margin: Dimensions.getEdgeInsets(context, bottom: 15),
+              decoration: BoxDecoration(
+                border: Border(
+                  bottom: BorderSide(
+                    width: Dimensions.getConvertedWidthSize(context, 1),
+                    color: Colors.grey,
                   ),
                 ),
-                child: Row(
-                  children: <Widget>[
-                    Text(
-                      Strings(context).dateTimeExam,
-                      style: TextStyle(
-                        fontSize: Dimensions.getTextSize(context, 23),
-                      ),
-                    ),
-                  ],
-                ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              child: Row(
                 children: <Widget>[
-                  DatePickerApp(
-                    value: _formData[Keys.LABEL_DATE],
-                    onChange: (DateTime date) {
-                      setState(() {
-                        _formData[Keys.LABEL_DATE] = date;
-                      });
-                    },
+                  // Date title
+                  Text(
+                    Strings(context).dateTimeExam,
+                    style: TextStyle(
+                      fontSize: Dimensions.getTextSize(context, 20),
+                    ),
                   ),
-                  TimePickerApp(
-                    label: Strings(context).hourLabel,
-                    value: _timeDay,
-                    onChange: (TimeOfDay time) {
-                      setState(() {
-                        _formData[Keys.LABEL_TIME] = time;
-                        _timeDay = time.format(context);
-                      });
-                    },
-                  )
                 ],
               ),
-              Container(
-                padding:
-                    Dimensions.getEdgeInsets(context, bottom: 10, left: 30),
-                margin: Dimensions.getEdgeInsets(context, top: 30),
-                decoration: BoxDecoration(
-                  border: Border(
-                    bottom: BorderSide(
-                      width: Dimensions.getConvertedWidthSize(context, 1),
-                      color: Colors.grey,
-                    ),
-                  ),
-                ),
-                child: Row(
-                  children: <Widget>[
-                    Text(
-                      Strings(context).examLocation,
-                      style: TextStyle(
-                        fontSize: Dimensions.getTextSize(context, 23),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding:
-                    Dimensions.getEdgeInsetsFromLTRB(context, 25, 30, 25, 20),
-                child: CustomDropdown(
-                  hint: Text(Strings(context).localLabel),
-                  value: _formData[Keys.LABEL_LOCAL],
-                  options: _list,
-                  onChange: (String value) {
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                // Date Picker Field
+                DatePickerApp(
+                  value: _formData[Keys.LABEL_DATE],
+                  onChange: (DateTime date) {
                     setState(() {
-                      _formData[Keys.LABEL_LOCAL] = value;
+                      _formData[Keys.LABEL_DATE] = date;
                     });
                   },
                 ),
+                // Time Picker Field
+                TimePickerApp(
+                  label: Strings(context).hourLabel,
+                  value: _timeDay,
+                  onChange: (TimeOfDay time) {
+                    setState(() {
+                      _formData[Keys.LABEL_TIME] = time;
+                      _timeDay = time.format(context);
+                    });
+                  },
+                )
+              ],
+            ),
+            Container(
+              padding: Dimensions.getEdgeInsets(context, bottom: 10, left: 30),
+              margin: Dimensions.getEdgeInsets(context, top: 30),
+              decoration: BoxDecoration(
+                border: Border(
+                  bottom: BorderSide(
+                    width: Dimensions.getConvertedWidthSize(context, 1),
+                    color: Colors.grey,
+                  ),
+                ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+              child: Row(
                 children: <Widget>[
-                  Container(
-                    margin:
-                        Dimensions.getEdgeInsets(context, right: 25, top: 30),
-                    width: Dimensions.getConvertedWidthSize(context, 200),
-                    child: ButtonApp(
-                      title: Strings(context).nextOption,
-                      onPressed: () {
-                        if (_enableNext() == true) {
-                          Route route = AnimationSlideTransistion(
-                            widget: MealsIntroForm(),
-                          );
-                          Navigator.push(context, route);
-                        }
-                      },
-                      type: ButtonType.BUTTON_GREEN,
-                      suffixIcon: FeatherIcons.arrowRight,
+                  // Exam Location Title
+                  Text(
+                    Strings(context).examLocation,
+                    style: TextStyle(
+                      fontSize: Dimensions.getTextSize(context, 20),
                     ),
                   ),
                 ],
               ),
-            ],
-          ),
+            ),
+            // Local Dropdown Field
+            Padding(
+              padding:
+                  Dimensions.getEdgeInsetsFromLTRB(context, 25, 30, 25, 20),
+              child: CustomDropdown(
+                hint: Text(Strings(context).localLabel),
+                value: _formData[Keys.LABEL_LOCAL],
+                options: _list,
+                onChange: (String value) {
+                  setState(() {
+                    _formData[Keys.LABEL_LOCAL] = value;
+                  });
+                },
+              ),
+            ),
+            //Next button
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                Container(
+                  margin: Dimensions.getEdgeInsets(context, right: 25, top: 30),
+                  width: Dimensions.getConvertedWidthSize(context, 200),
+                  child: ButtonApp(
+                    title: Strings(context).nextOption,
+                    onPressed: () {
+                      //Enable next button
+                      if (_enableNext() == true) {
+                        Route route = AnimationSlideTransistion(
+                          widget: MealsIntroForm(),
+                        );
+                        Navigator.push(context, route);
+                      }
+                    },
+                    type: ButtonType.BUTTON_GREEN,
+                    suffixIcon: FeatherIcons.arrowRight,
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );
   }
 
+  //Validate empty fields
   bool _enableNext() {
     if (_formData[Keys.LABEL_DATE] == null) {
       setState(() {

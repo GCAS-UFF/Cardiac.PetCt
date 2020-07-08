@@ -203,7 +203,7 @@ class _LoginPageState extends State<LoginPage> {
             Navigator.push(context, route);
           } else if (state is EmailNotVerifiedState) {
             Route route = AnimationSlideTransistion(
-              widget: ExamIntroForm(),
+              widget: ExamIntroScreen(),
             );
             Navigator.push(context, route);
           } else if (state is RecoverPasswordState) {

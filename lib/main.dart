@@ -62,7 +62,7 @@ class MaterialAppWithTheme extends StatelessWidget {
         '/login': (BuildContext context) => LoginPage(),
         '/register': (BuildContext context) => RegisterPage(),
         '/verifyEmail': (BuildContext context) => VerifyEmailPage(),
-        '/examIntroForm': (BuildContext context) => ExamIntroForm(),
+        '/examIntroForm': (BuildContext context) => ExamIntroScreen(),
         '/mealsIntroForm': (BuildContext context) => MealsIntroForm(),
       },
     );
