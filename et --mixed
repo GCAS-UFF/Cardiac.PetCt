@@ -1,0 +1,32 @@
+[33mcommit afff0fcb1d5c7c2e8614cf01f55be40265ca81eb[m[33m ([m[1;36mHEAD -> [m[1;32mfeature/loginPage[m[33m, [m[1;31morigin/feature/loginPage[m[33m)[m
+Author: giovanelopes <giovanelopes@id.uff.br>
+Date:   Sun May 31 16:12:01 2020 -0300
+
+    create login page
+
+[33mcommit ae3e1027c5a4f17e96fd104192097a750fa01f00[m[33m ([m[1;31morigin/develop[m[33m, [m[1;32mdevelop[m[33m)[m
+Merge: 377485a a6373f5
+Author: Giovane Lopes <38773201+GiovaneLopes@users.noreply.github.com>
+Date:   Sun May 31 15:39:03 2020 -0300
+
+    Merge pull request #1 from GCAS-UFF/feature/startPage
+    
+    create start page
+
+[33mcommit a6373f5fd61d3d307e61128a3929ee6c10e63f59[m[33m ([m[1;31morigin/feature/startPage[m[33m, [m[1;32mfeature/startPage[m[33m)[m
+Author: giovanelopes <giovanelopes@id.uff.br>
+Date:   Sun May 31 15:33:00 2020 -0300
+
+    create start page
+
+[33mcommit 377485accbc7f86ba986e415d1c90c126e9e7d15[m
+Author: giovanelopes <giovanelopes@id.uff.br>
+Date:   Wed May 27 22:49:42 2020 -0300
+
+    create initial files and dependencies
+
+[33mcommit 28d66223766ca7554514cee86485484a828b617d[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m
+Author: giovanelopes <giovanelopes@id.uff.br>
+Date:   Wed May 27 22:08:45 2020 -0300
+
+    First commit
