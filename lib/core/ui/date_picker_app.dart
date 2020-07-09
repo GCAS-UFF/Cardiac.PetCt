@@ -25,6 +25,7 @@ class DatePickerApp extends StatelessWidget {
             // Show date picker action
             showDatePicker(
               context: context,
+              
               initialDate: DateTime.now(),
               firstDate: DateTime(DateTime.now().year),
               lastDate: DateTime(DateTime.now().year + 5),
@@ -42,13 +43,9 @@ class DatePickerApp extends StatelessWidget {
                   top: 20,
                   bottom: 20,
                 ),
-                height: Dimensions.getConvertedHeightSize(context, 45),
+                height: Dimensions.getConvertedHeightSize(context, 50),
                 decoration: BoxDecoration(
-                  border: Border.all(
-                    color: (_themeChanger.getThemeData() == false)
-                        ? Colors.black
-                        : Colors.white,
-                  ),
+                  border: Border.all(),
                   borderRadius: BorderRadius.circular(
                     Dimensions.getConvertedWidthSize(context, 5),
                   ),
@@ -73,13 +70,11 @@ class DatePickerApp extends StatelessWidget {
                       ),
                     ),
                     // Dropdown icon
-                    Icon(
-                      Icons.arrow_drop_down,
-                      size: Dimensions.getConvertedWidthSize(context, 30),
-                      color: (_themeChanger.getThemeData() == false)
-                          ? Colors.black
-                          : Colors.white,
-                    ),
+                    Icon(Icons.arrow_drop_down,
+                        size: Dimensions.getConvertedWidthSize(context, 30),
+                        color: (_themeChanger.getThemeData() == false)
+                            ? Colors.black
+                            : Colors.white),
                   ],
                 ),
               ),
@@ -90,8 +85,8 @@ class DatePickerApp extends StatelessWidget {
                 child: Container(
                   padding: Dimensions.getEdgeInsetsAll(context, 3),
                   color: (_themeChanger.getThemeData() == false)
-                      ? Colors.white
-                      : Colors.black,
+                      ? ColorsApp.lightBackground
+                      : ColorsApp.darkBackground,
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: <Widget>[

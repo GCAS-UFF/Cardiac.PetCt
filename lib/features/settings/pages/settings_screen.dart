@@ -5,8 +5,8 @@ import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/keys.dart';
 import 'package:petct/core/resources/strings.dart';
 import 'package:petct/core/ui/custom_dropdown.dart';
-import 'package:petct/core/ui/date_picker_app.dart';
 import 'package:petct/core/ui/time_picker_app.dart';
+import 'package:petct/features/intro-form/widgets/exam_details_form.dart';
 
 class SettingsScreen extends StatefulWidget {
   @override
@@ -17,7 +17,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
   final Map<String, dynamic> _formData = Map<String, dynamic>();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   List<DropdownMenuItem<String>> _list;
-  String _timeDay;
   String _breakfast;
   String _morningSnack;
   String _lunch;
@@ -60,10 +59,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
             children: <Widget>[
               //Menu icon
               Container(
-                padding: Dimensions.getEdgeInsets(context, right: 30),
+                padding: Dimensions.getEdgeInsets(context,
+                    right: 30, left: 30, bottom: 30),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
+                    //Settings title
+                    Text(
+                      "Settings",
+                      style: TextStyle(
+                        fontSize: Dimensions.getTextSize(context, 20),
+                      ),
+                    ),
+                    // Menu icon
                     Icon(
                       FeatherIcons.menu,
                       size: Dimensions.getConvertedWidthSize(context, 30),
@@ -71,114 +79,24 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ],
                 ),
               ),
-              //Settings title
-              Container(
-                padding:
-                    Dimensions.getEdgeInsets(context, left: 30, bottom: 30),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      "Settings",
-                      style: TextStyle(
-                        fontSize: Dimensions.getTextSize(context, 20),
-                      ),
-                    ),
-                  ],
-                ),
+
+              //Exam form
+              ExamDetailsForm(
+                onChange: (value) {
+                  setState(() {
+                    value.runtimeType == DateTime
+                        ? _formData[Keys.LABEL_DATE] = value
+                        : value.runtimeType == TimeOfDay
+                            ? _formData[Keys.LABEL_TIME] = value
+                            : _formData[Keys.LABEL_LOCAL] = value;
+                  });
+                },
+                list: _list,
               ),
               Container(
                 padding:
                     Dimensions.getEdgeInsets(context, bottom: 10, left: 30),
-                margin: Dimensions.getEdgeInsets(context, bottom: 15),
-                decoration: BoxDecoration(
-                  border: Border(
-                    bottom: BorderSide(
-                      width: Dimensions.getConvertedWidthSize(context, 1),
-                      color: Colors.grey,
-                    ),
-                  ),
-                ),
-                child: Row(
-                  children: <Widget>[
-                    // Date title
-                    Text(
-                      "Data e hora do exame",
-                      style: TextStyle(
-                        fontSize: Dimensions.getTextSize(context, 20),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  // Date Picker Field
-                  DatePickerApp(
-                    value: _formData[Keys.LABEL_DATE],
-                    onChange: (DateTime date) {
-                      setState(() {
-                        _formData[Keys.LABEL_DATE] = date;
-                      });
-                    },
-                  ),
-                  // Time Picker Field
-                  TimePickerApp(
-                    label: Strings(context).hourLabel,
-                    value: _timeDay,
-                    onChange: (TimeOfDay time) {
-                      setState(() {
-                        _formData[Keys.LABEL_TIME] = time;
-                        _timeDay = time.format(context);
-                      });
-                    },
-                  ),
-                ],
-              ),
-              Container(
-                padding:
-                    Dimensions.getEdgeInsets(context, bottom: 10, left: 30),
-                margin: Dimensions.getEdgeInsets(context, top: 10),
-                decoration: BoxDecoration(
-                  border: Border(
-                    bottom: BorderSide(
-                      width: Dimensions.getConvertedWidthSize(context, 1),
-                      color: Colors.grey,
-                    ),
-                  ),
-                ),
-                child: Row(
-                  children: <Widget>[
-                    // Exam Location Title
-                    Text(
-                      Strings(context).examLocation,
-                      style: TextStyle(
-                        fontSize: Dimensions.getTextSize(context, 20),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              // Local Dropdown Field
-              Padding(
-                padding:
-                    Dimensions.getEdgeInsetsFromLTRB(context, 25, 30, 25, 20),
-                child: CustomDropdown(
-                  hint: Text(Strings(context).localLabel),
-                  value: _formData[Keys.LABEL_LOCAL],
-                  options: _list,
-                  onChange: (String value) {
-                    setState(() {
-                      _formData[Keys.LABEL_LOCAL] = value;
-                    });
-                  },
-                ),
-              ),
-              Container(
-                padding:
-                    Dimensions.getEdgeInsets(context, bottom: 10, left: 30),
-                    margin: Dimensions.getEdgeInsets(context,top: 10,bottom: 10),
+                margin: Dimensions.getEdgeInsets(context, top: 10, bottom: 10),
                 decoration: BoxDecoration(
                   border: Border(
                     bottom: BorderSide(

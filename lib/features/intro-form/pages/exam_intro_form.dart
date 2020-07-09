@@ -6,9 +6,8 @@ import 'package:petct/core/resources/keys.dart';
 import 'package:petct/core/resources/strings.dart';
 import 'package:petct/core/ui/button_app.dart';
 import 'package:petct/core/ui/custom_dropdown.dart';
-import 'package:petct/core/ui/date_picker_app.dart';
-import 'package:petct/core/ui/time_picker_app.dart';
 import 'package:petct/core/utils/animation_slide_transition.dart';
+import 'package:petct/features/intro-form/widgets/exam_details_form.dart';
 
 import 'meals_intro_form.dart';
 
@@ -18,7 +17,6 @@ class ExamIntroScreen extends StatefulWidget {
 }
 
 class _ExamIntroScreenState extends State<ExamIntroScreen> {
-  String _timeDay;
   bool _dateControl;
   bool _timeControl;
   bool _localControl;
@@ -36,75 +34,6 @@ class _ExamIntroScreenState extends State<ExamIntroScreen> {
           children: <Widget>[
             Text(
               "Sareh Saúde e Retaguarda Hospitalar",
-              textAlign: TextAlign.start,
-              style: TextStyle(
-                fontSize: Dimensions.getTextSize(context, 16),
-                color: ColorsApp.greenApp,
-              ),
-            ),
-            Text(
-              "R. Edson, 3079 - Vila Prudente, São Paulo",
-              textAlign: TextAlign.start,
-              style: TextStyle(
-                fontSize: Dimensions.getTextSize(context, 14),
-              ),
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: 'hospital2',
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              "Sareh2 Saúde e Retaguarda Hospitalar",
-              textAlign: TextAlign.start,
-              style: TextStyle(
-                fontSize: Dimensions.getTextSize(context, 16),
-                color: ColorsApp.greenApp,
-              ),
-            ),
-            Text(
-              "R. Edson, 3079 - Vila Prudente, São Paulo",
-              textAlign: TextAlign.start,
-              style: TextStyle(
-                fontSize: Dimensions.getTextSize(context, 14),
-              ),
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: 'hospital3',
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              "Sareh3 Saúde e Retaguarda Hospitalar",
-              textAlign: TextAlign.start,
-              style: TextStyle(
-                fontSize: Dimensions.getTextSize(context, 16),
-                color: ColorsApp.greenApp,
-              ),
-            ),
-            Text(
-              "R. Edson, 3079 - Vila Prudente, São Paulo",
-              textAlign: TextAlign.start,
-              style: TextStyle(
-                fontSize: Dimensions.getTextSize(context, 14),
-              ),
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: 'hospital4',
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              "Sareh4 Saúde e Retaguarda Hospitalar",
               textAlign: TextAlign.start,
               style: TextStyle(
                 fontSize: Dimensions.getTextSize(context, 16),
@@ -151,91 +80,18 @@ class _ExamIntroScreenState extends State<ExamIntroScreen> {
             SizedBox(
               height: Dimensions.getConvertedHeightSize(context, 60),
             ),
-            Container(
-              padding: Dimensions.getEdgeInsets(context, bottom: 10, left: 30),
-              margin: Dimensions.getEdgeInsets(context, bottom: 15),
-              decoration: BoxDecoration(
-                border: Border(
-                  bottom: BorderSide(
-                    width: Dimensions.getConvertedWidthSize(context, 1),
-                    color: Colors.grey,
-                  ),
-                ),
-              ),
-              child: Row(
-                children: <Widget>[
-                  // Date title
-                  Text(
-                    Strings(context).dateTimeExam,
-                    style: TextStyle(
-                      fontSize: Dimensions.getTextSize(context, 20),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                // Date Picker Field
-                DatePickerApp(
-                  value: _formData[Keys.LABEL_DATE],
-                  onChange: (DateTime date) {
-                    setState(() {
-                      _formData[Keys.LABEL_DATE] = date;
-                    });
-                  },
-                ),
-                // Time Picker Field
-                TimePickerApp(
-                  label: Strings(context).hourLabel,
-                  value: _timeDay,
-                  onChange: (TimeOfDay time) {
-                    setState(() {
-                      _formData[Keys.LABEL_TIME] = time;
-                      _timeDay = time.format(context);
-                    });
-                  },
-                )
-              ],
-            ),
-            Container(
-              padding: Dimensions.getEdgeInsets(context, bottom: 10, left: 30),
-              margin: Dimensions.getEdgeInsets(context, top: 30),
-              decoration: BoxDecoration(
-                border: Border(
-                  bottom: BorderSide(
-                    width: Dimensions.getConvertedWidthSize(context, 1),
-                    color: Colors.grey,
-                  ),
-                ),
-              ),
-              child: Row(
-                children: <Widget>[
-                  // Exam Location Title
-                  Text(
-                    Strings(context).examLocation,
-                    style: TextStyle(
-                      fontSize: Dimensions.getTextSize(context, 20),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            // Local Dropdown Field
-            Padding(
-              padding:
-                  Dimensions.getEdgeInsetsFromLTRB(context, 25, 30, 25, 20),
-              child: CustomDropdown(
-                hint: Text(Strings(context).localLabel),
-                value: _formData[Keys.LABEL_LOCAL],
-                options: _list,
-                onChange: (String value) {
-                  setState(() {
-                    _formData[Keys.LABEL_LOCAL] = value;
-                  });
-                },
-              ),
+            //Exam form
+            ExamDetailsForm(
+              onChange: (value) {
+                setState(() {
+                  value.runtimeType == DateTime
+                      ? _formData[Keys.LABEL_DATE] = value
+                      : value.runtimeType == TimeOfDay
+                          ? _formData[Keys.LABEL_TIME] = value
+                          : _formData[Keys.LABEL_LOCAL] = value;
+                });
+              },
+              list: _list,
             ),
             //Next button
             Row(

@@ -29,7 +29,6 @@ class _BasePageState extends State<BasePage> {
       body: _tabs[_currentTab],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentTab,
-        showUnselectedLabels: false,
         type: BottomNavigationBarType.fixed,
         unselectedIconTheme: IconThemeData(
           size: Dimensions.getConvertedWidthSize(context, 25),
