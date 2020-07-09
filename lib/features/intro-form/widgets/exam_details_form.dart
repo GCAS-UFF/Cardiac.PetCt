@@ -4,12 +4,15 @@ import 'package:petct/core/resources/strings.dart';
 import 'package:petct/core/ui/custom_dropdown.dart';
 import 'package:petct/core/ui/date_picker_app.dart';
 import 'package:petct/core/ui/time_picker_app.dart';
+import 'package:petct/features/intro-form/models/exam_details.dart';
 
 class ExamDetailsForm extends StatefulWidget {
   final Function onChange;
   final List<DropdownMenuItem> list;
+  final ExamDetails examDetails;
 
-  const ExamDetailsForm({Key key, this.onChange, this.list}) : super(key: key);
+  const ExamDetailsForm({Key key, this.onChange, this.list, this.examDetails})
+      : super(key: key);
   @override
   _ExamDetailsFormState createState() => _ExamDetailsFormState();
 }
@@ -18,6 +21,17 @@ class _ExamDetailsFormState extends State<ExamDetailsForm> {
   String _timeDay;
   DateTime _dateTime;
   String _location;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (widget.examDetails != null) {
+      _timeDay = widget.examDetails.examTime.format(context);
+      _dateTime = widget.examDetails.examDate;
+      _location = widget.examDetails.examLocation;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(

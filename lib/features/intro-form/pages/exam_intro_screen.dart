@@ -5,11 +5,10 @@ import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/keys.dart';
 import 'package:petct/core/resources/strings.dart';
 import 'package:petct/core/ui/button_app.dart';
-import 'package:petct/core/ui/custom_dropdown.dart';
 import 'package:petct/core/utils/animation_slide_transition.dart';
+import 'package:petct/features/intro-form/pages/meals_intro_screen.dart';
 import 'package:petct/features/intro-form/widgets/exam_details_form.dart';
 
-import 'meals_intro_form.dart';
 
 class ExamIntroScreen extends StatefulWidget {
   @override
@@ -106,7 +105,7 @@ class _ExamIntroScreenState extends State<ExamIntroScreen> {
                       //Enable next button
                       if (_enableNext() == true) {
                         Route route = AnimationSlideTransistion(
-                          widget: MealsIntroForm(),
+                          widget: MealsIntroScreen(),
                         );
                         Navigator.push(context, route);
                       }

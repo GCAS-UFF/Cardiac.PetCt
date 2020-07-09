@@ -6,7 +6,6 @@ import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/images.dart';
 import 'package:petct/core/resources/keys.dart';
 import 'package:petct/core/resources/strings.dart';
-import 'package:petct/core/ui/base_page.dart';
 import 'package:petct/core/ui/button_app.dart';
 import 'package:petct/core/ui/custom_text_form_field.dart';
 import 'package:petct/core/ui/high_contrast_button.dart';
@@ -16,8 +15,7 @@ import 'package:petct/core/utils/failure_to_message_converter.dart';
 import 'package:petct/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:petct/features/auth/presentation/pages/recover_password_form.dart';
 import 'package:petct/features/auth/presentation/pages/verify_email_page.dart';
-import 'package:petct/features/diet-meals/presentation/pages/diet_meals.dart';
-import 'package:petct/features/intro-form/pages/exam_intro_form.dart';
+import 'package:petct/features/intro-form/pages/exam_intro_screen.dart';
 
 class LoginPage extends StatefulWidget {
   @override

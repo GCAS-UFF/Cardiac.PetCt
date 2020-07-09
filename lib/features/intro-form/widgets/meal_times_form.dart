@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:petct/core/resources/dimensions.dart';
-import 'package:petct/core/resources/keys.dart';
 import 'package:petct/core/resources/strings.dart';
 import 'package:petct/core/ui/time_picker_app.dart';
+import 'package:petct/features/intro-form/models/meal_times.dart';
 
 class MealTimesForm extends StatefulWidget {
   final Function onChange;
+  final MealTimes mealTimes;
 
-  const MealTimesForm({Key key, this.onChange}) : super(key: key);
+  const MealTimesForm({Key key, @required this.onChange, this.mealTimes})
+      : super(key: key);
   @override
   _MealTimesFormState createState() => _MealTimesFormState();
 }
@@ -19,6 +21,20 @@ class _MealTimesFormState extends State<MealTimesForm> {
   String _afternoonSnack;
   String _dinner;
   String _supper;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (widget.mealTimes != null) {
+      _breakfast = widget.mealTimes.breakfast.format(context);
+      _morningSnack = widget.mealTimes.morningSnack.format(context);
+      _lunch = widget.mealTimes.lunch.format(context);
+      _afternoonSnack = widget.mealTimes.afternoonSnack.format(context);
+      _dinner = widget.mealTimes.dinner.format(context);
+      _supper = widget.mealTimes.supper.format(context);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -55,7 +71,7 @@ class _MealTimesFormState extends State<MealTimesForm> {
               onChange: (TimeOfDay time) {
                 setState(() {
                   _breakfast = time.format(context);
-                  widget.onChange(time, "breakfast");
+                  widget.onChange(time, MealEnum.Breakfast);
                 });
               },
             ),
@@ -66,7 +82,7 @@ class _MealTimesFormState extends State<MealTimesForm> {
               onChange: (TimeOfDay time) {
                 setState(() {
                   _morningSnack = time.format(context);
-                  widget.onChange(time, "morningSnack");
+                  widget.onChange(time, MealEnum.MorningSnack);
                 });
               },
             ),
@@ -82,7 +98,7 @@ class _MealTimesFormState extends State<MealTimesForm> {
               onChange: (TimeOfDay time) {
                 setState(() {
                   _lunch = time.format(context);
-                  widget.onChange(time, "lunch");
+                  widget.onChange(time, MealEnum.Lunch);
                 });
               },
             ),
@@ -93,7 +109,7 @@ class _MealTimesFormState extends State<MealTimesForm> {
               onChange: (TimeOfDay time) {
                 setState(() {
                   _afternoonSnack = time.format(context);
-                  widget.onChange(time, "afternoonSnack");
+                  widget.onChange(time, MealEnum.AfternoonSnack);
                 });
               },
             ),
@@ -109,7 +125,7 @@ class _MealTimesFormState extends State<MealTimesForm> {
               onChange: (TimeOfDay time) {
                 setState(() {
                   _dinner = time.format(context);
-                  widget.onChange(time, "dinner");
+                  widget.onChange(time, MealEnum.Dinner);
                 });
               },
             ),
@@ -120,7 +136,7 @@ class _MealTimesFormState extends State<MealTimesForm> {
               onChange: (TimeOfDay time) {
                 setState(() {
                   _supper = time.format(context);
-                  widget.onChange(time, "supper");
+                  widget.onChange(time, MealEnum.Supper);
                 });
               },
             ),

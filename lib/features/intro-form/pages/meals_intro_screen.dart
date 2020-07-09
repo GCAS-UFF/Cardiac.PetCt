@@ -5,17 +5,16 @@ import 'package:petct/core/resources/keys.dart';
 import 'package:petct/core/resources/strings.dart';
 import 'package:petct/core/ui/base_page.dart';
 import 'package:petct/core/ui/button_app.dart';
-import 'package:petct/core/ui/date_picker_app.dart';
-import 'package:petct/core/ui/time_picker_app.dart';
 import 'package:petct/core/utils/animation_slide_transition.dart';
+import 'package:petct/features/intro-form/models/meal_times.dart';
 import 'package:petct/features/intro-form/widgets/meal_times_form.dart';
 
-class MealsIntroForm extends StatefulWidget {
+class MealsIntroScreen extends StatefulWidget {
   @override
-  _MealsIntroFormState createState() => _MealsIntroFormState();
+  _MealsIntroScreenState createState() => _MealsIntroScreenState();
 }
 
-class _MealsIntroFormState extends State<MealsIntroForm> {
+class _MealsIntroScreenState extends State<MealsIntroScreen> {
   final Map<String, dynamic> _formData = Map<String, dynamic>();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   bool _breakfastControl;
@@ -68,23 +67,23 @@ class _MealsIntroFormState extends State<MealsIntroForm> {
                 height: Dimensions.getConvertedHeightSize(context, 60),
               ),
               MealTimesForm(
-                onChange: (TimeOfDay time, String meal) {
-                  if (meal == "breakFast") {
+                onChange: (TimeOfDay time, MealEnum meal) {
+                  if (meal == MealEnum.Breakfast) {
                     _formData[Keys.LABEL_BREAKFAST] = time;
                   }
-                  if (meal == "morningSnack") {
+                  if (meal == MealEnum.MorningSnack) {
                     _formData[Keys.LABEL_MORNINGSNACK] = time;
                   }
-                  if (meal == "lunch") {
+                  if (meal == MealEnum.Lunch) {
                     _formData[Keys.LABEL_LUNCH] = time;
                   }
-                  if (meal == "afternoonSnack") {
+                  if (meal == MealEnum.AfternoonSnack) {
                     _formData[Keys.LABEL_AFTERNOONSNACK] = time;
                   }
-                  if (meal == "dinner") {
+                  if (meal == MealEnum.Dinner) {
                     _formData[Keys.LABEL_DINNER] = time;
                   }
-                  if (meal == "supper") {
+                  if (meal == MealEnum.Supper) {
                     _formData[Keys.LABEL_SUPPER] = time;
                   }
                 },

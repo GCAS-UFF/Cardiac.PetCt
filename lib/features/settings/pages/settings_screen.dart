@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:petct/core/resources/colors.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/keys.dart';
-import 'package:petct/core/resources/strings.dart';
-import 'package:petct/core/ui/custom_dropdown.dart';
-import 'package:petct/core/ui/time_picker_app.dart';
+import 'package:petct/features/intro-form/models/exam_details.dart';
+import 'package:petct/features/intro-form/models/meal_times.dart';
 import 'package:petct/features/intro-form/widgets/exam_details_form.dart';
+import 'package:petct/features/intro-form/widgets/meal_times_form.dart';
 
 class SettingsScreen extends StatefulWidget {
   @override
@@ -17,6 +17,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
   final Map<String, dynamic> _formData = Map<String, dynamic>();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   List<DropdownMenuItem<String>> _list;
+  MealTimes _mealTimes = MealTimes(
+    breakfast: TimeOfDay(hour: 23, minute: 45),
+    morningSnack: TimeOfDay(hour: 22, minute: 45),
+    lunch: TimeOfDay(hour: 21, minute: 45),
+    afternoonSnack: TimeOfDay(hour: 20, minute: 45),
+    dinner: TimeOfDay(hour: 19, minute: 45),
+    supper: TimeOfDay(hour: 18, minute: 45),
+  );
+  ExamDetails examDetails = ExamDetails(
+    examDate: DateTime(2020),
+    examTime: TimeOfDay(hour: 25, minute: 15),
+    examLocation: "hospital1",
+  );
   String _breakfast;
   String _morningSnack;
   String _lunch;
@@ -79,9 +92,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ],
                 ),
               ),
-
               //Exam form
               ExamDetailsForm(
+                examDetails: examDetails,
                 onChange: (value) {
                   setState(() {
                     value.runtimeType == DateTime
@@ -93,110 +106,28 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 },
                 list: _list,
               ),
-              Container(
-                padding:
-                    Dimensions.getEdgeInsets(context, bottom: 10, left: 30),
-                margin: Dimensions.getEdgeInsets(context, top: 10, bottom: 10),
-                decoration: BoxDecoration(
-                  border: Border(
-                    bottom: BorderSide(
-                      width: Dimensions.getConvertedWidthSize(context, 1),
-                      color: Colors.grey,
-                    ),
-                  ),
-                ),
-                child: Row(
-                  children: <Widget>[
-                    // Meals time title
-                    Text(
-                      Strings(context).mealsTimeTitle,
-                      style: TextStyle(
-                        fontSize: Dimensions.getTextSize(context, 20),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  // Breakfast time field
-                  TimePickerApp(
-                    label: Strings(context).breakfastLabel,
-                    value: _breakfast,
-                    onChange: (TimeOfDay time) {
-                      setState(() {
-                        _formData[Keys.LABEL_BREAKFAST] = time;
-                        _breakfast = time.format(context);
-                      });
-                    },
-                  ),
-                  // Morning snack time field
-                  TimePickerApp(
-                    label: Strings(context).morningsnackLabel,
-                    value: _morningSnack,
-                    onChange: (TimeOfDay time) {
-                      setState(() {
-                        _formData[Keys.LABEL_MORNINGSNACK] = time;
-                        _morningSnack = time.format(context);
-                      });
-                    },
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  // Lunch time field
-                  TimePickerApp(
-                    label: Strings(context).lunchLabel,
-                    value: _lunch,
-                    onChange: (TimeOfDay time) {
-                      setState(() {
-                        _formData[Keys.LABEL_LUNCH] = time;
-                        _lunch = time.format(context);
-                      });
-                    },
-                  ),
-                  // Afternoon snack time field
-                  TimePickerApp(
-                    label: Strings(context).afternoonsnackLabel,
-                    value: _afternoonSnack,
-                    onChange: (TimeOfDay time) {
-                      setState(() {
-                        _formData[Keys.LABEL_AFTERNOONSNACK] = time;
-                        _afternoonSnack = time.format(context);
-                      });
-                    },
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  // Dinner time field
-                  TimePickerApp(
-                    label: Strings(context).dinnerLabel,
-                    value: _dinner,
-                    onChange: (TimeOfDay time) {
-                      setState(() {
-                        _formData[Keys.LABEL_DINNER] = time;
-                        _dinner = time.format(context);
-                      });
-                    },
-                  ),
-                  // Supper time field
-                  TimePickerApp(
-                    label: Strings(context).supperLabel,
-                    value: _supper,
-                    onChange: (TimeOfDay time) {
-                      setState(() {
-                        _formData[Keys.LABEL_SUPPER] = time;
-                        _supper = time.format(context);
-                      });
-                    },
-                  ),
-                ],
+              MealTimesForm(
+                mealTimes: _mealTimes,
+                onChange: (TimeOfDay time, MealEnum meal) {
+                  if (meal == MealEnum.Breakfast) {
+                    _formData[Keys.LABEL_BREAKFAST] = time;
+                  }
+                  if (meal == MealEnum.MorningSnack) {
+                    _formData[Keys.LABEL_MORNINGSNACK] = time;
+                  }
+                  if (meal == MealEnum.Lunch) {
+                    _formData[Keys.LABEL_LUNCH] = time;
+                  }
+                  if (meal == MealEnum.AfternoonSnack) {
+                    _formData[Keys.LABEL_AFTERNOONSNACK] = time;
+                  }
+                  if (meal == MealEnum.Dinner) {
+                    _formData[Keys.LABEL_DINNER] = time;
+                  }
+                  if (meal == MealEnum.Supper) {
+                    _formData[Keys.LABEL_SUPPER] = time;
+                  }
+                },
               ),
             ],
           ),
