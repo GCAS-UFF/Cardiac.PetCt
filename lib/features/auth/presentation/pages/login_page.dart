@@ -14,7 +14,6 @@ import 'package:petct/core/utils/animation_slide_transition.dart';
 import 'package:petct/core/utils/failure_to_message_converter.dart';
 import 'package:petct/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:petct/features/auth/presentation/pages/recover_password_form.dart';
-import 'package:petct/features/auth/presentation/pages/verify_email_page.dart';
 import 'package:petct/features/intro-form/pages/exam_intro_screen.dart';
 
 class LoginPage extends StatefulWidget {
@@ -196,7 +195,7 @@ class _LoginPageState extends State<LoginPage> {
             );
           } else if (state is Loaded) {
             Route route = AnimationSlideTransistion(
-              widget: VerifyEmailPage(),
+              widget: ExamIntroScreen(),
             );
             Navigator.push(context, route);
           } else if (state is EmailNotVerifiedState) {

@@ -27,7 +27,7 @@ class ButtonApp extends StatelessWidget {
       children: <Widget>[
         Expanded(
           child: FlatButton(
-            padding: Dimensions.getEdgeInsets(context, top: 12, bottom: 12),
+            padding: Dimensions.getEdgeInsets(context, top: 10, bottom: 10),
             shape: OutlineInputBorder(
               borderSide: BorderSide(
                 color: (type == ButtonType.BUTTON_ROUNDED)
@@ -45,6 +45,26 @@ class ButtonApp extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                (preffixIcon != null)
+                    ? Row(
+                        children: <Widget>[
+                          Icon(
+                            preffixIcon,
+                            size: Dimensions.getConvertedWidthSize(context, 25),
+                            color: ((_themeChanger.getThemeData() == false) &&
+                                    (type == ButtonType.BUTTON_GREEN))
+                                ? Colors.white
+                                : (type == ButtonType.BUTTON_ROUNDED)
+                                    ? ColorsApp.greenApp
+                                    : Colors.black,
+                          ),
+                          SizedBox(
+                            width:
+                                Dimensions.getConvertedWidthSize(context, 15),
+                          ),
+                        ],
+                      )
+                    : Container(),
                 Text(
                   title,
                   style: TextStyle(

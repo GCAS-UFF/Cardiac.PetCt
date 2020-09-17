@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:petct/core/input_validators/compare_values_input_validator.dart';
 import 'package:petct/core/input_validators/date_input_validator.dart';
 import 'package:petct/core/input_validators/email_input_validator.dart';
+import 'package:petct/core/resources/colors.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/keys.dart';
 import 'package:petct/core/resources/strings.dart';
@@ -184,6 +185,8 @@ class _RegisterPageState extends State<RegisterPage> {
                       Strings(context).genderLabel,
                       style: TextStyle(
                         fontSize: Dimensions.getTextSize(context, 16),
+                        color: ColorsApp.greenApp,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                     options: _list,

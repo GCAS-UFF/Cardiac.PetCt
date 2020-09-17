@@ -84,6 +84,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         suffixIcon: widget.suffixIcon,
         labelStyle: TextStyle(
           fontSize: Dimensions.getTextSize(context, 16),
+          color:ColorsApp.greenApp,
+          fontWeight: FontWeight.w600,
         ),
         labelText: widget.text,
         contentPadding: Dimensions.getEdgeInsetsAll(context, 10),

@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:petct/core/resources/colors.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/strings.dart';
+import 'package:petct/core/utils/theme.dart';
 import 'package:petct/features/diet-meals/presentation/pages/diet_meals.dart';
 import 'package:petct/features/settings/pages/settings_screen.dart';
+import 'package:provider/provider.dart';
 
 class BasePage extends StatefulWidget {
   @override
@@ -13,6 +15,7 @@ class BasePage extends StatefulWidget {
 
 class _BasePageState extends State<BasePage> {
   int _currentTab = 0;
+
   final _tabs = [
     Center(
       child: Text("Home"),
@@ -25,6 +28,7 @@ class _BasePageState extends State<BasePage> {
   ];
   @override
   Widget build(BuildContext context) {
+    ThemeChanger _themeChanger = Provider.of<ThemeChanger>(context);
     return Scaffold(
       body: _tabs[_currentTab],
       bottomNavigationBar: BottomNavigationBar(
@@ -39,6 +43,7 @@ class _BasePageState extends State<BasePage> {
         ),
         selectedFontSize: Dimensions.getTextSize(context, 16),
         unselectedFontSize: Dimensions.getTextSize(context, 16),
+        selectedItemColor: _themeChanger.getThemeData() == true ? ColorsApp.greenApp : Colors.black,
         items: [
           BottomNavigationBarItem(
             icon: Icon(

@@ -42,22 +42,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
         value: 'hospital1',
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
               "Sareh Saúde e Retaguarda Hospitalar",
               textAlign: TextAlign.start,
               style: TextStyle(
                 fontSize: Dimensions.getTextSize(context, 16),
-                color: ColorsApp.greenApp,
               ),
-            ),
-            Text(
-              "R. Edson, 3079 - Vila Prudente, São Paulo",
-              textAlign: TextAlign.start,
-              style: TextStyle(
-                fontSize: Dimensions.getTextSize(context, 14),
-              ),
-            ),
+            )
           ],
         ),
       ),
@@ -79,7 +72,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   children: <Widget>[
                     //Settings title
                     Text(
-                      "Settings",
+                      "Configurações",
                       style: TextStyle(
                         fontSize: Dimensions.getTextSize(context, 20),
                       ),
