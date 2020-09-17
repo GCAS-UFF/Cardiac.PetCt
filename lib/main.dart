@@ -9,8 +9,8 @@ import 'package:provider/provider.dart';
 import 'features/auth/presentation/bloc/auth_bloc.dart';
 import 'features/auth/presentation/pages/login_page.dart';
 import 'features/auth/presentation/pages/verify_email_page.dart';
-import 'features/intro-form/pages/exam_intro_form.dart';
-import 'features/intro-form/pages/meals_intro_form.dart';
+import 'features/intro-form/pages/exam_intro_screen.dart';
+import 'features/intro-form/pages/meals_intro_screen.dart';
 import 'injection_container.dart' as di;
 
 void main() async {
@@ -62,8 +62,8 @@ class MaterialAppWithTheme extends StatelessWidget {
         '/login': (BuildContext context) => LoginPage(),
         '/register': (BuildContext context) => RegisterPage(),
         '/verifyEmail': (BuildContext context) => VerifyEmailPage(),
-        '/examIntroForm': (BuildContext context) => ExamIntroForm(),
-        '/mealsIntroForm': (BuildContext context) => MealsIntroForm(),
+        '/examIntroForm': (BuildContext context) => ExamIntroScreen(),
+        '/mealsIntroForm': (BuildContext context) => MealsIntroScreen(),
       },
     );
   }

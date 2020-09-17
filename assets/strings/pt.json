@@ -105,5 +105,8 @@
     "afternoonsnack_label":"Lanche da tarde",
     "dinner_label":"Jantar",
     "supper_label":"Ceia",
-    "ready_label":"Pronto"
+    "ready_label":"Pronto",
+    
+    "URINAPP_COMMENT_SECTION_MEALS_DATE_PICKER_APP": "----------",
+    "date_label":"Data"
 }

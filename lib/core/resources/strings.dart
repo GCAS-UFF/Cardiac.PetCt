@@ -116,6 +116,9 @@ class Strings {
   String supperLabel;
   String readyLabel;
 
+  //Date Picker App
+  String dateLabel;
+
   Strings(this.context) {
     dateInputErrorValidation =
         intl.Strings.of(context).valueOf("date_input_error_validation");
@@ -220,5 +223,6 @@ class Strings {
     dinnerLabel = intl.Strings.of(context).valueOf("dinner_label");
     supperLabel = intl.Strings.of(context).valueOf("supper_label");
     readyLabel = intl.Strings.of(context).valueOf("ready_label");
+    dateLabel = intl.Strings.of(context).valueOf("date_label");
   }
 }

@@ -5,24 +5,18 @@ import 'package:petct/core/resources/keys.dart';
 import 'package:petct/core/resources/strings.dart';
 import 'package:petct/core/ui/base_page.dart';
 import 'package:petct/core/ui/button_app.dart';
-import 'package:petct/core/ui/date_picker_app.dart';
-import 'package:petct/core/ui/time_picker_app.dart';
 import 'package:petct/core/utils/animation_slide_transition.dart';
+import 'package:petct/features/intro-form/models/meal_times.dart';
+import 'package:petct/features/intro-form/widgets/meal_times_form.dart';
 
-class MealsIntroForm extends StatefulWidget {
+class MealsIntroScreen extends StatefulWidget {
   @override
-  _MealsIntroFormState createState() => _MealsIntroFormState();
+  _MealsIntroScreenState createState() => _MealsIntroScreenState();
 }
 
-class _MealsIntroFormState extends State<MealsIntroForm> {
+class _MealsIntroScreenState extends State<MealsIntroScreen> {
   final Map<String, dynamic> _formData = Map<String, dynamic>();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  String _breakfast;
-  String _morningSnack;
-  String _lunch;
-  String _afternoonSnack;
-  String _dinner;
-  String _supper;
   bool _breakfastControl;
   bool _morningSnackControl;
   bool _lunchControl;
@@ -44,6 +38,7 @@ class _MealsIntroFormState extends State<MealsIntroForm> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
+                  // Back button
                   InkWell(
                     onTap: () {
                       Navigator.pop(context);
@@ -61,6 +56,7 @@ class _MealsIntroFormState extends State<MealsIntroForm> {
               SizedBox(
                 height: Dimensions.getConvertedHeightSize(context, 60),
               ),
+              // Select meals title
               Text(
                 Strings(context).selectMealsTime,
                 style: TextStyle(
@@ -70,102 +66,27 @@ class _MealsIntroFormState extends State<MealsIntroForm> {
               SizedBox(
                 height: Dimensions.getConvertedHeightSize(context, 60),
               ),
-              Container(
-                padding:
-                    Dimensions.getEdgeInsets(context, bottom: 10, left: 30),
-                decoration: BoxDecoration(
-                  border: Border(
-                    bottom: BorderSide(
-                      width: Dimensions.getConvertedWidthSize(context, 1),
-                      color: Colors.grey,
-                    ),
-                  ),
-                ),
-                child: Row(
-                  children: <Widget>[
-                    Text(
-                      Strings(context).mealsTimeTitle,
-                      style: TextStyle(
-                        fontSize: Dimensions.getTextSize(context, 23),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  TimePickerApp(
-                    label: Strings(context).breakfastLabel,
-                    value: _breakfast,
-                    onChange: (TimeOfDay time) {
-                      setState(() {
-                        _formData[Keys.LABEL_BREAKFAST] = time;
-                        _breakfast = time.format(context);
-                      });
-                    },
-                  ),
-                  TimePickerApp(
-                    label: Strings(context).morningsnackLabel,
-                    value: _morningSnack,
-                    onChange: (TimeOfDay time) {
-                      setState(() {
-                        _formData[Keys.LABEL_MORNINGSNACK] = time;
-                        _morningSnack = time.format(context);
-                      });
-                    },
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  TimePickerApp(
-                    label: Strings(context).lunchLabel,
-                    value: _lunch,
-                    onChange: (TimeOfDay time) {
-                      setState(() {
-                        _formData[Keys.LABEL_LUNCH] = time;
-                        _lunch = time.format(context);
-                      });
-                    },
-                  ),
-                  TimePickerApp(
-                    label: Strings(context).afternoonsnackLabel,
-                    value: _afternoonSnack,
-                    onChange: (TimeOfDay time) {
-                      setState(() {
-                        _formData[Keys.LABEL_AFTERNOONSNACK] = time;
-                        _afternoonSnack = time.format(context);
-                      });
-                    },
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  TimePickerApp(
-                    label: Strings(context).dinnerLabel,
-                    value: _dinner,
-                    onChange: (TimeOfDay time) {
-                      setState(() {
-                        _formData[Keys.LABEL_DINNER] = time;
-                        _dinner = time.format(context);
-                      });
-                    },
-                  ),
-                  TimePickerApp(
-                    label: Strings(context).supperLabel,
-                    value: _supper,
-                    onChange: (TimeOfDay time) {
-                      setState(() {
-                        _formData[Keys.LABEL_SUPPER] = time;
-                        _supper = time.format(context);
-                      });
-                    },
-                  ),
-                ],
+              MealTimesForm(
+                onChange: (TimeOfDay time, MealEnum meal) {
+                  if (meal == MealEnum.Breakfast) {
+                    _formData[Keys.LABEL_BREAKFAST] = time;
+                  }
+                  if (meal == MealEnum.MorningSnack) {
+                    _formData[Keys.LABEL_MORNINGSNACK] = time;
+                  }
+                  if (meal == MealEnum.Lunch) {
+                    _formData[Keys.LABEL_LUNCH] = time;
+                  }
+                  if (meal == MealEnum.AfternoonSnack) {
+                    _formData[Keys.LABEL_AFTERNOONSNACK] = time;
+                  }
+                  if (meal == MealEnum.Dinner) {
+                    _formData[Keys.LABEL_DINNER] = time;
+                  }
+                  if (meal == MealEnum.Supper) {
+                    _formData[Keys.LABEL_SUPPER] = time;
+                  }
+                },
               ),
               SizedBox(
                 height: Dimensions.getConvertedHeightSize(context, 25),
@@ -173,12 +94,14 @@ class _MealsIntroFormState extends State<MealsIntroForm> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
+                  // Next button
                   Container(
                     margin: Dimensions.getEdgeInsets(context, right: 25),
                     width: Dimensions.getConvertedWidthSize(context, 200),
                     child: ButtonApp(
                       title: Strings(context).readyLabel,
                       onPressed: () {
+                        // Enable next button
                         if (_enableNext() == true) {
                           Route route = AnimationSlideTransistion(
                             widget: BasePage(),
@@ -198,6 +121,7 @@ class _MealsIntroFormState extends State<MealsIntroForm> {
     );
   }
 
+  //Validate empty fields
   bool _enableNext() {
     if (_formData[Keys.LABEL_BREAKFAST] == null) {
       setState(() {

@@ -16,11 +16,13 @@ class TimePickerApp extends StatelessWidget {
     ThemeChanger _themeChanger = Provider.of<ThemeChanger>(context);
     return Theme(
       data: ThemeData.light().copyWith(
+        //Time picker color
         primaryColor: ColorsApp.greenApp,
       ),
       child: new Builder(
         builder: (context) => InkWell(
           onTap: () {
+            //Show time picker action
             showTimePicker(
               context: context,
               initialTime: TimeOfDay.now(),
@@ -34,13 +36,9 @@ class TimePickerApp extends StatelessWidget {
                 width: Dimensions.getConvertedWidthSize(context, 165),
                 padding: Dimensions.getEdgeInsets(context, right: 10, left: 15),
                 margin: Dimensions.getEdgeInsets(context, top: 20, bottom: 20),
-                height: Dimensions.getConvertedHeightSize(context, 45),
+                height: Dimensions.getConvertedHeightSize(context, 50),
                 decoration: BoxDecoration(
-                  border: Border.all(
-                    color: (_themeChanger.getThemeData() == false)
-                        ? Colors.black
-                        : Colors.white,
-                  ),
+                  border: Border.all(),
                   borderRadius: BorderRadius.circular(
                     Dimensions.getConvertedWidthSize(context, 5),
                   ),
@@ -50,6 +48,7 @@ class TimePickerApp extends StatelessWidget {
                   children: <Widget>[
                     Expanded(
                       child: Text(
+                        //Value
                         value == null ? "" : value.toString(),
                         style: TextStyle(
                           fontSize: Dimensions.getTextSize(
@@ -59,6 +58,7 @@ class TimePickerApp extends StatelessWidget {
                         ),
                       ),
                     ),
+                    //Dropdown icon
                     Icon(
                       Icons.arrow_drop_down,
                       size: Dimensions.getConvertedWidthSize(context, 30),
@@ -69,14 +69,15 @@ class TimePickerApp extends StatelessWidget {
                   ],
                 ),
               ),
+              // Label
               Positioned(
                 top: Dimensions.getConvertedHeightSize(context, 11),
                 left: Dimensions.getConvertedHeightSize(context, 10),
                 child: Container(
                   padding: Dimensions.getEdgeInsetsAll(context, 3),
                   color: (_themeChanger.getThemeData() == false)
-                      ? Colors.white
-                      : Colors.black,
+                      ? ColorsApp.lightBackground
+                      : ColorsApp.darkBackground,
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: <Widget>[

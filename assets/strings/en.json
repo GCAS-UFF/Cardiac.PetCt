@@ -107,5 +107,8 @@
     "afternoonsnack_label":"Afternoon snack",
     "dinner_label":"Dinner",
     "supper_label":"Supper",
-    "ready_label":"Done"
+    "ready_label":"Done",
+        
+    "URINAPP_COMMENT_SECTION_MEALS_DATE_PICKER_APP": "----------",
+    "date_label":"Date"
 }
