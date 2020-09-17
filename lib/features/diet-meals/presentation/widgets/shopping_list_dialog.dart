@@ -164,9 +164,7 @@ class ShoppingListDialog extends StatelessWidget {
                       ),
                     ),
                     for (int i = 0; i < daysMenu[1].meals.length; i++)
-                      for (int j = 0;
-                          j < daysMenu[1].meals[i].mealItens.length;
-                          j++)
+                      for (int j = 0; j < daysMenu[1].meals[i].mealItens.length; j++)
                         pw.Text(
                           daysMenu[1].meals[i].mealItens[j].name,
                           style: pw.TextStyle(

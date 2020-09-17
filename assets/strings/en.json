@@ -17,7 +17,7 @@
     "function_not_available": "This function is not yet available",
     "complete": "Complet",
     "incomplete": "Incomplet",
-    "logo_name":"Dieta PetCT",
+    "logo_name":"PET/CT Diet",
 
     "URINAPP_COMMENT_SECTION_FAILURE_MESSAGES": "----------",
     "message_server_failure": "We have a server error.",
@@ -91,7 +91,7 @@
 
     
     "URINAPP_COMMENT_SECTION_EXAM_INTRO_FORM": "----------",
-    "about_exam":"Aboute the exam",
+    "about_exam":"About the exam",
     "fill_exam_details":"Enter your exam data",
     "date_time_exam":"Exam date and time",
     "hour_label":"Time",
