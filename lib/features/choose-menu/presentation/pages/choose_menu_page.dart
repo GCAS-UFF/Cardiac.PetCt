@@ -65,7 +65,7 @@ class _ChooseMenuPageState extends State<ChooseMenuPage>
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text(
-            "Prato 1",
+            Strings(context).optionOne,
             style: TextStyle(
               fontSize: Dimensions.getTextSize(context, 14),
             ),
@@ -76,7 +76,7 @@ class _ChooseMenuPageState extends State<ChooseMenuPage>
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text(
-            "Prato 2",
+            Strings(context).optionTwo,
             style: TextStyle(
               fontSize: Dimensions.getTextSize(context, 14),
             ),
@@ -87,7 +87,7 @@ class _ChooseMenuPageState extends State<ChooseMenuPage>
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text(
-            "Prato 3",
+            Strings(context).optionThree,
             style: TextStyle(
               fontSize: Dimensions.getTextSize(context, 14),
             ),
@@ -106,7 +106,7 @@ class _ChooseMenuPageState extends State<ChooseMenuPage>
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text(
-                      "Escolher prato",
+                      Strings(context).chooseDish,
                       style: TextStyle(
                         fontSize: Dimensions.getTextSize(context, 18),
                       ),
@@ -162,7 +162,7 @@ class _ChooseMenuPageState extends State<ChooseMenuPage>
               height: Dimensions.getConvertedHeightSize(context, 5),
             ),
             Text(
-              "Primeiro dia",
+              Strings(context).firstDay,
               style: TextStyle(
                 fontSize: Dimensions.getTextSize(context, 16),
               ),
@@ -212,7 +212,7 @@ class _ChooseMenuPageState extends State<ChooseMenuPage>
                                 Dimensions.getConvertedHeightSize(context, 15),
                           ),
                           ButtonApp(
-                            title: "Escolher prato",
+                            title: Strings(context).chooseDish,
                             onPressed: () {
                               Navigator.pop(context);
                             },
@@ -223,7 +223,7 @@ class _ChooseMenuPageState extends State<ChooseMenuPage>
                                 Dimensions.getConvertedHeightSize(context, 5),
                           ),
                           ButtonApp(
-                            title: "Cancelar",
+                            title: Strings(context).cancel,
                             onPressed: () {
                               Navigator.pop(context);
                             },

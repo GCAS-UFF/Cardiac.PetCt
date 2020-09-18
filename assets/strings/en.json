@@ -82,6 +82,8 @@
     "forbidden_label":"Forbidden",
     "allowed_food_title": "Allowed food",
     "forbidden_food_title": "Forbidden food",
+    "add_to_diary": "Add to diary",
+    "about_food": "About food",
 
     "URINAPP_COMMENT_SECTION_BASE_PAGE": "----------",
     "home_label":"Home",
@@ -110,5 +112,19 @@
     "ready_label":"Done",
         
     "URINAPP_COMMENT_SECTION_MEALS_DATE_PICKER_APP": "----------",
-    "date_label":"Date"
+    "date_label":"Date",
+
+    "URINAPP_COMMENT_SECTION_CHOOSE_MENU_PAGE": "----------",
+    "option_one":"Option 1",
+    "option_two":"Option 2",
+    "option_three":"Option 3",
+    "choose_dish":"Choose food plate",
+    "first_day":"First day",
+    "second_day":"Second day",
+    "third_day":"Third day",
+
+    "URINAPP_COMMENT_SECTION_ABOUT_FOOD": "----------",
+    "diet_food":"Diet food",
+    "group_title": "Group: "
+
 }

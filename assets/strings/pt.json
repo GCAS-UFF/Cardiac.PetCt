@@ -81,6 +81,8 @@
     "forbidden_label":"Proibidos",
     "allowed_food_title": "Alimentos permitidos",
     "forbidden_food_title": "Alimentos proibidos",
+    "add_to_diary": "Adicionar ao diário",
+    "about_food": "Sobre os alimentos",
 
     "URINAPP_COMMENT_SECTION_BASE_PAGE": "----------",
     "home_label":"Início",
@@ -108,5 +110,19 @@
     "ready_label":"Pronto",
     
     "URINAPP_COMMENT_SECTION_MEALS_DATE_PICKER_APP": "----------",
-    "date_label":"Data"
+    "date_label":"Data",
+
+    "URINAPP_COMMENT_SECTION_CHOOSE_MENU_PAGE": "----------",
+    "option_one":"Prato 1",
+    "option_two":"Prato 2",
+    "option_three":"Prato 3",
+    "choose_dish":"Escolher prato",
+    "first_day":"Primeiro dia",
+    "second_day":"Segundo dia",
+    "third_day":"Terceiro dia",
+
+    "URINAPP_COMMENT_SECTION_ABOUT_FOOD": "----------",
+    "diet_food":"Alimentos da dieta",
+    "group_title": "Grupo: "
+
 }

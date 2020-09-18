@@ -90,6 +90,8 @@ class Strings {
   String forbiddenLabel;
   String forbiddenFoodTitle;
   String allowedFoodTitle;
+  String addToDiary;
+  String aboutFood;
 
   //Base Page
   String homeLabel;
@@ -118,6 +120,19 @@ class Strings {
 
   //Date Picker App
   String dateLabel;
+
+  //Choose Menu Page
+  String optionOne;
+  String optionTwo;
+  String optionThree;
+  String chooseDish;
+  String firstDay;
+  String secondDay;
+  String thirdDay;
+
+  //About Food
+  String dietFood;
+  String groupTitle;
 
   Strings(this.context) {
     dateInputErrorValidation =
@@ -207,6 +222,8 @@ class Strings {
     forbiddenFoodTitle =
         intl.Strings.of(context).valueOf("forbidden_food_title");
     allowedFoodTitle = intl.Strings.of(context).valueOf("allowed_food_title");
+    addToDiary = intl.Strings.of(context).valueOf("add_to_diary");
+    aboutFood = intl.Strings.of(context).valueOf("about_food");
     aboutExam = intl.Strings.of(context).valueOf("about_exam");
     fillExamDetails = intl.Strings.of(context).valueOf("fill_exam_details");
     dateTimeExam = intl.Strings.of(context).valueOf("date_time_exam");
@@ -224,5 +241,14 @@ class Strings {
     supperLabel = intl.Strings.of(context).valueOf("supper_label");
     readyLabel = intl.Strings.of(context).valueOf("ready_label");
     dateLabel = intl.Strings.of(context).valueOf("date_label");
+    optionOne = intl.Strings.of(context).valueOf("option_one");
+    optionTwo = intl.Strings.of(context).valueOf("option_two");
+    optionThree = intl.Strings.of(context).valueOf("option_three");
+    chooseDish = intl.Strings.of(context).valueOf("choose_dish");
+    firstDay = intl.Strings.of(context).valueOf("first_day");
+    secondDay = intl.Strings.of(context).valueOf("second_day");
+    thirdDay = intl.Strings.of(context).valueOf("third_day");
+    dietFood = intl.Strings.of(context).valueOf("diet_food");
+    groupTitle = intl.Strings.of(context).valueOf("group_title");
   }
 }

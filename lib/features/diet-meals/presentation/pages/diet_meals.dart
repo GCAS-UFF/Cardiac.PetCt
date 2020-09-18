@@ -331,16 +331,18 @@ class _DietMealsState extends State<DietMeals>
             ),
             //About Diet Food
             ButtonApp(
-              title: "Sobre os alimentos",
+              title: Strings(context).aboutFood,
               type: ButtonType.BUTTON_GREEN,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, '/aboutFoodPage');
+              },
               suffixIcon: Icons.arrow_forward,
             ),
             //Shopping List Button
             Padding(
               padding: Dimensions.getEdgeInsets(context, top: 15, bottom: 15),
               child: ButtonApp(
-                title: "Lista de Compras",
+                title: Strings(context).shoppingList,
                 type: ButtonType.BUTTON_ROUNDED,
                 onPressed: () {
                   showDialog(
