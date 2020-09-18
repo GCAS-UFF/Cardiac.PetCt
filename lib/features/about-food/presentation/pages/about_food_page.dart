@@ -5,7 +5,8 @@ import 'package:petct/core/resources/colors.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/strings.dart';
 import 'package:petct/features/about-food/presentation/mobx/controller.dart';
-import 'package:petct/features/about-food/presentation/pages/allowed_food_groups.dart';
+import 'package:petct/features/about-food/presentation/widgets/allowed_food_groups.dart';
+import 'package:petct/features/about-food/presentation/widgets/forbidden_food_tab.dart';
 
 class AboutFoodPage extends StatelessWidget {
   final controller = Controller();
@@ -59,7 +60,7 @@ class AboutFoodPage extends StatelessWidget {
                       decoration: BoxDecoration(
                         color: controller.index.value == true
                             ? ColorsApp.successGreen
-                            : Colors.white,
+                            : null,
                         borderRadius: BorderRadius.circular(
                           Dimensions.getConvertedWidthSize(context, 50),
                         ),
@@ -70,7 +71,7 @@ class AboutFoodPage extends StatelessWidget {
                             FeatherIcons.check,
                             color: controller.index.value == true
                                 ? Colors.white
-                                : ColorsApp.successGreen,
+                                : null,
                             size: Dimensions.getConvertedWidthSize(context, 20),
                           ),
                           SizedBox(
@@ -81,7 +82,7 @@ class AboutFoodPage extends StatelessWidget {
                             style: TextStyle(
                               color: controller.index.value == true
                                   ? Colors.white
-                                  : ColorsApp.successGreen,
+                                  : null,
                               fontSize: Dimensions.getTextSize(context, 13),
                             ),
                           ),
@@ -102,7 +103,7 @@ class AboutFoodPage extends StatelessWidget {
                         decoration: BoxDecoration(
                           color: controller.index.value == false
                               ? ColorsApp.dangerRed
-                              : Colors.white,
+                              : null,
                           borderRadius: BorderRadius.circular(
                             Dimensions.getConvertedWidthSize(context, 50),
                           ),
@@ -113,7 +114,7 @@ class AboutFoodPage extends StatelessWidget {
                               FeatherIcons.slash,
                               color: controller.index.value == false
                                   ? Colors.white
-                                  : ColorsApp.dangerRed,
+                                  : null,
                               size:
                                   Dimensions.getConvertedWidthSize(context, 20),
                             ),
@@ -126,7 +127,7 @@ class AboutFoodPage extends StatelessWidget {
                               style: TextStyle(
                                 color: controller.index.value == false
                                     ? Colors.white
-                                    : ColorsApp.dangerRed,
+                                    : null,
                                 fontSize: Dimensions.getTextSize(context, 13),
                               ),
                             ),
@@ -146,7 +147,7 @@ class AboutFoodPage extends StatelessWidget {
                 builder: (_) {
                   return controller.index.value == true
                       ? AllowedFoodGroups()
-                      : Container(color: Colors.red);
+                      : ForbiddenFoodContent();
                 },
               ),
             )
