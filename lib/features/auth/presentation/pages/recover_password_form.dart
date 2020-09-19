@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:petct/core/input_validators/email_input_validator.dart';
 import 'package:petct/core/resources/colors.dart';
 import 'package:petct/core/resources/dimensions.dart';
@@ -68,7 +69,7 @@ class _RecoverPasswordFormState extends State<RecoverPasswordForm> {
                       // Dialog title
                       Text(
                         Strings(context).recoverPasswordTitle,
-                        style: TextStyle(
+                        style: GoogleFonts.montserrat(
                           fontSize: Dimensions.getTextSize(context, 22),
                           fontWeight: FontWeight.w400,
                         ),
@@ -102,7 +103,7 @@ class _RecoverPasswordFormState extends State<RecoverPasswordForm> {
                                         Expanded(
                                           child: Text(
                                             _errorMessage,
-                                            style: TextStyle(
+                                            style: GoogleFonts.montserrat(
                                               color: Colors.white,
                                               fontSize: Dimensions.getTextSize(
                                                   context, 11),
@@ -169,7 +170,7 @@ class _RecoverPasswordFormState extends State<RecoverPasswordForm> {
                             ),
                             Text(
                               Strings(context).backOption,
-                              style: TextStyle(
+                              style: GoogleFonts.montserrat(
                                 fontSize: Dimensions.getTextSize(context, 16),
                               ),
                             ),

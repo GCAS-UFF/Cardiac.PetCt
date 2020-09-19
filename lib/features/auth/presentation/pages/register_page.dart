@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:petct/core/input_validators/compare_values_input_validator.dart';
 import 'package:petct/core/input_validators/date_input_validator.dart';
 import 'package:petct/core/input_validators/email_input_validator.dart';
@@ -56,7 +57,7 @@ class _RegisterPageState extends State<RegisterPage> {
         child: Text(
           "Feminino",
           textAlign: TextAlign.start,
-          style: TextStyle(
+          style: GoogleFonts.montserrat(
             fontSize: Dimensions.getTextSize(context, 16),
           ),
         ),
@@ -66,7 +67,7 @@ class _RegisterPageState extends State<RegisterPage> {
         child: Text(
           "Masculino",
           textAlign: TextAlign.start,
-          style: TextStyle(
+          style: GoogleFonts.montserrat(
             fontSize: Dimensions.getTextSize(context, 16),
           ),
         ),
@@ -76,7 +77,7 @@ class _RegisterPageState extends State<RegisterPage> {
         child: Text(
           "Pessoa trans",
           textAlign: TextAlign.start,
-          style: TextStyle(
+          style: GoogleFonts.montserrat(
             fontSize: Dimensions.getTextSize(context, 16),
           ),
         ),
@@ -86,7 +87,7 @@ class _RegisterPageState extends State<RegisterPage> {
         child: Text(
           "Homem trans",
           textAlign: TextAlign.start,
-          style: TextStyle(
+          style: GoogleFonts.montserrat(
             fontSize: Dimensions.getTextSize(context, 16),
           ),
         ),
@@ -96,7 +97,7 @@ class _RegisterPageState extends State<RegisterPage> {
         child: Text(
           "Mulher trans",
           textAlign: TextAlign.start,
-          style: TextStyle(
+          style: GoogleFonts.montserrat(
             fontSize: Dimensions.getTextSize(context, 16),
           ),
         ),
@@ -141,7 +142,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 //Register title
                 Text(
                   Strings(context).registerTitle,
-                  style: TextStyle(
+                  style: GoogleFonts.montserrat(
                     fontSize: Dimensions.getTextSize(context, 22),
                     fontWeight: FontWeight.w400,
                   ),
@@ -183,7 +184,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     value: _formData[Keys.LABEL_GENDER],
                     hint: Text(
                       Strings(context).genderLabel,
-                      style: TextStyle(
+                      style: GoogleFonts.montserrat(
                         fontSize: Dimensions.getTextSize(context, 16),
                         color: ColorsApp.greenApp,
                         fontWeight: FontWeight.w600,

@@ -1,5 +1,6 @@
 import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/strings.dart';
 import 'package:petct/features/diet-meals/presentation/models/menu_day_model.dart';
@@ -20,7 +21,7 @@ class TopBar extends StatelessWidget {
               // Meals title
               Text(
                 "Dieta",
-                style: TextStyle(
+                style: GoogleFonts.montserrat(
                   fontSize: Dimensions.getTextSize(context, 18),
                 ),
               ),

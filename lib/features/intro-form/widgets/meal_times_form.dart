@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/strings.dart';
 import 'package:petct/core/ui/time_picker_app.dart';
@@ -54,7 +55,7 @@ class _MealTimesFormState extends State<MealTimesForm> {
               // Meals time title
               Text(
                 Strings(context).mealsTimeTitle,
-                style: TextStyle(
+                style: GoogleFonts.montserrat(
                   fontSize: Dimensions.getTextSize(context, 20),
                 ),
               ),

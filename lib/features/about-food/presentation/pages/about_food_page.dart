@@ -1,6 +1,7 @@
 import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:petct/core/resources/colors.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/images.dart';
@@ -363,8 +364,8 @@ class AboutFoodPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text(
-                      Strings(context).chooseDish,
-                      style: TextStyle(
+                      Strings(context).aboutFood,
+                      style: GoogleFonts.montserrat(
                         fontSize: Dimensions.getTextSize(context, 18),
                       ),
                     ),
@@ -417,11 +418,11 @@ class AboutFoodPage extends StatelessWidget {
                           ),
                           Text(
                             Strings(context).dietFood,
-                            style: TextStyle(
+                            style: GoogleFonts.montserrat(
                               color: controller.index.value == true
                                   ? Colors.white
                                   : null,
-                              fontSize: Dimensions.getTextSize(context, 13),
+                              fontSize: Dimensions.getTextSize(context, 14),
                             ),
                           ),
                         ],
@@ -462,11 +463,11 @@ class AboutFoodPage extends StatelessWidget {
                             ),
                             Text(
                               Strings(context).forbiddenFoodTitle,
-                              style: TextStyle(
+                              style: GoogleFonts.montserrat(
                                 color: controller.index.value == false
                                     ? Colors.white
                                     : null,
-                                fontSize: Dimensions.getTextSize(context, 13),
+                                fontSize: Dimensions.getTextSize(context, 16),
                               ),
                             ),
                           ],

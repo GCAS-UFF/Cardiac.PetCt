@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:petct/core/input_validators/email_input_validator.dart';
 import 'package:petct/core/resources/colors.dart';
 import 'package:petct/core/resources/dimensions.dart';
@@ -82,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
                 //Title
                 Text(
                   Strings(context).loginTitle,
-                  style: TextStyle(
+                  style: GoogleFonts.montserrat(
                     fontSize: Dimensions.getTextSize(context, 22),
                     fontWeight: FontWeight.w400,
                   ),
@@ -166,7 +167,7 @@ class _LoginPageState extends State<LoginPage> {
                   },
                   child: Text(
                     Strings(context).forgotPassword,
-                    style: TextStyle(
+                    style: GoogleFonts.montserrat(
                       fontSize: Dimensions.getTextSize(context, 16),
                       fontWeight: FontWeight.w400,
                     ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:petct/core/resources/colors.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/images.dart';
@@ -133,7 +134,7 @@ class _ChooseMenuPageState extends State<ChooseMenuPage>
         children: <Widget>[
           Text(
             Strings(context).optionOne,
-            style: TextStyle(
+            style: GoogleFonts.montserrat(
               fontSize: Dimensions.getTextSize(context, 14),
             ),
           ),
@@ -144,7 +145,7 @@ class _ChooseMenuPageState extends State<ChooseMenuPage>
         children: <Widget>[
           Text(
             Strings(context).optionTwo,
-            style: TextStyle(
+            style: GoogleFonts.montserrat(
               fontSize: Dimensions.getTextSize(context, 14),
             ),
           ),
@@ -155,7 +156,7 @@ class _ChooseMenuPageState extends State<ChooseMenuPage>
         children: <Widget>[
           Text(
             Strings(context).optionThree,
-            style: TextStyle(
+            style: GoogleFonts.montserrat(
               fontSize: Dimensions.getTextSize(context, 14),
             ),
           ),
@@ -174,7 +175,7 @@ class _ChooseMenuPageState extends State<ChooseMenuPage>
                   children: <Widget>[
                     Text(
                       Strings(context).chooseDish,
-                      style: TextStyle(
+                      style: GoogleFonts.montserrat(
                         fontSize: Dimensions.getTextSize(context, 18),
                       ),
                     ),
@@ -200,7 +201,7 @@ class _ChooseMenuPageState extends State<ChooseMenuPage>
                 //Meal name
                 Text(
                   widget.mealModel.name,
-                  style: TextStyle(
+                  style: GoogleFonts.montserrat(
                     fontSize: Dimensions.getTextSize(context, 20),
                     fontWeight: FontWeight.w700,
                     color: ColorsApp.greenApp,
@@ -208,7 +209,7 @@ class _ChooseMenuPageState extends State<ChooseMenuPage>
                 ),
                 Text(
                   " - ",
-                  style: TextStyle(
+                  style: GoogleFonts.montserrat(
                     fontSize: Dimensions.getTextSize(context, 20),
                     color: ColorsApp.greenApp,
                     fontWeight: FontWeight.w700,
@@ -217,7 +218,7 @@ class _ChooseMenuPageState extends State<ChooseMenuPage>
                 //Meal time
                 Text(
                   widget.mealModel.mealTime,
-                  style: TextStyle(
+                  style: GoogleFonts.montserrat(
                     fontSize: Dimensions.getTextSize(context, 20),
                     color: ColorsApp.greenApp,
                     fontWeight: FontWeight.w700,
@@ -230,7 +231,7 @@ class _ChooseMenuPageState extends State<ChooseMenuPage>
             ),
             Text(
               Strings(context).firstDay,
-              style: TextStyle(
+              style: GoogleFonts.montserrat(
                 fontSize: Dimensions.getTextSize(context, 16),
               ),
             ),
@@ -253,7 +254,7 @@ class _ChooseMenuPageState extends State<ChooseMenuPage>
                               //Meal itens title
                               Text(
                                 Strings(context).itemTitle,
-                                style: TextStyle(
+                                style: GoogleFonts.montserrat(
                                   fontSize: Dimensions.getTextSize(context, 12),
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -261,7 +262,7 @@ class _ChooseMenuPageState extends State<ChooseMenuPage>
                               //Meal quantity title
                               Text(
                                 Strings(context).quantityTitle,
-                                style: TextStyle(
+                                style: GoogleFonts.montserrat(
                                   fontSize: Dimensions.getTextSize(context, 12),
                                   fontWeight: FontWeight.bold,
                                 ),

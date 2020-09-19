@@ -1,5 +1,6 @@
 import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:petct/core/resources/colors.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/strings.dart';
@@ -51,7 +52,7 @@ class _BasePageState extends State<BasePage> {
             ),
             title: Text(
               Strings(context).homeLabel,
-              style: TextStyle(
+              style: GoogleFonts.montserrat(
                 fontSize: Dimensions.getTextSize(context, 14),
               ),
             ),
@@ -63,7 +64,7 @@ class _BasePageState extends State<BasePage> {
             ),
             title: Text(
               Strings(context).menuLabel,
-              style: TextStyle(
+              style: GoogleFonts.montserrat(
                 fontSize: Dimensions.getTextSize(context, 14),
               ),
             ),
@@ -75,7 +76,7 @@ class _BasePageState extends State<BasePage> {
             ),
             title: Text(
               Strings(context).alertLabel,
-              style: TextStyle(
+              style: GoogleFonts.montserrat(
                 fontSize: Dimensions.getTextSize(context, 14),
               ),
             ),
@@ -87,7 +88,7 @@ class _BasePageState extends State<BasePage> {
             ),
             title: Text(
               Strings(context).settingsLabel,
-              style: TextStyle(
+              style: GoogleFonts.montserrat(
                 fontSize: Dimensions.getTextSize(context, 14),
               ),
             ),

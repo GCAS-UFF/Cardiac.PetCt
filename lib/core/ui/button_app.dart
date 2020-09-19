@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:petct/core/resources/colors.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/utils/theme.dart';
@@ -67,7 +68,7 @@ class ButtonApp extends StatelessWidget {
                     : Container(),
                 Text(
                   title,
-                  style: TextStyle(
+                  style: GoogleFonts.montserrat(
                     fontWeight: FontWeight.bold,
                     fontSize: Dimensions.getTextSize(context, 16),
                     color: ((_themeChanger.getThemeData() == false) &&

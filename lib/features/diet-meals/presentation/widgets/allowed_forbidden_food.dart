@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/strings.dart';
 import 'package:petct/features/diet-meals/presentation/widgets/food_list_button.dart';
@@ -12,7 +13,7 @@ class AllowedForbiddenFood extends StatelessWidget {
         // Food title
         Text(
           Strings(context).foodListTitle,
-          style: TextStyle(
+          style: GoogleFonts.montserrat(
             fontSize: Dimensions.getTextSize(context, 12),
           ),
         ),

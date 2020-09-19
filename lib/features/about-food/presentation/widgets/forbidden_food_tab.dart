@@ -1,5 +1,6 @@
 import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:petct/core/resources/colors.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/strings.dart';
@@ -34,14 +35,14 @@ class ForbiddenFoodContent extends StatelessWidget {
                       children: <Widget>[
                         Text(
                           Strings(context).attentionExclamation,
-                          style: TextStyle(
+                          style: GoogleFonts.montserrat(
                             color: ColorsApp.dangerRed,
                             fontSize: Dimensions.getTextSize(context, 18),
                           ),
                         ),
                         Text(
                           Strings(context).forbiddenFoodText,
-                          style: TextStyle(
+                          style: GoogleFonts.montserrat(
                             fontSize: Dimensions.getTextSize(context, 18),
                           ),
                         ),

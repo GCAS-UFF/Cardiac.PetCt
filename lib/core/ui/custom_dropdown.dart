@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:petct/core/resources/colors.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/strings.dart';
@@ -21,7 +22,7 @@ class _CustomDropdownState extends State<CustomDropdown> {
   Widget build(BuildContext context) {
     return DropdownButtonFormField<String>(
       decoration: InputDecoration(
-        hintStyle: TextStyle(
+        hintStyle: GoogleFonts.montserrat(
           fontSize: Dimensions.getTextSize(context, 18),
         ),
         contentPadding:
@@ -55,7 +56,7 @@ class _CustomDropdownState extends State<CustomDropdown> {
             width: Dimensions.getConvertedWidthSize(context, 1.0),
           ),
         ),
-        errorStyle: TextStyle(
+        errorStyle: GoogleFonts.montserrat(
           color: Colors.red,
           fontSize: Dimensions.getTextSize(context, 11.0),
         ),

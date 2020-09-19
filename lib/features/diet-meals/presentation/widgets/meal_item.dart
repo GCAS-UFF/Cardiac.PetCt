@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/features/diet-meals/presentation/models/meal_item_model.dart';
 
@@ -29,14 +30,14 @@ class _MealItemState extends State<MealItem> {
           //Meal item name
           Text(
             widget.mealItem.name,
-            style: TextStyle(
+            style: GoogleFonts.montserrat(
               fontSize: Dimensions.getTextSize(context, 12),
             ),
           ),
           //Meal item quantity
           Text(
             widget.mealItem.maximumQuantity.toString(),
-            style: TextStyle(
+            style: GoogleFonts.montserrat(
               fontSize: Dimensions.getTextSize(context, 12),
             ),
           ),

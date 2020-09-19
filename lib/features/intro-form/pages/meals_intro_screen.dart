@@ -1,5 +1,6 @@
 import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/keys.dart';
 import 'package:petct/core/resources/strings.dart';
@@ -59,7 +60,7 @@ class _MealsIntroScreenState extends State<MealsIntroScreen> {
               // Select meals title
               Text(
                 Strings(context).selectMealsTime,
-                style: TextStyle(
+                style: GoogleFonts.montserrat(
                   fontSize: Dimensions.getTextSize(context, 17),
                 ),
               ),

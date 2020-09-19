@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:petct/core/resources/colors.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/strings.dart';
@@ -20,7 +21,7 @@ class AppName extends StatelessWidget {
       //Logo name text
       child: Text(
         Strings(context).logoName,
-        style: TextStyle(
+        style: GoogleFonts.montserrat(
           fontSize: Dimensions.getTextSize(context, 20),
         ),
       ),

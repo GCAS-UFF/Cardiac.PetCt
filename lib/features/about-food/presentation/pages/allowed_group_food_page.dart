@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/strings.dart';
 import 'package:petct/core/utils/theme.dart';
@@ -34,7 +35,7 @@ class AllowedGroupFoodPage extends StatelessWidget {
                     children: <Widget>[
                       Text(
                         Strings(context).dietFood,
-                        style: TextStyle(
+                        style: GoogleFonts.montserrat(
                           fontSize: Dimensions.getTextSize(context, 18),
                         ),
                       ),
@@ -72,7 +73,7 @@ class AllowedGroupFoodPage extends StatelessWidget {
                         children: <TextSpan>[
                           TextSpan(
                             text: Strings(context).groupTitle,
-                            style: TextStyle(
+                            style: GoogleFonts.montserrat(
                               fontWeight: FontWeight.bold,
                               fontSize: Dimensions.getTextSize(context, 20),
                               color: _themeChanger.getThemeData() == false
@@ -82,7 +83,7 @@ class AllowedGroupFoodPage extends StatelessWidget {
                           ),
                           TextSpan(
                             text: foodGroup,
-                            style: TextStyle(
+                            style: GoogleFonts.montserrat(
                               fontWeight: FontWeight.bold,
                               fontSize: Dimensions.getTextSize(context, 18),
                               color: _themeChanger.getThemeData() == false
@@ -104,7 +105,7 @@ class AllowedGroupFoodPage extends StatelessWidget {
                   Expanded(
                     child: Text(
                       Strings(context).foodReplacementFood,
-                      style: TextStyle(
+                      style: GoogleFonts.montserrat(
                         fontSize: Dimensions.getTextSize(context, 18),
                       ),
                     ),
