@@ -9,4 +9,7 @@ class Images {
   static const String leaf_group = "assets/images/leaf.png";
   static const String liquid_group = "assets/images/water.png";
   static const String bread_forbidden = "assets/images/bread.png";
+  //Alerts Page
+  static const String empty_alerts_image =
+      "assets/images/empty_alerts_image.svg";
 }

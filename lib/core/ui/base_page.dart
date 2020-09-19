@@ -5,6 +5,7 @@ import 'package:petct/core/resources/colors.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/strings.dart';
 import 'package:petct/core/utils/theme.dart';
+import 'package:petct/features/alerts/presentation/pages/alerts_page.dart';
 import 'package:petct/features/diet-meals/presentation/pages/diet_meals.dart';
 import 'package:petct/features/settings/pages/settings_screen.dart';
 import 'package:provider/provider.dart';
@@ -22,9 +23,7 @@ class _BasePageState extends State<BasePage> {
       child: Text("Home"),
     ),
     DietMeals(),
-    Center(
-      child: Text("Notificações"),
-    ),
+    AlertsPage(),
     SettingsScreen(),
   ];
   @override
@@ -44,7 +43,9 @@ class _BasePageState extends State<BasePage> {
         ),
         selectedFontSize: Dimensions.getTextSize(context, 16),
         unselectedFontSize: Dimensions.getTextSize(context, 16),
-        selectedItemColor: _themeChanger.getThemeData() == true ? ColorsApp.greenApp : Colors.black,
+        selectedItemColor: _themeChanger.getThemeData() == true
+            ? ColorsApp.greenApp
+            : Colors.black,
         items: [
           BottomNavigationBarItem(
             icon: Icon(
