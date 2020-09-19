@@ -22,29 +22,29 @@ class FoodGroupCard extends StatelessWidget {
     String imageGroup;
     switch (foodGroup) {
       case FoodGroup.PROTEIN:
-        groupName = "Proteínas";
+        groupName = Strings(context).protein;
         imageGroup = Images.protein_group;
-        exampleFood = "Carne, frango, ovos, etc";
+        exampleFood = Strings(context).proteinExamples;
         break;
       case FoodGroup.OILS:
-        groupName = "Gorduras e oleaginosas";
+        groupName = Strings(context).oils;
         imageGroup = Images.oil_group;
-        exampleFood = "Azeite, castanhas, etc";
+        exampleFood = Strings(context).oilsExamples;
         break;
       case FoodGroup.CHEESE:
-        groupName = "Queijos";
+        groupName = Strings(context).cheese;
         imageGroup = Images.cheese_group;
-        exampleFood = "Gorgonzola, brie, etc";
+        exampleFood = Strings(context).cheeseExamples;
         break;
       case FoodGroup.VEGETABLES:
-        groupName = "Vegetais";
+        groupName = Strings(context).vegetables;
         imageGroup = Images.leaf_group;
-        exampleFood = "Alface, couve, etc";
+        exampleFood = Strings(context).vegetablesExamples;
         break;
       case FoodGroup.LIQUID:
-        groupName = "Líquidos";
+        groupName = Strings(context).liquid;
         imageGroup = Images.liquid_group;
-        exampleFood = "Água, café, etc";
+        exampleFood = Strings(context).liquidExamples;
         break;
       default:
         "";

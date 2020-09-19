@@ -133,6 +133,21 @@ class Strings {
   //About Food
   String dietFood;
   String groupTitle;
+  //TO DO
+  String foodReplacementFood;
+  String attentionExclamation;
+  String maximumQuantity;
+  String forbiddenFoodText;
+  String protein;
+  String oils;
+  String cheese;
+  String vegetables;
+  String liquid;
+  String proteinExamples;
+  String oilsExamples;
+  String cheeseExamples;
+  String vegetablesExamples;
+  String liquidExamples;
 
   Strings(this.context) {
     dateInputErrorValidation =
@@ -250,5 +265,21 @@ class Strings {
     thirdDay = intl.Strings.of(context).valueOf("third_day");
     dietFood = intl.Strings.of(context).valueOf("diet_food");
     groupTitle = intl.Strings.of(context).valueOf("group_title");
+    foodReplacementFood =
+        intl.Strings.of(context).valueOf("food_replacement_text");
+    attentionExclamation =
+        intl.Strings.of(context).valueOf("attention_exclamation");
+    maximumQuantity = intl.Strings.of(context).valueOf("maximum_quantity");
+    forbiddenFoodText = intl.Strings.of(context).valueOf("forbidden_food_text");
+    protein = intl.Strings.of(context).valueOf("protein_title");
+    oils = intl.Strings.of(context).valueOf("oils_title");
+    cheese = intl.Strings.of(context).valueOf("cheese_title");
+    vegetables = intl.Strings.of(context).valueOf("vegetables_title");
+    liquid = intl.Strings.of(context).valueOf("liquid_title");
+    proteinExamples = intl.Strings.of(context).valueOf("protein_examples");
+    oilsExamples = intl.Strings.of(context).valueOf("oils_examples");
+    cheeseExamples = intl.Strings.of(context).valueOf("cheese_examples");
+    vegetablesExamples = intl.Strings.of(context).valueOf("vegetables_examples");
+    liquidExamples = intl.Strings.of(context).valueOf("liquid_examples");
   }
 }

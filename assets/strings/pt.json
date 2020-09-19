@@ -123,6 +123,19 @@
 
     "URINAPP_COMMENT_SECTION_ABOUT_FOOD": "----------",
     "diet_food":"Alimentos da dieta",
-    "group_title": "Grupo: "
-
+    "group_title": "Grupo: ",
+    "food_replacement_text": "Os itens desta lista podem ser substituidos por outro da mesma lista respeitando sua quantidade máxima por refeição",
+    "attention_exclamation": "Atenção!",
+    "maximum_quantity": "Quantidade máxima por refeição: ",
+    "forbidden_food_text": "Durante o período de dieta, a ingestão de qualquer um dos alimentos abaixo impede a realização do exame",
+    "protein_title": "Proteínas",
+    "oils_title": "Gorduras e oleaginosas",
+    "cheese_title": "Queijo",
+    "vegetables_title": "Vegetais",
+    "liquid_title": "Líquidos",
+    "protein_examples": "Carne, frango, ovos, etc",
+    "oils_examples": "Azeite, castanhas, etc",
+    "cheese_examples": "Gorgonzola, brie, etc",
+    "vegetables_examples": "Alface, couve, etc",
+    "liquid_examples": "Água, café, etc"
 }

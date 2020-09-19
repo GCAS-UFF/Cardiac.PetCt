@@ -2,6 +2,7 @@ import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:petct/core/resources/colors.dart';
 import 'package:petct/core/resources/dimensions.dart';
+import 'package:petct/core/resources/strings.dart';
 import 'package:petct/core/utils/theme.dart';
 import 'package:petct/features/diet-meals/presentation/models/meal_item_model.dart';
 import 'package:provider/provider.dart';
@@ -59,7 +60,7 @@ class FoodCard extends StatelessWidget {
                             text: TextSpan(
                               children: <TextSpan>[
                                 TextSpan(
-                                  text: "Quantidade máxima por refeição:  ",
+                                  text: Strings(context).maximumQuantity,
                                   style: TextStyle(
                                     fontWeight: FontWeight.w300,
                                     fontSize:

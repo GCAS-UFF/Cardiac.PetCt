@@ -2,6 +2,7 @@ import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:petct/core/resources/colors.dart';
 import 'package:petct/core/resources/dimensions.dart';
+import 'package:petct/core/resources/strings.dart';
 import 'package:petct/features/about-food/presentation/widgets/food_card.dart';
 import 'package:petct/features/diet-meals/presentation/models/meal_item_model.dart';
 
@@ -32,14 +33,14 @@ class ForbiddenFoodContent extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          "Atenção!",
+                          Strings(context).attentionExclamation,
                           style: TextStyle(
                             color: ColorsApp.dangerRed,
                             fontSize: Dimensions.getTextSize(context, 18),
                           ),
                         ),
                         Text(
-                          "Durante o período de dieta, a ingestão de qualquer um dos alimentos abaixo impede a realização do exame",
+                          Strings(context).forbiddenFoodText,
                           style: TextStyle(
                             fontSize: Dimensions.getTextSize(context, 18),
                           ),

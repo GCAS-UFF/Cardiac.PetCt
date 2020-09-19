@@ -125,6 +125,20 @@
 
     "URINAPP_COMMENT_SECTION_ABOUT_FOOD": "----------",
     "diet_food":"Diet food",
-    "group_title": "Group: "
+    "group_title": "Group: ",
+    "food_replacement_text": "The items on this list can be replaced by another from the same list respecting their maximum quantity per meal",
+    "attention_exclamation": "Attention!",
+    "maximum_quantity": "Maximum amount per meal: ",
+    "forbidden_food_text": "During the diet period, eating any of the foods below prevents you from taking the exam",
+    "protein_title": "Proteins",
+    "oils_title": "Fats and oilseeds",
+    "cheese_title": "Cheese",
+    "vegetables_title": "Vegetables",
+    "liquid_title": "Liquids",
+    "protein_examples": "Meat, chicken, eggs, etc",
+    "oils_examples": "Olive oil, chestnuts, etc",
+    "cheese_examples": "Gorgonzola, brie, etc",
+    "vegetables_examples": "Lettuce, cabbage, etc",
+    "liquid_examples": "Water, coffee, etc"
 
 }

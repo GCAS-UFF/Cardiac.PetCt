@@ -33,7 +33,7 @@ class AllowedGroupFoodPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        "Alimentos da dieta",
+                        Strings(context).dietFood,
                         style: TextStyle(
                           fontSize: Dimensions.getTextSize(context, 18),
                         ),
@@ -103,7 +103,7 @@ class AllowedGroupFoodPage extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Text(
-                      "Os itens desta lista podem ser substituidos por outro da mesma lista respeitando sua quantidade máxima por refeição",
+                      Strings(context).foodReplacementFood,
                       style: TextStyle(
                         fontSize: Dimensions.getTextSize(context, 18),
                       ),
