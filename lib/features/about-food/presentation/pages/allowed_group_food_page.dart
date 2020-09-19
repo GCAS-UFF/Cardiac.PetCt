@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/strings.dart';
+import 'package:petct/core/utils/theme.dart';
 import 'package:petct/features/about-food/presentation/widgets/food_card.dart';
 import 'package:petct/features/diet-meals/presentation/models/meal_item_model.dart';
+import 'package:provider/provider.dart';
 
 class AllowedGroupFoodPage extends StatelessWidget {
   final List<MealItemModel> data;
@@ -14,6 +16,7 @@ class AllowedGroupFoodPage extends StatelessWidget {
       : super(key: key);
   @override
   Widget build(BuildContext context) {
+    ThemeChanger _themeChanger = Provider.of<ThemeChanger>(context);
     data.map((data) {
       print(data.name);
     }).toList();
@@ -70,17 +73,21 @@ class AllowedGroupFoodPage extends StatelessWidget {
                           TextSpan(
                             text: Strings(context).groupTitle,
                             style: TextStyle(
-                              color: Colors.black,
                               fontWeight: FontWeight.bold,
                               fontSize: Dimensions.getTextSize(context, 20),
+                              color: _themeChanger.getThemeData() == false
+                                  ? Colors.black
+                                  : Colors.white,
                             ),
                           ),
                           TextSpan(
                             text: foodGroup,
                             style: TextStyle(
-                              color: Colors.black,
                               fontWeight: FontWeight.bold,
                               fontSize: Dimensions.getTextSize(context, 18),
+                              color: _themeChanger.getThemeData() == false
+                                  ? Colors.black
+                                  : Colors.white,
                             ),
                           ),
                         ],

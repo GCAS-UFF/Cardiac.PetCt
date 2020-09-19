@@ -60,6 +60,9 @@ class ForbiddenFoodContent extends StatelessWidget {
                   children: forbiddenFood.map((data) {
                     return FoodCard(data: data);
                   }).toList()),
+              SizedBox(
+                height: Dimensions.getConvertedHeightSize(context, 25),
+              ),
             ],
           ),
         ),

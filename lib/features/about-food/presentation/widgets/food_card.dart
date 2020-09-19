@@ -2,7 +2,9 @@ import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:petct/core/resources/colors.dart';
 import 'package:petct/core/resources/dimensions.dart';
+import 'package:petct/core/utils/theme.dart';
 import 'package:petct/features/diet-meals/presentation/models/meal_item_model.dart';
+import 'package:provider/provider.dart';
 
 class FoodCard extends StatelessWidget {
   final MealItemModel data;
@@ -10,6 +12,7 @@ class FoodCard extends StatelessWidget {
   const FoodCard({Key key, this.data}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    ThemeChanger _themeChanger = Provider.of<ThemeChanger>(context);
     return Stack(
       children: [
         Container(
@@ -58,19 +61,23 @@ class FoodCard extends StatelessWidget {
                                 TextSpan(
                                   text: "Quantidade máxima por refeição:  ",
                                   style: TextStyle(
-                                    color: Colors.black,
                                     fontWeight: FontWeight.w300,
                                     fontSize:
                                         Dimensions.getTextSize(context, 14),
+                                    color: _themeChanger.getThemeData() == false
+                                        ? Colors.black
+                                        : Colors.white,
                                   ),
                                 ),
                                 TextSpan(
                                   text: data.maximumQuantity.toString(),
                                   style: TextStyle(
-                                    color: Colors.black,
                                     fontWeight: FontWeight.bold,
                                     fontSize:
                                         Dimensions.getTextSize(context, 14),
+                                    color: _themeChanger.getThemeData() == false
+                                        ? Colors.black
+                                        : Colors.white,
                                   ),
                                 ),
                               ],

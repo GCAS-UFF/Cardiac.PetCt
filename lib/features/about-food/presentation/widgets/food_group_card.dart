@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/images.dart';
 import 'package:petct/core/resources/strings.dart';
+import 'package:petct/core/ui/high_contrast_button.dart';
+import 'package:petct/core/utils/theme.dart';
 import 'package:petct/features/about-food/presentation/pages/allowed_group_food_page.dart';
 import 'package:petct/features/diet-meals/presentation/models/meal_item_model.dart';
+import 'package:provider/provider.dart';
 
 class FoodGroupCard extends StatelessWidget {
   final List<MealItemModel> data;
@@ -13,6 +16,7 @@ class FoodGroupCard extends StatelessWidget {
   const FoodGroupCard({Key key, this.data, this.foodGroup}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    ThemeChanger _themeChanger = Provider.of<ThemeChanger>(context);
     String groupName;
     String exampleFood;
     String imageGroup;
@@ -90,15 +94,19 @@ class FoodGroupCard extends StatelessWidget {
                               TextSpan(
                                 text: Strings(context).groupTitle,
                                 style: TextStyle(
-                                  color: Colors.black,
                                   fontSize: Dimensions.getTextSize(context, 16),
+                                  color: _themeChanger.getThemeData() == false
+                                      ? Colors.black
+                                      : Colors.white,
                                 ),
                               ),
                               TextSpan(
                                 text: groupName,
                                 style: TextStyle(
-                                  color: Colors.black,
                                   fontSize: Dimensions.getTextSize(context, 14),
+                                  color: _themeChanger.getThemeData() == false
+                                      ? Colors.black
+                                      : Colors.white,
                                 ),
                               ),
                             ],
