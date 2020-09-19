@@ -1,5 +1,6 @@
 import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:petct/core/resources/colors.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/strings.dart';
@@ -83,7 +84,7 @@ class _MealCardState extends State<MealCard> {
                         //Meal name
                         Text(
                           widget.data.name,
-                          style: TextStyle(
+                          style: GoogleFonts.montserrat(
                               fontSize: Dimensions.getTextSize(context, 16),
                               color: (widget.data.status == MEALSTATUS.Waiting)
                                   ? Colors.black
@@ -91,7 +92,7 @@ class _MealCardState extends State<MealCard> {
                         ),
                         Text(
                           " - ",
-                          style: TextStyle(
+                          style: GoogleFonts.montserrat(
                               fontSize: Dimensions.getTextSize(context, 16),
                               color: (widget.data.status == MEALSTATUS.Waiting)
                                   ? Colors.black
@@ -100,7 +101,7 @@ class _MealCardState extends State<MealCard> {
                         //Meal time
                         Text(
                           widget.data.mealTime,
-                          style: TextStyle(
+                          style: GoogleFonts.montserrat(
                               fontSize: Dimensions.getTextSize(context, 16),
                               color: (widget.data.status == MEALSTATUS.Waiting)
                                   ? Colors.black
@@ -163,7 +164,7 @@ class _MealCardState extends State<MealCard> {
                           //Meal itens title
                           Text(
                             Strings(context).itemTitle,
-                            style: TextStyle(
+                            style: GoogleFonts.montserrat(
                               fontSize: Dimensions.getTextSize(context, 12),
                               fontWeight: FontWeight.bold,
                             ),
@@ -171,7 +172,7 @@ class _MealCardState extends State<MealCard> {
                           //Meal quantity title
                           Text(
                             Strings(context).quantityTitle,
-                            style: TextStyle(
+                            style: GoogleFonts.montserrat(
                               fontSize: Dimensions.getTextSize(context, 12),
                               fontWeight: FontWeight.bold,
                             ),

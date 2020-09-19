@@ -1,5 +1,6 @@
 import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/images.dart';
 import 'package:petct/core/resources/strings.dart';
@@ -600,13 +601,13 @@ class _DietMealsState extends State<DietMeals>
         children: <Widget>[
           Text(
             _daysMenu[0].menuDay,
-            style: TextStyle(
+            style: GoogleFonts.montserrat(
               fontSize: Dimensions.getTextSize(context, 14),
             ),
           ),
           Text(
             Strings(context).firstDayTab,
-            style: TextStyle(
+            style: GoogleFonts.montserrat(
               fontSize: Dimensions.getTextSize(context, 16),
             ),
           ),
@@ -617,13 +618,13 @@ class _DietMealsState extends State<DietMeals>
         children: <Widget>[
           Text(
             _daysMenu[1].menuDay,
-            style: TextStyle(
+            style: GoogleFonts.montserrat(
               fontSize: Dimensions.getTextSize(context, 14),
             ),
           ),
           Text(
             Strings(context).secondDayTab,
-            style: TextStyle(
+            style: GoogleFonts.montserrat(
               fontSize: Dimensions.getTextSize(context, 16),
             ),
           ),
@@ -634,13 +635,13 @@ class _DietMealsState extends State<DietMeals>
         children: <Widget>[
           Text(
             _daysMenu[2].menuDay,
-            style: TextStyle(
+            style: GoogleFonts.montserrat(
               fontSize: Dimensions.getTextSize(context, 14),
             ),
           ),
           Text(
             Strings(context).thirdDayTab,
-            style: TextStyle(
+            style: GoogleFonts.montserrat(
               fontSize: Dimensions.getTextSize(context, 16),
             ),
           ),

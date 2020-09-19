@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:petct/core/resources/colors.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/utils/theme.dart';
@@ -50,7 +51,7 @@ class TimePickerApp extends StatelessWidget {
                       child: Text(
                         //Value
                         value == null ? "" : value.toString(),
-                        style: TextStyle(
+                        style: GoogleFonts.montserrat(
                           fontSize: Dimensions.getTextSize(
                             context,
                             14,
@@ -83,7 +84,7 @@ class TimePickerApp extends StatelessWidget {
                     children: <Widget>[
                       Text(
                         label,
-                        style: TextStyle(
+                        style: GoogleFonts.montserrat(
                           fontSize: Dimensions.getTextSize(context, 15),
                           fontWeight: FontWeight.w600,
                         ),

@@ -1,5 +1,6 @@
 import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/strings.dart';
 
@@ -56,7 +57,7 @@ class FoodListButton extends StatelessWidget {
               (allowed == true)
                   ? Strings(context).allowedLabel
                   : Strings(context).forbiddenLabel,
-              style: TextStyle(
+              style: GoogleFonts.montserrat(
                 fontSize: Dimensions.getTextSize(context, 12),
               ),
             ),

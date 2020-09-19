@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/images.dart';
 import 'package:petct/core/resources/strings.dart';
@@ -25,7 +26,7 @@ class VerifyEmailPage extends StatelessWidget {
                 // Main title
                 Text(
                   Strings(context).verifyEmailTitle,
-                  style: TextStyle(
+                  style: GoogleFonts.montserrat(
                     fontSize: Dimensions.getTextSize(context, 22),
                     fontWeight: FontWeight.bold,
                   ),
@@ -36,7 +37,7 @@ class VerifyEmailPage extends StatelessWidget {
                 // Verify email text
                 Text(
                   Strings(context).verifyEmailText,
-                  style: TextStyle(
+                  style: GoogleFonts.montserrat(
                     fontSize: Dimensions.getTextSize(context, 18),
                     fontWeight: FontWeight.w400,
                   ),
@@ -145,7 +146,7 @@ class VerifyEmailPage extends StatelessWidget {
                   // Resend email dialog title
                   Text(
                     Strings(context).recoverPasswordEmailSent,
-                    style: TextStyle(
+                    style: GoogleFonts.montserrat(
                       fontSize: Dimensions.getTextSize(context, 20),
                       fontWeight: FontWeight.bold,
                     ),

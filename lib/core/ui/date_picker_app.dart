@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:petct/core/resources/colors.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/strings.dart';
@@ -61,7 +62,7 @@ class DatePickerApp extends StatelessWidget {
                             : DateHelper.convertDateToString(
                                 value,
                               ),
-                        style: TextStyle(
+                        style: GoogleFonts.montserrat(
                           fontSize: Dimensions.getTextSize(
                             context,
                             14,
@@ -92,7 +93,7 @@ class DatePickerApp extends StatelessWidget {
                     children: <Widget>[
                       Text(
                         Strings(context).dateLabel,
-                        style: TextStyle(
+                        style: GoogleFonts.montserrat(
                           fontSize: Dimensions.getTextSize(context, 15),
                           fontWeight: FontWeight.w600,
                         ),

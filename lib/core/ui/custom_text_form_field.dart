@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:petct/core/input_validators/base_input_validator.dart';
 import 'package:petct/core/input_validators/empty_input_validator.dart';
 import 'package:petct/core/resources/colors.dart';
@@ -67,7 +68,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      style: TextStyle(
+      style: GoogleFonts.montserrat(
         fontSize: Dimensions.getTextSize(context, 16),
       ),
       controller: widget.textEditingController,
@@ -78,11 +79,11 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       autovalidate: false,
       textCapitalization: widget.textCapitalization,
       decoration: InputDecoration(
-        hintStyle: TextStyle(
+        hintStyle: GoogleFonts.montserrat(
           fontSize: Dimensions.getTextSize(context, 16),
         ),
         suffixIcon: widget.suffixIcon,
-        labelStyle: TextStyle(
+        labelStyle: GoogleFonts.montserrat(
           fontSize: Dimensions.getTextSize(context, 16),
           color:ColorsApp.greenApp,
           fontWeight: FontWeight.w600,
@@ -117,7 +118,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
             width: Dimensions.getConvertedWidthSize(context, 1.0),
           ),
         ),
-        errorStyle: TextStyle(
+        errorStyle: GoogleFonts.montserrat(
           color: Colors.red,
           fontSize: Dimensions.getTextSize(context, 12.0),
         ),

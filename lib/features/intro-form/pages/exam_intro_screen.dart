@@ -1,5 +1,6 @@
 import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:petct/core/resources/colors.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/keys.dart';
@@ -35,7 +36,7 @@ class _ExamIntroScreenState extends State<ExamIntroScreen> {
             Text(
               "Sareh Saúde e Retaguarda Hospitalar",
               textAlign: TextAlign.center ,
-              style: TextStyle(
+              style: GoogleFonts.montserrat(
                 fontSize: Dimensions.getTextSize(context, 16),
               ),
             ),
@@ -55,7 +56,7 @@ class _ExamIntroScreenState extends State<ExamIntroScreen> {
             //Title
             Text(
               Strings(context).aboutExam,
-              style: TextStyle(
+              style: GoogleFonts.montserrat(
                 fontSize: Dimensions.getTextSize(context, 22),
               ),
             ),
@@ -65,7 +66,7 @@ class _ExamIntroScreenState extends State<ExamIntroScreen> {
             // Fill exam details title
             Text(
               Strings(context).fillExamDetails,
-              style: TextStyle(
+              style: GoogleFonts.montserrat(
                 fontSize: Dimensions.getTextSize(context, 17),
               ),
             ),

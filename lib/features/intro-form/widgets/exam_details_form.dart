@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/strings.dart';
 import 'package:petct/core/ui/custom_dropdown.dart';
@@ -52,7 +53,7 @@ class _ExamDetailsFormState extends State<ExamDetailsForm> {
               // Date title
               Text(
                 Strings(context).dateTimeExam,
-                style: TextStyle(
+                style: GoogleFonts.montserrat(
                   fontSize: Dimensions.getTextSize(context, 20),
                 ),
               ),
@@ -101,7 +102,7 @@ class _ExamDetailsFormState extends State<ExamDetailsForm> {
               // Exam Location Title
               Text(
                 Strings(context).examLocation,
-                style: TextStyle(
+                style: GoogleFonts.montserrat(
                   fontSize: Dimensions.getTextSize(context, 20),
                 ),
               ),

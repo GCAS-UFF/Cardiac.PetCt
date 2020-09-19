@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:petct/core/resources/dimensions.dart';
+import 'package:petct/core/resources/fonts.dart';
 import 'package:petct/core/resources/images.dart';
 import 'package:petct/core/resources/strings.dart';
 import 'package:petct/core/ui/app_name.dart';
@@ -50,7 +52,7 @@ class _StartPageState extends State<StartPage> {
             Text(
               Strings(context).startPageParagraph,
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: GoogleFonts.montserrat(
                 fontSize: Dimensions.getTextSize(context, 16),
               ),
             ),

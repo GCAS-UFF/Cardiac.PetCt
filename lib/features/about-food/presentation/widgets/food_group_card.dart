@@ -1,5 +1,6 @@
 import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/images.dart';
 import 'package:petct/core/resources/strings.dart';
@@ -93,7 +94,7 @@ class FoodGroupCard extends StatelessWidget {
                             children: <TextSpan>[
                               TextSpan(
                                 text: Strings(context).groupTitle,
-                                style: TextStyle(
+                                style: GoogleFonts.montserrat(
                                   fontSize: Dimensions.getTextSize(context, 16),
                                   color: _themeChanger.getThemeData() == false
                                       ? Colors.black
@@ -102,7 +103,7 @@ class FoodGroupCard extends StatelessWidget {
                               ),
                               TextSpan(
                                 text: groupName,
-                                style: TextStyle(
+                                style: GoogleFonts.montserrat(
                                   fontSize: Dimensions.getTextSize(context, 14),
                                   color: _themeChanger.getThemeData() == false
                                       ? Colors.black
@@ -117,7 +118,7 @@ class FoodGroupCard extends StatelessWidget {
                         ),
                         Text(
                           exampleFood,
-                          style: TextStyle(
+                          style: GoogleFonts.montserrat(
                             color: Colors.grey,
                             fontSize: Dimensions.getTextSize(context, 16),
                           ),
