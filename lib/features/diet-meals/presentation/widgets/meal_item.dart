@@ -35,7 +35,7 @@ class _MealItemState extends State<MealItem> {
           ),
           //Meal item quantity
           Text(
-            widget.mealItem.quantity,
+            widget.mealItem.maximumQuantity.toString(),
             style: TextStyle(
               fontSize: Dimensions.getTextSize(context, 12),
             ),

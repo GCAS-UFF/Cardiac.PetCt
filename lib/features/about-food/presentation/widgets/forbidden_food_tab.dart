@@ -2,33 +2,19 @@ import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:petct/core/resources/colors.dart';
 import 'package:petct/core/resources/dimensions.dart';
-import 'package:petct/core/resources/images.dart';
+import 'package:petct/features/about-food/presentation/widgets/food_card.dart';
+import 'package:petct/features/diet-meals/presentation/models/meal_item_model.dart';
 
 class ForbiddenFoodContent extends StatelessWidget {
-  List<List<String>> forbiddenFoodList = [
-    ["Pão", Images.bread_forbidden],
-    ["Pão", Images.bread_forbidden],
-    ["Pão", Images.bread_forbidden],
-    ["Pão", Images.bread_forbidden],
-    ["Pão", Images.bread_forbidden],
-    ["Pão", Images.bread_forbidden],
-    ["Pão", Images.bread_forbidden],
-    ["Pão", Images.bread_forbidden],
-    ["Pão", Images.bread_forbidden],
-    ["Pão", Images.bread_forbidden],
-    ["Pão", Images.bread_forbidden],
-    ["Pão", Images.bread_forbidden],
-    ["Pão", Images.bread_forbidden],
-    ["Pão", Images.bread_forbidden],
-    ["Pão", Images.bread_forbidden],
-    ["Pão", Images.bread_forbidden],
-  ];
+  final List<MealItemModel> forbiddenFood;
+
+  const ForbiddenFoodContent({Key key, this.forbiddenFood}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          padding: Dimensions.getEdgeInsets(context, left: 20, right: 20),
+          padding: Dimensions.getEdgeInsets(context, left: 15, right: 15),
           child: Column(
             children: [
               Row(
@@ -71,59 +57,9 @@ class ForbiddenFoodContent extends StatelessWidget {
                   runSpacing: Dimensions.getConvertedHeightSize(context, 20),
                   alignment: WrapAlignment.start,
                   crossAxisAlignment: WrapCrossAlignment.start,
-                  children: forbiddenFoodList.map((data) {
-                    return Stack(
-                      children: [
-                        Container(
-                          height:
-                              Dimensions.getConvertedHeightSize(context, 150),
-                          width: Dimensions.getConvertedWidthSize(context, 150),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(
-                              Dimensions.getConvertedWidthSize(context, 10),
-                            ),
-                            border: Border.all(
-                              width:
-                                  Dimensions.getConvertedWidthSize(context, 2),
-                              color: Colors.grey[300],
-                            ),
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Image.asset(
-                                data[1],
-                                width: Dimensions.getConvertedWidthSize(
-                                    context, 70),
-                              ),
-                              SizedBox(
-                                height: Dimensions.getConvertedHeightSize(
-                                    context, 15),
-                              ),
-                              Text(
-                                data[0],
-                                style: TextStyle(
-                                  fontSize: Dimensions.getTextSize(context, 18),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Positioned(
-                          right: 10,
-                          top: 10,
-                          child: Icon(
-                            FeatherIcons.slash,
-                            color: ColorsApp.dangerRed,
-                            size: Dimensions.getConvertedWidthSize(context, 25),
-                          ),
-                        ),
-                      ],
-                    );
+                  children: forbiddenFood.map((data) {
+                    return FoodCard(data: data);
                   }).toList()),
-              SizedBox(
-                height: Dimensions.getConvertedHeightSize(context, 25),
-              ),
             ],
           ),
         ),
