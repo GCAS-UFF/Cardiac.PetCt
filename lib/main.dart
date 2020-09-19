@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:internationalization/internationalization.dart';
 import 'package:petct/core/utils/theme.dart';
+import 'package:petct/features/about-food/presentation/pages/about_food_page.dart';
 import 'package:petct/features/auth/presentation/pages/register_page.dart';
 import 'package:petct/features/auth/presentation/pages/start_page.dart';
 import 'package:provider/provider.dart';
@@ -58,12 +59,13 @@ class MaterialAppWithTheme extends StatelessWidget {
       title: 'Flutter Demo',
       theme: theme.getTheme(),
       routes: <String, WidgetBuilder>{
-        '/': (BuildContext context) => StartPage(),
+        '/': (BuildContext context) => AboutFoodPage(),
         '/login': (BuildContext context) => LoginPage(),
         '/register': (BuildContext context) => RegisterPage(),
         '/verifyEmail': (BuildContext context) => VerifyEmailPage(),
         '/examIntroForm': (BuildContext context) => ExamIntroScreen(),
         '/mealsIntroForm': (BuildContext context) => MealsIntroScreen(),
+        '/aboutFoodPage': (BuildContext context) => AboutFoodPage(),
       },
     );
   }

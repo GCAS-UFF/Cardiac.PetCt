@@ -188,7 +188,7 @@ class _MealCardState extends State<MealCard> {
                         height: Dimensions.getConvertedHeightSize(context, 15),
                       ),
                       ButtonApp(
-                        title: "Escolher prato",
+                        title: Strings(context).chooseDish,
                         onPressed: () {
                           Navigator.of(context).push(
                             MaterialPageRoute(
@@ -204,7 +204,7 @@ class _MealCardState extends State<MealCard> {
                         height: Dimensions.getConvertedHeightSize(context, 5),
                       ),
                       ButtonApp(
-                        title: "Adicionar ao diário",
+                        title: Strings(context).addToDiary,
                         onPressed: () {},
                         type: ButtonType.BUTTON_GREEN,
                       ),

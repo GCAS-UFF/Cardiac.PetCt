@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:petct/core/resources/colors.dart';
 import 'package:petct/core/resources/dimensions.dart';
+import 'package:petct/core/resources/images.dart';
 import 'package:petct/core/resources/strings.dart';
 import 'package:petct/core/ui/button_app.dart';
 import 'package:petct/features/diet-meals/presentation/models/meal_item_model.dart';
@@ -28,9 +29,31 @@ class _ChooseMenuPageState extends State<ChooseMenuPage>
       MealModel(
         mealTime: "7:00",
         mealItens: [
-          MealItemModel(name: "Suco de laranja", quantity: "500ml"),
-          MealItemModel(name: "Maçã", quantity: "2 unid."),
-          MealItemModel(name: "Torrada", quantity: "3 unid.")
+          MealItemModel(0.0,
+              name: "Azeite",
+              group: FoodGroup.OILS,
+              image: Images.bread_forbidden,
+              measurement: Measurement.MILLIMETER),
+          MealItemModel(0.0,
+              name: "Café",
+              group: FoodGroup.LIQUID,
+              image: Images.bread_forbidden,
+              measurement: Measurement.MILLIMETER),
+          MealItemModel(0.0,
+              name: "Alface",
+              group: FoodGroup.VEGETABLES,
+              image: Images.bread_forbidden,
+              measurement: Measurement.GRAMS),
+          MealItemModel(0.0,
+              name: "Carne bovina",
+              group: FoodGroup.PROTEIN,
+              image: Images.bread_forbidden,
+              measurement: Measurement.GRAMS),
+          MealItemModel(0.0,
+              name: "Gorgonzola",
+              group: FoodGroup.CHEESE,
+              image: Images.bread_forbidden,
+              measurement: Measurement.UNITY),
         ],
         mealsName: MEALSNAME.Breakfast,
         status: MEALSTATUS.Recorded,
@@ -38,9 +61,31 @@ class _ChooseMenuPageState extends State<ChooseMenuPage>
       MealModel(
         mealTime: "9:30",
         mealItens: [
-          MealItemModel(name: "Suco de laranja", quantity: "500ml"),
-          MealItemModel(name: "Pão de forma", quantity: "2 unid."),
-          MealItemModel(name: "Manga", quantity: "1 unid."),
+          MealItemModel(0.0,
+              name: "Azeite",
+              group: FoodGroup.OILS,
+              image: Images.bread_forbidden,
+              measurement: Measurement.MILLIMETER),
+          MealItemModel(0.0,
+              name: "Café",
+              group: FoodGroup.LIQUID,
+              image: Images.bread_forbidden,
+              measurement: Measurement.MILLIMETER),
+          MealItemModel(0.0,
+              name: "Alface",
+              group: FoodGroup.VEGETABLES,
+              image: Images.bread_forbidden,
+              measurement: Measurement.GRAMS),
+          MealItemModel(0.0,
+              name: "Carne bovina",
+              group: FoodGroup.PROTEIN,
+              image: Images.bread_forbidden,
+              measurement: Measurement.GRAMS),
+          MealItemModel(0.0,
+              name: "Gorgonzola",
+              group: FoodGroup.CHEESE,
+              image: Images.bread_forbidden,
+              measurement: Measurement.UNITY),
         ],
         mealsName: MEALSNAME.Breakfast,
         status: MEALSTATUS.Recorded,
@@ -48,9 +93,31 @@ class _ChooseMenuPageState extends State<ChooseMenuPage>
       MealModel(
         mealTime: "13:30",
         mealItens: [
-          MealItemModel(name: "Suco de laranja", quantity: "500ml"),
-          MealItemModel(name: "Pão de forma", quantity: "2 unid."),
-          MealItemModel(name: "Manga", quantity: "1 unid."),
+          MealItemModel(0.0,
+              name: "Azeite",
+              group: FoodGroup.OILS,
+              image: Images.bread_forbidden,
+              measurement: Measurement.MILLIMETER),
+          MealItemModel(0.0,
+              name: "Café",
+              group: FoodGroup.LIQUID,
+              image: Images.bread_forbidden,
+              measurement: Measurement.MILLIMETER),
+          MealItemModel(0.0,
+              name: "Alface",
+              group: FoodGroup.VEGETABLES,
+              image: Images.bread_forbidden,
+              measurement: Measurement.GRAMS),
+          MealItemModel(0.0,
+              name: "Carne bovina",
+              group: FoodGroup.PROTEIN,
+              image: Images.bread_forbidden,
+              measurement: Measurement.GRAMS),
+          MealItemModel(0.0,
+              name: "Gorgonzola",
+              group: FoodGroup.CHEESE,
+              image: Images.bread_forbidden,
+              measurement: Measurement.UNITY),
         ],
         mealsName: MEALSNAME.Breakfast,
         status: MEALSTATUS.Pending,
@@ -65,7 +132,7 @@ class _ChooseMenuPageState extends State<ChooseMenuPage>
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text(
-            "Prato 1",
+            Strings(context).optionOne,
             style: TextStyle(
               fontSize: Dimensions.getTextSize(context, 14),
             ),
@@ -76,7 +143,7 @@ class _ChooseMenuPageState extends State<ChooseMenuPage>
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text(
-            "Prato 2",
+            Strings(context).optionTwo,
             style: TextStyle(
               fontSize: Dimensions.getTextSize(context, 14),
             ),
@@ -87,7 +154,7 @@ class _ChooseMenuPageState extends State<ChooseMenuPage>
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text(
-            "Prato 3",
+            Strings(context).optionThree,
             style: TextStyle(
               fontSize: Dimensions.getTextSize(context, 14),
             ),
@@ -106,7 +173,7 @@ class _ChooseMenuPageState extends State<ChooseMenuPage>
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text(
-                      "Escolher prato",
+                      Strings(context).chooseDish,
                       style: TextStyle(
                         fontSize: Dimensions.getTextSize(context, 18),
                       ),
@@ -162,7 +229,7 @@ class _ChooseMenuPageState extends State<ChooseMenuPage>
               height: Dimensions.getConvertedHeightSize(context, 5),
             ),
             Text(
-              "Primeiro dia",
+              Strings(context).firstDay,
               style: TextStyle(
                 fontSize: Dimensions.getTextSize(context, 16),
               ),
@@ -212,7 +279,7 @@ class _ChooseMenuPageState extends State<ChooseMenuPage>
                                 Dimensions.getConvertedHeightSize(context, 15),
                           ),
                           ButtonApp(
-                            title: "Escolher prato",
+                            title: Strings(context).chooseDish,
                             onPressed: () {
                               Navigator.pop(context);
                             },
@@ -223,7 +290,7 @@ class _ChooseMenuPageState extends State<ChooseMenuPage>
                                 Dimensions.getConvertedHeightSize(context, 5),
                           ),
                           ButtonApp(
-                            title: "Cancelar",
+                            title: Strings(context).cancel,
                             onPressed: () {
                               Navigator.pop(context);
                             },
