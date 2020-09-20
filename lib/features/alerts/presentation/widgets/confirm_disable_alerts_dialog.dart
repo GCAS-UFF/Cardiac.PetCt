@@ -2,6 +2,7 @@ import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:petct/core/resources/dimensions.dart';
+import 'package:petct/core/resources/strings.dart';
 import 'package:petct/core/ui/button_app.dart';
 
 class ConfirmDisableAlertsDialog extends StatelessWidget {
@@ -37,7 +38,7 @@ class ConfirmDisableAlertsDialog extends StatelessWidget {
                       children: [
                         // Dialog title
                         Text(
-                          "Desativar alertas",
+                          Strings(context).disableAlerts,
                           style: GoogleFonts.montserrat(
                             fontSize: Dimensions.getTextSize(context, 20),
                             fontWeight: FontWeight.w400,
@@ -62,7 +63,7 @@ class ConfirmDisableAlertsDialog extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Text(
-                            "Tem certeza que deseja desativar todos os alertas ?",
+                            Strings(context).areYouSureDisableText,
                             textAlign: TextAlign.center,
                             style: GoogleFonts.montserrat(
                               fontSize: Dimensions.getTextSize(context, 16),
@@ -85,7 +86,7 @@ class ConfirmDisableAlertsDialog extends StatelessWidget {
                             returnValue(true);
                             Navigator.pop(context);
                           },
-                          title: "Desativar",
+                          title: Strings(context).disableLabel,
                         ),
                         SizedBox(
                           height:
@@ -97,7 +98,7 @@ class ConfirmDisableAlertsDialog extends StatelessWidget {
                             returnValue(false);
                             Navigator.pop(context);
                           },
-                          title: "Cancelar",
+                          title: Strings(context).cancelLabel,
                         ),
                       ],
                     ),

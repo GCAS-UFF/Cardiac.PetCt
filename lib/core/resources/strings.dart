@@ -133,7 +133,6 @@ class Strings {
   //About Food
   String dietFood;
   String groupTitle;
-  //TO DO
   String foodReplacementFood;
   String attentionExclamation;
   String maximumQuantity;
@@ -148,6 +147,16 @@ class Strings {
   String cheeseExamples;
   String vegetablesExamples;
   String liquidExamples;
+
+  //About Food
+  String noAlert;
+  String alertsTitle;
+  String registerLabel;
+  String okLabel;
+  String disableAlerts;
+  String areYouSureDisableText;
+  String disableLabel;
+  String cancelLabel;
 
   Strings(this.context) {
     dateInputErrorValidation =
@@ -279,7 +288,17 @@ class Strings {
     proteinExamples = intl.Strings.of(context).valueOf("protein_examples");
     oilsExamples = intl.Strings.of(context).valueOf("oils_examples");
     cheeseExamples = intl.Strings.of(context).valueOf("cheese_examples");
-    vegetablesExamples = intl.Strings.of(context).valueOf("vegetables_examples");
+    vegetablesExamples =
+        intl.Strings.of(context).valueOf("vegetables_examples");
     liquidExamples = intl.Strings.of(context).valueOf("liquid_examples");
+    noAlert = intl.Strings.of(context).valueOf("no_alert");
+    alertsTitle = intl.Strings.of(context).valueOf("alerts_title");
+    registerLabel = intl.Strings.of(context).valueOf("register_label");
+    okLabel = intl.Strings.of(context).valueOf("ok_label");
+    disableAlerts = intl.Strings.of(context).valueOf("disable_alerts");
+    areYouSureDisableText =
+        intl.Strings.of(context).valueOf("are_you_sure_disable_text");
+    disableLabel = intl.Strings.of(context).valueOf("disable_label");
+    cancelLabel = intl.Strings.of(context).valueOf("cancel_label");
   }
 }

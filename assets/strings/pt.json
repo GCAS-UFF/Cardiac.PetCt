@@ -137,5 +137,15 @@
     "oils_examples": "Azeite, castanhas, etc",
     "cheese_examples": "Gorgonzola, brie, etc",
     "vegetables_examples": "Alface, couve, etc",
-    "liquid_examples": "Água, café, etc"
+    "liquid_examples": "Água, café, etc",
+
+    "URINAPP_COMMENT_SECTION_ALERTS_PAGE": "----------",
+    "no_alert": "Nenhum Alerta",
+    "alerts_title": "Alertas",
+    "register_label": "Registrar",
+    "ok_label": "Ok",
+    "disable_alerts": "Desativar alertas",
+    "are_you_sure_disable_text": "Tem certeza que deseja desativar todos os alertas?",
+    "disable_label": "Desativar",
+    "cancel_label": "Cancelar"
 }
