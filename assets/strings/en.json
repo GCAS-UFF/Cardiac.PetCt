@@ -139,6 +139,16 @@
     "oils_examples": "Olive oil, chestnuts, etc",
     "cheese_examples": "Gorgonzola, brie, etc",
     "vegetables_examples": "Lettuce, cabbage, etc",
-    "liquid_examples": "Water, coffee, etc"
+    "liquid_examples": "Water, coffee, etc",
+
+    "URINAPP_COMMENT_SECTION_ALERTS_PAGE": "----------",
+    "no_alert": "No alerts",
+    "alerts_title": "Alerts",
+    "register_label": "Register",
+    "ok_label": "Ok",
+    "disable_alerts": "Disable alerts",
+    "are_you_sure_disable_text": "Are you sure you want to disable all alerts?",
+    "disable_label": "Disable",
+    "cancel_label": "Cancel"
 
 }
