@@ -84,6 +84,10 @@
     "forbidden_food_title": "Forbidden food",
     "add_to_diary": "Add to diary",
     "about_food": "About food",
+    "recorded_subtitle": "Added",
+    "pending_subtitle": "Pending",
+    "waiting_subtitle": "Waiting",
+    "ingredients_title": "Ingredients",
 
     "URINAPP_COMMENT_SECTION_BASE_PAGE": "----------",
     "home_label":"Home",
