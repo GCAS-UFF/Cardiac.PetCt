@@ -31,7 +31,9 @@ class _MealCardState extends State<MealCard> {
       decoration: BoxDecoration(
         color: (widget.data.status == MEALSTATUS.Recorded)
             ? ColorsApp.greenApp
-            : (widget.data.status == MEALSTATUS.Pending) ? ColorsApp.dangerRed : null,
+            : (widget.data.status == MEALSTATUS.Pending)
+                ? ColorsApp.dangerRed
+                : null,
         border: Border.all(
           width: (widget.data.status == MEALSTATUS.Waiting) ? 1 : 0,
           color: (widget.data.status == MEALSTATUS.Waiting)
@@ -79,30 +81,50 @@ class _MealCardState extends State<MealCard> {
                     SizedBox(
                       width: Dimensions.getConvertedWidthSize(context, 10),
                     ),
-                    Row(
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        //Meal name
-                        Text(
-                          widget.data.name,
-                          style: GoogleFonts.montserrat(
-                              fontSize: Dimensions.getTextSize(context, 16),
-                              color: (widget.data.status == MEALSTATUS.Waiting)
-                                  ? Colors.black
-                                  : Colors.white),
+                        Row(
+                          children: <Widget>[
+                            //Meal name
+                            Text(
+                              widget.data.name,
+                              style: GoogleFonts.montserrat(
+                                  fontSize: Dimensions.getTextSize(context, 16),
+                                  color:
+                                      (widget.data.status == MEALSTATUS.Waiting)
+                                          ? Colors.black
+                                          : Colors.white),
+                            ),
+                            Text(
+                              " - ",
+                              style: GoogleFonts.montserrat(
+                                  fontSize: Dimensions.getTextSize(context, 14),
+                                  color:
+                                      (widget.data.status == MEALSTATUS.Waiting)
+                                          ? Colors.black
+                                          : Colors.white),
+                            ),
+                            //Meal time
+                            Text(
+                              widget.data.mealTime,
+                              style: GoogleFonts.montserrat(
+                                  fontSize: Dimensions.getTextSize(context, 16),
+                                  color:
+                                      (widget.data.status == MEALSTATUS.Waiting)
+                                          ? Colors.black
+                                          : Colors.white),
+                            )
+                          ],
                         ),
                         Text(
-                          " - ",
+                          widget.data.status == MEALSTATUS.Recorded
+                              ? Strings(context).recordedSubtitle
+                              : widget.data.status == MEALSTATUS.Pending
+                                  ? Strings(context).pendingSubtitle
+                                  : Strings(context).waitingSubtitle,
                           style: GoogleFonts.montserrat(
-                              fontSize: Dimensions.getTextSize(context, 16),
-                              color: (widget.data.status == MEALSTATUS.Waiting)
-                                  ? Colors.black
-                                  : Colors.white),
-                        ),
-                        //Meal time
-                        Text(
-                          widget.data.mealTime,
-                          style: GoogleFonts.montserrat(
-                              fontSize: Dimensions.getTextSize(context, 16),
+                              fontSize: Dimensions.getTextSize(context, 14),
                               color: (widget.data.status == MEALSTATUS.Waiting)
                                   ? Colors.black
                                   : Colors.white),
@@ -159,22 +181,39 @@ class _MealCardState extends State<MealCard> {
                   child: Column(
                     children: <Widget>[
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            child: Text(
+                              "Ovos mexidos com manteiga + xícara de café sem açucar e sem adoçante",
+                              style: GoogleFonts.montserrat(
+                                fontSize: Dimensions.getTextSize(context, 16),
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: Dimensions.getConvertedHeightSize(context, 20),
+                      ),
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           //Meal itens title
                           Text(
-                            Strings(context).itemTitle,
+                            Strings(context).ingredientsTitle,
                             style: GoogleFonts.montserrat(
-                              fontSize: Dimensions.getTextSize(context, 12),
-                              fontWeight: FontWeight.bold,
+                              fontSize: Dimensions.getTextSize(context, 16),
+                              fontWeight: FontWeight.w500,
                             ),
                           ),
                           //Meal quantity title
                           Text(
                             Strings(context).quantityTitle,
                             style: GoogleFonts.montserrat(
-                              fontSize: Dimensions.getTextSize(context, 12),
-                              fontWeight: FontWeight.bold,
+                              fontSize: Dimensions.getTextSize(context, 16),
+                              fontWeight: FontWeight.w500,
                             ),
                           ),
                         ],

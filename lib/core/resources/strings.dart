@@ -92,6 +92,10 @@ class Strings {
   String allowedFoodTitle;
   String addToDiary;
   String aboutFood;
+  String recordedSubtitle;
+  String pendingSubtitle;
+  String waitingSubtitle;
+  String ingredientsTitle;
 
   //Base Page
   String homeLabel;
@@ -300,5 +304,9 @@ class Strings {
         intl.Strings.of(context).valueOf("are_you_sure_disable_text");
     disableLabel = intl.Strings.of(context).valueOf("disable_label");
     cancelLabel = intl.Strings.of(context).valueOf("cancel_label");
+    recordedSubtitle = intl.Strings.of(context).valueOf("recorded_subtitle");
+    pendingSubtitle = intl.Strings.of(context).valueOf("pending_subtitle");
+    waitingSubtitle = intl.Strings.of(context).valueOf("waiting_subtitle");
+    ingredientsTitle = intl.Strings.of(context).valueOf("ingredients_title");
   }
 }

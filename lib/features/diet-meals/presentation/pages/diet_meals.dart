@@ -34,6 +34,38 @@ class _DietMealsState extends State<DietMeals>
         menuDay: "08/06",
         meals: [
           MealModel(
+            mealTime: "7:00",
+            mealItens: [
+              MealItemModel(0.0,
+                  name: "Azeite",
+                  group: FoodGroup.OILS,
+                  image: Images.bread_forbidden,
+                  measurement: Measurement.MILLIMETER),
+              MealItemModel(0.0,
+                  name: "Café",
+                  group: FoodGroup.LIQUID,
+                  image: Images.bread_forbidden,
+                  measurement: Measurement.MILLIMETER),
+              MealItemModel(0.0,
+                  name: "Alface",
+                  group: FoodGroup.VEGETABLES,
+                  image: Images.bread_forbidden,
+                  measurement: Measurement.GRAMS),
+              MealItemModel(0.0,
+                  name: "Carne bovina",
+                  group: FoodGroup.PROTEIN,
+                  image: Images.bread_forbidden,
+                  measurement: Measurement.GRAMS),
+              MealItemModel(0.0,
+                  name: "Gorgonzola",
+                  group: FoodGroup.CHEESE,
+                  image: Images.bread_forbidden,
+                  measurement: Measurement.UNITY),
+            ],
+            mealsName: MEALSNAME.Breakfast,
+            status: MEALSTATUS.Recorded,
+          ),
+          MealModel(
             mealTime: "9:30",
             mealItens: [
               MealItemModel(0.0,
@@ -95,7 +127,7 @@ class _DietMealsState extends State<DietMeals>
                   measurement: Measurement.UNITY),
             ],
             mealsName: MEALSNAME.Lunch,
-            status: MEALSTATUS.Pending,
+            status: MEALSTATUS.Recorded,
           ),
           MealModel(
             mealTime: "15:30",
@@ -162,7 +194,7 @@ class _DietMealsState extends State<DietMeals>
             status: MEALSTATUS.Waiting,
           ),
           MealModel(
-            mealTime: "19:30",
+            mealTime: "20:30",
             mealItens: [
               MealItemModel(0.0,
                   name: "Azeite",
@@ -229,7 +261,7 @@ class _DietMealsState extends State<DietMeals>
                   measurement: Measurement.UNITY),
             ],
             mealsName: MEALSNAME.Breakfast,
-            status: MEALSTATUS.Recorded,
+            status: MEALSTATUS.Waiting,
           ),
           MealModel(
             mealTime: "9:30",
@@ -261,7 +293,7 @@ class _DietMealsState extends State<DietMeals>
                   measurement: Measurement.UNITY),
             ],
             mealsName: MEALSNAME.MorningSnack,
-            status: MEALSTATUS.Recorded,
+            status: MEALSTATUS.Waiting,
           ),
           MealModel(
             mealTime: "13:30",
@@ -293,7 +325,7 @@ class _DietMealsState extends State<DietMeals>
                   measurement: Measurement.UNITY),
             ],
             mealsName: MEALSNAME.Lunch,
-            status: MEALSTATUS.Pending,
+            status: MEALSTATUS.Waiting,
           ),
           MealModel(
             mealTime: "15:30",
@@ -325,7 +357,7 @@ class _DietMealsState extends State<DietMeals>
                   measurement: Measurement.UNITY),
             ],
             mealsName: MEALSNAME.AfternoonSnack,
-            status: MEALSTATUS.Pending,
+            status: MEALSTATUS.Waiting,
           ),
           MealModel(
             mealTime: "19:30",
@@ -360,7 +392,7 @@ class _DietMealsState extends State<DietMeals>
             status: MEALSTATUS.Waiting,
           ),
           MealModel(
-            mealTime: "19:30",
+            mealTime: "20:30",
             mealItens: [
               MealItemModel(0.0,
                   name: "Azeite",
@@ -427,7 +459,7 @@ class _DietMealsState extends State<DietMeals>
                   measurement: Measurement.UNITY),
             ],
             mealsName: MEALSNAME.Breakfast,
-            status: MEALSTATUS.Recorded,
+            status: MEALSTATUS.Waiting,
           ),
           MealModel(
             mealTime: "9:30",
@@ -459,7 +491,7 @@ class _DietMealsState extends State<DietMeals>
                   measurement: Measurement.UNITY),
             ],
             mealsName: MEALSNAME.MorningSnack,
-            status: MEALSTATUS.Recorded,
+            status: MEALSTATUS.Waiting,
           ),
           MealModel(
             mealTime: "13:30",
@@ -491,7 +523,7 @@ class _DietMealsState extends State<DietMeals>
                   measurement: Measurement.UNITY),
             ],
             mealsName: MEALSNAME.Lunch,
-            status: MEALSTATUS.Pending,
+            status: MEALSTATUS.Waiting,
           ),
           MealModel(
             mealTime: "15:30",

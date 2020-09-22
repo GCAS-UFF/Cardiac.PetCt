@@ -31,14 +31,14 @@ class _MealItemState extends State<MealItem> {
           Text(
             widget.mealItem.name,
             style: GoogleFonts.montserrat(
-              fontSize: Dimensions.getTextSize(context, 12),
+              fontSize: Dimensions.getTextSize(context, 14),
             ),
           ),
           //Meal item quantity
           Text(
             widget.mealItem.maximumQuantity.toString(),
             style: GoogleFonts.montserrat(
-              fontSize: Dimensions.getTextSize(context, 12),
+              fontSize: Dimensions.getTextSize(context, 14),
             ),
           ),
         ],
