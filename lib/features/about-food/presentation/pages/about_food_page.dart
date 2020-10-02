@@ -6,7 +6,7 @@ import 'package:petct/core/resources/colors.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/images.dart';
 import 'package:petct/core/resources/strings.dart';
-import 'package:petct/features/about-food/presentation/mobx/controller.dart';
+import 'package:petct/features/about-food/presentation/mobx/tab_store.dart';
 import 'package:petct/features/about-food/presentation/widgets/allowed_food_groups.dart';
 import 'package:petct/features/about-food/presentation/widgets/forbidden_food_tab.dart';
 import 'package:petct/features/diet-meals/presentation/models/meal_item_model.dart';
@@ -346,7 +346,7 @@ class AboutFoodPage extends StatelessWidget {
         measurement: Measurement.UNITY),
   ];
 
-  final controller = Controller();
+  final controller = TabStore();
   @override
   Widget build(BuildContext context) {
     allFoods.map((data) {
@@ -397,7 +397,7 @@ class AboutFoodPage extends StatelessWidget {
                       padding: Dimensions.getEdgeInsetsFromLTRB(
                           context, 20, 8, 20, 8),
                       decoration: BoxDecoration(
-                        color: controller.index.value == true
+                        color: controller.tab == true
                             ? ColorsApp.successGreen
                             : null,
                         borderRadius: BorderRadius.circular(
@@ -408,7 +408,7 @@ class AboutFoodPage extends StatelessWidget {
                         children: [
                           Icon(
                             FeatherIcons.check,
-                            color: controller.index.value == true
+                            color: controller.tab == true
                                 ? Colors.white
                                 : null,
                             size: Dimensions.getConvertedWidthSize(context, 20),
@@ -419,7 +419,7 @@ class AboutFoodPage extends StatelessWidget {
                           Text(
                             Strings(context).dietFood,
                             style: GoogleFonts.montserrat(
-                              color: controller.index.value == true
+                              color: controller.tab == true
                                   ? Colors.white
                                   : null,
                               fontSize: Dimensions.getTextSize(context, 14),
@@ -440,7 +440,7 @@ class AboutFoodPage extends StatelessWidget {
                         padding: Dimensions.getEdgeInsetsFromLTRB(
                             context, 20, 8, 20, 8),
                         decoration: BoxDecoration(
-                          color: controller.index.value == false
+                          color: controller.tab == false
                               ? ColorsApp.dangerRed
                               : null,
                           borderRadius: BorderRadius.circular(
@@ -451,7 +451,7 @@ class AboutFoodPage extends StatelessWidget {
                           children: [
                             Icon(
                               FeatherIcons.slash,
-                              color: controller.index.value == false
+                              color: controller.tab == false
                                   ? Colors.white
                                   : null,
                               size:
@@ -464,7 +464,7 @@ class AboutFoodPage extends StatelessWidget {
                             Text(
                               Strings(context).forbiddenFoodTitle,
                               style: GoogleFonts.montserrat(
-                                color: controller.index.value == false
+                                color: controller.tab == false
                                     ? Colors.white
                                     : null,
                                 fontSize: Dimensions.getTextSize(context, 16),
@@ -484,7 +484,7 @@ class AboutFoodPage extends StatelessWidget {
             Expanded(
               child: Observer(
                 builder: (_) {
-                  return controller.index.value == true
+                  return controller.tab == true
                       ? AllowedFoodGroups(
                           allFoods: allFoods,
                         )
