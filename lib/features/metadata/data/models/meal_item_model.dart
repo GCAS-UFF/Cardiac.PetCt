@@ -1,5 +1,6 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:meta/meta.dart';
+import 'package:petct/features/metadata/data/models/food_model.dart';
 import 'package:petct/features/metadata/data/models/measurement_group_model.dart';
 import 'package:petct/features/metadata/domain/entities/meal_item.dart';
 
@@ -7,7 +8,7 @@ class MealItemModel extends MealItem {
   MealItemModel({
     @required id,
     @required name,
-    @required foods,
+    @required List<FoodModel> foods,
     @required List<MeasurementGroupModel> measurements,
     @required imageUrl,
   }) : super(
@@ -22,7 +23,7 @@ class MealItemModel extends MealItem {
     Map<dynamic, dynamic> json = {};
 
     if (name != null) json['name'] = name;
-    if (foods != null) json['foods'] = foods;
+    if (foods != null) json['foods'] = FoodModel.listToJson(json['foods']);
     if (measurements != null)
       json['measurements'] =
           MeasurementGroupModel.listToJson(json['measurements']);
@@ -36,7 +37,7 @@ class MealItemModel extends MealItem {
     return MealItemModel(
       id: json['id'],
       name: json['name'],
-      foods: json['foods'],
+      foods: FoodModel.listFromJson(json['foods']),
       measurements: MeasurementGroupModel.listFromJson(json['measurements']),
       imageUrl: json['imageUrl'],
     );
@@ -60,5 +61,17 @@ class MealItemModel extends MealItem {
     mealMap['id'] = dataSnapshot.key;
 
     return MealItemModel.fromJson(mealMap);
+  }
+
+  static List<dynamic> listToJson(List<MealItemModel> list) {
+    return list == null
+        ? List<dynamic>()
+        : list.map((item) => item.toJson()).toList();
+  }
+
+  static List<MealItemModel> listFromJson(List<dynamic> json) {
+    return json == null
+        ? List<MealItemModel>()
+        : json.map((item) => MealItemModel.fromJson(item)).toList();
   }
 }

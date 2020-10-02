@@ -53,4 +53,16 @@ class FoodModel extends Food {
 
     return FoodModel.fromJson(foodMap);
   }
+
+  static List<dynamic> listToJson(List<FoodModel> list) {
+    return list == null
+        ? List<dynamic>()
+        : list.map((item) => item.toJson()).toList();
+  }
+
+  static List<FoodModel> listFromJson(List<dynamic> json) {
+    return json == null
+        ? List<FoodModel>()
+        : json.map((item) => FoodModel.fromJson(item)).toList();
+  }
 }

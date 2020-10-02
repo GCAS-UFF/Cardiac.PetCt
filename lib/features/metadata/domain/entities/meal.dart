@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
-import 'package:petct/features/diet-meals/presentation/widgets/meal_item.dart';
+import 'package:petct/features/metadata/domain/entities/meal_type.dart';
 
-import 'meal_type.dart';
+import 'meal_item.dart';
 
 class Meal extends Equatable {
   final String id;

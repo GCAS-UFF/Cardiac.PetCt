@@ -1,12 +1,13 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:meta/meta.dart';
+import 'package:petct/features/metadata/data/models/meal_item_model.dart';
 import 'package:petct/features/metadata/domain/entities/meal.dart';
 
 class MealModel extends Meal {
   MealModel({
     @required id,
     @required type,
-    @required items,
+    @required List<MealItemModel> items,
     @required totalPrice,
     @required currency,
     @required imageUrl,
@@ -23,7 +24,7 @@ class MealModel extends Meal {
     Map<dynamic, dynamic> json = {};
 
     if (type != null) json['type'] = type;
-    if (items != null) json['items'] = items;
+    if (items != null) json['items'] = MealItemModel.listToJson(json['items']);
     if (totalPrice != null) json['totalPrice'] = totalPrice;
     if (currency != null) json['currency'] = currency;
     if (imageUrl != null) json['imageUrl'] = imageUrl;
@@ -36,7 +37,7 @@ class MealModel extends Meal {
     return MealModel(
       id: json['id'],
       type: json['type'],
-      items: json['items'],
+      items: MealItemModel.listFromJson(json['items']),
       totalPrice: json['totalPrice'],
       currency: json['currency'],
       imageUrl: json['imageUrl'],
@@ -62,5 +63,17 @@ class MealModel extends Meal {
     mealMap['id'] = dataSnapshot.key;
 
     return MealModel.fromJson(mealMap);
+  }
+
+  static List<dynamic> listToJson(List<MealModel> list) {
+    return list == null
+        ? List<dynamic>()
+        : list.map((item) => item.toJson()).toList();
+  }
+
+  static List<MealModel> listFromJson(List<dynamic> json) {
+    return json == null
+        ? List<MealModel>()
+        : json.map((item) => MealModel.fromJson(item)).toList();
   }
 }

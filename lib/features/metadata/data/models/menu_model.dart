@@ -1,14 +1,17 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:meta/meta.dart';
+import 'package:petct/features/metadata/data/models/food_model.dart';
+import 'package:petct/features/metadata/data/models/meal_item_model.dart';
+import 'package:petct/features/metadata/data/models/meal_model.dart';
 import 'package:petct/features/metadata/domain/entities/menu.dart';
 
 class MenuModel extends Menu {
   MenuModel({
     @required id,
     @required country,
-    @required meals,
-    @required allowedFoods,
-    @required forbidenFoods,
+    @required List<MealModel> meals,
+    @required List<MealItemModel> allowedFoods,
+    @required List<FoodModel> forbidenFoods,
     @required durationInDays,
   }) : super(
           id: id,
@@ -23,9 +26,11 @@ class MenuModel extends Menu {
     Map<dynamic, dynamic> json = {};
 
     if (country != null) json['country'] = country;
-    if (meals != null) json['meals'] = meals;
-    if (allowedFoods != null) json['allowedFoods'] = allowedFoods;
-    if (forbidenFoods != null) json['forbidenFoods'] = forbidenFoods;
+    if (meals != null) json['meals'] = MealModel.listToJson(json['meals']);
+    if (allowedFoods != null)
+      json['allowedFoods'] = MealItemModel.listToJson(json['allowedFoods']);
+    if (forbidenFoods != null)
+      json['forbidenFoods'] = FoodModel.listToJson(json['forbidenFoods']);
     if (durationInDays != null) json['durationInDays'] = durationInDays;
     return json;
   }
@@ -35,9 +40,9 @@ class MenuModel extends Menu {
     return MenuModel(
       id: json['id'],
       country: json['country'],
-      meals: json['meals'],
-      allowedFoods: json['allowedFoods'],
-      forbidenFoods: json['forbidenFoods'],
+      meals: MealModel.listToJson(json['meals']),
+      allowedFoods: MealItemModel.listToJson(json['allowedFoods']),
+      forbidenFoods: FoodModel.listToJson(json['forbidenFoods']),
       durationInDays: json['durationInDays'],
     );
   }
