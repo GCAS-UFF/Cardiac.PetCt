@@ -9,12 +9,14 @@ class MenuModel extends Menu {
     @required meals,
     @required allowedFoods,
     @required forbidenFoods,
+    @required durationInDays,
   }) : super(
           id: id,
           country: country,
           meals: meals,
           allowedFoods: allowedFoods,
           forbidenFoods: forbidenFoods,
+          durationInDays: durationInDays,
         );
 
   Map<dynamic, dynamic> toJson() {
@@ -24,7 +26,7 @@ class MenuModel extends Menu {
     if (meals != null) json['meals'] = meals;
     if (allowedFoods != null) json['allowedFoods'] = allowedFoods;
     if (forbidenFoods != null) json['forbidenFoods'] = forbidenFoods;
-
+    if (durationInDays != null) json['durationInDays'] = durationInDays;
     return json;
   }
 
@@ -36,6 +38,7 @@ class MenuModel extends Menu {
       meals: json['meals'],
       allowedFoods: json['allowedFoods'],
       forbidenFoods: json['forbidenFoods'],
+      durationInDays: json['durationInDays'],
     );
   }
 
@@ -47,6 +50,7 @@ class MenuModel extends Menu {
       meals: menu.meals,
       allowedFoods: menu.allowedFoods,
       forbidenFoods: menu.forbidenFoods,
+      durationInDays: menu.durationInDays,
     );
   }
 

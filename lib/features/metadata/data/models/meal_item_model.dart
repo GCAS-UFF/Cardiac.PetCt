@@ -1,5 +1,6 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:meta/meta.dart';
+import 'package:petct/features/metadata/data/models/measurement_group_model.dart';
 import 'package:petct/features/metadata/domain/entities/meal_item.dart';
 
 class MealItemModel extends MealItem {
@@ -7,15 +8,13 @@ class MealItemModel extends MealItem {
     @required id,
     @required name,
     @required foods,
-    @required portion,
-    @required measurementUnit,
+    @required List<MeasurementGroupModel> measurements,
     @required imageUrl,
   }) : super(
           id: id,
           name: name,
           foods: foods,
-          portion: portion,
-          measurementUnit: measurementUnit,
+          measurements: measurements,
           imageUrl: imageUrl,
         );
 
@@ -24,8 +23,9 @@ class MealItemModel extends MealItem {
 
     if (name != null) json['name'] = name;
     if (foods != null) json['foods'] = foods;
-    if (portion != null) json['portion'] = portion;
-    if (measurementUnit != null) json['measurementUnit'] = measurementUnit;
+    if (measurements != null)
+      json['measurements'] =
+          MeasurementGroupModel.listToJson(json['measurements']);
     if (imageUrl != null) json['imageUrl'] = imageUrl;
 
     return json;
@@ -37,8 +37,7 @@ class MealItemModel extends MealItem {
       id: json['id'],
       name: json['name'],
       foods: json['foods'],
-      portion: json['portion'],
-      measurementUnit: json['measurementUnit'],
+      measurements: MeasurementGroupModel.listFromJson(json['measurements']),
       imageUrl: json['imageUrl'],
     );
   }
@@ -49,8 +48,7 @@ class MealItemModel extends MealItem {
       id: mealItem.id,
       name: mealItem.name,
       foods: mealItem.foods,
-      portion: mealItem.portion,
-      measurementUnit: mealItem.measurementUnit,
+      measurements: mealItem.measurements,
       imageUrl: mealItem.imageUrl,
     );
   }

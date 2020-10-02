@@ -11,14 +11,17 @@ class Menu extends Equatable {
   final List<Meal> meals;
   final List<MealItem> allowedFoods;
   final List<Food> forbidenFoods;
+  final int durationInDays;
 
   Menu(
       {@required this.id,
       @required this.country,
       @required this.meals,
       @required this.allowedFoods,
-      @required this.forbidenFoods});
+      @required this.forbidenFoods,
+      @required this.durationInDays});
 
   @override
-  List<Object> get props => [id, country, meals, allowedFoods, forbidenFoods];
+  List<Object> get props =>
+      [id, country, meals, allowedFoods, forbidenFoods, durationInDays];
 }
