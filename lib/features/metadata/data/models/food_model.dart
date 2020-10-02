@@ -19,7 +19,7 @@ class FoodModel extends Food {
     Map<dynamic, dynamic> json = {};
 
     if (name != null) json['name'] = name;
-    if (classification != null) json['classification'] = classification;
+    if (classification != null) json['foodClassification'] = classification;
     if (imageUrl != null) json['imageUrl'] = imageUrl;
 
     return json;
@@ -30,7 +30,7 @@ class FoodModel extends Food {
     return FoodModel(
       id: json['id'],
       name: json['name'],
-      classification: json['classification'],
+      classification: json['foodClassification'],
       imageUrl: json['imageUrl'],
     );
   }

@@ -14,7 +14,7 @@ class ClassificationModel extends Classification {
     Map<dynamic, dynamic> json = {};
 
     if (name != null) json['name'] = name;
-    if (type != null) json['type'] = type;
+    if (type != null) json['group'] = type;
 
     return json;
   }
@@ -24,7 +24,7 @@ class ClassificationModel extends Classification {
     return ClassificationModel(
       id: json['id'],
       name: json['name'],
-      type: json['type'],
+      type: json['group'],
     );
   }
 
