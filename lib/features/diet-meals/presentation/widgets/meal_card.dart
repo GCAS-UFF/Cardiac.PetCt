@@ -6,8 +6,9 @@ import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/strings.dart';
 import 'package:petct/core/ui/button_app.dart';
 import 'package:petct/core/utils/theme.dart';
-import 'package:petct/features/choose-menu/presentation/pages/choose_menu_page.dart';
 import 'package:petct/features/diet-meals/presentation/models/meal_model.dart';
+import 'package:petct/features/diet-meals/presentation/pages/choose_menu_page.dart';
+import 'package:petct/features/diet-meals/presentation/pages/register_meal_page.dart';
 import 'package:petct/features/diet-meals/presentation/widgets/meal_item.dart';
 import 'package:provider/provider.dart';
 
@@ -245,7 +246,15 @@ class _MealCardState extends State<MealCard> {
                       ),
                       ButtonApp(
                         title: Strings(context).addToDiary,
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (_) => RegisterMenuPage(
+                                mealModel: widget.data,
+                              ),
+                            ),
+                          );
+                        },
                         type: ButtonType.BUTTON_GREEN,
                       ),
                     ],

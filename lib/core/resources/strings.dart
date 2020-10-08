@@ -162,6 +162,10 @@ class Strings {
   String disableLabel;
   String cancelLabel;
 
+  //Register Meal Page
+  String anyChangesToMeal;
+  String selectIngestedItens;
+
   Strings(this.context) {
     dateInputErrorValidation =
         intl.Strings.of(context).valueOf("date_input_error_validation");
@@ -308,5 +312,8 @@ class Strings {
     pendingSubtitle = intl.Strings.of(context).valueOf("pending_subtitle");
     waitingSubtitle = intl.Strings.of(context).valueOf("waiting_subtitle");
     ingredientsTitle = intl.Strings.of(context).valueOf("ingredients_title");
+    anyChangesToMeal = intl.Strings.of(context).valueOf("any_changes_to_meal");
+    selectIngestedItens =
+        intl.Strings.of(context).valueOf("select_ingested_itens");
   }
 }

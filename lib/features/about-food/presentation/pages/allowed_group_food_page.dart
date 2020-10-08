@@ -19,7 +19,6 @@ class AllowedGroupFoodPage extends StatelessWidget {
   Widget build(BuildContext context) {
     ThemeChanger _themeChanger = Provider.of<ThemeChanger>(context);
     data.map((data) {
-      print(data.name);
     }).toList();
     return Scaffold(
       body: Container(

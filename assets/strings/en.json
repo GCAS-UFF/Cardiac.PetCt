@@ -1,5 +1,5 @@
 {
-    "URINAPP_COMMENT_SECTION_GENERAL": "----------",
+    "PETCT_COMMENT_SECTION_GENERAL": "----------",
     "no": "no",
     "yes": "yes",
     "ok": "OK",
@@ -19,12 +19,12 @@
     "incomplete": "Incomplet",
     "logo_name":"PET/CT Diet",
 
-    "URINAPP_COMMENT_SECTION_FAILURE_MESSAGES": "----------",
+    "PETCT_COMMENT_SECTION_FAILURE_MESSAGES": "----------",
     "message_server_failure": "We have a server error.",
     "message_no_internet_failure": "You don't have internet connection",
     "message_cache_failure": "We have a problem retrieving your data",
 
-    "URINAPP_COMMENT_SECTION_ERROR_MESSAGES": "----------",
+    "PETCT_COMMENT_SECTION_ERROR_MESSAGES": "----------",
     "message_unknown_error": "We have a unknown error",
     "date_input_error_validation": "Invalid Date",
     "day_input_error_validation": "Invalid Day",
@@ -33,7 +33,7 @@
     "passwords_not_equal": "Password confirmation does not match",
     "empty_field_message": "This filed can't be empty",
 
-    "URINAPP_COMMENT_SECTION_START_PAGE": "----------",
+    "PETCT_COMMENT_SECTION_START_PAGE": "----------",
     "start_page_paragraph": "Create an account to view suggested diets, track progress until the day of the exam and receive meal alerts",
     "start_page_title": "Track your exam diet",
     "register_label_button": "Sign up",
@@ -41,7 +41,7 @@
     "petct_diary_title": "Pet_ct diary",
     "high_contrast": "HIGH CONTRAST",
 
-    "URINAPP_COMMENT_SECTION_LOGIN_PAGE": "----------",
+    "PETCT_COMMENT_SECTION_LOGIN_PAGE": "----------",
     "signin_to_app": "Signin to App",
     "login_title": "Sign in",
     "email_label": "Email",
@@ -50,24 +50,24 @@
     "recover_password_email_sent":  "Recovery email sent",
 
 
-    "URINAPP_COMMENT_SECTION_REGISTER_PAGE": "----------",
+    "PETCT_COMMENT_SECTION_REGISTER_PAGE": "----------",
     "register_title": "Sign up",
     "name_label": "Name",
     "birth_label": "Birth date",
     "gender_label": "Select your gender",
     "repeat_password_label": "Repeat password",
 
-    "URINAPP_COMMENT_SECTION_VERIFY_EMAIL_PAGE": "----------",
+    "PETCT_COMMENT_SECTION_VERIFY_EMAIL_PAGE": "----------",
     "verify_email_text": "Go to your email account and click on verification link",
     "verify_email_title": "Email verification",
     "resend_label": "Resend",
     "email_verified_label": "Verified email",
 
-    "URINAPP_COMMENT_SECTION_RECOVER_PASSWORD_DIALOG": "----------",
+    "PETCT_COMMENT_SECTION_RECOVER_PASSWORD_DIALOG": "----------",
     "recover_password_title": "Recover password",
     "email_successfully_sent": "Email successfully sent",
     
-    "URINAPP_COMMENT_SECTION_DIET_MEALS": "----------",
+    "PETCT_COMMENT_SECTION_DIET_MEALS": "----------",
     "first_day_tab":"First day",
     "second_day_tab":"Second day",
     "third_day_tab":"Third day",
@@ -89,14 +89,14 @@
     "waiting_subtitle": "Waiting",
     "ingredients_title": "Ingredients",
 
-    "URINAPP_COMMENT_SECTION_BASE_PAGE": "----------",
+    "PETCT_COMMENT_SECTION_BASE_PAGE": "----------",
     "home_label":"Home",
     "menu_label":"Menu",
     "alert_label":"Alert",
     "settings_label":"Settings",
 
     
-    "URINAPP_COMMENT_SECTION_EXAM_INTRO_FORM": "----------",
+    "PETCT_COMMENT_SECTION_EXAM_INTRO_FORM": "----------",
     "about_exam":"About the exam",
     "fill_exam_details":"Enter your exam data",
     "date_time_exam":"Exam date and time",
@@ -104,7 +104,7 @@
     "exam_location":"Exam location",
     "local_label":"Local",
 
-    "URINAPP_COMMENT_SECTION_MEALS_INTRO_FORM": "----------",
+    "PETCT_COMMENT_SECTION_MEALS_INTRO_FORM": "----------",
     "select_meals_time":"Select your meal time",
     "meals_time_title":"Meal times",
     "breakfast_label":"Breakfast",
@@ -115,10 +115,10 @@
     "supper_label":"Supper",
     "ready_label":"Done",
         
-    "URINAPP_COMMENT_SECTION_MEALS_DATE_PICKER_APP": "----------",
+    "PETCT_COMMENT_SECTION_MEALS_DATE_PICKER_APP": "----------",
     "date_label":"Date",
 
-    "URINAPP_COMMENT_SECTION_CHOOSE_MENU_PAGE": "----------",
+    "PETCT_COMMENT_SECTION_CHOOSE_MENU_PAGE": "----------",
     "option_one":"Option 1",
     "option_two":"Option 2",
     "option_three":"Option 3",
@@ -127,7 +127,7 @@
     "second_day":"Second day",
     "third_day":"Third day",
 
-    "URINAPP_COMMENT_SECTION_ABOUT_FOOD": "----------",
+    "PETCT_COMMENT_SECTION_ABOUT_FOOD": "----------",
     "diet_food":"Diet food",
     "group_title": "Group: ",
     "food_replacement_text": "The items on this list can be replaced by another from the same list respecting their maximum quantity per meal",
@@ -145,7 +145,7 @@
     "vegetables_examples": "Lettuce, cabbage, etc",
     "liquid_examples": "Water, coffee, etc",
 
-    "URINAPP_COMMENT_SECTION_ALERTS_PAGE": "----------",
+    "PETCT_COMMENT_SECTION_ALERTS_PAGE": "----------",
     "no_alert": "No alerts",
     "alerts_title": "Alerts",
     "register_label": "Register",
@@ -153,6 +153,10 @@
     "disable_alerts": "Disable alerts",
     "are_you_sure_disable_text": "Are you sure you want to disable all alerts?",
     "disable_label": "Disable",
-    "cancel_label": "Cancel"
+    "cancel_label": "Cancel",
+
+    "PETCT_COMMENT_SECTION_REGISTER_MEAL_PAGE": "----------",
+    "any_changes_to_meal": "Did you make any changes to the dish items? Comment here",
+    "select_ingested_itens": "Mark the items consumed and the quantity of each"
 
 }

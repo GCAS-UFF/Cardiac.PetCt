@@ -1,11 +1,7 @@
-import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import 'package:flutter/material.dart';
-import 'package:petct/core/resources/colors.dart';
 import 'package:petct/core/resources/dimensions.dart';
-import 'package:petct/core/resources/strings.dart';
 import 'package:petct/features/diet-meals/presentation/models/meal_model.dart';
 import 'package:petct/features/diet-meals/presentation/widgets/meal_card.dart';
-import 'package:petct/features/diet-meals/presentation/widgets/meal_item.dart';
 
 class TabMenuContent extends StatefulWidget {
   final List<MealModel> meals;

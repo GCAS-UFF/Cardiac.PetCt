@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:petct/core/resources/colors.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/images.dart';
 import 'package:petct/core/resources/strings.dart';
@@ -10,21 +9,21 @@ import 'package:petct/features/diet-meals/presentation/models/meal_model.dart';
 import 'package:petct/features/diet-meals/presentation/widgets/custom_tabs.dart';
 import 'package:petct/features/diet-meals/presentation/widgets/meal_item.dart';
 
-class ChooseMenuPage extends StatefulWidget {
+class ChooseMealWidget extends StatefulWidget {
   final MealModel mealModel;
 
-  const ChooseMenuPage({Key key, this.mealModel}) : super(key: key);
+  const ChooseMealWidget({Key key, this.mealModel}) : super(key: key);
   @override
-  _ChooseMenuPageState createState() => _ChooseMenuPageState();
+  _ChooseMealWidgetState createState() => _ChooseMealWidgetState();
 }
 
-class _ChooseMenuPageState extends State<ChooseMenuPage>
-    with SingleTickerProviderStateMixin {
+class _ChooseMealWidgetState extends State<ChooseMealWidget>
+    with TickerProviderStateMixin {
   TabController _controller;
-  List<MealModel> _optionsMenu = List<MealModel>();
+
   @override
-  void initState() {
-    super.initState();
+  Widget build(BuildContext context) {
+    List<MealModel> _optionsMenu = List<MealModel>();
     _controller = TabController(length: 3, vsync: this);
     _optionsMenu = [
       MealModel(
@@ -124,10 +123,6 @@ class _ChooseMenuPageState extends State<ChooseMenuPage>
         status: MEALSTATUS.Pending,
       ),
     ];
-  }
-
-  @override
-  Widget build(BuildContext context) {
     List<Widget> _contents = [
       Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -163,90 +158,20 @@ class _ChooseMenuPageState extends State<ChooseMenuPage>
         ],
       ),
     ];
-    return Scaffold(
-      body: Container(
-        padding: Dimensions.getEdgeInsetsFromLTRB(context, 30, 30, 30, 0),
-        child: Column(
-          children: <Widget>[
-            Stack(
-              children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      Strings(context).chooseDish,
-                      style: GoogleFonts.montserrat(
-                        fontSize: Dimensions.getTextSize(context, 18),
-                      ),
-                    ),
-                  ],
-                ),
-                InkWell(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: Icon(
-                    Icons.arrow_back,
-                    size: Dimensions.getConvertedWidthSize(context, 24),
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: Dimensions.getConvertedHeightSize(context, 25),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                //Meal name
-                Text(
-                  widget.mealModel.name,
-                  style: GoogleFonts.montserrat(
-                    fontSize: Dimensions.getTextSize(context, 20),
-                    fontWeight: FontWeight.w700,
-                    color: ColorsApp.greenApp,
-                  ),
-                ),
-                Text(
-                  " - ",
-                  style: GoogleFonts.montserrat(
-                    fontSize: Dimensions.getTextSize(context, 20),
-                    color: ColorsApp.greenApp,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-                //Meal time
-                Text(
-                  widget.mealModel.mealTime,
-                  style: GoogleFonts.montserrat(
-                    fontSize: Dimensions.getTextSize(context, 20),
-                    color: ColorsApp.greenApp,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: Dimensions.getConvertedHeightSize(context, 5),
-            ),
-            Text(
-              Strings(context).firstDay,
-              style: GoogleFonts.montserrat(
-                fontSize: Dimensions.getTextSize(context, 16),
-              ),
-            ),
-            SizedBox(
-              height: Dimensions.getConvertedHeightSize(context, 20),
-            ),
-            CustomTabs(controller: _controller, tabContents: _contents),
-            //Tab Contents
-            Expanded(
-              child: TabBarView(
-                  controller: _controller,
-                  children: _optionsMenu.map((data) {
-                    return Container(
+    return Expanded(
+      child: Column(
+        children: [
+          CustomTabs(controller: _controller, tabContents: _contents),
+          //Tab Contents
+          Expanded(
+            child: TabBarView(
+                controller: _controller,
+                children: _optionsMenu.map((data) {
+                  return SingleChildScrollView(
+                    child: Container(
                       padding: Dimensions.getEdgeInsetsAll(context, 20),
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -277,7 +202,7 @@ class _ChooseMenuPageState extends State<ChooseMenuPage>
                           ),
                           SizedBox(
                             height:
-                                Dimensions.getConvertedHeightSize(context, 15),
+                                Dimensions.getConvertedHeightSize(context, 20),
                           ),
                           ButtonApp(
                             title: Strings(context).chooseDish,
@@ -299,11 +224,11 @@ class _ChooseMenuPageState extends State<ChooseMenuPage>
                           ),
                         ],
                       ),
-                    );
-                  }).toList()),
-            ),
-          ],
-        ),
+                    ),
+                  );
+                }).toList()),
+          ),
+        ],
       ),
     );
   }
