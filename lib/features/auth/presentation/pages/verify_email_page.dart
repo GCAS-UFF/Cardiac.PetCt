@@ -9,6 +9,7 @@ import 'package:petct/core/ui/loading_widget.dart';
 import 'package:petct/core/utils/animation_slide_transition.dart';
 import 'package:petct/core/utils/failure_to_message_converter.dart';
 import 'package:petct/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:petct/features/intro-form/pages/exam_intro_screen.dart';
 
 class VerifyEmailPage extends StatelessWidget {
   Widget _buildBody(BuildContext context) {
@@ -95,11 +96,7 @@ class VerifyEmailPage extends StatelessWidget {
             ),
           );
         } else if (state is Loaded) {
-          Route route = AnimationSlideTransistion(
-            widget: Scaffold(
-              body: Center(child: Text("Home")),
-            ),
-          );
+          Route route = AnimationSlideTransistion(widget: ExamIntroScreen());
           Navigator.pushAndRemoveUntil(context, route, (r) => false);
         } else if (state is EmailResent) {
           showDialog(

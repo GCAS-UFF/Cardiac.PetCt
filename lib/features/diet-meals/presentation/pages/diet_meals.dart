@@ -20,7 +20,7 @@ class DietMeals extends StatefulWidget {
 }
 
 class _DietMealsState extends State<DietMeals>
-    with SingleTickerProviderStateMixin {
+    with TickerProviderStateMixin {
   TabController _controller;
   List<MenuDayModel> _daysMenu = List<MenuDayModel>();
 

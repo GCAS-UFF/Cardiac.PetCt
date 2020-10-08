@@ -24,4 +24,7 @@ class Keys {
   static const String LABEL_AFTERNOONSNACK = "LABEL_AFTERNOONSNACK";
   static const String LABEL_DINNER = "LABEL_DINNER";
   static const String LABEL_SUPPER = "LABEL_SUPPER";
+
+  //Register Meal Widget
+  static const String MEAL_COMMENTS = "MEAL_COMMENTS";
 }
