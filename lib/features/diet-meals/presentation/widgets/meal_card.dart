@@ -92,29 +92,32 @@ class _MealCardState extends State<MealCard> {
                               widget.data.name,
                               style: GoogleFonts.montserrat(
                                   fontSize: Dimensions.getTextSize(context, 16),
-                                  color:
-                                      (widget.data.status == MEALSTATUS.Waiting)
-                                          ? Colors.black
-                                          : Colors.white),
+                                  color: (widget.data.status ==
+                                              MEALSTATUS.Waiting &&
+                                          !_themeChanger.getThemeData())
+                                      ? Colors.black
+                                      : Colors.white),
                             ),
                             Text(
                               " - ",
                               style: GoogleFonts.montserrat(
                                   fontSize: Dimensions.getTextSize(context, 14),
-                                  color:
-                                      (widget.data.status == MEALSTATUS.Waiting)
-                                          ? Colors.black
-                                          : Colors.white),
+                                  color: (widget.data.status ==
+                                              MEALSTATUS.Waiting &&
+                                          !_themeChanger.getThemeData())
+                                      ? Colors.black
+                                      : Colors.white),
                             ),
                             //Meal time
                             Text(
                               widget.data.mealTime,
                               style: GoogleFonts.montserrat(
                                   fontSize: Dimensions.getTextSize(context, 16),
-                                  color:
-                                      (widget.data.status == MEALSTATUS.Waiting)
-                                          ? Colors.black
-                                          : Colors.white),
+                                  color: (widget.data.status ==
+                                              MEALSTATUS.Waiting &&
+                                          !_themeChanger.getThemeData())
+                                      ? Colors.black
+                                      : Colors.white),
                             )
                           ],
                         ),
@@ -126,9 +129,11 @@ class _MealCardState extends State<MealCard> {
                                   : Strings(context).waitingSubtitle,
                           style: GoogleFonts.montserrat(
                               fontSize: Dimensions.getTextSize(context, 14),
-                              color: (widget.data.status == MEALSTATUS.Waiting)
-                                  ? Colors.black
-                                  : Colors.white),
+                              color:
+                                  (widget.data.status == MEALSTATUS.Waiting &&
+                                          !_themeChanger.getThemeData())
+                                      ? Colors.black
+                                      : Colors.white),
                         )
                       ],
                     ),
@@ -146,7 +151,7 @@ class _MealCardState extends State<MealCard> {
                         ? FeatherIcons.minusSquare
                         : FeatherIcons.plusSquare,
                     size: Dimensions.getConvertedWidthSize(context, 24),
-                    color: (widget.data.status == MEALSTATUS.Waiting)
+                    color: (widget.data.status == MEALSTATUS.Waiting&& !_themeChanger.getThemeData())
                         ? Colors.black
                         : Colors.white,
                   ),

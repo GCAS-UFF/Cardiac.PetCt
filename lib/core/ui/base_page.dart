@@ -7,6 +7,7 @@ import 'package:petct/core/resources/strings.dart';
 import 'package:petct/core/utils/theme.dart';
 import 'package:petct/features/alerts/presentation/pages/alerts_page.dart';
 import 'package:petct/features/diet-meals/presentation/pages/diet_meals.dart';
+import 'package:petct/features/diet-progress/presentation/pages/diet_progress_page.dart';
 import 'package:petct/features/settings/pages/settings_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -19,9 +20,7 @@ class _BasePageState extends State<BasePage> {
   int _currentTab = 0;
 
   final _tabs = [
-    Center(
-      child: Text("Home"),
-    ),
+    DietProgressPage(),
     DietMeals(),
     AlertsPage(),
     SettingsScreen(),
