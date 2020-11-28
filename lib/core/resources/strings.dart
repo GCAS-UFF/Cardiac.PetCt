@@ -83,6 +83,12 @@ class Strings {
   String quantityTitle;
   String mealsTitle;
   String shoppingList;
+  String shoppingListPdfTitle;
+  String shoppingListPdfEggAndMeat;
+  String shoppingListPdfVegetables;
+  String shoppingListPdfOils;
+  String shoppingListPdfOilSeeds;
+  String shoppingListPdfLiquids;
   String shareTitle;
   String downloadTitle;
   String foodListTitle;
@@ -315,5 +321,19 @@ class Strings {
     anyChangesToMeal = intl.Strings.of(context).valueOf("any_changes_to_meal");
     selectIngestedItens =
         intl.Strings.of(context).valueOf("select_ingested_itens");
+    shoppingListPdfTitle =
+        intl.Strings.of(context).valueOf("shopping_list_pdf_title");
+    shoppingListPdfTitle =
+        intl.Strings.of(context).valueOf("shopping_list_pdf_title");
+    shoppingListPdfEggAndMeat =
+        intl.Strings.of(context).valueOf("shopping_list_pdf_egg_and_meat");
+    shoppingListPdfVegetables =
+        intl.Strings.of(context).valueOf("shopping_list_pdf_vegetables");
+    shoppingListPdfOils =
+        intl.Strings.of(context).valueOf("shopping_list_pdf_oils");
+    shoppingListPdfOilSeeds =
+        intl.Strings.of(context).valueOf("shopping_list_pdf_oilseeds");
+    shoppingListPdfLiquids =
+        intl.Strings.of(context).valueOf("shopping_list_pdf_liquids");
   }
 }
