@@ -97,10 +97,11 @@ class ShoppingListDialog extends StatelessWidget {
           mainAxisSize: pw.MainAxisSize.min,
           children: <pw.Widget>[
             pw.Container(
-              margin: pw.EdgeInsets.only(bottom: 40),
+              margin: pw.EdgeInsets.only(bottom: 20),
               padding: pw.EdgeInsets.only(bottom: 10),
               decoration: pw.BoxDecoration(
                 border: pw.BoxBorder(
+                  width: 2,
                   bottom: true,
                   color: PdfColor.fromInt(ColorsApp.greenApp.value),
                 ),
@@ -108,7 +109,7 @@ class ShoppingListDialog extends StatelessWidget {
               child: pw.Row(
                 children: [
                   pw.Text(
-                    "Lista de Compras Exame PetCT",
+                    Strings(context).shoppingListPdfTitle,
                     style: pw.TextStyle(
                       fontSize: Dimensions.getTextSize(context, 22),
                     ),
@@ -118,89 +119,358 @@ class ShoppingListDialog extends StatelessWidget {
             ),
             pw.Row(
               crossAxisAlignment: pw.CrossAxisAlignment.start,
-              mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: pw.MainAxisAlignment.spaceAround,
               children: <pw.Widget>[
-                pw.Column(
-                  mainAxisSize: pw.MainAxisSize.min,
-                  crossAxisAlignment: pw.CrossAxisAlignment.start,
-                  children: <pw.Widget>[
-                    pw.Text(
-                      "Primeiro dia",
-                      style: pw.TextStyle(
-                        fontSize: Dimensions.getTextSize(context, 16),
-                      ),
-                    ),
-                    pw.Text(
-                      daysMenu[0].menuDay,
-                      style: pw.TextStyle(
-                        fontSize: Dimensions.getTextSize(context, 16),
-                      ),
-                    ),
-                    for (int i = 0; i < daysMenu[0].meals.length; i++)
-                      for (int j = 0;
-                          j < daysMenu[0].meals[i].mealItens.length;
-                          j++)
-                        pw.Text(
-                          daysMenu[0].meals[i].mealItens[j].name,
-                          style: pw.TextStyle(
-                            fontSize: Dimensions.getTextSize(context, 14),
-                          ),
-                        ),
-                  ],
-                ),
-                pw.Column(
-                  mainAxisSize: pw.MainAxisSize.min,
-                  crossAxisAlignment: pw.CrossAxisAlignment.start,
-                  children: <pw.Widget>[
-                    pw.Text(
-                      "Segundo dia",
-                      style: pw.TextStyle(
-                        fontSize: Dimensions.getTextSize(context, 16),
-                      ),
-                    ),
-                    pw.Text(
-                      daysMenu[1].menuDay,
-                      style: pw.TextStyle(
-                        fontSize: Dimensions.getTextSize(context, 16),
-                      ),
-                    ),
-                    for (int i = 0; i < daysMenu[1].meals.length; i++)
-                      for (int j = 0; j < daysMenu[1].meals[i].mealItens.length; j++)
-                        pw.Text(
-                          daysMenu[1].meals[i].mealItens[j].name,
-                          style: pw.TextStyle(
-                            fontSize: Dimensions.getTextSize(context, 14),
-                          ),
-                        ),
-                  ],
-                ),
-                pw.Column(
-                    mainAxisSize: pw.MainAxisSize.min,
+                pw.Container(
+                  width: 220,
+                  child: pw.Column(
                     crossAxisAlignment: pw.CrossAxisAlignment.start,
                     children: <pw.Widget>[
-                      pw.Text(
-                        "Terceiro dia",
-                        style: pw.TextStyle(
-                          fontSize: Dimensions.getTextSize(context, 16),
-                        ),
-                      ),
-                      pw.Text(
-                        daysMenu[2].menuDay,
-                        style: pw.TextStyle(
-                          fontSize: Dimensions.getTextSize(context, 16),
-                        ),
-                      ),
-                      for (int i = 0; i < daysMenu[2].meals.length; i++)
-                        for (int j = 0;
-                            j < daysMenu[2].meals[i].mealItens.length;
-                            j++)
-                          pw.Text(
-                            daysMenu[2].meals[i].mealItens[j].name,
-                            style: pw.TextStyle(
-                              fontSize: Dimensions.getTextSize(context, 14),
+                      pw.Column(
+                        mainAxisSize: pw.MainAxisSize.min,
+                        crossAxisAlignment: pw.CrossAxisAlignment.start,
+                        children: <pw.Widget>[
+                          pw.Container(
+                            margin: pw.EdgeInsets.only(bottom: 10),
+                            padding: pw.EdgeInsets.only(bottom: 5),
+                            width: 220,
+                            decoration: pw.BoxDecoration(
+                              border: pw.BoxBorder(
+                                width: 2,
+                                bottom: true,
+                                color:
+                                    PdfColor.fromInt(ColorsApp.greenApp.value),
+                              ),
+                            ),
+                            child: pw.Text(
+                              Strings(context).shoppingListPdfEggAndMeat,
+                              style: pw.TextStyle(
+                                fontSize: Dimensions.getTextSize(context, 20),
+                              ),
                             ),
                           ),
-                    ])
+                          for (int i = 0; i < daysMenu[0].meals.length; i++)
+                            for (int j = 0;
+                                j < daysMenu[0].meals[i].mealItens.length;
+                                j++)
+                              pw.Container(
+                                width: 220,
+                                padding: pw.EdgeInsets.only(bottom: 3),
+                                margin: pw.EdgeInsets.only(bottom: 5),
+                                decoration: pw.BoxDecoration(
+                                  border: pw.BoxBorder(
+                                    width: 2,
+                                    bottom: true,
+                                    color: PdfColor.fromInt(Colors.grey.value),
+                                  ),
+                                ),
+                                child: pw.Row(
+                                  mainAxisAlignment:
+                                      pw.MainAxisAlignment.spaceBetween,
+                                  children: <pw.Widget>[
+                                    pw.Text(
+                                      daysMenu[0].meals[i].mealItens[j].name,
+                                      style: pw.TextStyle(
+                                        fontSize:
+                                            Dimensions.getTextSize(context, 10),
+                                      ),
+                                    ),
+                                    pw.Text(
+                                      daysMenu[0]
+                                          .meals[i]
+                                          .mealItens[j]
+                                          .maximumQuantity
+                                          .toString(),
+                                      style: pw.TextStyle(
+                                        fontSize:
+                                            Dimensions.getTextSize(context, 10),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                        ],
+                      ),
+                      pw.SizedBox(
+                        height: Dimensions.getConvertedHeightSize(context, 10),
+                      ),
+                      pw.Column(
+                        mainAxisSize: pw.MainAxisSize.min,
+                        crossAxisAlignment: pw.CrossAxisAlignment.start,
+                        children: <pw.Widget>[
+                          pw.Container(
+                            margin: pw.EdgeInsets.only(bottom: 10),
+                            padding: pw.EdgeInsets.only(bottom: 5),
+                            width: 220,
+                            decoration: pw.BoxDecoration(
+                              border: pw.BoxBorder(
+                                width: 2,
+                                bottom: true,
+                                color:
+                                    PdfColor.fromInt(ColorsApp.greenApp.value),
+                              ),
+                            ),
+                            child: pw.Text(
+                              Strings(context).shoppingListPdfVegetables,
+                              style: pw.TextStyle(
+                                fontSize: Dimensions.getTextSize(context, 20),
+                              ),
+                            ),
+                          ),
+                          for (int i = 0; i < daysMenu[0].meals.length; i++)
+                            for (int j = 0;
+                                j < daysMenu[0].meals[i].mealItens.length;
+                                j++)
+                              pw.Container(
+                                width: 220,
+                                padding: pw.EdgeInsets.only(bottom: 3),
+                                margin: pw.EdgeInsets.only(bottom: 5),
+                                decoration: pw.BoxDecoration(
+                                  border: pw.BoxBorder(
+                                    width: 2,
+                                    bottom: true,
+                                    color: PdfColor.fromInt(Colors.grey.value),
+                                  ),
+                                ),
+                                child: pw.Row(
+                                  mainAxisAlignment:
+                                      pw.MainAxisAlignment.spaceBetween,
+                                  children: <pw.Widget>[
+                                    pw.Text(
+                                      daysMenu[0].meals[i].mealItens[j].name,
+                                      style: pw.TextStyle(
+                                        fontSize:
+                                            Dimensions.getTextSize(context, 10),
+                                      ),
+                                    ),
+                                    pw.Text(
+                                      daysMenu[0]
+                                          .meals[i]
+                                          .mealItens[j]
+                                          .maximumQuantity
+                                          .toString(),
+                                      style: pw.TextStyle(
+                                        fontSize:
+                                            Dimensions.getTextSize(context, 10),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                pw.Container(
+                  width: 220,
+                  child: pw.Column(
+                    crossAxisAlignment: pw.CrossAxisAlignment.start,
+                    children: <pw.Widget>[
+                      pw.Column(
+                        mainAxisSize: pw.MainAxisSize.min,
+                        crossAxisAlignment: pw.CrossAxisAlignment.start,
+                        children: <pw.Widget>[
+                          pw.Container(
+                            margin: pw.EdgeInsets.only(bottom: 10),
+                            padding: pw.EdgeInsets.only(bottom: 5),
+                            width: 220,
+                            decoration: pw.BoxDecoration(
+                              border: pw.BoxBorder(
+                                width: 2,
+                                bottom: true,
+                                color:
+                                    PdfColor.fromInt(ColorsApp.greenApp.value),
+                              ),
+                            ),
+                            child: pw.Text(
+                              Strings(context).shoppingListPdfOils,
+                              style: pw.TextStyle(
+                                fontSize: Dimensions.getTextSize(context, 20),
+                              ),
+                            ),
+                          ),
+                          for (int i = 0; i < daysMenu[0].meals.length; i++)
+                            for (int j = 0;
+                                j < daysMenu[0].meals[i].mealItens.length;
+                                j++)
+                              pw.Container(
+                                width: 220,
+                                padding: pw.EdgeInsets.only(bottom: 3),
+                                margin: pw.EdgeInsets.only(bottom: 5),
+                                decoration: pw.BoxDecoration(
+                                  border: pw.BoxBorder(
+                                    width: 2,
+                                    bottom: true,
+                                    color: PdfColor.fromInt(Colors.grey.value),
+                                  ),
+                                ),
+                                child: pw.Row(
+                                  mainAxisAlignment:
+                                      pw.MainAxisAlignment.spaceBetween,
+                                  children: <pw.Widget>[
+                                    pw.Text(
+                                      daysMenu[0].meals[i].mealItens[j].name,
+                                      style: pw.TextStyle(
+                                        fontSize:
+                                            Dimensions.getTextSize(context, 10),
+                                      ),
+                                    ),
+                                    pw.Text(
+                                      daysMenu[0]
+                                          .meals[i]
+                                          .mealItens[j]
+                                          .maximumQuantity
+                                          .toString(),
+                                      style: pw.TextStyle(
+                                        fontSize:
+                                            Dimensions.getTextSize(context, 10),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                        ],
+                      ),
+                      pw.SizedBox(
+                        height: Dimensions.getConvertedHeightSize(context, 10),
+                      ),
+                      pw.Column(
+                        mainAxisSize: pw.MainAxisSize.min,
+                        crossAxisAlignment: pw.CrossAxisAlignment.start,
+                        children: <pw.Widget>[
+                          pw.Container(
+                            margin: pw.EdgeInsets.only(bottom: 10),
+                            padding: pw.EdgeInsets.only(bottom: 5),
+                            width: 220,
+                            decoration: pw.BoxDecoration(
+                              border: pw.BoxBorder(
+                                width: 2,
+                                bottom: true,
+                                color:
+                                    PdfColor.fromInt(ColorsApp.greenApp.value),
+                              ),
+                            ),
+                            child: pw.Text(
+                              Strings(context).shoppingListPdfOilSeeds,
+                              style: pw.TextStyle(
+                                fontSize: Dimensions.getTextSize(context, 20),
+                              ),
+                            ),
+                          ),
+                          for (int i = 0; i < daysMenu[0].meals.length; i++)
+                            for (int j = 0;
+                                j < daysMenu[0].meals[i].mealItens.length;
+                                j++)
+                              pw.Container(
+                                width: 220,
+                                padding: pw.EdgeInsets.only(bottom: 3),
+                                margin: pw.EdgeInsets.only(bottom: 5),
+                                decoration: pw.BoxDecoration(
+                                  border: pw.BoxBorder(
+                                    width: 2,
+                                    bottom: true,
+                                    color: PdfColor.fromInt(Colors.grey.value),
+                                  ),
+                                ),
+                                child: pw.Row(
+                                  mainAxisAlignment:
+                                      pw.MainAxisAlignment.spaceBetween,
+                                  children: <pw.Widget>[
+                                    pw.Text(
+                                      daysMenu[0].meals[i].mealItens[j].name,
+                                      style: pw.TextStyle(
+                                        fontSize:
+                                            Dimensions.getTextSize(context, 10),
+                                      ),
+                                    ),
+                                    pw.Text(
+                                      daysMenu[0]
+                                          .meals[i]
+                                          .mealItens[j]
+                                          .maximumQuantity
+                                          .toString(),
+                                      style: pw.TextStyle(
+                                        fontSize:
+                                            Dimensions.getTextSize(context, 10),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                        ],
+                      ),
+                      pw.SizedBox(
+                        height: Dimensions.getConvertedHeightSize(context, 10),
+                      ),
+                      pw.Column(
+                        mainAxisSize: pw.MainAxisSize.min,
+                        crossAxisAlignment: pw.CrossAxisAlignment.start,
+                        children: <pw.Widget>[
+                          pw.Container(
+                            margin: pw.EdgeInsets.only(bottom: 10),
+                            padding: pw.EdgeInsets.only(bottom: 5),
+                            width: 220,
+                            decoration: pw.BoxDecoration(
+                              border: pw.BoxBorder(
+                                width: 2,
+                                bottom: true,
+                                color:
+                                    PdfColor.fromInt(ColorsApp.greenApp.value),
+                              ),
+                            ),
+                            child: pw.Text(
+                              Strings(context).shoppingListPdfLiquids,
+                              style: pw.TextStyle(
+                                fontSize: Dimensions.getTextSize(context, 20),
+                              ),
+                            ),
+                          ),
+                          for (int i = 0; i < daysMenu[0].meals.length; i++)
+                            for (int j = 0;
+                                j < daysMenu[0].meals[i].mealItens.length;
+                                j++)
+                              pw.Container(
+                                width: 220,
+                                padding: pw.EdgeInsets.only(bottom: 3),
+                                margin: pw.EdgeInsets.only(bottom: 5),
+                                decoration: pw.BoxDecoration(
+                                  border: pw.BoxBorder(
+                                    width: 2,
+                                    bottom: true,
+                                    color: PdfColor.fromInt(Colors.grey.value),
+                                  ),
+                                ),
+                                child: pw.Row(
+                                  mainAxisAlignment:
+                                      pw.MainAxisAlignment.spaceBetween,
+                                  children: <pw.Widget>[
+                                    pw.Text(
+                                      daysMenu[0].meals[i].mealItens[j].name,
+                                      style: pw.TextStyle(
+                                        fontSize:
+                                            Dimensions.getTextSize(context, 10),
+                                      ),
+                                    ),
+                                    pw.Text(
+                                      daysMenu[0]
+                                          .meals[i]
+                                          .mealItens[j]
+                                          .maximumQuantity
+                                          .toString(),
+                                      style: pw.TextStyle(
+                                        fontSize:
+                                            Dimensions.getTextSize(context, 10),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ],
