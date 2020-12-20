@@ -444,7 +444,7 @@ class _DietMealsState extends State<DietMeals> with TickerProviderStateMixin {
                   measurement: Measurement.UNITY),
             ],
             mealsName: MEALSNAME.AfternoonSnack,
-            status: MEALSTATUS.Pending,
+            status: MEALSTATUS.Waiting,
           ),
           MealModel(
             mealTime: "19:30",

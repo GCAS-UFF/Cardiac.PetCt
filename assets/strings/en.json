@@ -163,6 +163,27 @@
 
     "PETCT_COMMENT_SECTION_REGISTER_MEAL_PAGE": "----------",
     "any_changes_to_meal": "Did you make any changes to the dish items? Comment here",
-    "select_ingested_itens": "Mark the items consumed and the quantity of each"
+    "select_ingested_itens": "Mark the items consumed and the quantity of each",
+
+    "PETCT_COMMENT_SECTION_PROGRESS_PAGE": "----------",
+    "progresso_page_title": "Seu progresso",
+    "progress_page_card_title_prepare": "Prepare for the diet",
+    "progress_page_card_title_diet": "On a diet",
+    "progress_page_card_title_fasting": "In fasting",
+    "progress_page_card_title_done": "Exam",
+    "progress_page_card_text_prepare": "Your diet will start soon. At this stage you should check which meals you are going to have and separate the food to be able to take the exam!",
+    "progress_page_card_text_diet": "Your diet has started. At this stage you must prepare meals according to the menus we have prepared. Be careful not to eat any prohibited food.",
+    "progress_page_card_text_fasting": "At this stage you should be fasting. This means that you will be able to eat absolutely nothing but mineral water.",
+    "progress_page_card_text_done": "You are ready to take the exam!",
+    "progress_page_days_left": "days left to ",
+    "progress_page_start": "start",
+    "progress_page_diet": " diet",
+    "progress_page_finish": "finish",
+    "progress_page_hours_left": "hour left ",
+    "progress_page_fasting": "fasting",
+    "progress_page_do_exam": " to make your exam",
+    "progress_page_congratulations": "Congratulations!",
+    "progress_page_see_diet": "See diet",
+    "progress_page_generate_diet_history": "Generate diet history"
 
 }

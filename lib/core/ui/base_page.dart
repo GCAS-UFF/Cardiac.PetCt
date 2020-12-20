@@ -7,6 +7,7 @@ import 'package:petct/core/resources/strings.dart';
 import 'package:petct/core/utils/theme.dart';
 import 'package:petct/features/alerts/presentation/pages/alerts_page.dart';
 import 'package:petct/features/diet-meals/presentation/pages/diet_meals.dart';
+import 'package:petct/features/diet-progress/presentation/pages/diet_progress_page.dart';
 import 'package:petct/features/settings/pages/settings_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -16,16 +17,25 @@ class BasePage extends StatefulWidget {
 }
 
 class _BasePageState extends State<BasePage> {
-  int _currentTab = 0;
+  int _currentTab;
+  List<Widget> _tabs;
 
-  final _tabs = [
-    Center(
-      child: Text("Home"),
-    ),
-    DietMeals(),
-    AlertsPage(),
-    SettingsScreen(),
-  ];
+  @override
+  void initState() {
+    super.initState();
+    _currentTab = 0;
+    _tabs = [
+      DietProgressPage(dietNavigation: () {
+        setState(() {
+          _currentTab = 1;
+        });
+      }),
+      DietMeals(),
+      AlertsPage(),
+      SettingsScreen(),
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
     ThemeChanger _themeChanger = Provider.of<ThemeChanger>(context);

@@ -4,7 +4,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:internationalization/internationalization.dart';
 import 'package:petct/core/utils/theme.dart';
 import 'package:petct/features/about-food/presentation/pages/about_food_page.dart';
-import 'package:petct/features/alerts/presentation/pages/alerts_page.dart';
 import 'package:petct/features/auth/presentation/pages/register_page.dart';
 import 'package:petct/features/auth/presentation/pages/start_page.dart';
 import 'package:provider/provider.dart';

@@ -161,5 +161,28 @@
 
     "PETCT_COMMENT_SECTION_REGISTER_MEAL_PAGE": "----------",
     "any_changes_to_meal": "Fez alguma alteração nos itens prato? Comente aqui",
-    "select_ingested_itens": "Marque os itens consumidos e a quantidade de cada um"
+    "select_ingested_itens": "Marque os itens consumidos e a quantidade de cada um",
+
+    "PETCT_COMMENT_SECTION_PROGRESS_PAGE": "----------",
+    "progresso_page_title": "Seu progresso",
+    "progress_page_card_title_prepare": "Prepare-se para a dieta",
+    "progress_page_card_title_diet": "Em dieta",
+    "progress_page_card_title_fasting": "Em jejum",
+    "progress_page_card_title_done": "Exame",
+    "progress_page_card_text_prepare": "Sua dieta vai começar logo. Nessa etapa você deve conferir quais refeições você irá fazer e separar os alimentos para conseguir realizar o exame!",
+    "progress_page_card_text_diet": "Sua dieta começou. Nesta etapa você deve preparar as refeições de acordo com os cardápios que preparamos. Cuidado para não comer nenhum alimento proibido.",
+    "progress_page_card_text_fasting": "Nesta etapa você deve ficar de jejum. Isso significa que você não poderá comer absolutamente nada além de água mineral.",
+    "progress_page_card_text_done": "Você está pronta(o) para realizar o exame!",
+    "progress_page_days_left": "dias restantes para ",
+    "progress_page_start": "começar",
+    "progress_page_diet": " a dieta",
+    "progress_page_finish": "finalizar",
+    "progress_page_hours_left": "horas restantes em ",
+    "progress_page_fasting": "jejum",
+    "progress_page_do_exam": " para realizar o exame",
+    "progress_page_congratulations": "Parabéns!",
+    "progress_page_see_diet": "Ver dieta",
+    "progress_page_generate_diet_history": "Gerar histórico da dieta"
+
+    
 }
