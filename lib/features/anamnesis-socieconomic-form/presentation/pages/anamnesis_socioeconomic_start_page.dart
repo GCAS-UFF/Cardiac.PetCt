@@ -5,6 +5,8 @@ import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/images.dart';
 import 'package:petct/core/resources/strings.dart';
 import 'package:petct/core/ui/button_app.dart';
+import 'package:petct/core/utils/animation_slide_transition.dart';
+import 'package:petct/features/anamnesis-socieconomic-form/presentation/pages/anamnesis_form_root.dart';
 
 class AnamnesisSocioeconomicStartPage extends StatefulWidget {
   @override
@@ -20,34 +22,37 @@ class _AnamnesisSocioeconomicStartPageState
           vertical: 100, horizontal: 61),
       height: double.infinity,
       width: double.infinity,
-      child: Expanded(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    Strings(context).anamnesisSocieconomicText,
-                    style: GoogleFonts.montserrat(
-                      fontSize: Dimensions.getTextSize(context, 16),
-                    ),
-                    textAlign: TextAlign.center,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            children: [
+              Expanded(
+                child: Text(
+                  Strings(context).anamnesisSocieconomicText,
+                  style: GoogleFonts.montserrat(
+                    fontSize: Dimensions.getTextSize(context, 16),
                   ),
+                  textAlign: TextAlign.center,
                 ),
-              ],
-            ),
-            SvgPicture.asset(
-              Images.questions_image,
-              width: Dimensions.getConvertedWidthSize(context, 150),
-              height: Dimensions.getConvertedHeightSize(context, 150),
-            ),
-            ButtonApp(
-                title: Strings(context).anamnesisSocieconomicLabelButton,
-                onPressed: () {},
-                type: ButtonType.BUTTON_GREEN)
-          ],
-        ),
+              ),
+            ],
+          ),
+          SvgPicture.asset(
+            Images.questions_image,
+            width: Dimensions.getConvertedWidthSize(context, 150),
+            height: Dimensions.getConvertedHeightSize(context, 150),
+          ),
+          ButtonApp(
+              title: Strings(context).anamnesisSocieconomicLabelButton,
+              onPressed: () {
+                Route route = AnimationSlideTransistion(
+                  widget: AnamnesisFormRoot(),
+                );
+                Navigator.push(context, route);
+              },
+              type: ButtonType.BUTTON_GREEN)
+        ],
       ),
     );
   }

@@ -4,7 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/images.dart';
 import 'package:petct/core/resources/strings.dart';
+import 'package:petct/core/ui/base_page.dart';
 import 'package:petct/core/ui/button_app.dart';
+import 'package:petct/core/utils/animation_slide_transition.dart';
 
 class AnamnesisSocioeconomicFinishPage extends StatefulWidget {
   @override
@@ -44,7 +46,12 @@ class _AnamnesisSocioeconomicFinishPageState
             ),
             ButtonApp(
                 title: Strings(context).anamnesisSocieconomicFinishLabelButton,
-                onPressed: () {},
+                onPressed: () {
+                  Route route = AnimationSlideTransistion(
+                    widget: BasePage(),
+                  );
+                  Navigator.push(context, route);
+                },
                 type: ButtonType.BUTTON_GREEN)
           ],
         ),

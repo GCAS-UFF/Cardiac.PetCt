@@ -405,7 +405,7 @@ class Strings {
     anamnesisSocieconomicText =
         intl.Strings.of(context).valueOf("anamnesis_socioeconomic_start_text");
     anamnesisSocieconomicFinishLabelButton = intl.Strings.of(context)
-        .valueOf("anamnesis_socioeconomic_finih_label_button");
+        .valueOf("anamnesis_socioeconomic_finish_label_button");
     anamnesisSocieconomicFinishText =
         intl.Strings.of(context).valueOf("anamnesis_socioeconomic_finish_text");
   }
