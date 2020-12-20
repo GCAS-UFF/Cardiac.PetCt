@@ -17,14 +17,25 @@ class BasePage extends StatefulWidget {
 }
 
 class _BasePageState extends State<BasePage> {
-  int _currentTab = 0;
+  int _currentTab;
+  List<Widget> _tabs;
 
-  final _tabs = [
-    DietProgressPage(),
-    DietMeals(),
-    AlertsPage(),
-    SettingsScreen(),
-  ];
+  @override
+  void initState() {
+    super.initState();
+    _currentTab = 0;
+    _tabs = [
+      DietProgressPage(dietNavigation: () {
+        setState(() {
+          _currentTab = 1;
+        });
+      }),
+      DietMeals(),
+      AlertsPage(),
+      SettingsScreen(),
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
     ThemeChanger _themeChanger = Provider.of<ThemeChanger>(context);

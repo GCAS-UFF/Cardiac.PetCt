@@ -172,6 +172,27 @@ class Strings {
   String anyChangesToMeal;
   String selectIngestedItens;
 
+  //Progress page
+  String progressPageTitle;
+  String progressPageCardTitlePrepare;
+  String progressPageCardTitleDiet;
+  String progressPageCardTitleFasting;
+  String progressPageCardTitleDone;
+  String progressPageCardTextPrepare;
+  String progressPageCardTextDiet;
+  String progressPageCardTextFasting;
+  String progressPageCardTextDone;
+  String progressPageDaysLeft;
+  String progressPageStart;
+  String progressPageDiet;
+  String progressPageFinish;
+  String progressPageHoursLeft;
+  String progressPageFasting;
+  String progressPageDoExam;
+  String progressPageCongratulations;
+  String progressPageSeeDiet;
+  String progressPageGenerateDietHistory;
+
   Strings(this.context) {
     dateInputErrorValidation =
         intl.Strings.of(context).valueOf("date_input_error_validation");
@@ -335,5 +356,41 @@ class Strings {
         intl.Strings.of(context).valueOf("shopping_list_pdf_oilseeds");
     shoppingListPdfLiquids =
         intl.Strings.of(context).valueOf("shopping_list_pdf_liquids");
+    progressPageCardTitlePrepare =
+        intl.Strings.of(context).valueOf("progress_page_card_title_prepare");
+    progressPageCardTitleDiet =
+        intl.Strings.of(context).valueOf("progress_page_card_title_diet");
+    progressPageCardTitleFasting =
+        intl.Strings.of(context).valueOf("progress_page_card_title_fasting");
+    progressPageCardTitleDone =
+        intl.Strings.of(context).valueOf("progress_page_card_title_done");
+    progressPageCardTextPrepare =
+        intl.Strings.of(context).valueOf("progress_page_card_text_prepare");
+    progressPageCardTextDiet =
+        intl.Strings.of(context).valueOf("progress_page_card_text_diet");
+    progressPageCardTextFasting =
+        intl.Strings.of(context).valueOf("progress_page_card_text_fasting");
+    progressPageCardTextDone =
+        intl.Strings.of(context).valueOf("progress_page_card_text_done");
+    progressPageTitle =
+        intl.Strings.of(context).valueOf("progresso_page_title");
+    progressPageDaysLeft =
+        intl.Strings.of(context).valueOf("progress_page_days_left");
+    progressPageStart = intl.Strings.of(context).valueOf("progress_page_start");
+    progressPageDiet = intl.Strings.of(context).valueOf("progress_page_diet");
+    progressPageFinish =
+        intl.Strings.of(context).valueOf("progress_page_finish");
+    progressPageHoursLeft =
+        intl.Strings.of(context).valueOf("progress_page_hours_left");
+    progressPageFasting =
+        intl.Strings.of(context).valueOf("progress_page_fasting");
+    progressPageDoExam =
+        intl.Strings.of(context).valueOf("progress_page_do_exam");
+    progressPageCongratulations =
+        intl.Strings.of(context).valueOf("progress_page_congratulations");
+    progressPageSeeDiet =
+        intl.Strings.of(context).valueOf("progress_page_see_diet");
+    progressPageGenerateDietHistory =
+        intl.Strings.of(context).valueOf("progress_page_generate_diet_history");
   }
 }
