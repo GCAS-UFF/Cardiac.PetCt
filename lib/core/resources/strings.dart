@@ -193,6 +193,10 @@ class Strings {
   String progressPageSeeDiet;
   String progressPageGenerateDietHistory;
 
+  //Anamnesis socioeconomic start page
+  String anamnesisSocieconomicLabelButton;
+  String anamnesisSocieconomicText;
+
   Strings(this.context) {
     dateInputErrorValidation =
         intl.Strings.of(context).valueOf("date_input_error_validation");
@@ -392,5 +396,9 @@ class Strings {
         intl.Strings.of(context).valueOf("progress_page_see_diet");
     progressPageGenerateDietHistory =
         intl.Strings.of(context).valueOf("progress_page_generate_diet_history");
+    anamnesisSocieconomicLabelButton =
+        intl.Strings.of(context).valueOf("anamnesis_socioeconomic_start_label_button");
+    anamnesisSocieconomicText =
+        intl.Strings.of(context).valueOf("anamnesis_socioeconomic_start_text");
   }
 }

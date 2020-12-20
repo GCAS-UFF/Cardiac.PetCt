@@ -182,7 +182,9 @@
     "progress_page_do_exam": " para realizar o exame",
     "progress_page_congratulations": "Parabéns!",
     "progress_page_see_diet": "Ver dieta",
-    "progress_page_generate_diet_history": "Gerar histórico da dieta"
+    "progress_page_generate_diet_history": "Gerar histórico da dieta",
 
-    
+    "PETCT_COMMENT_SECTION_ANAMNESIS_SOCIOECONOMIC_START_PAGE": "----------",
+    "anamnesis_socioeconomic_start_label_button": "Começar",
+    "anamnesis_socioeconomic_start_text": "Precisamos que você responda algumas perguntas rápidas"
 }

@@ -184,6 +184,9 @@
     "progress_page_do_exam": " to make your exam",
     "progress_page_congratulations": "Congratulations!",
     "progress_page_see_diet": "See diet",
-    "progress_page_generate_diet_history": "Generate diet history"
+    "progress_page_generate_diet_history": "Generate diet history",
 
+    "PETCT_COMMENT_SECTION_ANAMNESIS_SOCIOECONOMIC_START_PAGE": "----------",
+    "anamnesis_socioeconomic_start_label_button": "Start",
+    "anamnesis_socioeconomic_start_text": "We need you to answer some quick questions"
 }
