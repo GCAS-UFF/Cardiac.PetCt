@@ -13,6 +13,8 @@ class Images {
   static const String empty_alerts_image =
       "assets/images/empty_alerts_image.svg";
   //Anamnesis Socioeconomic Start Page
-  static const String questions_image =
-      "assets/images/questions.svg";
+  static const String questions_image = "assets/images/questions.svg";
+
+  //Anamnesis Socioeconomic Finish Page
+  static const String finish_line_image = "assets/images/finish_line.svg";
 }

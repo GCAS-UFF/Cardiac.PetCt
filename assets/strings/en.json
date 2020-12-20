@@ -188,5 +188,9 @@
 
     "PETCT_COMMENT_SECTION_ANAMNESIS_SOCIOECONOMIC_START_PAGE": "----------",
     "anamnesis_socioeconomic_start_label_button": "Start",
-    "anamnesis_socioeconomic_start_text": "We need you to answer some quick questions"
+    "anamnesis_socioeconomic_start_text": "We need you to answer some quick questions",
+    
+    "PETCT_COMMENT_SECTION_ANAMNESIS_SOCIOECONOMIC_FINISH_PAGE": "----------",
+    "anamnesis_socioeconomic_finish_label_button": "Finish",
+    "anamnesis_socioeconomic_finish_text": "Congratulations, you've completed the survey"
 }
