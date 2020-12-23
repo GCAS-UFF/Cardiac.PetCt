@@ -19,10 +19,10 @@ class CarouselSliderWidget extends StatelessWidget {
             width: Dimensions.getConvertedWidthSize(context, 15),
             margin: Dimensions.getEdgeInsets(context, left: 2.5, right: 2.5),
             decoration: BoxDecoration(
-              color: currentIndex == i ? ColorsApp.greenApp : Colors.white,
+              color: currentIndex == i ? ColorsApp.greenApp : null,
               shape: BoxShape.circle,
               border: Border.all(
-                width: currentIndex == i ? 1 : 0,
+                width: currentIndex == i ? 0 : 2,
                 color: ColorsApp.greenApp,
               ),
             ),

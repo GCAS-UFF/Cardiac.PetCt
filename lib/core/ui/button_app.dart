@@ -75,8 +75,8 @@ class ButtonApp extends StatelessWidget {
                             (type == ButtonType.BUTTON_GREEN))
                         ? Colors.white
                         : (type == ButtonType.BUTTON_ROUNDED)
-                            ? ColorsApp.greenApp
-                            : Colors.black,
+                            ? ColorsApp.greenApp : (type == ButtonType.BUTTON_GREEN) ?
+                             Colors.black : null
                   ),
                 ),
                 (suffixIcon != null)

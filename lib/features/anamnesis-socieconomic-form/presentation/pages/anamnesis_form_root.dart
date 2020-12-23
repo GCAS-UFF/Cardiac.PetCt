@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:petct/core/resources/dimensions.dart';
+import 'package:petct/core/resources/strings.dart';
 import 'package:petct/core/ui/button_app.dart';
 import 'package:petct/core/utils/animation_slide_transition.dart';
 import 'package:petct/features/anamnesis-socieconomic-form/presentation/pages/anamnesis_socioeconomic_finish_page.dart';
-import 'package:petct/features/anamnesis-socieconomic-form/presentation/pages/physical_shape_form.dart';
+import 'package:petct/features/anamnesis-socieconomic-form/presentation/widgets/habits_form.dart';
+import 'package:petct/features/anamnesis-socieconomic-form/presentation/widgets/income_marital_status_form.dart';
+import 'package:petct/features/anamnesis-socieconomic-form/presentation/widgets/indication_form.dart';
+import 'package:petct/features/anamnesis-socieconomic-form/presentation/widgets/physical_activity_form.dart';
+import 'package:petct/features/anamnesis-socieconomic-form/presentation/widgets/physical_shape_form.dart';
 import 'package:petct/features/anamnesis-socieconomic-form/presentation/widgets/carousel_slider_widget.dart';
 
 class AnamnesisFormRoot extends StatefulWidget {
@@ -14,8 +19,6 @@ class AnamnesisFormRoot extends StatefulWidget {
 class _AnamnesisFormRootState extends State<AnamnesisFormRoot> {
   List<Widget> _formsList;
   int _currentForm;
-  double _weight;
-  double _heigth;
 
   @override
   void initState() {
@@ -23,17 +26,17 @@ class _AnamnesisFormRootState extends State<AnamnesisFormRoot> {
     _currentForm = 0;
     _formsList = [
       PhysicalShapeForm(),
-      PhysicalShapeForm(),
-      PhysicalShapeForm(),
-      PhysicalShapeForm(),
-      PhysicalShapeForm(),
+      HealthHabitsForm(),
+      PhysicalActivityForm(),
+      IcomeMaritalStatusForm(),
+      IndicationForm(),
     ];
   }
 
   Widget _buildBody(BuildContext context) {
     return Container(
       padding: Dimensions.getEdgeInsetsSymetric(context,
-          vertical: 100, horizontal: 45),
+          vertical: 60, horizontal: 45),
       height: double.infinity,
       width: double.infinity,
       child: Column(
@@ -56,7 +59,8 @@ class _AnamnesisFormRootState extends State<AnamnesisFormRoot> {
                   _currentForm > 0
                       ? Expanded(
                           child: ButtonApp(
-                            title: 'Voltar',
+                            title: Strings(context)
+                                .anamnesisSocioeconomicBackLabelButton,
                             onPressed: () {
                               setState(() {
                                 if (_currentForm > 0) {
@@ -71,7 +75,8 @@ class _AnamnesisFormRootState extends State<AnamnesisFormRoot> {
                   _currentForm < _formsList.length
                       ? Expanded(
                           child: ButtonApp(
-                            title: 'Próximo',
+                            title: Strings(context)
+                                .anamnesisSocioeconomicNextLabelButton,
                             onPressed: () {
                               setState(() {
                                 if (_currentForm < _formsList.length - 1) {
@@ -102,15 +107,5 @@ class _AnamnesisFormRootState extends State<AnamnesisFormRoot> {
     return Scaffold(
       body: _buildBody(context),
     );
-  }
-
-  bool _isValid() {
-    if (_currentForm == 0 && (_weight != null && _heigth != null)) {
-      print("true");
-      return true;
-    } else {
-      print("false");
-      return false;
-    }
   }
 }

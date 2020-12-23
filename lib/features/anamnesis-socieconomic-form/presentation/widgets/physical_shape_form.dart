@@ -5,14 +5,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:petct/core/input_validators/empty_input_validator.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/keys.dart';
+import 'package:petct/core/resources/strings.dart';
 import 'package:petct/core/ui/custom_text_form_field.dart';
 
 class PhysicalShapeForm extends StatefulWidget {
-  final double weight;
-  final double height;
-
-  const PhysicalShapeForm({Key key, this.weight, this.height})
-      : super(key: key);
   @override
   _PhysicalShapeFormState createState() => _PhysicalShapeFormState();
 }
@@ -40,20 +36,27 @@ class _PhysicalShapeFormState extends State<PhysicalShapeForm> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-              "Porte físico",
+              Strings(context).anamnesisSocioeconomicPhysicalShapeTitle,
               style: GoogleFonts.montserrat(
-                  fontSize: Dimensions.getTextSize(context, 18)),
+                  fontSize: Dimensions.getTextSize(context, 20)),
             ),
             Expanded(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Text(
+                    Strings(context).anamnesisSocioeconomicWeightQuestion,
+                    style: GoogleFonts.montserrat(
+                        fontSize: Dimensions.getTextSize(context, 18),
+                        fontWeight: FontWeight.w500),
+                  ),
                   // Weight field
                   Container(
-                    margin: Dimensions.getEdgeInsets(context, top: 25),
+                    margin: Dimensions.getEdgeInsets(context, top: 15),
                     height: Dimensions.getConvertedHeightSize(context, 75),
                     child: CustomTextFormField(
-                      text: "Peso",
+                      text: Strings(context).anamnesisSocioeconomicWeightHint,
                       textEditingController: _pesoController,
                       isRequired: true,
                       onChanged: (String value) {
@@ -63,11 +66,18 @@ class _PhysicalShapeFormState extends State<PhysicalShapeForm> {
                       keyboardType: TextInputType.number,
                     ),
                   ),
+                  Text(
+                    Strings(context).anamnesisSocioeconomicHeightQuestion,
+                    style: GoogleFonts.montserrat(
+                        fontSize: Dimensions.getTextSize(context, 18),
+                        fontWeight: FontWeight.w500),
+                  ),
                   // Height field
                   Container(
+                    margin: Dimensions.getEdgeInsets(context, top: 25),
                     height: Dimensions.getConvertedHeightSize(context, 75),
                     child: CustomTextFormField(
-                      text: "Altura",
+                      text: Strings(context).anamnesisSocioeconomicHeightHint,
                       textEditingController: _alturadController,
                       isRequired: true,
                       onChanged: (String value) {

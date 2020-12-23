@@ -200,6 +200,36 @@ class Strings {
   //Anamnesis socioeconomic finish page
   String anamnesisSocieconomicFinishLabelButton;
   String anamnesisSocieconomicFinishText;
+  String anamnesisSocioeconomicNextLabelButton;
+  String anamnesisSocioeconomicBackLabelButton;
+  String anamnesisSocioeconomicPhysicalShapeTitle;
+  String anamnesisSocioeconomicWeightHint;
+  String anamnesisSocioeconomicHeightHint;
+  String anamnesisSocioeconomicHabitsTitle;
+  String anamnesisSocioeconomicHabitsNeverOption;
+  String anamnesisSocioeconomicHabitsEventuallyOption;
+  String anamnesisSocioeconomicHabitsOftenOption;
+  String anamnesisSocioeconomicIsSmokerQuestion;
+  String anamnesisSocioeconomicDrinksQuestion;
+  String anamnesisSocioeconomicWeightQuestion;
+  String anamnesisSocioeconomicHeightQuestion;
+  String anamnesisSocioeconomicPhysicalActivityTitle;
+  String anamnesisSocioeconomicPhysicalActivityQuestion;
+  String anamnesisSocioeconomicPhysicalActivityWichQuestion;
+  String anamnesisSocioeconomicWichActivityHint;
+  String anamnesisSocioeconomicPersonalDataTitle;
+  String anamnesisSocioeconomicIncomeQuestion;
+  String anamnesisSocioeconomicLessThanOne;
+  String anamnesisSocioeconomicBetweenOneAndTwo;
+  String anamnesisSocioeconomicBetweenThreeAndFive;
+  String anamnesisSocioeconomicMoreThanFive;
+  String anamnesisSocioeconomicDegreeQuestion;
+  String anamnesisSocioeconomicSelectDegreeHint;
+  String anamnesisSocioeconomicLocationAndIndicationTitle;
+  String anamnesisSocioeconomicUfAndStateQuestion;
+  String anamnesisSocioeconomicUfHint;
+  String anamnesisSocioeconomicCityHint;
+  String anamnesisSocioeconomicIndicationQuestion;
 
   Strings(this.context) {
     dateInputErrorValidation =
@@ -408,5 +438,67 @@ class Strings {
         .valueOf("anamnesis_socioeconomic_finish_label_button");
     anamnesisSocieconomicFinishText =
         intl.Strings.of(context).valueOf("anamnesis_socioeconomic_finish_text");
+    anamnesisSocioeconomicNextLabelButton = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_next_label_button");
+    anamnesisSocioeconomicBackLabelButton =
+        intl.Strings.of(context).valueOf("anamnesis_socioeconomic_back_text");
+    anamnesisSocioeconomicPhysicalShapeTitle = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_physical_shape_title");
+    anamnesisSocioeconomicWeightHint =
+        intl.Strings.of(context).valueOf("anamnesis_socioeconomic_weight_hint");
+    anamnesisSocioeconomicHeightHint =
+        intl.Strings.of(context).valueOf("anamnesis_socioeconomic_height_hint");
+    anamnesisSocioeconomicHabitsTitle = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_habits_title");
+    anamnesisSocioeconomicHabitsNeverOption = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_habits_never_option");
+    anamnesisSocioeconomicHabitsEventuallyOption = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_habits_eventually_option");
+    anamnesisSocioeconomicHabitsOftenOption = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_habits_often_option");
+    anamnesisSocioeconomicIsSmokerQuestion = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_is_smoker_question");
+    anamnesisSocioeconomicDrinksQuestion = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_drinks_question");
+    anamnesisSocioeconomicWeightQuestion = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_weight_question");
+    anamnesisSocioeconomicHeightQuestion = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_height_question");
+    anamnesisSocioeconomicPhysicalActivityTitle = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_physical_activity_title");
+    anamnesisSocioeconomicPhysicalActivityQuestion = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_physical_activity_question");
+    anamnesisSocioeconomicPhysicalActivityWichQuestion =
+        intl.Strings.of(context)
+            .valueOf("anamnesis_socioeconomic_physical_activity_wich_question");
+    anamnesisSocioeconomicWichActivityHint = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_wich_activity_hint");
+
+    anamnesisSocioeconomicPersonalDataTitle = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_personal_data_title");
+    anamnesisSocioeconomicIncomeQuestion = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_income_question");
+    anamnesisSocioeconomicLessThanOne = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_less_than_one");
+    anamnesisSocioeconomicBetweenOneAndTwo = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_between_one_and_two");
+    anamnesisSocioeconomicBetweenThreeAndFive = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_between_three_and_five");
+    anamnesisSocioeconomicMoreThanFive = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_more_than_five");
+    anamnesisSocioeconomicDegreeQuestion = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_degree_question");
+    anamnesisSocioeconomicSelectDegreeHint = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_select_degree_hint");
+    anamnesisSocioeconomicLocationAndIndicationTitle = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_location_and_indication_title");
+    anamnesisSocioeconomicUfAndStateQuestion = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_uf_and_state_question");
+    anamnesisSocioeconomicUfHint = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_uf_hint");
+    anamnesisSocioeconomicCityHint = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_city_hint");
+    anamnesisSocioeconomicIndicationQuestion = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_indication_question");
   }
 }
