@@ -27,7 +27,7 @@ class _DietProgressPageState extends State<DietProgressPage> {
   void initState() {
     super.initState();
     dateNow = DateTime.now();
-    examDate = DateTime(2020, 12, 23);
+    examDate = DateTime(2020, 12, 30);
     difference = examDate.difference(dateNow).inDays;
   }
 

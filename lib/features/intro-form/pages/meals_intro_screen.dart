@@ -7,6 +7,7 @@ import 'package:petct/core/resources/strings.dart';
 import 'package:petct/core/ui/base_page.dart';
 import 'package:petct/core/ui/button_app.dart';
 import 'package:petct/core/utils/animation_slide_transition.dart';
+import 'package:petct/features/anamnesis-socieconomic-form/presentation/pages/anamnesis_socioeconomic_start_page.dart';
 import 'package:petct/features/intro-form/models/meal_times.dart';
 import 'package:petct/features/intro-form/widgets/meal_times_form.dart';
 
@@ -105,7 +106,7 @@ class _MealsIntroScreenState extends State<MealsIntroScreen> {
                         // Enable next button
                         if (_enableNext() == true) {
                           Route route = AnimationSlideTransistion(
-                            widget: BasePage(),
+                            widget: AnamnesisSocioeconomicStartPage(),
                           );
                           Navigator.push(context, route);
                         }

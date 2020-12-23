@@ -27,4 +27,12 @@ class Keys {
 
   //Register Meal Widget
   static const String MEAL_COMMENTS = "MEAL_COMMENTS";
+
+  //Anamnesis Socioeconomic Form
+  static const String WEIGHT_FORM = "WEIGHT_FORM";
+  static const String HEIGHT_FORM = "HEIGHT_FORM";
+  static const String ACTIVITY_FORM = "ACTIVITY_FORM";
+  static const String DEGREE_FORM = "DEGREE_FORM";
+  static const String UF_FORM = "UF_FORM";
+  static const String CITY_FORM = "CITY_FORM";
 }

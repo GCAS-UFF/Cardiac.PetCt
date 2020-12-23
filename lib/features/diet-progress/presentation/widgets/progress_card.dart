@@ -188,11 +188,12 @@ class _ProgressCardState extends State<ProgressCard> {
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
                                       InkWell(
-                                        onTap: () {},
+                                        onTap: widget.dietNavigation,
                                         child: Row(
                                           children: [
                                             Text(
-                                              Strings(context).progressPageSeeDiet,
+                                              Strings(context)
+                                                  .progressPageSeeDiet,
                                               style: TextStyle(
                                                 fontSize:
                                                     Dimensions.getTextSize(
@@ -223,7 +224,8 @@ class _ProgressCardState extends State<ProgressCard> {
                                                 color: ColorsApp.greenApp,
                                               ),
                                               Text(
-                                                Strings(context).progressPageGenerateDietHistory,
+                                                Strings(context)
+                                                    .progressPageGenerateDietHistory,
                                                 style: TextStyle(
                                                   fontSize:
                                                       Dimensions.getTextSize(
