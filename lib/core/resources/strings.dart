@@ -205,18 +205,60 @@ class Strings {
   String anamnesisSocioeconomicPhysicalShapeTitle;
   String anamnesisSocioeconomicWeightHint;
   String anamnesisSocioeconomicHeightHint;
+  String anamnesisSocioeconomicSexQuestion;
+  String anamnesisSocioeconomicSexFemaleOption;
+  String anamnesisSocioeconomicSexMaleOption;
   String anamnesisSocioeconomicHabitsTitle;
   String anamnesisSocioeconomicHabitsNeverOption;
   String anamnesisSocioeconomicHabitsEventuallyOption;
   String anamnesisSocioeconomicHabitsOftenOption;
   String anamnesisSocioeconomicIsSmokerQuestion;
+  String anamnesisSocioeconomicHabitsIsSmokerOption;
+  String anamnesisSocioeconomicHabitsStoppedSmokingOption;
+  String anamnesisSocioeconomicHabitsNeverSmokedOption;
+  String anamnesisSocioeconomicHabitsYearsSmokingTitle;
+  String anamnesisSocioeconomicHabitsYearsSmokingHint;
+  String anamnesisSocioeconomicHabitsDailyCigarretesTitle;
+  String anamnesisSocioeconomicHabitsDailyCigarretesHint;
   String anamnesisSocioeconomicDrinksQuestion;
+  String anamnesisSocioeconomicHabitsDrinkBeerOption;
+  String anamnesisSocioeconomicHabitsDrinkWineOption;
+  String anamnesisSocioeconomicHabitsDrinkCachacaOption;
+  String anamnesisSocioeconomicHabitsDrinkVodkaWhiskyOption;
+  String anamnesisSocioeconomicHabitsTypeOfDrinkQuestion;
+  String anamnesisSocioeconomicHabitsDrinkQuantityQuestion;
+  String anamnesisSocioeconomicHabits1GlassDrinkOption;
+  String anamnesisSocioeconomicHabits1CanDrinkOption;
+  String anamnesisSocioeconomicHabits1DoseDrinkOption;
+  String anamnesisSocioeconomicHabits1to3GlassDrinkOption;
+  String anamnesisSocioeconomicHabits1to3CanDrinkOption;
+  String anamnesisSocioeconomicHabits1to3DoseDrinkOption;
+  String anamnesisSocioeconomicHabitsMoreThan3GlassDrinkOption;
+  String anamnesisSocioeconomicHabitsMoreThan3CanDrinkOption;
+  String anamnesisSocioeconomicHabitsMoreThan3DoseDrinkOption;
+  String anamnesisSocioeconomicPhysicalActivityFrequencyQuestion;
+  String anamnesisSocioeconomicPhysicalActivitiesFrequency1to2Option;
+  String anamnesisSocioeconomicPhysicalActivitiesFrequency3to4Option;
+  String anamnesisSocioeconomicPhysicalActivitiesFrequency5to6Option;
+  String anamnesisSocioeconomicPhysicalActititiesFrequency7Option;
   String anamnesisSocioeconomicWeightQuestion;
   String anamnesisSocioeconomicHeightQuestion;
   String anamnesisSocioeconomicPhysicalActivityTitle;
   String anamnesisSocioeconomicPhysicalActivityQuestion;
   String anamnesisSocioeconomicPhysicalActivityWichQuestion;
   String anamnesisSocioeconomicWichActivityHint;
+  String anamnesisSocioeconomicComorbiditiesQuestion;
+  String anamnesisSocioeconomicComorbiditiesHypertensionOption;
+  String anamnesisSocioeconomicComorbiditiesDiabetesOption;
+  String anamnesisSocioeconomicComorbiditiesRenalChronicDiseaseOption;
+  String
+      anamnesisSocioeconomicComorbiditiesPulmonaryChronicObstructiveDiseaseOption;
+  String anamnesisSocioeconomicComorbiditiesAsthmaOption;
+  String anamnesisSocioeconomicComorbiditiesCancerOption;
+  String anamnesisSocioeconomicComorbiditiesHighCholesterolTriglyceridesOption;
+  String anamnesisSocioeconomicComorbiditiesCerebroVascularAccidentOption;
+  String anamnesisSocioeconomicComorbiditiesNotListedOption;
+  String anamnesisSocioeconomicComorbiditiesNoneOption;
   String anamnesisSocioeconomicPersonalDataTitle;
   String anamnesisSocioeconomicIncomeQuestion;
   String anamnesisSocioeconomicLessThanOne;
@@ -448,6 +490,16 @@ class Strings {
         intl.Strings.of(context).valueOf("anamnesis_socioeconomic_weight_hint");
     anamnesisSocioeconomicHeightHint =
         intl.Strings.of(context).valueOf("anamnesis_socioeconomic_height_hint");
+    anamnesisSocioeconomicWeightQuestion = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_weight_question");
+    anamnesisSocioeconomicHeightQuestion = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_height_question");
+    anamnesisSocioeconomicSexQuestion = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_sex_question");
+    anamnesisSocioeconomicSexFemaleOption = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_sex_female_option");
+    anamnesisSocioeconomicSexMaleOption = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_sex_male_option");
     anamnesisSocioeconomicHabitsTitle = intl.Strings.of(context)
         .valueOf("anamnesis_socioeconomic_habits_title");
     anamnesisSocioeconomicHabitsNeverOption = intl.Strings.of(context)
@@ -458,22 +510,105 @@ class Strings {
         .valueOf("anamnesis_socioeconomic_habits_often_option");
     anamnesisSocioeconomicIsSmokerQuestion = intl.Strings.of(context)
         .valueOf("anamnesis_socioeconomic_is_smoker_question");
+    anamnesisSocioeconomicHabitsIsSmokerOption = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_is_smoker_option");
+    anamnesisSocioeconomicHabitsStoppedSmokingOption = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_stopped_smoking_option");
+    anamnesisSocioeconomicHabitsNeverSmokedOption = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_never_smoked_option");
+    anamnesisSocioeconomicHabitsYearsSmokingTitle = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_habits_years_smoking_title");
+    anamnesisSocioeconomicHabitsYearsSmokingHint = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_habits_years_smoking_hint");
+    anamnesisSocioeconomicHabitsDailyCigarretesTitle = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_habits_daily_cigarretes_title");
+    anamnesisSocioeconomicHabitsDailyCigarretesHint = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_habits_daily_cigarretes_hint");
     anamnesisSocioeconomicDrinksQuestion = intl.Strings.of(context)
         .valueOf("anamnesis_socioeconomic_drinks_question");
-    anamnesisSocioeconomicWeightQuestion = intl.Strings.of(context)
-        .valueOf("anamnesis_socioeconomic_weight_question");
-    anamnesisSocioeconomicHeightQuestion = intl.Strings.of(context)
-        .valueOf("anamnesis_socioeconomic_height_question");
+    anamnesisSocioeconomicHabitsDrinkBeerOption = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_habits_drink_beer_option");
+    anamnesisSocioeconomicHabitsDrinkWineOption = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_habits_drink_wine_option");
+    anamnesisSocioeconomicHabitsDrinkCachacaOption = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_habits_drink_cachaca_option");
+    anamnesisSocioeconomicHabitsDrinkVodkaWhiskyOption =
+        intl.Strings.of(context)
+            .valueOf("anamnesis_socioeconomic_habits_drink_vodkawhisky_option");
+    anamnesisSocioeconomicHabitsTypeOfDrinkQuestion = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_habits_type_of_drink_question");
+    anamnesisSocioeconomicHabitsDrinkQuantityQuestion = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_habits_drink_quantity_question");
+    anamnesisSocioeconomicHabits1GlassDrinkOption = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_habits_1_glass_drink_option");
+    anamnesisSocioeconomicHabits1CanDrinkOption = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_habits_1_can_drink_option");
+    anamnesisSocioeconomicHabits1DoseDrinkOption = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_habits_1_dose_drink_option");
+    anamnesisSocioeconomicHabits1to3GlassDrinkOption = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_habits_1to3_glasses_drink_option");
+    anamnesisSocioeconomicHabits1to3CanDrinkOption = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_habits_1to3_cans_drink_option");
+    anamnesisSocioeconomicHabits1to3DoseDrinkOption = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_habits_1to3_doses_drink_option");
+    anamnesisSocioeconomicHabitsMoreThan3GlassDrinkOption =
+        intl.Strings.of(context).valueOf(
+            "anamnesis_socioeconomic_habits_morethan3_glasses_drink_option");
+    anamnesisSocioeconomicHabitsMoreThan3CanDrinkOption =
+        intl.Strings.of(context).valueOf(
+            "anamnesis_socioeconomic_habits_morethan3_cans_drink_option");
+    anamnesisSocioeconomicHabitsMoreThan3DoseDrinkOption =
+        intl.Strings.of(context).valueOf(
+            "anamnesis_socioeconomic_habits_morethan3_doses_drink_option");
     anamnesisSocioeconomicPhysicalActivityTitle = intl.Strings.of(context)
         .valueOf("anamnesis_socioeconomic_physical_activity_title");
     anamnesisSocioeconomicPhysicalActivityQuestion = intl.Strings.of(context)
         .valueOf("anamnesis_socioeconomic_physical_activity_question");
-    anamnesisSocioeconomicPhysicalActivityWichQuestion =
+    anamnesisSocioeconomicPhysicalActivityFrequencyQuestion =
+        intl.Strings.of(context).valueOf(
+            "anamnesis_socioeconomic_physical_activity_frequency_question");
+    anamnesisSocioeconomicPhysicalActivitiesFrequency1to2Option =
+        intl.Strings.of(context).valueOf(
+            "anamnesis_socioeconomic_physical_activities_frequency_1to2_option");
+    anamnesisSocioeconomicPhysicalActivitiesFrequency3to4Option =
+        intl.Strings.of(context).valueOf(
+            "anamnesis_socioeconomic_physical_activities_frequency_3to4_option");
+    anamnesisSocioeconomicPhysicalActivitiesFrequency5to6Option =
+        intl.Strings.of(context).valueOf(
+            "anamnesis_socioeconomic_physical_activities_frequency_5to6_option");
+    anamnesisSocioeconomicPhysicalActititiesFrequency7Option =
+        intl.Strings.of(context).valueOf(
+            "anamnesis_socioeconomic_physical_activities_frequency_7_option");
+    anamnesisSocioeconomicComorbiditiesQuestion = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_comorbidities_question");
+    anamnesisSocioeconomicComorbiditiesHypertensionOption =
+        intl.Strings.of(context).valueOf(
+            "anamnesis_socioeconomic_comorbidities_hypertension_option");
+    anamnesisSocioeconomicComorbiditiesDiabetesOption = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_comorbidities_diabetes_option");
+    anamnesisSocioeconomicComorbiditiesRenalChronicDiseaseOption =
         intl.Strings.of(context)
-            .valueOf("anamnesis_socioeconomic_physical_activity_wich_question");
+            .valueOf("anamnesis_socioeconomic_comorbidities_rnc_option");
+    anamnesisSocioeconomicComorbiditiesPulmonaryChronicObstructiveDiseaseOption =
+        intl.Strings.of(context)
+            .valueOf("anamnesis_socioeconomic_comorbidities_pcod_option");
+    anamnesisSocioeconomicComorbiditiesAsthmaOption = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_comorbidities_asthma_option");
+    anamnesisSocioeconomicComorbiditiesCancerOption = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_comorbidities_cancer_option");
+    anamnesisSocioeconomicComorbiditiesHighCholesterolTriglyceridesOption =
+        intl.Strings.of(context).valueOf(
+            "anamnesis_socioeconomic_comorbidities_highcholesteroltriglycerides_option");
+    anamnesisSocioeconomicComorbiditiesCerebroVascularAccidentOption =
+        intl.Strings.of(context)
+            .valueOf("anamnesis_socioeconomic_comorbidities_cva_option");
+    anamnesisSocioeconomicComorbiditiesNotListedOption =
+        intl.Strings.of(context)
+            .valueOf("anamnesis_socioeconomic_comorbidities_notlisted_option");
+    anamnesisSocioeconomicComorbiditiesNoneOption = intl.Strings.of(context)
+        .valueOf("anamnesis_socioeconomic_comorbidities_none_option");
     anamnesisSocioeconomicWichActivityHint = intl.Strings.of(context)
         .valueOf("anamnesis_socioeconomic_wich_activity_hint");
-
     anamnesisSocioeconomicPersonalDataTitle = intl.Strings.of(context)
         .valueOf("anamnesis_socioeconomic_personal_data_title");
     anamnesisSocioeconomicIncomeQuestion = intl.Strings.of(context)
@@ -494,10 +629,10 @@ class Strings {
         .valueOf("anamnesis_socioeconomic_location_and_indication_title");
     anamnesisSocioeconomicUfAndStateQuestion = intl.Strings.of(context)
         .valueOf("anamnesis_socioeconomic_uf_and_state_question");
-    anamnesisSocioeconomicUfHint = intl.Strings.of(context)
-        .valueOf("anamnesis_socioeconomic_uf_hint");
-    anamnesisSocioeconomicCityHint = intl.Strings.of(context)
-        .valueOf("anamnesis_socioeconomic_city_hint");
+    anamnesisSocioeconomicUfHint =
+        intl.Strings.of(context).valueOf("anamnesis_socioeconomic_uf_hint");
+    anamnesisSocioeconomicCityHint =
+        intl.Strings.of(context).valueOf("anamnesis_socioeconomic_city_hint");
     anamnesisSocioeconomicIndicationQuestion = intl.Strings.of(context)
         .valueOf("anamnesis_socioeconomic_indication_question");
   }

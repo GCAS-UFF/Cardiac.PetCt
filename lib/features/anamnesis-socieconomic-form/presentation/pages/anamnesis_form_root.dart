@@ -5,8 +5,7 @@ import 'package:petct/core/ui/button_app.dart';
 import 'package:petct/core/utils/animation_slide_transition.dart';
 import 'package:petct/features/anamnesis-socieconomic-form/presentation/pages/anamnesis_socioeconomic_finish_page.dart';
 import 'package:petct/features/anamnesis-socieconomic-form/presentation/widgets/habits_form.dart';
-import 'package:petct/features/anamnesis-socieconomic-form/presentation/widgets/income_marital_status_form.dart';
-import 'package:petct/features/anamnesis-socieconomic-form/presentation/widgets/indication_form.dart';
+import 'package:petct/features/anamnesis-socieconomic-form/presentation/widgets/comorbidities_form.dart';
 import 'package:petct/features/anamnesis-socieconomic-form/presentation/widgets/physical_activity_form.dart';
 import 'package:petct/features/anamnesis-socieconomic-form/presentation/widgets/physical_shape_form.dart';
 import 'package:petct/features/anamnesis-socieconomic-form/presentation/widgets/carousel_slider_widget.dart';
@@ -28,8 +27,7 @@ class _AnamnesisFormRootState extends State<AnamnesisFormRoot> {
       PhysicalShapeForm(),
       HealthHabitsForm(),
       PhysicalActivityForm(),
-      IcomeMaritalStatusForm(),
-      IndicationForm(),
+      ComorbiditiesForm(),
     ];
   }
 
@@ -44,6 +42,9 @@ class _AnamnesisFormRootState extends State<AnamnesisFormRoot> {
         children: <Widget>[
           Expanded(
             child: _formsList[_currentForm],
+          ),
+          SizedBox(
+            height: Dimensions.getConvertedHeightSize(context, 15),
           ),
           Column(
             children: [

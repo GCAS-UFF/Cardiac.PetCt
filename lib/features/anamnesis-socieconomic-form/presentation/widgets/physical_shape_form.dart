@@ -18,6 +18,7 @@ class _PhysicalShapeFormState extends State<PhysicalShapeForm> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   TextEditingController _pesoController;
   TextEditingController _alturadController;
+  String sex;
 
   @override
   void initState() {
@@ -36,7 +37,8 @@ class _PhysicalShapeFormState extends State<PhysicalShapeForm> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-              Strings(context).anamnesisSocioeconomicPhysicalShapeTitle,
+              "Informações pessoais",
+              //Strings(context).anamnesisSocioeconomicPhysicalShapeTitle,
               style: GoogleFonts.montserrat(
                   fontSize: Dimensions.getTextSize(context, 20)),
             ),
@@ -86,9 +88,57 @@ class _PhysicalShapeFormState extends State<PhysicalShapeForm> {
                       keyboardType: TextInputType.number,
                     ),
                   ),
+                  SizedBox(
+                    height: Dimensions.getConvertedHeightSize(context, 15),
+                  ),
+                  // Sex field
+                  Text(
+                    Strings(context).anamnesisSocioeconomicSexQuestion,
+                    style: GoogleFonts.montserrat(
+                        fontSize: Dimensions.getTextSize(context, 18),
+                        fontWeight: FontWeight.w500),
+                  ),
+                  Row(
+                    children: [
+                      Radio(
+                        value: "feminino",
+                        groupValue: sex,
+                        onChanged: (value) {
+                          setState(() {
+                            sex = value;
+                          });
+                        },
+                      ),
+                      Text(
+                        Strings(context).anamnesisSocioeconomicSexFemaleOption,
+                        style: GoogleFonts.montserrat(
+                          fontSize: Dimensions.getTextSize(context, 16),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Radio(
+                        value: "masculino",
+                        groupValue: sex,
+                        onChanged: (value) {
+                          setState(() {
+                            sex = value;
+                          });
+                        },
+                      ),
+                      Text(
+                        Strings(context).anamnesisSocioeconomicSexMaleOption,
+                        style: GoogleFonts.montserrat(
+                          fontSize: Dimensions.getTextSize(context, 16),
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),

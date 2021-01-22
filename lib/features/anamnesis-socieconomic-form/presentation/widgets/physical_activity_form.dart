@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:petct/core/resources/dimensions.dart';
-import 'package:petct/core/resources/keys.dart';
 import 'package:petct/core/resources/strings.dart';
-import 'package:petct/core/ui/custom_dropdown.dart';
 
 class PhysicalActivityForm extends StatefulWidget {
   @override
@@ -11,10 +9,9 @@ class PhysicalActivityForm extends StatefulWidget {
 }
 
 class _PhysicalActivityFormState extends State<PhysicalActivityForm> {
-  final Map<String, dynamic> _formData = Map<String, dynamic>();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   String doPhysicalActivity;
-  List<DropdownMenuItem<String>> _list;
+  String physicalActivityFrequency;
 
   @override
   void initState() {
@@ -23,62 +20,9 @@ class _PhysicalActivityFormState extends State<PhysicalActivityForm> {
 
   @override
   Widget build(BuildContext context) {
-    _list = [
-      DropdownMenuItem(
-        value: 'musculacao',
-        child: Text(
-          "Musculação",
-          textAlign: TextAlign.start,
-          style: GoogleFonts.montserrat(
-            fontSize: Dimensions.getTextSize(context, 16),
-          ),
-        ),
-      ),
-      DropdownMenuItem(
-        value: 'corrida',
-        child: Text(
-          "Corrida",
-          textAlign: TextAlign.start,
-          style: GoogleFonts.montserrat(
-            fontSize: Dimensions.getTextSize(context, 16),
-          ),
-        ),
-      ),
-      DropdownMenuItem(
-        value: 'caminhada',
-        child: Text(
-          "Caminhada",
-          textAlign: TextAlign.start,
-          style: GoogleFonts.montserrat(
-            fontSize: Dimensions.getTextSize(context, 16),
-          ),
-        ),
-      ),
-      DropdownMenuItem(
-        value: 'volei',
-        child: Text(
-          "Vôlei",
-          textAlign: TextAlign.start,
-          style: GoogleFonts.montserrat(
-            fontSize: Dimensions.getTextSize(context, 16),
-          ),
-        ),
-      ),
-      DropdownMenuItem(
-        value: 'outra',
-        child: Text(
-          "Outra",
-          textAlign: TextAlign.start,
-          style: GoogleFonts.montserrat(
-            fontSize: Dimensions.getTextSize(context, 16),
-          ),
-        ),
-      ),
-    ];
-
     return Form(
       key: _formKey,
-      child: Container(
+      child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -87,128 +31,157 @@ class _PhysicalActivityFormState extends State<PhysicalActivityForm> {
               style: GoogleFonts.montserrat(
                   fontSize: Dimensions.getTextSize(context, 20)),
             ),
-            Expanded(
-              child: Container(
-                margin: Dimensions.getEdgeInsets(context, top: 50),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+            SizedBox(
+              height: Dimensions.getConvertedHeightSize(context, 15),
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  Strings(context)
+                      .anamnesisSocioeconomicPhysicalActivityQuestion,
+                  style: GoogleFonts.montserrat(
+                      fontSize: Dimensions.getTextSize(context, 18),
+                      fontWeight: FontWeight.w500),
+                ),
+                Row(
                   children: [
+                    Radio(
+                      value: "sim",
+                      groupValue: doPhysicalActivity,
+                      onChanged: (value) {
+                        setState(() {
+                          doPhysicalActivity = value;
+                        });
+                      },
+                    ),
                     Text(
-                      Strings(context)
-                          .anamnesisSocioeconomicPhysicalActivityQuestion,
+                      Strings(context).yes,
                       style: GoogleFonts.montserrat(
-                          fontSize: Dimensions.getTextSize(context, 18),
-                          fontWeight: FontWeight.w500),
+                        fontSize: Dimensions.getTextSize(context, 16),
+                      ),
                     ),
-                    Row(
-                      children: [
-                        Radio(
-                          value: "nunca",
-                          groupValue: doPhysicalActivity,
-                          onChanged: (value) {
-                            setState(() {
-                              doPhysicalActivity = value;
-                            });
-                          },
-                        ),
-                        Text(
-                          Strings(context)
-                              .anamnesisSocioeconomicHabitsNeverOption,
-                          style: GoogleFonts.montserrat(
-                            fontSize: Dimensions.getTextSize(context, 16),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Radio(
+                      value: "nao",
+                      groupValue: doPhysicalActivity,
+                      onChanged: (value) {
+                        setState(() {
+                          doPhysicalActivity = value;
+                        });
+                      },
+                    ),
+                    Text(
+                      Strings(context).no,
+                      style: GoogleFonts.montserrat(
+                        fontSize: Dimensions.getTextSize(context, 16),
+                      ),
+                    ),
+                  ],
+                ),
+                (doPhysicalActivity == 'sim')
+                    ? Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            height:
+                                Dimensions.getConvertedHeightSize(context, 15),
                           ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Radio(
-                          value: "eventualmente",
-                          groupValue: doPhysicalActivity,
-                          onChanged: (value) {
-                            setState(() {
-                              doPhysicalActivity = value;
-                            });
-                          },
-                        ),
-                        Text(
-                          Strings(context)
-                              .anamnesisSocioeconomicHabitsEventuallyOption,
-                          style: GoogleFonts.montserrat(
-                            fontSize: Dimensions.getTextSize(context, 16),
+                          Text(
+                            Strings(context)
+                                .anamnesisSocioeconomicPhysicalActivityFrequencyQuestion,
+                            style: GoogleFonts.montserrat(
+                                fontSize: Dimensions.getTextSize(context, 18),
+                                fontWeight: FontWeight.w500),
                           ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Radio(
-                          value: "frequentemente",
-                          groupValue: doPhysicalActivity,
-                          onChanged: (value) {
-                            setState(() {
-                              doPhysicalActivity = value;
-                            });
-                          },
-                        ),
-                        Text(
-                          Strings(context)
-                              .anamnesisSocioeconomicHabitsOftenOption,
-                          style: GoogleFonts.montserrat(
-                            fontSize: Dimensions.getTextSize(context, 16),
-                          ),
-                        ),
-                      ],
-                    ),
-                    (doPhysicalActivity != 'nunca')
-                        ? Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                          Row(
                             children: [
-                              SizedBox(
-                                height: Dimensions.getConvertedHeightSize(
-                                    context, 30),
+                              Radio(
+                                value: "1a2",
+                                groupValue: physicalActivityFrequency,
+                                onChanged: (value) {
+                                  setState(() {
+                                    physicalActivityFrequency = value;
+                                  });
+                                },
                               ),
                               Text(
                                 Strings(context)
-                                    .anamnesisSocioeconomicPhysicalActivityWichQuestion,
+                                    .anamnesisSocioeconomicPhysicalActivitiesFrequency1to2Option,
                                 style: GoogleFonts.montserrat(
-                                    fontSize:
-                                        Dimensions.getTextSize(context, 18),
-                                    fontWeight: FontWeight.w500),
-                              ),
-                              SizedBox(
-                                height: Dimensions.getConvertedHeightSize(
-                                    context, 15),
-                              ),
-                              Container(
-                                height: Dimensions.getConvertedHeightSize(
-                                    context, 86),
-                                child: CustomDropdown(
-                                  value: _formData[Keys.ACTIVITY_FORM],
-                                  hint: Text(
-                                    Strings(context)
-                                        .anamnesisSocioeconomicWichActivityHint,
-                                    style: GoogleFonts.montserrat(
-                                      fontSize:
-                                          Dimensions.getTextSize(context, 16),
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                  options: _list,
-                                  onChange: (String value) {
-                                    setState(() {
-                                      _formData[Keys.ACTIVITY_FORM] = value;
-                                    });
-                                  },
+                                  fontSize: Dimensions.getTextSize(context, 16),
                                 ),
                               ),
                             ],
-                          )
-                        : Container()
-                  ],
-                ),
-              ),
-            )
+                          ),
+                          Row(
+                            children: [
+                              Radio(
+                                value: "3a4",
+                                groupValue: physicalActivityFrequency,
+                                onChanged: (value) {
+                                  setState(() {
+                                    physicalActivityFrequency = value;
+                                  });
+                                },
+                              ),
+                              Text(
+                                Strings(context)
+                                    .anamnesisSocioeconomicPhysicalActivitiesFrequency3to4Option,
+                                style: GoogleFonts.montserrat(
+                                  fontSize: Dimensions.getTextSize(context, 16),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Radio(
+                                value: "5a6",
+                                groupValue: physicalActivityFrequency,
+                                onChanged: (value) {
+                                  setState(() {
+                                    physicalActivityFrequency = value;
+                                  });
+                                },
+                              ),
+                              Text(
+                                Strings(context)
+                                    .anamnesisSocioeconomicPhysicalActivitiesFrequency5to6Option,
+                                style: GoogleFonts.montserrat(
+                                  fontSize: Dimensions.getTextSize(context, 16),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Radio(
+                                value: "7",
+                                groupValue: physicalActivityFrequency,
+                                onChanged: (value) {
+                                  setState(() {
+                                    physicalActivityFrequency = value;
+                                  });
+                                },
+                              ),
+                              Text(
+                                Strings(context)
+                                    .anamnesisSocioeconomicPhysicalActititiesFrequency7Option,
+                                style: GoogleFonts.montserrat(
+                                  fontSize: Dimensions.getTextSize(context, 16),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      )
+                    : Container()
+              ],
+            ),
           ],
         ),
       ),
