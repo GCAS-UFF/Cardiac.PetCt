@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -6,10 +8,16 @@ import 'package:petct/core/resources/images.dart';
 import 'package:petct/core/resources/strings.dart';
 import 'package:petct/core/ui/button_app.dart';
 import 'package:petct/features/about-food/presentation/pages/about_food_page.dart';
-import 'package:petct/features/diet-meals/presentation/models/meal_model.dart';
-import 'package:petct/features/diet-meals/presentation/models/menu_day_model.dart';
+import 'package:petct/features/diet-meals/presentation/models/classification.dart';
+import 'package:petct/features/diet-meals/presentation/models/configuration.dart';
+import 'package:petct/features/diet-meals/presentation/models/day.dart';
+import 'package:petct/features/diet-meals/presentation/models/food.dart';
+import 'package:petct/features/diet-meals/presentation/models/meal_type.dart';
+import 'package:petct/features/diet-meals/presentation/models/measurement_unit.dart';
+import 'package:petct/features/diet-meals/presentation/models/menu.dart';
+import 'package:petct/features/diet-meals/presentation/models/user_meal.dart';
+import 'package:petct/features/diet-meals/presentation/models/user_meal_item.dart';
 import 'package:petct/features/diet-meals/presentation/widgets/custom_tabs.dart';
-import 'package:petct/features/diet-meals/presentation/models/meal_item_model.dart';
 import 'package:petct/features/diet-meals/presentation/widgets/shopping_list_dialog.dart';
 import 'package:petct/features/diet-meals/presentation/widgets/tab_menu_content.dart';
 import 'package:petct/features/diet-meals/presentation/widgets/top_bar.dart';
@@ -21,498 +29,323 @@ class DietMeals extends StatefulWidget {
 
 class _DietMealsState extends State<DietMeals> with TickerProviderStateMixin {
   TabController _controller;
-  List<MenuDayModel> _daysMenu = List<MenuDayModel>();
+  Menu menu = Menu(meals: [
+    UserMeal(
+      mealItems: [
+        UserMealItem(
+          name: "Carne vermelha",
+          foods: [
+            Food(
+                name: "Carne vermelha",
+                classificationType: ClassificationType.PROTEIN),
+          ],
+          portion: 100,
+          measurementUnitType: MeasurementUnitType.GRAMS,
+          imagePath: Images.bread_forbidden,
+        ),
+        UserMealItem(
+          name: "Carne vermelha",
+          foods: [
+            Food(
+                name: "Carne vermelha",
+                classificationType: ClassificationType.PROTEIN),
+          ],
+          portion: 100,
+          measurementUnitType: MeasurementUnitType.GRAMS,
+          imagePath: Images.bread_forbidden,
+        ),
+        UserMealItem(
+          name: "Café preto",
+          foods: [
+            Food(
+                name: "Café preto",
+                classificationType: ClassificationType.LIQUID),
+          ],
+          portion: 100,
+          measurementUnitType: MeasurementUnitType.MILLIMETER,
+          imagePath: Images.bread_forbidden,
+        )
+      ],
+      type: MealType(
+        name: 'Café da manhã',
+        type: MealTypeEnum.BREAKFAST,
+      ),
+    ),
+    UserMeal(
+      mealItems: [
+        UserMealItem(
+          name: "Carne vermelha",
+          foods: [
+            Food(
+                name: "Carne vermelha",
+                classificationType: ClassificationType.PROTEIN),
+          ],
+          portion: 100,
+          measurementUnitType: MeasurementUnitType.GRAMS,
+          imagePath: Images.bread_forbidden,
+        ),
+        UserMealItem(
+          name: "Carne vermelha",
+          foods: [
+            Food(
+                name: "Carne vermelha",
+                classificationType: ClassificationType.FORBIDDEN),
+          ],
+          portion: 100,
+          measurementUnitType: MeasurementUnitType.GRAMS,
+          imagePath: Images.bread_forbidden,
+        ),
+        UserMealItem(
+          name: "Café preto",
+          foods: [
+            Food(
+                name: "Café preto",
+                classificationType: ClassificationType.LIQUID),
+          ],
+          portion: 100,
+          measurementUnitType: MeasurementUnitType.MILLIMETER,
+          imagePath: Images.bread_forbidden,
+        )
+      ],
+      type: MealType(
+        name: 'Café da manhã',
+        type: MealTypeEnum.BREAKFAST,
+      ),
+    ),
+    UserMeal(
+      mealItems: [
+        UserMealItem(
+          name: "Carne vermelha",
+          foods: [
+            Food(
+                name: "Carne vermelha",
+                classificationType: ClassificationType.PROTEIN),
+          ],
+          portion: 100,
+          measurementUnitType: MeasurementUnitType.GRAMS,
+          imagePath: Images.bread_forbidden,
+        ),
+        UserMealItem(
+          name: "Carne vermelha",
+          foods: [
+            Food(
+                name: "Carne vermelha",
+                classificationType: ClassificationType.FORBIDDEN),
+          ],
+          portion: 100,
+          measurementUnitType: MeasurementUnitType.GRAMS,
+          imagePath: Images.bread_forbidden,
+        ),
+        UserMealItem(
+          name: "Café preto",
+          foods: [
+            Food(
+                name: "Café preto",
+                classificationType: ClassificationType.LIQUID),
+          ],
+          portion: 100,
+          measurementUnitType: MeasurementUnitType.MILLIMETER,
+          imagePath: Images.bread_forbidden,
+        )
+      ],
+      type: MealType(
+        name: 'Café da manhã',
+        type: MealTypeEnum.BREAKFAST,
+      ),
+    ),
+  ]);
+  Day dayOne;
+  Day dayTwo;
+  Day dayThree;
+  Configuration configuration = Configuration(
+    examDate: DateTime.now(),
+    examLocal: "Av. Paulista, 1000. São Paulo - SP.",
+    mealsTime: [
+      DateTime.now(),
+      DateTime.now(),
+      DateTime.now(),
+      DateTime.now(),
+      DateTime.now()
+    ],
+    daysList: [
+      Day(
+        date: DateTime.now(),
+        dayNumber: 1,
+        dailyMeals: [
+          UserMeal(
+            mealItems: [
+              UserMealItem(
+                name: "Carne vermelha",
+                foods: [
+                  Food(
+                      name: "Carne vermelha",
+                      classificationType: ClassificationType.PROTEIN),
+                ],
+                portion: 100,
+                measurementUnitType: MeasurementUnitType.GRAMS,
+                imagePath: Images.bread_forbidden,
+              ),
+              UserMealItem(
+                name: "Café preto",
+                foods: [
+                  Food(
+                      name: "Café preto",
+                      classificationType: ClassificationType.LIQUID),
+                ],
+                portion: 100,
+                measurementUnitType: MeasurementUnitType.MILLIMETER,
+                imagePath: Images.bread_forbidden,
+              )
+            ],
+            type: MealType(
+              name: 'Café da manhã',
+              type: MealTypeEnum.BREAKFAST,
+            ),
+          ),
+          UserMeal(
+            mealItems: [
+              UserMealItem(
+                name: "Carne vermelha",
+                foods: [
+                  Food(
+                      name: "Carne vermelha",
+                      classificationType: ClassificationType.PROTEIN),
+                ],
+                portion: 100,
+                measurementUnitType: MeasurementUnitType.GRAMS,
+                imagePath: Images.bread_forbidden,
+              ),
+              UserMealItem(
+                name: "Café preto",
+                foods: [
+                  Food(
+                      name: "Café preto",
+                      classificationType: ClassificationType.LIQUID),
+                ],
+                portion: 100,
+                measurementUnitType: MeasurementUnitType.MILLIMETER,
+                imagePath: Images.bread_forbidden,
+              )
+            ],
+            type: MealType(
+              name: 'Lanche da manhã',
+              type: MealTypeEnum.MORNINGSNACK,
+            ),
+          ),
+          UserMeal(
+            mealItems: [
+              UserMealItem(
+                name: "Filé de frango",
+                foods: [
+                  Food(
+                      name: "Filé de frango",
+                      classificationType: ClassificationType.PROTEIN),
+                ],
+                portion: 150,
+                measurementUnitType: MeasurementUnitType.GRAMS,
+                imagePath: Images.bread_forbidden,
+              ),
+              UserMealItem(
+                name: "Café preto",
+                foods: [
+                  Food(
+                      name: "Café preto",
+                      classificationType: ClassificationType.LIQUID),
+                ],
+                portion: 100,
+                measurementUnitType: MeasurementUnitType.MILLIMETER,
+                imagePath: Images.bread_forbidden,
+              )
+            ],
+            type: MealType(
+              name: 'Almoço',
+              type: MealTypeEnum.LUNCH,
+            ),
+          ),
+        ],
+      ),
+      Day(
+        date: DateTime.now(),
+        dayNumber: 2,
+        dailyMeals: [
+          UserMeal(
+            mealItems: [
+              UserMealItem(
+                name: "Carne vermelha",
+                foods: [
+                  Food(
+                      name: "Carne vermelha",
+                      classificationType: ClassificationType.PROTEIN),
+                ],
+                portion: 100,
+                measurementUnitType: MeasurementUnitType.GRAMS,
+                imagePath: Images.bread_forbidden,
+              ),
+              UserMealItem(
+                name: "Café preto",
+                foods: [
+                  Food(
+                      name: "Café preto",
+                      classificationType: ClassificationType.LIQUID),
+                ],
+                portion: 100,
+                measurementUnitType: MeasurementUnitType.MILLIMETER,
+                imagePath: Images.bread_forbidden,
+              )
+            ],
+            type: MealType(
+              name: 'Café da manhã',
+              type: MealTypeEnum.BREAKFAST,
+            ),
+          ),
+        ],
+      ),
+      Day(
+        date: DateTime.now(),
+        dayNumber: 3,
+        dailyMeals: [
+          UserMeal(
+            mealItems: [
+              UserMealItem(
+                name: "Carne vermelha",
+                foods: [
+                  Food(
+                      name: "Carne vermelha",
+                      classificationType: ClassificationType.PROTEIN),
+                ],
+                portion: 100,
+                measurementUnitType: MeasurementUnitType.GRAMS,
+                imagePath: Images.bread_forbidden,
+              ),
+              UserMealItem(
+                name: "Café preto",
+                foods: [
+                  Food(
+                      name: "Café preto",
+                      classificationType: ClassificationType.LIQUID),
+                ],
+                portion: 100,
+                measurementUnitType: MeasurementUnitType.MILLIMETER,
+                imagePath: Images.bread_forbidden,
+              )
+            ],
+            type: MealType(
+              name: 'Café da manhã',
+              type: MealTypeEnum.BREAKFAST,
+            ),
+          ),
+        ],
+      ),
+    ],
+  );
 
   @override
   void initState() {
     super.initState();
     _controller = TabController(length: 3, vsync: this);
-    _daysMenu = [
-      MenuDayModel(
-        dietDay: DietDay.FIRSTDAY,
-        menuDay: "08/06",
-        meals: [
-          MealModel(
-            mealTime: "7:00",
-            mealItens: [
-              MealItemModel(0.0,
-                  name: "Carne bovina",
-                  group: FoodGroup.PROTEIN,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.GRAMS),
-              MealItemModel(0.0,
-                  name: "Gorgonzola",
-                  group: FoodGroup.CHEESE,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.UNITY),
-            ],
-            mealsName: MEALSNAME.Breakfast,
-            status: MEALSTATUS.Recorded,
-          ),
-          MealModel(
-            mealTime: "9:30",
-            mealItens: [
-              MealItemModel(0.0,
-                  name: "Carne bovina",
-                  group: FoodGroup.PROTEIN,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.GRAMS),
-              MealItemModel(0.0,
-                  name: "Gorgonzola",
-                  group: FoodGroup.CHEESE,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.UNITY),
-            ],
-            mealsName: MEALSNAME.MorningSnack,
-            status: MEALSTATUS.Recorded,
-          ),
-          MealModel(
-            mealTime: "13:30",
-            mealItens: [
-              MealItemModel(0.0,
-                  name: "Gorgonzola",
-                  group: FoodGroup.CHEESE,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.UNITY),
-            ],
-            mealsName: MEALSNAME.Lunch,
-            status: MEALSTATUS.Recorded,
-          ),
-          MealModel(
-            mealTime: "15:30",
-            mealItens: [
-              MealItemModel(0.0,
-                  name: "Gorgonzola",
-                  group: FoodGroup.CHEESE,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.UNITY),
-            ],
-            mealsName: MEALSNAME.AfternoonSnack,
-            status: MEALSTATUS.Pending,
-          ),
-          MealModel(
-            mealTime: "19:30",
-            mealItens: [
-              MealItemModel(0.0,
-                  name: "Gorgonzola",
-                  group: FoodGroup.CHEESE,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.UNITY),
-            ],
-            mealsName: MEALSNAME.Dinner,
-            status: MEALSTATUS.Waiting,
-          ),
-          MealModel(
-            mealTime: "20:30",
-            mealItens: [
-              MealItemModel(0.0,
-                  name: "Gorgonzola",
-                  group: FoodGroup.CHEESE,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.UNITY),
-            ],
-            mealsName: MEALSNAME.Supper,
-            status: MEALSTATUS.Waiting,
-          ),
-        ],
-      ),
-      MenuDayModel(
-        dietDay: DietDay.SECONDDAY,
-        menuDay: "08/06",
-        meals: [
-          MealModel(
-            mealTime: "7:00",
-            mealItens: [
-              MealItemModel(0.0,
-                  name: "Azeite",
-                  group: FoodGroup.OILS,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.MILLIMETER),
-              MealItemModel(0.0,
-                  name: "Café",
-                  group: FoodGroup.LIQUID,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.MILLIMETER),
-              MealItemModel(0.0,
-                  name: "Alface",
-                  group: FoodGroup.VEGETABLES,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.GRAMS),
-              MealItemModel(0.0,
-                  name: "Carne bovina",
-                  group: FoodGroup.PROTEIN,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.GRAMS),
-              MealItemModel(0.0,
-                  name: "Gorgonzola",
-                  group: FoodGroup.CHEESE,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.UNITY),
-            ],
-            mealsName: MEALSNAME.Breakfast,
-            status: MEALSTATUS.Waiting,
-          ),
-          MealModel(
-            mealTime: "9:30",
-            mealItens: [
-              MealItemModel(0.0,
-                  name: "Azeite",
-                  group: FoodGroup.OILS,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.MILLIMETER),
-              MealItemModel(0.0,
-                  name: "Café",
-                  group: FoodGroup.LIQUID,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.MILLIMETER),
-              MealItemModel(0.0,
-                  name: "Alface",
-                  group: FoodGroup.VEGETABLES,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.GRAMS),
-              MealItemModel(0.0,
-                  name: "Carne bovina",
-                  group: FoodGroup.PROTEIN,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.GRAMS),
-              MealItemModel(0.0,
-                  name: "Gorgonzola",
-                  group: FoodGroup.CHEESE,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.UNITY),
-            ],
-            mealsName: MEALSNAME.MorningSnack,
-            status: MEALSTATUS.Waiting,
-          ),
-          MealModel(
-            mealTime: "13:30",
-            mealItens: [
-              MealItemModel(0.0,
-                  name: "Azeite",
-                  group: FoodGroup.OILS,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.MILLIMETER),
-              MealItemModel(0.0,
-                  name: "Café",
-                  group: FoodGroup.LIQUID,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.MILLIMETER),
-              MealItemModel(0.0,
-                  name: "Alface",
-                  group: FoodGroup.VEGETABLES,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.GRAMS),
-              MealItemModel(0.0,
-                  name: "Carne bovina",
-                  group: FoodGroup.PROTEIN,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.GRAMS),
-              MealItemModel(0.0,
-                  name: "Gorgonzola",
-                  group: FoodGroup.CHEESE,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.UNITY),
-            ],
-            mealsName: MEALSNAME.Lunch,
-            status: MEALSTATUS.Waiting,
-          ),
-          MealModel(
-            mealTime: "15:30",
-            mealItens: [
-              MealItemModel(0.0,
-                  name: "Azeite",
-                  group: FoodGroup.OILS,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.MILLIMETER),
-              MealItemModel(0.0,
-                  name: "Café",
-                  group: FoodGroup.LIQUID,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.MILLIMETER),
-              MealItemModel(0.0,
-                  name: "Alface",
-                  group: FoodGroup.VEGETABLES,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.GRAMS),
-              MealItemModel(0.0,
-                  name: "Carne bovina",
-                  group: FoodGroup.PROTEIN,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.GRAMS),
-              MealItemModel(0.0,
-                  name: "Gorgonzola",
-                  group: FoodGroup.CHEESE,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.UNITY),
-            ],
-            mealsName: MEALSNAME.AfternoonSnack,
-            status: MEALSTATUS.Waiting,
-          ),
-          MealModel(
-            mealTime: "19:30",
-            mealItens: [
-              MealItemModel(0.0,
-                  name: "Azeite",
-                  group: FoodGroup.OILS,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.MILLIMETER),
-              MealItemModel(0.0,
-                  name: "Café",
-                  group: FoodGroup.LIQUID,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.MILLIMETER),
-              MealItemModel(0.0,
-                  name: "Alface",
-                  group: FoodGroup.VEGETABLES,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.GRAMS),
-              MealItemModel(0.0,
-                  name: "Carne bovina",
-                  group: FoodGroup.PROTEIN,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.GRAMS),
-              MealItemModel(0.0,
-                  name: "Gorgonzola",
-                  group: FoodGroup.CHEESE,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.UNITY),
-            ],
-            mealsName: MEALSNAME.Dinner,
-            status: MEALSTATUS.Waiting,
-          ),
-          MealModel(
-            mealTime: "20:30",
-            mealItens: [
-              MealItemModel(0.0,
-                  name: "Azeite",
-                  group: FoodGroup.OILS,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.MILLIMETER),
-              MealItemModel(0.0,
-                  name: "Café",
-                  group: FoodGroup.LIQUID,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.MILLIMETER),
-              MealItemModel(0.0,
-                  name: "Alface",
-                  group: FoodGroup.VEGETABLES,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.GRAMS),
-              MealItemModel(0.0,
-                  name: "Carne bovina",
-                  group: FoodGroup.PROTEIN,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.GRAMS),
-              MealItemModel(0.0,
-                  name: "Gorgonzola",
-                  group: FoodGroup.CHEESE,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.UNITY),
-            ],
-            mealsName: MEALSNAME.Supper,
-            status: MEALSTATUS.Waiting,
-          ),
-        ],
-      ),
-      MenuDayModel(
-        dietDay: DietDay.THIRDDAY,
-        menuDay: "08/06",
-        meals: [
-          MealModel(
-            mealTime: "7:00",
-            mealItens: [
-              MealItemModel(0.0,
-                  name: "Azeite",
-                  group: FoodGroup.OILS,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.MILLIMETER),
-              MealItemModel(0.0,
-                  name: "Café",
-                  group: FoodGroup.LIQUID,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.MILLIMETER),
-              MealItemModel(0.0,
-                  name: "Alface",
-                  group: FoodGroup.VEGETABLES,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.GRAMS),
-              MealItemModel(0.0,
-                  name: "Carne bovina",
-                  group: FoodGroup.PROTEIN,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.GRAMS),
-              MealItemModel(0.0,
-                  name: "Gorgonzola",
-                  group: FoodGroup.CHEESE,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.UNITY),
-            ],
-            mealsName: MEALSNAME.Breakfast,
-            status: MEALSTATUS.Waiting,
-          ),
-          MealModel(
-            mealTime: "9:30",
-            mealItens: [
-              MealItemModel(0.0,
-                  name: "Azeite",
-                  group: FoodGroup.OILS,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.MILLIMETER),
-              MealItemModel(0.0,
-                  name: "Café",
-                  group: FoodGroup.LIQUID,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.MILLIMETER),
-              MealItemModel(0.0,
-                  name: "Alface",
-                  group: FoodGroup.VEGETABLES,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.GRAMS),
-              MealItemModel(0.0,
-                  name: "Carne bovina",
-                  group: FoodGroup.PROTEIN,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.GRAMS),
-              MealItemModel(0.0,
-                  name: "Gorgonzola",
-                  group: FoodGroup.CHEESE,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.UNITY),
-            ],
-            mealsName: MEALSNAME.MorningSnack,
-            status: MEALSTATUS.Waiting,
-          ),
-          MealModel(
-            mealTime: "13:30",
-            mealItens: [
-              MealItemModel(0.0,
-                  name: "Azeite",
-                  group: FoodGroup.OILS,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.MILLIMETER),
-              MealItemModel(0.0,
-                  name: "Café",
-                  group: FoodGroup.LIQUID,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.MILLIMETER),
-              MealItemModel(0.0,
-                  name: "Alface",
-                  group: FoodGroup.VEGETABLES,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.GRAMS),
-              MealItemModel(0.0,
-                  name: "Carne bovina",
-                  group: FoodGroup.PROTEIN,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.GRAMS),
-              MealItemModel(0.0,
-                  name: "Gorgonzola",
-                  group: FoodGroup.CHEESE,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.UNITY),
-            ],
-            mealsName: MEALSNAME.Lunch,
-            status: MEALSTATUS.Waiting,
-          ),
-          MealModel(
-            mealTime: "15:30",
-            mealItens: [
-              MealItemModel(0.0,
-                  name: "Azeite",
-                  group: FoodGroup.OILS,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.MILLIMETER),
-              MealItemModel(0.0,
-                  name: "Café",
-                  group: FoodGroup.LIQUID,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.MILLIMETER),
-              MealItemModel(0.0,
-                  name: "Alface",
-                  group: FoodGroup.VEGETABLES,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.GRAMS),
-              MealItemModel(0.0,
-                  name: "Carne bovina",
-                  group: FoodGroup.PROTEIN,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.GRAMS),
-              MealItemModel(0.0,
-                  name: "Gorgonzola",
-                  group: FoodGroup.CHEESE,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.UNITY),
-            ],
-            mealsName: MEALSNAME.AfternoonSnack,
-            status: MEALSTATUS.Waiting,
-          ),
-          MealModel(
-            mealTime: "19:30",
-            mealItens: [
-              MealItemModel(0.0,
-                  name: "Azeite",
-                  group: FoodGroup.OILS,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.MILLIMETER),
-              MealItemModel(0.0,
-                  name: "Café",
-                  group: FoodGroup.LIQUID,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.MILLIMETER),
-              MealItemModel(0.0,
-                  name: "Alface",
-                  group: FoodGroup.VEGETABLES,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.GRAMS),
-              MealItemModel(0.0,
-                  name: "Carne bovina",
-                  group: FoodGroup.PROTEIN,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.GRAMS),
-              MealItemModel(0.0,
-                  name: "Gorgonzola",
-                  group: FoodGroup.CHEESE,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.UNITY),
-            ],
-            mealsName: MEALSNAME.Dinner,
-            status: MEALSTATUS.Waiting,
-          ),
-          MealModel(
-            mealTime: "19:30",
-            mealItens: [
-              MealItemModel(0.0,
-                  name: "Azeite",
-                  group: FoodGroup.OILS,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.MILLIMETER),
-              MealItemModel(0.0,
-                  name: "Café",
-                  group: FoodGroup.LIQUID,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.MILLIMETER),
-              MealItemModel(0.0,
-                  name: "Alface",
-                  group: FoodGroup.VEGETABLES,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.GRAMS),
-              MealItemModel(0.0,
-                  name: "Carne bovina",
-                  group: FoodGroup.PROTEIN,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.GRAMS),
-              MealItemModel(0.0,
-                  name: "Gorgonzola",
-                  group: FoodGroup.CHEESE,
-                  image: Images.bread_forbidden,
-                  measurement: Measurement.UNITY),
-            ],
-            mealsName: MEALSNAME.Supper,
-            status: MEALSTATUS.Waiting,
-          ),
-        ],
-      ),
-    ];
+    dayOne = configuration.daysList.firstWhere((e) => e.dayNumber == 1);
+    dayTwo = configuration.daysList.firstWhere((e) => e.dayNumber == 2);
+    dayThree = configuration.daysList.firstWhere((e) => e.dayNumber == 3);
   }
 
   Widget _buildBody(BuildContext context) {
@@ -521,7 +354,7 @@ class _DietMealsState extends State<DietMeals> with TickerProviderStateMixin {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text(
-            _daysMenu[0].menuDay,
+            DateFormat('dd/MM').format(DateTime.now()),
             style: GoogleFonts.montserrat(
               fontSize: Dimensions.getTextSize(context, 14),
             ),
@@ -538,7 +371,7 @@ class _DietMealsState extends State<DietMeals> with TickerProviderStateMixin {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text(
-            _daysMenu[1].menuDay,
+            DateFormat('dd/MM').format(DateTime.now()),
             style: GoogleFonts.montserrat(
               fontSize: Dimensions.getTextSize(context, 14),
             ),
@@ -555,7 +388,7 @@ class _DietMealsState extends State<DietMeals> with TickerProviderStateMixin {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text(
-            _daysMenu[2].menuDay,
+            DateFormat('dd/MM').format(DateTime.now()),
             style: GoogleFonts.montserrat(
               fontSize: Dimensions.getTextSize(context, 14),
             ),
@@ -576,9 +409,7 @@ class _DietMealsState extends State<DietMeals> with TickerProviderStateMixin {
         child: Column(
           children: <Widget>[
             //Top Bar
-            TopBar(
-              daysMenu: _daysMenu,
-            ),
+            TopBar(),
             SizedBox(
               height: Dimensions.getConvertedHeightSize(context, 10),
             ),
@@ -608,7 +439,7 @@ class _DietMealsState extends State<DietMeals> with TickerProviderStateMixin {
                     barrierDismissible: true,
                     builder: (BuildContext context) {
                       return ShoppingListDialog(
-                        daysMenu: _daysMenu,
+                        daysMenu: configuration.daysList,
                       );
                     },
                   );
@@ -627,11 +458,22 @@ class _DietMealsState extends State<DietMeals> with TickerProviderStateMixin {
                 controller: _controller,
                 children: <Widget>[
                   // First day tab menu content
-                  TabMenuContent(meals: _daysMenu[0].meals),
+                  TabMenuContent(
+                      day: configuration.daysList
+                          .firstWhere((e) => e.dayNumber == 1),
+                      allMeals: menu.meals),
                   // Second day tab menu content
-                  TabMenuContent(meals: _daysMenu[1].meals),
+                  TabMenuContent(
+                    day: configuration.daysList
+                        .firstWhere((e) => e.dayNumber == 2),
+                      allMeals: menu.meals
+                  ),
                   // Third day tab menu content
-                  TabMenuContent(meals: _daysMenu[2].meals),
+                  TabMenuContent(
+                    day: configuration.daysList
+                        .firstWhere((e) => e.dayNumber == 3),
+                      allMeals: menu.meals
+                  ),
                 ],
               ),
             ),

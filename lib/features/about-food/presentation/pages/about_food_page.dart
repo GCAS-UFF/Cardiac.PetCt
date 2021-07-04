@@ -9,348 +9,75 @@ import 'package:petct/core/resources/strings.dart';
 import 'package:petct/features/about-food/presentation/mobx/controller.dart';
 import 'package:petct/features/about-food/presentation/widgets/allowed_food_groups.dart';
 import 'package:petct/features/about-food/presentation/widgets/forbidden_food_tab.dart';
-import 'package:petct/features/diet-meals/presentation/models/meal_item_model.dart';
+import 'package:petct/features/diet-meals/presentation/models/classification.dart';
+import 'package:petct/features/diet-meals/presentation/models/food.dart';
+import 'package:petct/features/diet-meals/presentation/models/user_meal_item.dart';
+import 'package:petct/features/diet-meals/presentation/models/measurement_unit.dart';
 
 class AboutFoodPage extends StatelessWidget {
-  List<MealItemModel> forbiddenFood = List<MealItemModel>();
-  List<MealItemModel> allFoods = [
-    MealItemModel(
-      0.0,
-      name: "Azeite",
-      group: FoodGroup.OILS,
-      image: Images.bread_forbidden,
-      measurement: Measurement.MILLIMETER,
+  AboutFoodPage({Key key}) : super(key: key);
+
+  List<UserMealItem> forbiddenFood = [];
+  List<UserMealItem> allFoods = [
+    UserMealItem(
+      name: 'Carne vermelha',
+      foods: [
+        Food(
+          name: "Carne vermelha",
+          classificationType: ClassificationType.PROTEIN,
+          imagePath: Images.bread_forbidden,
+        )
+      ],
+      portion: 100,
+      measurementUnitType: MeasurementUnitType.GRAMS,
     ),
-    MealItemModel(
-      0.0,
-      name: "Pão",
-      group: FoodGroup.FORBIDDEN,
-      image: Images.bread_forbidden,
-      measurement: Measurement.MILLIMETER,
+    UserMealItem(
+      name: 'Carne vermelha',
+      foods: [
+        Food(
+          name: "Carne vermelha",
+          classificationType: ClassificationType.PROTEIN,
+          imagePath: Images.bread_forbidden,
+        )
+      ],
+      portion: 100,
+      measurementUnitType: MeasurementUnitType.GRAMS,
     ),
-    MealItemModel(
-      0.0,
-      name: "Macarrão",
-      group: FoodGroup.FORBIDDEN,
-      image: Images.bread_forbidden,
-      measurement: Measurement.MILLIMETER,
+    UserMealItem(
+      name: 'Cuscuz',
+      foods: [
+        Food(
+          name: "Cuscuz",
+          classificationType: ClassificationType.FORBIDDEN,
+          imagePath: Images.bread_forbidden,
+        )
+      ],
+      portion: 100,
+      measurementUnitType: MeasurementUnitType.GRAMS,
     ),
-    MealItemModel(0.0,
-        name: "Castanha",
-        group: FoodGroup.OILS,
-        image: Images.bread_forbidden,
-        measurement: Measurement.GRAMS),
-    MealItemModel(
-      20.0,
-      name: "Óleo",
-      group: FoodGroup.OILS,
-      image: Images.bread_forbidden,
-      measurement: Measurement.MILLIMETER,
+    UserMealItem(
+      name: 'Arroz',
+      foods: [
+        Food(
+          name: "Arroz",
+          classificationType: ClassificationType.FORBIDDEN,
+          imagePath: Images.bread_forbidden,
+        )
+      ],
+      portion: 100,
+      measurementUnitType: MeasurementUnitType.GRAMS,
     ),
-    MealItemModel(
-      100.0,
-      name: "Café",
-      group: FoodGroup.LIQUID,
-      image: Images.bread_forbidden,
-      measurement: Measurement.MILLIMETER,
-    ),
-    MealItemModel(50.0,
-        name: "Alface",
-        group: FoodGroup.VEGETABLES,
-        image: Images.bread_forbidden,
-        measurement: Measurement.GRAMS),
-    MealItemModel(70.0,
-        name: "Carne bovina",
-        group: FoodGroup.PROTEIN,
-        image: Images.bread_forbidden,
-        measurement: Measurement.GRAMS),
-    MealItemModel(90.0,
-        name: "Gorgonzola",
-        group: FoodGroup.CHEESE,
-        image: Images.bread_forbidden,
-        measurement: Measurement.UNITY),
-    MealItemModel(
-      0.0,
-      name: "Azeite",
-      group: FoodGroup.OILS,
-      image: Images.bread_forbidden,
-      measurement: Measurement.MILLIMETER,
-    ),
-    MealItemModel(
-      0.0,
-      name: "Pão",
-      group: FoodGroup.FORBIDDEN,
-      image: Images.bread_forbidden,
-      measurement: Measurement.MILLIMETER,
-    ),
-    MealItemModel(
-      0.0,
-      name: "Macarrão",
-      group: FoodGroup.FORBIDDEN,
-      image: Images.bread_forbidden,
-      measurement: Measurement.MILLIMETER,
-    ),
-    MealItemModel(0.0,
-        name: "Castanha",
-        group: FoodGroup.OILS,
-        image: Images.bread_forbidden,
-        measurement: Measurement.GRAMS),
-    MealItemModel(
-      20.0,
-      name: "Óleo",
-      group: FoodGroup.OILS,
-      image: Images.bread_forbidden,
-      measurement: Measurement.MILLIMETER,
-    ),
-    MealItemModel(
-      100.0,
-      name: "Café",
-      group: FoodGroup.LIQUID,
-      image: Images.bread_forbidden,
-      measurement: Measurement.MILLIMETER,
-    ),
-    MealItemModel(50.0,
-        name: "Alface",
-        group: FoodGroup.VEGETABLES,
-        image: Images.bread_forbidden,
-        measurement: Measurement.GRAMS),
-    MealItemModel(70.0,
-        name: "Carne bovina",
-        group: FoodGroup.PROTEIN,
-        image: Images.bread_forbidden,
-        measurement: Measurement.GRAMS),
-    MealItemModel(90.0,
-        name: "Gorgonzola",
-        group: FoodGroup.CHEESE,
-        image: Images.bread_forbidden,
-        measurement: Measurement.UNITY),
-    MealItemModel(
-      0.0,
-      name: "Azeite",
-      group: FoodGroup.OILS,
-      image: Images.bread_forbidden,
-      measurement: Measurement.MILLIMETER,
-    ),
-    MealItemModel(
-      0.0,
-      name: "Pão",
-      group: FoodGroup.FORBIDDEN,
-      image: Images.bread_forbidden,
-      measurement: Measurement.MILLIMETER,
-    ),
-    MealItemModel(
-      0.0,
-      name: "Macarrão",
-      group: FoodGroup.FORBIDDEN,
-      image: Images.bread_forbidden,
-      measurement: Measurement.MILLIMETER,
-    ),
-    MealItemModel(0.0,
-        name: "Castanha",
-        group: FoodGroup.OILS,
-        image: Images.bread_forbidden,
-        measurement: Measurement.GRAMS),
-    MealItemModel(
-      20.0,
-      name: "Óleo",
-      group: FoodGroup.OILS,
-      image: Images.bread_forbidden,
-      measurement: Measurement.MILLIMETER,
-    ),
-    MealItemModel(
-      100.0,
-      name: "Café",
-      group: FoodGroup.LIQUID,
-      image: Images.bread_forbidden,
-      measurement: Measurement.MILLIMETER,
-    ),
-    MealItemModel(50.0,
-        name: "Alface",
-        group: FoodGroup.VEGETABLES,
-        image: Images.bread_forbidden,
-        measurement: Measurement.GRAMS),
-    MealItemModel(70.0,
-        name: "Carne bovina",
-        group: FoodGroup.PROTEIN,
-        image: Images.bread_forbidden,
-        measurement: Measurement.GRAMS),
-    MealItemModel(90.0,
-        name: "Gorgonzola",
-        group: FoodGroup.CHEESE,
-        image: Images.bread_forbidden,
-        measurement: Measurement.UNITY),
-        MealItemModel(
-      0.0,
-      name: "Azeite",
-      group: FoodGroup.OILS,
-      image: Images.bread_forbidden,
-      measurement: Measurement.MILLIMETER,
-    ),
-    MealItemModel(
-      0.0,
-      name: "Pão",
-      group: FoodGroup.FORBIDDEN,
-      image: Images.bread_forbidden,
-      measurement: Measurement.MILLIMETER,
-    ),
-    MealItemModel(
-      0.0,
-      name: "Macarrão",
-      group: FoodGroup.FORBIDDEN,
-      image: Images.bread_forbidden,
-      measurement: Measurement.MILLIMETER,
-    ),
-    MealItemModel(0.0,
-        name: "Castanha",
-        group: FoodGroup.OILS,
-        image: Images.bread_forbidden,
-        measurement: Measurement.GRAMS),
-    MealItemModel(
-      20.0,
-      name: "Óleo",
-      group: FoodGroup.OILS,
-      image: Images.bread_forbidden,
-      measurement: Measurement.MILLIMETER,
-    ),
-    MealItemModel(
-      100.0,
-      name: "Café",
-      group: FoodGroup.LIQUID,
-      image: Images.bread_forbidden,
-      measurement: Measurement.MILLIMETER,
-    ),
-    MealItemModel(50.0,
-        name: "Alface",
-        group: FoodGroup.VEGETABLES,
-        image: Images.bread_forbidden,
-        measurement: Measurement.GRAMS),
-    MealItemModel(70.0,
-        name: "Carne bovina",
-        group: FoodGroup.PROTEIN,
-        image: Images.bread_forbidden,
-        measurement: Measurement.GRAMS),
-    MealItemModel(90.0,
-        name: "Gorgonzola",
-        group: FoodGroup.CHEESE,
-        image: Images.bread_forbidden,
-        measurement: Measurement.UNITY),
-        MealItemModel(
-      0.0,
-      name: "Azeite",
-      group: FoodGroup.OILS,
-      image: Images.bread_forbidden,
-      measurement: Measurement.MILLIMETER,
-    ),
-    MealItemModel(
-      0.0,
-      name: "Pão",
-      group: FoodGroup.FORBIDDEN,
-      image: Images.bread_forbidden,
-      measurement: Measurement.MILLIMETER,
-    ),
-    MealItemModel(
-      0.0,
-      name: "Macarrão",
-      group: FoodGroup.FORBIDDEN,
-      image: Images.bread_forbidden,
-      measurement: Measurement.MILLIMETER,
-    ),
-    MealItemModel(0.0,
-        name: "Castanha",
-        group: FoodGroup.OILS,
-        image: Images.bread_forbidden,
-        measurement: Measurement.GRAMS),
-    MealItemModel(
-      20.0,
-      name: "Óleo",
-      group: FoodGroup.OILS,
-      image: Images.bread_forbidden,
-      measurement: Measurement.MILLIMETER,
-    ),
-    MealItemModel(
-      100.0,
-      name: "Café",
-      group: FoodGroup.LIQUID,
-      image: Images.bread_forbidden,
-      measurement: Measurement.MILLIMETER,
-    ),
-    MealItemModel(50.0,
-        name: "Alface",
-        group: FoodGroup.VEGETABLES,
-        image: Images.bread_forbidden,
-        measurement: Measurement.GRAMS),
-    MealItemModel(70.0,
-        name: "Carne bovina",
-        group: FoodGroup.PROTEIN,
-        image: Images.bread_forbidden,
-        measurement: Measurement.GRAMS),
-    MealItemModel(90.0,
-        name: "Gorgonzola",
-        group: FoodGroup.CHEESE,
-        image: Images.bread_forbidden,
-        measurement: Measurement.UNITY),
-        MealItemModel(
-      0.0,
-      name: "Azeite",
-      group: FoodGroup.OILS,
-      image: Images.bread_forbidden,
-      measurement: Measurement.MILLIMETER,
-    ),
-    MealItemModel(
-      0.0,
-      name: "Pão",
-      group: FoodGroup.FORBIDDEN,
-      image: Images.bread_forbidden,
-      measurement: Measurement.MILLIMETER,
-    ),
-    MealItemModel(
-      0.0,
-      name: "Macarrão",
-      group: FoodGroup.FORBIDDEN,
-      image: Images.bread_forbidden,
-      measurement: Measurement.MILLIMETER,
-    ),
-    MealItemModel(0.0,
-        name: "Castanha",
-        group: FoodGroup.OILS,
-        image: Images.bread_forbidden,
-        measurement: Measurement.GRAMS),
-    MealItemModel(
-      20.0,
-      name: "Óleo",
-      group: FoodGroup.OILS,
-      image: Images.bread_forbidden,
-      measurement: Measurement.MILLIMETER,
-    ),
-    MealItemModel(
-      100.0,
-      name: "Café",
-      group: FoodGroup.LIQUID,
-      image: Images.bread_forbidden,
-      measurement: Measurement.MILLIMETER,
-    ),
-    MealItemModel(50.0,
-        name: "Alface",
-        group: FoodGroup.VEGETABLES,
-        image: Images.bread_forbidden,
-        measurement: Measurement.GRAMS),
-    MealItemModel(70.0,
-        name: "Carne bovina",
-        group: FoodGroup.PROTEIN,
-        image: Images.bread_forbidden,
-        measurement: Measurement.GRAMS),
-    MealItemModel(90.0,
-        name: "Gorgonzola",
-        group: FoodGroup.CHEESE,
-        image: Images.bread_forbidden,
-        measurement: Measurement.UNITY),
   ];
 
   final controller = Controller();
+
   @override
   Widget build(BuildContext context) {
     allFoods.map((data) {
-      data.group == FoodGroup.FORBIDDEN ? forbiddenFood.add(data) : null;
+      data.foods.map((item) {
+        if (item.classificationType == ClassificationType.FORBIDDEN)
+          forbiddenFood.add(data);
+      });
     }).toList();
     return Scaffold(
       body: Container(
@@ -485,7 +212,7 @@ class AboutFoodPage extends StatelessWidget {
               child: Observer(
                 builder: (_) {
                   return controller.index.value == true
-                      ? AllowedFoodGroups(
+                      ? AllowedClassificationTypes(
                           allFoods: allFoods,
                         )
                       : ForbiddenFoodContent(

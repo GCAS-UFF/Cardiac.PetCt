@@ -3,12 +3,12 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/strings.dart';
 import 'package:petct/core/utils/theme.dart';
-import 'package:petct/features/about-food/presentation/widgets/food_card.dart';
-import 'package:petct/features/diet-meals/presentation/models/meal_item_model.dart';
+import 'package:petct/features/about-food/presentation/widgets/meal_item_card.dart';
+import 'package:petct/features/diet-meals/presentation/models/user_meal_item.dart';
 import 'package:provider/provider.dart';
 
 class AllowedGroupFoodPage extends StatelessWidget {
-  final List<MealItemModel> data;
+  final List<UserMealItem> data;
   final String foodGroup;
   final String groupImage;
 
@@ -18,8 +18,7 @@ class AllowedGroupFoodPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ThemeChanger _themeChanger = Provider.of<ThemeChanger>(context);
-    data.map((data) {
-    }).toList();
+    data.map((data) {}).toList();
     return Scaffold(
       body: Container(
         height: double.infinity,
@@ -120,7 +119,7 @@ class AllowedGroupFoodPage extends StatelessWidget {
                   alignment: WrapAlignment.start,
                   crossAxisAlignment: WrapCrossAlignment.start,
                   children: data.map((data) {
-                    return FoodCard(data: data);
+                    return UserMealItemCard(mealItem: data);
                   }).toList()),
               SizedBox(
                 height: Dimensions.getConvertedHeightSize(context, 25),

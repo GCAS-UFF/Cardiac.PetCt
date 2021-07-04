@@ -3,13 +3,16 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:petct/core/resources/colors.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/strings.dart';
-import 'package:petct/features/diet-meals/presentation/models/meal_model.dart';
+import 'package:petct/features/diet-meals/presentation/models/meal_type.dart';
+import 'package:petct/features/diet-meals/presentation/models/user_meal.dart';
 import 'package:petct/features/diet-meals/presentation/widgets/choose_meal_widget.dart';
 
 class ChooseMenuPage extends StatelessWidget {
-  final MealModel mealModel;
+  final List<UserMeal> mealOptions;
+  final MealType mealType;
 
-  const ChooseMenuPage({Key key, this.mealModel}) : super(key: key);
+  const ChooseMenuPage({Key key, this.mealOptions, this.mealType})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +53,7 @@ class ChooseMenuPage extends StatelessWidget {
               children: <Widget>[
                 //Meal name
                 Text(
-                  mealModel.name,
+                  (mealType.name != null) ? mealType.name : '',
                   style: GoogleFonts.montserrat(
                     fontSize: Dimensions.getTextSize(context, 20),
                     fontWeight: FontWeight.w700,
@@ -67,7 +70,7 @@ class ChooseMenuPage extends StatelessWidget {
                 ),
                 //Meal time
                 Text(
-                  mealModel.mealTime,
+                  '12:00',
                   style: GoogleFonts.montserrat(
                     fontSize: Dimensions.getTextSize(context, 20),
                     color: ColorsApp.greenApp,
@@ -89,7 +92,7 @@ class ChooseMenuPage extends StatelessWidget {
               height: Dimensions.getConvertedHeightSize(context, 20),
             ),
             ChooseMealWidget(
-              mealModel: mealModel,
+              mealOptions: mealOptions,
             ),
             SizedBox(
               height: Dimensions.getConvertedHeightSize(context, 20),

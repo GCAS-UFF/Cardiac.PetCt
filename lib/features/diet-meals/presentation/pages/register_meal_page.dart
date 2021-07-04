@@ -3,13 +3,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:petct/core/resources/colors.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/strings.dart';
-import 'package:petct/features/diet-meals/presentation/models/meal_model.dart';
+import 'package:petct/features/diet-meals/presentation/models/user_meal.dart';
 import 'package:petct/features/diet-meals/presentation/widgets/register_meal_widget.dart';
 
 class RegisterMenuPage extends StatelessWidget {
-  final MealModel mealModel;
+  final UserMeal userMeal;
 
-  const RegisterMenuPage({Key key, this.mealModel}) : super(key: key);
+  const RegisterMenuPage({Key key, this.userMeal}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +51,7 @@ class RegisterMenuPage extends StatelessWidget {
                 children: <Widget>[
                   //Meal name
                   Text(
-                    mealModel.name,
+                    userMeal.type.name,
                     style: GoogleFonts.montserrat(
                       fontSize: Dimensions.getTextSize(context, 20),
                       fontWeight: FontWeight.w700,
@@ -68,7 +68,7 @@ class RegisterMenuPage extends StatelessWidget {
                   ),
                   //Meal time
                   Text(
-                    mealModel.mealTime,
+                    '12:00',
                     style: GoogleFonts.montserrat(
                       fontSize: Dimensions.getTextSize(context, 20),
                       color: ColorsApp.greenApp,
@@ -90,7 +90,7 @@ class RegisterMenuPage extends StatelessWidget {
                 height: Dimensions.getConvertedHeightSize(context, 20),
               ),
               RegisterMealWidget(
-                mealModel: mealModel,
+                userMeal: userMeal,
               ),
               SizedBox(
                 height: Dimensions.getConvertedHeightSize(context, 20),
