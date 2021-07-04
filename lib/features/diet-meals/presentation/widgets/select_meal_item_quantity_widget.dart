@@ -2,21 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:petct/core/resources/colors.dart';
 import 'package:petct/core/resources/dimensions.dart';
-import 'package:petct/features/diet-meals/presentation/models/meal_item_model.dart';
+import 'package:petct/features/diet-meals/presentation/models/user_meal_item.dart';
 import 'package:petct/features/diet-meals/presentation/widgets/number_counter_widget.dart';
 
-class SelectMealItemQuantityWidget extends StatefulWidget {
-  final MealItemModel mealItem;
+class SelectUserMealItemQuantityWidget extends StatefulWidget {
+  final UserMealItem mealItem;
 
-  const SelectMealItemQuantityWidget({Key key, this.mealItem})
+  const SelectUserMealItemQuantityWidget({Key key, this.mealItem})
       : super(key: key);
   @override
-  _SelectMealItemQuantityWidgetState createState() =>
-      _SelectMealItemQuantityWidgetState();
+  _SelectUserMealItemQuantityWidgetState createState() =>
+      _SelectUserMealItemQuantityWidgetState();
 }
 
-class _SelectMealItemQuantityWidgetState
-    extends State<SelectMealItemQuantityWidget> {
+class _SelectUserMealItemQuantityWidgetState
+    extends State<SelectUserMealItemQuantityWidget> {
   bool _value = false;
   @override
   Widget build(BuildContext context) {

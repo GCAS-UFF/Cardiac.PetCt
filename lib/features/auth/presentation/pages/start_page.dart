@@ -20,7 +20,7 @@ class _StartPageState extends State<StartPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomPadding: false,
+      // resizeToAvoidBottomPadding: false,
       body: Container(
         padding: Dimensions.getEdgeInsetsFromLTRB(context, 40, 40, 40, 40),
         height: double.infinity,

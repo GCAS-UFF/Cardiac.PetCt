@@ -23,10 +23,9 @@ class _CustomDropdownState extends State<CustomDropdown> {
     return DropdownButtonFormField<String>(
       decoration: InputDecoration(
         hintStyle: GoogleFonts.montserrat(
-          fontSize: Dimensions.getTextSize(context, 18),
+          fontSize: Dimensions.getTextSize(context, 16),
         ),
-        contentPadding:
-            Dimensions.getEdgeInsets(context, left: 10, right: 10, top: 0),
+        contentPadding: Dimensions.getEdgeInsets(context, left: 10, right: 10),
         hoverColor: Colors.grey,
         focusedBorder: OutlineInputBorder(
           gapPadding: Dimensions.getConvertedWidthSize(context, 5.0),

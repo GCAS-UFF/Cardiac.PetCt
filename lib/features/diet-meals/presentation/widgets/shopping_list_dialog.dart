@@ -9,13 +9,12 @@ import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/strings.dart';
 import 'package:petct/core/ui/button_app.dart';
 import 'package:pdf/widgets.dart' as pw;
-import 'package:petct/features/diet-meals/presentation/models/menu_day_model.dart';
 import 'package:petct/features/diet-meals/presentation/pages/pdf_preview_screen.dart';
 
 import 'package:share_extend/share_extend.dart';
 
 class ShoppingListDialog extends StatelessWidget {
-  final List<MenuDayModel> daysMenu;
+  final daysMenu;
 
   ShoppingListDialog({Key key, this.daysMenu}) : super(key: key);
   final pdf = pw.Document(deflate: zlib.encode);
@@ -179,7 +178,7 @@ class ShoppingListDialog extends StatelessWidget {
                                       daysMenu[0]
                                           .meals[i]
                                           .mealItens[j]
-                                          .maximumQuantity
+                                          .portion
                                           .toString(),
                                       style: pw.TextStyle(
                                         fontSize:
@@ -247,7 +246,7 @@ class ShoppingListDialog extends StatelessWidget {
                                       daysMenu[0]
                                           .meals[i]
                                           .mealItens[j]
-                                          .maximumQuantity
+                                          .portion
                                           .toString(),
                                       style: pw.TextStyle(
                                         fontSize:
@@ -320,7 +319,7 @@ class ShoppingListDialog extends StatelessWidget {
                                       daysMenu[0]
                                           .meals[i]
                                           .mealItens[j]
-                                          .maximumQuantity
+                                          .portion
                                           .toString(),
                                       style: pw.TextStyle(
                                         fontSize:
@@ -388,7 +387,7 @@ class ShoppingListDialog extends StatelessWidget {
                                       daysMenu[0]
                                           .meals[i]
                                           .mealItens[j]
-                                          .maximumQuantity
+                                          .portion
                                           .toString(),
                                       style: pw.TextStyle(
                                         fontSize:
@@ -456,7 +455,7 @@ class ShoppingListDialog extends StatelessWidget {
                                       daysMenu[0]
                                           .meals[i]
                                           .mealItens[j]
-                                          .maximumQuantity
+                                          .portion
                                           .toString(),
                                       style: pw.TextStyle(
                                         fontSize:

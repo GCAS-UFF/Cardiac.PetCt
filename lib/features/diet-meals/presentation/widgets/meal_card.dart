@@ -6,16 +6,17 @@ import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/strings.dart';
 import 'package:petct/core/ui/button_app.dart';
 import 'package:petct/core/utils/theme.dart';
-import 'package:petct/features/diet-meals/presentation/models/meal_model.dart';
+import 'package:petct/features/diet-meals/presentation/models/user_meal.dart';
 import 'package:petct/features/diet-meals/presentation/pages/choose_menu_page.dart';
 import 'package:petct/features/diet-meals/presentation/pages/register_meal_page.dart';
-import 'package:petct/features/diet-meals/presentation/widgets/meal_item.dart';
+import 'package:petct/features/diet-meals/presentation/widgets/meal_item_widget.dart';
 import 'package:provider/provider.dart';
 
 class MealCard extends StatefulWidget {
-  final MealModel data;
+  final UserMeal meal;
+  final List<UserMeal> allMeals;
 
-  const MealCard({Key key, this.data}) : super(key: key);
+  const MealCard({Key key, this.meal, this.allMeals}) : super(key: key);
   @override
   _MealCardState createState() => _MealCardState();
 }
@@ -30,16 +31,16 @@ class _MealCardState extends State<MealCard> {
       margin: Dimensions.getEdgeInsets(context, bottom: 15),
       padding: Dimensions.getEdgeInsets(context, top: 15),
       decoration: BoxDecoration(
-        color: (widget.data.status == MEALSTATUS.Recorded)
+        color: (widget.meal.status == MealStatus.Recorded)
             ? ColorsApp.greenApp
-            : (widget.data.status == MEALSTATUS.Pending)
+            : (widget.meal.status == MealStatus.Pending)
                 ? ColorsApp.dangerRed
                 : null,
         border: Border.all(
-          width: (widget.data.status == MEALSTATUS.Waiting) ? 1 : 0,
-          color: (widget.data.status == MEALSTATUS.Waiting)
+          width: (widget.meal.status == MealStatus.Waiting) ? 1 : 0,
+          color: (widget.meal.status == MealStatus.Waiting)
               ? Colors.grey
-              : Colors.transparent,
+              : Colors.black,
         ),
         borderRadius: BorderRadius.circular(
           Dimensions.getConvertedWidthSize(context, 10),
@@ -60,7 +61,7 @@ class _MealCardState extends State<MealCard> {
                     Container(
                       padding: Dimensions.getEdgeInsetsAll(context, 5),
                       decoration: BoxDecoration(
-                        color: (widget.data.status == MEALSTATUS.Waiting)
+                        color: (widget.meal.status == MealStatus.Waiting)
                             ? Colors.transparent
                             : Colors.white,
                         borderRadius: BorderRadius.circular(
@@ -68,12 +69,12 @@ class _MealCardState extends State<MealCard> {
                         ),
                       ),
                       child: Icon(
-                        (widget.data.status == MEALSTATUS.Recorded)
+                        (widget.meal.status == MealStatus.Recorded)
                             ? FeatherIcons.check
                             : FeatherIcons.clock,
-                        color: (widget.data.status == MEALSTATUS.Recorded)
+                        color: (widget.meal.status == MealStatus.Recorded)
                             ? ColorsApp.greenApp
-                            : (widget.data.status == MEALSTATUS.Pending)
+                            : (widget.meal.status == MealStatus.Pending)
                                 ? ColorsApp.dangerRed
                                 : Colors.grey,
                         size: Dimensions.getConvertedWidthSize(context, 25),
@@ -89,51 +90,51 @@ class _MealCardState extends State<MealCard> {
                           children: <Widget>[
                             //Meal name
                             Text(
-                              widget.data.name,
+                              widget.meal.type.name,
                               style: GoogleFonts.montserrat(
                                   fontSize: Dimensions.getTextSize(context, 16),
-                                  color: (widget.data.status ==
-                                              MEALSTATUS.Waiting &&
+                                  color: (widget.meal.status ==
+                                              MealStatus.Waiting &&
                                           !_themeChanger.getThemeData())
-                                      ? Colors.black
-                                      : Colors.white),
+                                      ? Colors.white
+                                      : Colors.black),
                             ),
                             Text(
                               " - ",
                               style: GoogleFonts.montserrat(
                                   fontSize: Dimensions.getTextSize(context, 14),
-                                  color: (widget.data.status ==
-                                              MEALSTATUS.Waiting &&
+                                  color: (widget.meal.status ==
+                                              MealStatus.Waiting &&
                                           !_themeChanger.getThemeData())
-                                      ? Colors.black
-                                      : Colors.white),
+                                      ? Colors.white
+                                      : Colors.black),
                             ),
                             //Meal time
                             Text(
-                              widget.data.mealTime,
+                              '12:00',
                               style: GoogleFonts.montserrat(
                                   fontSize: Dimensions.getTextSize(context, 16),
-                                  color: (widget.data.status ==
-                                              MEALSTATUS.Waiting &&
+                                  color: (widget.meal.status ==
+                                              MealStatus.Waiting &&
                                           !_themeChanger.getThemeData())
-                                      ? Colors.black
-                                      : Colors.white),
+                                      ? Colors.white
+                                      : Colors.black),
                             )
                           ],
                         ),
                         Text(
-                          widget.data.status == MEALSTATUS.Recorded
+                          widget.meal.status == MealStatus.Recorded
                               ? Strings(context).recordedSubtitle
-                              : widget.data.status == MEALSTATUS.Pending
+                              : widget.meal.status == MealStatus.Pending
                                   ? Strings(context).pendingSubtitle
                                   : Strings(context).waitingSubtitle,
                           style: GoogleFonts.montserrat(
                               fontSize: Dimensions.getTextSize(context, 14),
                               color:
-                                  (widget.data.status == MEALSTATUS.Waiting &&
+                                  (widget.meal.status == MealStatus.Waiting &&
                                           !_themeChanger.getThemeData())
-                                      ? Colors.black
-                                      : Colors.white),
+                                      ? Colors.white
+                                      : Colors.black),
                         )
                       ],
                     ),
@@ -151,9 +152,10 @@ class _MealCardState extends State<MealCard> {
                         ? FeatherIcons.minusSquare
                         : FeatherIcons.plusSquare,
                     size: Dimensions.getConvertedWidthSize(context, 24),
-                    color: (widget.data.status == MEALSTATUS.Waiting&& !_themeChanger.getThemeData())
-                        ? Colors.black
-                        : Colors.white,
+                    color: (widget.meal.status == MealStatus.Waiting &&
+                            !_themeChanger.getThemeData())
+                        ? Colors.white
+                        : Colors.black,
                   ),
                 )
               ],
@@ -226,8 +228,8 @@ class _MealCardState extends State<MealCard> {
                       ),
                       Column(
                         //Build meal itens
-                        children: widget.data.mealItens.map((item) {
-                          return MealItem(mealItem: item);
+                        children: widget.meal.mealItems.map((item) {
+                          return MealItemWidget(mealItem: item);
                         }).toList(),
                       ),
                       SizedBox(
@@ -239,7 +241,13 @@ class _MealCardState extends State<MealCard> {
                           Navigator.of(context).push(
                             MaterialPageRoute(
                               builder: (_) => ChooseMenuPage(
-                                mealModel: widget.data,
+                                mealOptions: widget.allMeals
+                                    .map((element) => element.type.type ==
+                                            widget.meal.type.type
+                                        ? element
+                                        : null)
+                                    .toList(),
+                                mealType: widget.meal.type,
                               ),
                             ),
                           );
@@ -255,7 +263,7 @@ class _MealCardState extends State<MealCard> {
                           Navigator.of(context).push(
                             MaterialPageRoute(
                               builder: (_) => RegisterMenuPage(
-                                mealModel: widget.data,
+                                userMeal: widget.meal,
                               ),
                             ),
                           );

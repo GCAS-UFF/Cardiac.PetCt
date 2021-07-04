@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:petct/core/resources/dimensions.dart';
-import 'package:petct/features/diet-meals/presentation/models/meal_item_model.dart';
+import 'package:petct/features/diet-meals/presentation/models/user_meal_item.dart';
 
-class MealItem extends StatefulWidget {
-  final MealItemModel mealItem;
+class MealItemWidget extends StatefulWidget {
+  final UserMealItem mealItem;
 
-  const MealItem({Key key, this.mealItem}) : super(key: key);
+  const MealItemWidget({Key key, this.mealItem}) : super(key: key);
   @override
-  _MealItemState createState() => _MealItemState();
+  _UserMealItemState createState() => _UserMealItemState();
 }
 
-class _MealItemState extends State<MealItem> {
+class _UserMealItemState extends State<MealItemWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -36,7 +36,7 @@ class _MealItemState extends State<MealItem> {
           ),
           //Meal item quantity
           Text(
-            widget.mealItem.maximumQuantity.toString(),
+            widget.mealItem.portion.toString(),
             style: GoogleFonts.montserrat(
               fontSize: Dimensions.getTextSize(context, 14),
             ),

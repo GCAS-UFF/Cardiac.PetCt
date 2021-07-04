@@ -5,13 +5,14 @@ import 'package:petct/core/resources/colors.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/strings.dart';
 import 'package:petct/core/utils/theme.dart';
-import 'package:petct/features/diet-meals/presentation/models/meal_item_model.dart';
+import 'package:petct/features/diet-meals/presentation/models/classification.dart';
+import 'package:petct/features/diet-meals/presentation/models/user_meal_item.dart';
 import 'package:provider/provider.dart';
 
-class FoodCard extends StatelessWidget {
-  final MealItemModel data;
+class UserMealItemCard extends StatelessWidget {
+  final UserMealItem mealItem;
 
-  const FoodCard({Key key, this.data}) : super(key: key);
+  const UserMealItemCard({Key key, this.mealItem}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     ThemeChanger _themeChanger = Provider.of<ThemeChanger>(context);
@@ -20,9 +21,11 @@ class FoodCard extends StatelessWidget {
         Container(
           padding: Dimensions.getEdgeInsets(context, top: 5, bottom: 5),
           width: Dimensions.getConvertedWidthSize(context, 150),
-          height: data.group == FoodGroup.FORBIDDEN
-              ? Dimensions.getConvertedHeightSize(context, 150)
-              : null,
+          height:
+              // data.group == ClassificationType.FORBIDDEN
+              //     ?
+              Dimensions.getConvertedHeightSize(context, 150),
+          // : null,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(
               Dimensions.getConvertedWidthSize(context, 10),
@@ -36,14 +39,14 @@ class FoodCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                data.image,
+                mealItem.imagePath,
                 width: Dimensions.getConvertedWidthSize(context, 70),
               ),
               SizedBox(
                 height: Dimensions.getConvertedHeightSize(context, 15),
               ),
               Text(
-                data.name,
+                mealItem.name,
                 style: GoogleFonts.montserrat(
                   fontSize: Dimensions.getTextSize(context, 18),
                 ),
@@ -51,7 +54,8 @@ class FoodCard extends StatelessWidget {
               SizedBox(
                 height: Dimensions.getConvertedHeightSize(context, 10),
               ),
-              data.group != FoodGroup.FORBIDDEN
+              mealItem.foods[0].classificationType !=
+                      ClassificationType.FORBIDDEN
                   ? Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -72,7 +76,7 @@ class FoodCard extends StatelessWidget {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: data.maximumQuantity.toString(),
+                                  text: mealItem.portion.toString(),
                                   style: GoogleFonts.montserrat(
                                     fontWeight: FontWeight.bold,
                                     fontSize:
@@ -96,10 +100,11 @@ class FoodCard extends StatelessWidget {
           right: 10,
           top: 10,
           child: Icon(
-            data.group == FoodGroup.FORBIDDEN
+            mealItem.foods[0].classificationType == ClassificationType.FORBIDDEN
                 ? FeatherIcons.slash
                 : FeatherIcons.check,
-            color: data.group == FoodGroup.FORBIDDEN
+            color: mealItem.foods[0].classificationType ==
+                    ClassificationType.FORBIDDEN
                 ? ColorsApp.dangerRed
                 : Colors.green,
             size: Dimensions.getConvertedWidthSize(context, 25),

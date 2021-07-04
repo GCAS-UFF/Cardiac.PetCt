@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:petct/core/resources/dimensions.dart';
-import 'package:petct/core/resources/images.dart';
 import 'package:petct/core/resources/strings.dart';
 import 'package:petct/core/ui/button_app.dart';
-import 'package:petct/features/diet-meals/presentation/models/meal_item_model.dart';
-import 'package:petct/features/diet-meals/presentation/models/meal_model.dart';
+import 'package:petct/features/diet-meals/presentation/models/user_meal.dart';
 import 'package:petct/features/diet-meals/presentation/widgets/custom_tabs.dart';
-import 'package:petct/features/diet-meals/presentation/widgets/meal_item.dart';
+import 'package:petct/features/diet-meals/presentation/widgets/meal_item_widget.dart';
 
 class ChooseMealWidget extends StatefulWidget {
-  final MealModel mealModel;
+  final List<UserMeal> mealOptions;
 
-  const ChooseMealWidget({Key key, this.mealModel}) : super(key: key);
+  const ChooseMealWidget({Key key, this.mealOptions}) : super(key: key);
   @override
   _ChooseMealWidgetState createState() => _ChooseMealWidgetState();
 }
@@ -23,106 +21,8 @@ class _ChooseMealWidgetState extends State<ChooseMealWidget>
 
   @override
   Widget build(BuildContext context) {
-    List<MealModel> _optionsMenu = List<MealModel>();
     _controller = TabController(length: 3, vsync: this);
-    _optionsMenu = [
-      MealModel(
-        mealTime: "7:00",
-        mealItens: [
-          MealItemModel(0.0,
-              name: "Azeite",
-              group: FoodGroup.OILS,
-              image: Images.bread_forbidden,
-              measurement: Measurement.MILLIMETER),
-          MealItemModel(0.0,
-              name: "Café",
-              group: FoodGroup.LIQUID,
-              image: Images.bread_forbidden,
-              measurement: Measurement.MILLIMETER),
-          MealItemModel(0.0,
-              name: "Alface",
-              group: FoodGroup.VEGETABLES,
-              image: Images.bread_forbidden,
-              measurement: Measurement.GRAMS),
-          MealItemModel(0.0,
-              name: "Carne bovina",
-              group: FoodGroup.PROTEIN,
-              image: Images.bread_forbidden,
-              measurement: Measurement.GRAMS),
-          MealItemModel(0.0,
-              name: "Gorgonzola",
-              group: FoodGroup.CHEESE,
-              image: Images.bread_forbidden,
-              measurement: Measurement.UNITY),
-        ],
-        mealsName: MEALSNAME.Breakfast,
-        status: MEALSTATUS.Recorded,
-      ),
-      MealModel(
-        mealTime: "9:30",
-        mealItens: [
-          MealItemModel(0.0,
-              name: "Azeite",
-              group: FoodGroup.OILS,
-              image: Images.bread_forbidden,
-              measurement: Measurement.MILLIMETER),
-          MealItemModel(0.0,
-              name: "Café",
-              group: FoodGroup.LIQUID,
-              image: Images.bread_forbidden,
-              measurement: Measurement.MILLIMETER),
-          MealItemModel(0.0,
-              name: "Alface",
-              group: FoodGroup.VEGETABLES,
-              image: Images.bread_forbidden,
-              measurement: Measurement.GRAMS),
-          MealItemModel(0.0,
-              name: "Carne bovina",
-              group: FoodGroup.PROTEIN,
-              image: Images.bread_forbidden,
-              measurement: Measurement.GRAMS),
-          MealItemModel(0.0,
-              name: "Gorgonzola",
-              group: FoodGroup.CHEESE,
-              image: Images.bread_forbidden,
-              measurement: Measurement.UNITY),
-        ],
-        mealsName: MEALSNAME.Breakfast,
-        status: MEALSTATUS.Recorded,
-      ),
-      MealModel(
-        mealTime: "13:30",
-        mealItens: [
-          MealItemModel(0.0,
-              name: "Azeite",
-              group: FoodGroup.OILS,
-              image: Images.bread_forbidden,
-              measurement: Measurement.MILLIMETER),
-          MealItemModel(0.0,
-              name: "Café",
-              group: FoodGroup.LIQUID,
-              image: Images.bread_forbidden,
-              measurement: Measurement.MILLIMETER),
-          MealItemModel(0.0,
-              name: "Alface",
-              group: FoodGroup.VEGETABLES,
-              image: Images.bread_forbidden,
-              measurement: Measurement.GRAMS),
-          MealItemModel(0.0,
-              name: "Carne bovina",
-              group: FoodGroup.PROTEIN,
-              image: Images.bread_forbidden,
-              measurement: Measurement.GRAMS),
-          MealItemModel(0.0,
-              name: "Gorgonzola",
-              group: FoodGroup.CHEESE,
-              image: Images.bread_forbidden,
-              measurement: Measurement.UNITY),
-        ],
-        mealsName: MEALSNAME.Breakfast,
-        status: MEALSTATUS.Pending,
-      ),
-    ];
+
     List<Widget> _contents = [
       Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -166,7 +66,7 @@ class _ChooseMealWidgetState extends State<ChooseMealWidget>
           Expanded(
             child: TabBarView(
                 controller: _controller,
-                children: _optionsMenu.map((data) {
+                children: widget.mealOptions.map((data) {
                   return SingleChildScrollView(
                     child: Container(
                       padding: Dimensions.getEdgeInsetsAll(context, 20),
@@ -196,8 +96,8 @@ class _ChooseMealWidgetState extends State<ChooseMealWidget>
                           ),
                           Column(
                             //Build meal itens
-                            children: data.mealItens.map((item) {
-                              return MealItem(mealItem: item);
+                            children: data.mealItems.map((item) {
+                              return MealItemWidget(mealItem: item);
                             }).toList(),
                           ),
                           SizedBox(

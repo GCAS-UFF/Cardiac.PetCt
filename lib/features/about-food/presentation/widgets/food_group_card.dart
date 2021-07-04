@@ -4,17 +4,18 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/images.dart';
 import 'package:petct/core/resources/strings.dart';
-import 'package:petct/core/ui/high_contrast_button.dart';
 import 'package:petct/core/utils/theme.dart';
 import 'package:petct/features/about-food/presentation/pages/allowed_group_food_page.dart';
-import 'package:petct/features/diet-meals/presentation/models/meal_item_model.dart';
+import 'package:petct/features/diet-meals/presentation/models/classification.dart';
+import 'package:petct/features/diet-meals/presentation/models/user_meal_item.dart';
 import 'package:provider/provider.dart';
 
-class FoodGroupCard extends StatelessWidget {
-  final List<MealItemModel> data;
-  final FoodGroup foodGroup;
+class ClassificationTypeCard extends StatelessWidget {
+  final List<UserMealItem> data;
+  final ClassificationType foodGroup;
 
-  const FoodGroupCard({Key key, this.data, this.foodGroup}) : super(key: key);
+  const ClassificationTypeCard({Key key, this.data, this.foodGroup})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     ThemeChanger _themeChanger = Provider.of<ThemeChanger>(context);
@@ -22,27 +23,27 @@ class FoodGroupCard extends StatelessWidget {
     String exampleFood;
     String imageGroup;
     switch (foodGroup) {
-      case FoodGroup.PROTEIN:
+      case ClassificationType.PROTEIN:
         groupName = Strings(context).protein;
         imageGroup = Images.protein_group;
         exampleFood = Strings(context).proteinExamples;
         break;
-      case FoodGroup.OILS:
+      case ClassificationType.OILS:
         groupName = Strings(context).oils;
         imageGroup = Images.oil_group;
         exampleFood = Strings(context).oilsExamples;
         break;
-      case FoodGroup.CHEESE:
+      case ClassificationType.CHEESE:
         groupName = Strings(context).cheese;
         imageGroup = Images.cheese_group;
         exampleFood = Strings(context).cheeseExamples;
         break;
-      case FoodGroup.VEGETABLES:
+      case ClassificationType.VEGETABLES:
         groupName = Strings(context).vegetables;
         imageGroup = Images.leaf_group;
         exampleFood = Strings(context).vegetablesExamples;
         break;
-      case FoodGroup.LIQUID:
+      case ClassificationType.LIQUID:
         groupName = Strings(context).liquid;
         imageGroup = Images.liquid_group;
         exampleFood = Strings(context).liquidExamples;
@@ -95,7 +96,7 @@ class FoodGroupCard extends StatelessWidget {
                               TextSpan(
                                 text: Strings(context).groupTitle,
                                 style: GoogleFonts.montserrat(
-                                  fontSize: Dimensions.getTextSize(context, 16),
+                                  fontSize: Dimensions.getTextSize(context, 12),
                                   color: _themeChanger.getThemeData() == false
                                       ? Colors.black
                                       : Colors.white,

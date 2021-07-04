@@ -4,11 +4,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:petct/core/resources/colors.dart';
 import 'package:petct/core/resources/dimensions.dart';
 import 'package:petct/core/resources/strings.dart';
-import 'package:petct/features/about-food/presentation/widgets/food_card.dart';
-import 'package:petct/features/diet-meals/presentation/models/meal_item_model.dart';
+import 'package:petct/features/about-food/presentation/widgets/meal_item_card.dart';
+import 'package:petct/features/diet-meals/presentation/models/user_meal_item.dart';
 
 class ForbiddenFoodContent extends StatelessWidget {
-  final List<MealItemModel> forbiddenFood;
+  final List<UserMealItem> forbiddenFood;
 
   const ForbiddenFoodContent({Key key, this.forbiddenFood}) : super(key: key);
   @override
@@ -60,7 +60,7 @@ class ForbiddenFoodContent extends StatelessWidget {
                   alignment: WrapAlignment.start,
                   crossAxisAlignment: WrapCrossAlignment.start,
                   children: forbiddenFood.map((data) {
-                    return FoodCard(data: data);
+                    return UserMealItemCard(mealItem: data);
                   }).toList()),
               SizedBox(
                 height: Dimensions.getConvertedHeightSize(context, 25),

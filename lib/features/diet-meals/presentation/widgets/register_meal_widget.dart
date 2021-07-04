@@ -5,13 +5,13 @@ import 'package:petct/core/resources/keys.dart';
 import 'package:petct/core/resources/strings.dart';
 import 'package:petct/core/ui/button_app.dart';
 import 'package:petct/core/ui/custom_text_form_field.dart';
-import 'package:petct/features/diet-meals/presentation/models/meal_model.dart';
+import 'package:petct/features/diet-meals/presentation/models/user_meal.dart';
 import 'package:petct/features/diet-meals/presentation/widgets/select_meal_item_quantity_widget.dart';
 
 class RegisterMealWidget extends StatefulWidget {
-  final MealModel mealModel;
+  final UserMeal userMeal;
 
-  const RegisterMealWidget({Key key, this.mealModel}) : super(key: key);
+  const RegisterMealWidget({Key key, this.userMeal}) : super(key: key);
   @override
   _RegisterMealWidgetState createState() => _RegisterMealWidgetState();
 }
@@ -70,8 +70,8 @@ class _RegisterMealWidgetState extends State<RegisterMealWidget> {
           ],
         ),
         Column(
-          children: widget.mealModel.mealItens.map((item) {
-            return SelectMealItemQuantityWidget(
+          children: widget.userMeal.mealItems.map((item) {
+            return SelectUserMealItemQuantityWidget(
               mealItem: item,
             );
           }).toList(),
